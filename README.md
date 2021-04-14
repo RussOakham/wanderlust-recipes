@@ -35,12 +35,13 @@ Overview of UX decisions, structure etc. Examples of websites I have viewed as p
 
 ### User Stories
 
-#### &lt;details&gt;&lt;summary&gt;Browsing&lt;/summary&gt;
+<details>
+<summary>Browsing</summary>
 
 * \(US001\) - As a user I want the website to clearly display recipe suggestions to me so I can be introduced to new content.
 * \(US002\) - As a user I want to see recipe reviews and comments from other users, so I am informed of the best recipes.
 
-&lt;/details&gt;
+</details>
 
 #### Searching
 
