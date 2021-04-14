@@ -35,18 +35,20 @@ Overview of UX decisions, structure etc. Examples of websites I have viewed as p
 
 ### User Stories
 
-#### Browsing
+#### &lt;details&gt;&lt;summary&gt;Browsing&lt;/summary&gt;
 
 * \(US001\) - As a user I want the website to clearly display recipe suggestions to me so I can be introduced to new content.
 * \(US002\) - As a user I want to see recipe reviews and comments from other users, so I am informed of the best recipes.
 
+&lt;/details&gt;
+
 #### Searching
 
-* \(US003\) - As a user I want to be able to view recipes by category, so I can find recipes of specific type I would like to make.
-* \(US004\) - As a user I want to be able to search recipes by keyword, so I can find recipes easily, for example by name or by included ingredient.
-* \(US005\) - As a user I want to be able to search and filter recipes by rating, so I can find only the highest rated recipes to choose from.
-* \(US006\) - As a user I want to be able to search and filter recipes by serving size, so I can find recipes suited to he number of people I am catering to.
-* \(US007\) - As a user I want to be able to search and filter recipes by preparation and cooking time, so I find recipes which are suitable to my available time.
+* \(US003\) - As a user, I want to be able to view recipes by category, so I can find recipes of specific type I would like to make.
+* \(US004\) - As a user, I want to be able to search recipes by keyword, so I can find recipes easily, for example by name or by included ingredient.
+* \(US005\) - As a user, I want to be able to search and filter recipes by rating, so I can find only the highest-rated recipes to choose from.
+* \(US006\) - As a user, I want to be able to search and filter recipes by serving size, so I can find recipes suited to the number of people I am catering to.
+* \(US007\) - As a user, I want to be able to search and filter recipes by preparation and cooking time, so I find recipes that are suitable to my available time.
 * \(US008\) - As a user, I want to be about to save my favourite recipes, so I can quickly find them again in future.
 
 #### Uploading Recipes
@@ -78,24 +80,24 @@ Overview of UX decisions, structure etc. Examples of websites I have viewed as p
   * _Recipe Cards_: To easily provide users key information on featured recipes, including visual image, short description, user rating, serving size and prep/cook times.
   * _Pagination_: Page is paginated after 7 recipes are displayed, to ensure quick page load and easy user navigation.
 * **Recipe Page**:
-  * _Recipe Image_: Provides users a visual of the final recipe, to entice user to want to create it themselves.
-  * _Recipe Title_: Provides users the name of the dish, indicating the style and main ingredients of the dish.
+  * _Recipe Image_: Provides users a visual of the final recipe, to entice users to want to create it themselves.
+  * _Recipe Title_: Provides users with the name of the dish, indicating the style and main ingredients of the dish.
   * _Star Rating_: Provides users visual feedback regarding how highly other users have rated the recipe.
-  * _Preparation & Cooking Time_: Provides users information on time requirement to prepare the recipe.
-  * _Serving Size_: Provides users information on serving size the recipe creates, allowing users to adjust ingrediant amounts on their own judgement.
-  * _Ingredient List_: Provides users list of all ingrediants and measures needed to complete the recipe.
+  * _Preparation & Cooking Time_: Provides users information on-time requirement to prepare the recipe.
+  * _Serving Size_: Provides users information on the serving size the recipe creates, allowing users to adjust ingredient amounts on their own judgement.
+  * _Ingredient List_: Provides users with a list of all ingredients and measures needed to complete the recipe.
   * _Method_: Provides users step-by-step method for creating the dish.
 * **Category & Search Page**:
   * _Search Bar_: Text input bar, allowing users to search recipes by keyword.
   * _Category Cards_: On page load, visual cards will display showing all recipe categories, allowing users easy navigation to recipes of that type.
-  * _Search Results_: Once user search input, category cards are replayed by recipe cards for all recipes returned by search query.
+  * _Search Results_: Once user search input, category cards are replayed by recipe cards for all recipes returned by the search query.
   * _Pagination_: Page is paginated after 7 recipes are displayed, to ensure quick page load and easy user navigation.
 * **User Login / Registration Page**:
   * _Username Input_: Text input box, allowing users to enter their username.
   * _Password Input_: Text input box, allowing users to enter their username.
   * _Submit / Cancel_: Buttons allowing users to submit entered information, or cancel and restart.
 * **User Profile Page**:
-  * _Username Banner_: Banner displaying username of logged in account, allowing users to quickly identify if they are logged into their correct desired account.
+  * _Username Banner_: Banner displaying the username of logged in account, allowing users to quickly identify if they are logged into their correct desired account.
   * _Recipes Submitted_: All historical recipes uploaded by the user displayed in list format, allowing users to easily access their owned recipes for review or edit.
   * _Favourite Recipes_: All favourited recipes are displayed in list format, allowing users quick access.
   * _Pagination_: Page is paginated after 7 recipes are displayed, to ensure quick page load and easy user navigation.
@@ -127,9 +129,9 @@ With this in mind I chose to use variations of the below colours for the core de
 
 #### Language/Tone
 
-I wanted the language to reflect a casual and fun atmosphere, to reflect a backpackers liftstyle, so content was written in line with this. Avoiding technical or formal language where possible.
+I wanted the language to reflect a casual and fun atmosphere, to reflect a backpackers lifestyle, so content was written in line with this. Avoiding technical or formal language where possible.
 
-Similarly, I wanted to use fonts that reinforce casual identity of the site. To achieve this I used two [Google Fonts](https://fonts.google.com/);
+Similarly, I wanted to use fonts that reinforce the casual identity of the site. To achieve this I used two [Google Fonts](https://fonts.google.com/);
 
 * [Font 1](./)
 * [Font 2](./)
@@ -152,13 +154,13 @@ Before beginning development, I listed some styling ideas that I felt benefit th
 #### **The Header** includes:
 
 * **Website Logo**: Builds brand awareness amongst users.
-* **Navigation Bar**: Allows users to navigate the site easy and intuitively.
+* **Navigation Bar**: Allows users to navigate the site easily and intuitively.
 
 #### **The Footer** includes:
 
 * **Website Developer**: Copyright information for website developer brand awareness.
 * **Developer Social Links**: Links to GitHub and LinkedIn of website developer for brand awareness.
-* **Business Social Links**: Links to company social media sites, to raise for brand awareness.
+* **Business Social Links**: Links to company social media sites, to raise brand awareness.
 
 Both the Header and Footer are present and consistent on all website pages.
 
