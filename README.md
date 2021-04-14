@@ -150,19 +150,34 @@ At this point I began creating wireframes, using the above structure considerati
 
 This is the sensory design section of a website, or how it looks, feels and sounds.
 
-#### **Colour & Comic Styling**
+#### **Colour & Styling**
 
-With this in mind I chose to use variations of the below colours for the core design of the website;
+Upon deciding to brand the website as 'Wanderlust Recipes' I found [this](assets/images/wanderlust-whitebg.png) logo on shutterstock. The logo comprises white and blue colours, which give a light and clean asthetic. With this in mind i consulted [this article](https://elearningindustry.com/the-elearning-color-guide-evoking-the-right-emotion) on how colours evoke emotions, wishing to promote a feelings of calm, optimism, energy, nature and creativity, I chose to use a color pallete consisting of whites, blues, yellows, oranges and greens.
+
+I used the website [image color picket](https://imagecolorpicker.com/), to determine the blue used in the logo is Gunmetal (#1E2B3A). I then used the website [Coolers](https://coolors.co/) to generate the rest of my colour palette, using Gunmetal (#1E2B3A) as the starting colour and finding additional colours infitting to the style I wished to achieve.. 
+
+The resulting palette is below;
+![assets/images/wanderlust-recipes-color-palette.png]
+
+<details>
+<summary>Color Palette</summary>
+
+* Gunmetal - #1E2B3A
+* Sky Blue - #98D2EB
+* Caledon - #B0D29D
+* Medium Champagne - #FCF6B1 
+* Pink Lavender - #E4B7E5
+</details>
 
 #### **Language/Tone**
 
 I wanted the language to reflect a casual and fun atmosphere, to reflect a backpackers lifestyle, so content was written in line with this. Avoiding technical or formal language where possible.
 
-Similarly, I wanted to use fonts that reinforce the casual identity of the site. To achieve this I used two [Google Fonts](https://fonts.google.com/);
+Similarly, I wanted to use fonts that reinforce the casual identity of the site and also be easy to read. To achieve this I used two [Google Fonts](https://fonts.google.com/);
 
-* [Font 1](./)
-* [Font 2](./)
-* Font 3 - Web safe font, used if primary two fonts fail to load.
+* [Roboto](https://fonts.google.com/specimen/Roboto) - A font which promotes natural reading rhythm.
+* [Noto Serif](https://fonts.google.com/specimen/Noto+Serif) - A font intended to be visually harmonious and easy to read.
+* Sans-serif - Web safe font, used if primary two fonts fail to load.
 
 #### **Styling Considerations**
 
@@ -173,15 +188,21 @@ Before beginning development, I listed some styling ideas that I felt benefit th
   * Sticky top
   * Mobile: 'Burger' menu icon, expanding on click.
   * Logo: Navigates to the home page on click.
+* Recipe Cards:
+  * Visual Image showing final recipe dish, to entice users to select.
+* Recipe Pages:
+  * Icons: Icons used to highlight key recipe info, serving size, preparation time, rating.
+  * Ingredients & Method - Dynamically alternate display on user click.
 
 ## 2. **Features**
+The site allows users to upload new recipes and edit existing ones. Users can search for recipes based on name, description, recipe type, number of servings, preparation time and minimum rating. Users can favourite recipes, which are displayed on their profile page. Users can also rate others users submitted recipes and comment their feedback.
 
 ### **Existing Features**
 
 #### **The Header** includes:
 
 * **Website Logo**: Builds brand awareness amongst users.
-* **Navigation Bar**: Allows users to navigate the site easily and intuitively.
+* **Navigation Bar**: Allows users to navigate the site easily and intuitively, as well as login/register their account.
 
 #### **The Footer** includes:
 
@@ -194,6 +215,23 @@ Both the Header and Footer are present and consistent on all website pages.
 #### **Home** page includes:
 
 * **Image Banner**: Visually pleasing design, allowing users to immediately identify the site brand.
+* **Latest Recipes**: List of latest recipes submitted to the site, showing key information; recipe image, type, rating, preparation time and serving size.
+
+#### **Categories / Search** page includes:
+
+* **Image Banner**: Visually pleasing design, allowing users to immediately identify the site brand.
+* **Search Bar**: 
+* **Advanced Search**:
+* **Category Cards**:
+* **Search Results**:
+
+#### **Login / Registration** page includes:
+
+
+#### **User Profile** page includes:
+
+
+#### **New Recipe** page includes:
 
 ### **Features to consider implementing in future**
 
