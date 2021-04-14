@@ -2,6 +2,9 @@
 
 ## Project overview
 
+'Wanderlust Recipes' is a community focused website, where user accounts can create, share and review recipe ideas.
+
+The site is created to engage users of all ages and backgrounds, so is branded in a light, clean and neutral style. Additionall the term 'Wanderlust' is defined as a ['lust for wandering'](https://www.merriam-webster.com/dictionary/wanderlust), so styling elements have been chosen to promote curiosity and exploration.
 
 ## Deployed site
 
@@ -36,14 +39,79 @@
 Overview of UX decisions, structure etc. Examples of websites I have viewed as part of research & resulting UX design decisions.
 
 ### User Stories
+#### Browsing
+- (US001) - As a user I want the website to clearly display recipe suggestions to me so I can be introduced to new content.
+- (US002) - As a user I want to see recipe reviews and comments from other users, so I am informed of the best recipes.
 
+#### Searching
+- (US003) - As a user I want to be able to view recipes by category, so I can find recipes of specific type I would like to make.
+- (US004) - As a user I want to be able to search recipes by keyword, so I can find recipes easily, for example by name or by included ingredient.
+- (US005) - As a user I want to be able to search and filter recipes by rating, so I can find only the highest rated recipes to choose from.
+- (US006) - As a user I want to be able to search and filter recipes by serving size, so I can find recipes suited to he number of people I am catering to.
+- (US007) - As a user I want to be able to search and filter recipes by preparation and cooking time, so I find recipes which are suitable to my available time.
+- (US008) - As a user, I want to be about to save my favourite recipes, so I can quickly find them again in future.
+
+#### Uploading Recipes
+- (US009) - As a user, I want to be able to upload my own recipes, so other users can benefit from them.
+- (US010) - As a user, I want to gain feedback on the recipes I upload, so I can determine improvements.
+- (US011) - As a user, I want to be able to edit and improve recipes I have already uploaded.
+
+#### Users
+- (US012) - As a user, I want to be able to register with the site, so I can upload and edit recipes, plus save my favourite recipes.
+- (US013) - As a registered user, I want to be able to login to my account, so I can access and edit my recipes, and find my favourite recipes.
+- (US014) - As a registered user, I want to be able to submit ratings and reviews for recipes submitted by other users.
+
+#### Administration
+- (US015) - As an admin I want to be able to edit content, to ensure it adheres to site rules.
+- (US-16) - As an admin I want to be able to add and edit food categories, to continuously improve user experience.
+
+#### General
+- (US013) - As a user I want to recieve clear feedback for my actions on the site, so I know they are complete or if further steps are needed.
 
 ### Structure
-
-
- - **Home Page**: Containing the following elements.
-    - *Header/Footer*: For easy navigation across the site.
+ - **Home Page**:
+    - *Header/Footer*: For easy navigation across the site and to external resources such as social media pages.
     - *Website Logo*: To easily identify the 'Avengers Snap' game branding.
+    - *Recipe Cards*: To easily provide users key information on featured recipes, including visual image, short description, user rating, serving size and prep/cook times.
+    - *Pagination*: Page is paginated after 7 recipes are displayed, to ensure quick page load and easy user navigation.
+
+ - **Recipe Page**: 
+    - *Recipe Image*: Provides users a visual of the final recipe, to entice user to want to create it themselves.
+    - *Recipe Title*: Provides users the name of the dish, indicating the style and main ingredients of the dish.
+    - *Star Rating*: Provides users visual feedback regarding how highly other users have rated the recipe.
+    - *Preparation & Cooking Time*: Provides users information on time requirement to prepare the recipe.
+    - *Serving Size*: Provides users information on serving size the recipe creates, allowing users to adjust ingrediant amounts on their own judgement.
+    - *Ingredient List*: Provides users list of all ingrediants and measures needed to complete the recipe.
+    - *Method*: Provides users step-by-step method for creating the dish.
+
+- **Category & Search Page**:
+    - *Search Bar*: Text input bar, allowing users to search recipes by keyword.
+    - *Category Cards*: On page load, visual cards will display showing all recipe categories, allowing users easy navigation to recipes of that type.
+    - *Search Results*: Once user search input, category cards are replayed by recipe cards for all recipes returned by search query.
+    - *Pagination*: Page is paginated after 7 recipes are displayed, to ensure quick page load and easy user navigation.
+
+- **User Login / Registration Page**: 
+    - *Username Input*: Text input box, allowing users to enter their username.
+    - *Password Input*: Text input box, allowing users to enter their username.
+    - *Submit / Cancel*: Buttons allowing users to submit entered information, or cancel and restart.
+
+- **User Profile Page**: 
+    - *Username Banner*: Banner displaying username of logged in account, allowing users to quickly identify if they are logged into their correct desired account.
+    - *Recipes Submitted*: All historical recipes uploaded by the user displayed in list format, allowing users to easily access their owned recipes for review or edit.
+    - *Favourite Recipes*: All favourited recipes are displayed in list format, allowing users quick access.
+    - *Pagination*: Page is paginated after 7 recipes are displayed, to ensure quick page load and easy user navigation.
+
+- **New Recipe Page**: 
+    - *Input areas for below recipe data points*:
+        - Recipe Name - Text
+        - Recipe Image - file upload and preview
+        - Serving Size - Numeric
+        - Preparation Time - hh:mm
+        - Cooking Time - hh:mm
+        - Recipe Category Selection - Radial Menu
+        - Recipe Description: Textbox of 50 to 200 characters
+        - Ingredients - List
+        - Recipe Steps - List
 
 ### Skeleton
 At this point I began creating wireframes, using the above structure considerations. I used [Balsamiq](https://balsamiq.com/) these below;
