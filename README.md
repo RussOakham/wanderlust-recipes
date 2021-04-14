@@ -1,45 +1,174 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Wanderlust Recipes - by Russell Oakham
 
-Welcome USER_NAME,
+## Project overview
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
 
-## Gitpod Reminders
+## Deployed site
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Table of Contents
 
-`python3 -m http.server`
+1. [**UX**](#1-ux)
+    - [**User-Stories**](#user-stories)
+    - [**Structure**](#structure)
+    - [**Skeleton**](#skeleton)
+    - [**Surface**](#surface)
 
-A blue button should appear to click: _Make Public_,
+2. [**Features**](#2-features)
+    - [**Existing Features**](#existing-features)
+    - [**Features to consider in future**](#features-to-consider-implementing-in-future)
 
-Another blue button should appear to click: _Open Browser_.
+3. [**Technologies Used**](#3-technologies-used)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+4. [**Testing**](#4-testing)
 
-A blue button should appear to click: _Make Public_,
+5. [**Deployment**](#5-deployment)
+    - [**GitHub Pages**](#github-pages)
 
-Another blue button should appear to click: _Open Browser_.
+6. [**Credits**](#6-credits)
+    - [**Design and Research**](#design-and-research)
+    - [**Technical**](#technical)
+    - [**Content**](#content)
+    - [**Media**](#media)
+    - [**Acknowledgements**](#acknowledgements)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
 
-## Updates Since The Instructional Video
+## 1. UX
+Overview of UX decisions, structure etc. Examples of websites I have viewed as part of research & resulting UX design decisions.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### User Stories
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Structure
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+ - **Home Page**: Containing the following elements.
+    - *Header/Footer*: For easy navigation across the site.
+    - *Website Logo*: To easily identify the 'Avengers Snap' game branding.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### Skeleton
+At this point I began creating wireframes, using the above structure considerations. I used [Balsamiq](https://balsamiq.com/) these below;
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+- [Home page on desktop and mobile]()
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Surface
+This is the sensory design section of a website, or how it looks, feels and sounds. 
 
----
+#### Colour & Comic Styling
 
-Happy coding!
+With this in mind I chose to use variations of the below colours for the core design of the website;
+
+![Colour Scheme]()
+
+#### Language/Tone 
+I wanted the language to reflect a casual and fun atmosphere, to reflect a backpackers liftstyle, so content was written in line with this. Avoiding technical or formal language where possible.
+
+Similarly, I wanted to use fonts that reinforce casual identity of the site. To achieve this I used two [Google Fonts](https://fonts.google.com/);
+
+- [Font 1]()
+- [Font 2]()
+- Font 3 - Web safe font, used if primary two fonts fail to load.
+
+#### Styling Considerations
+Before beginning development, I listed some styling ideas that I felt benefit the website. The majority of these can be seen in the wireframes.
+
+ - Favicon: Desktop and Mobile.
+ - Navigation
+    - Sticky top
+    - Mobile: 'Burger' menu icon, expanding on click.
+    - Logo: Navigates to the home page on click.
+
+## 2. Features
+### Existing Features
+#### **The Header** includes:
+- **Website Logo**: Builds brand awareness amongst users.
+- **Navigation Bar**: Allows users to navigate the site easy and intuitively.
+
+#### **The Footer** includes:
+- **Website Developer**: Copyright information for website developer brand awareness.
+- **Developer Social Links**: Links to GitHub and LinkedIn of website developer for brand awareness.
+- **Business Social Links**: Links to company social media sites, to raise for brand awareness.
+
+
+Both the Header and Footer are present and consistent on all website pages.
+
+#### **Home** page includes:
+- **Image Banner**: Visually pleasing design, allowing users to immediately identify the site brand.
+
+
+### Features to consider implementing in future
+
+
+## 3. Technologies Used
+1. [HTML](https://en.wikipedia.org/wiki/HTML) - Programming language providing content and structure of the website.
+2. [CSS](https://en.wikipedia.org/wiki/CSS) - Programming language providing styling of the website.
+3. [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - The programming language used various interactive elements of the website, including game logic, audio options etc.
+4. [Bootstrap CSS Framework](https://getbootstrap.com/) - Library of pre-built HTML and CSS components, used for various aspects of the site, such as navigation bar.
+5. [Font Awesome](https://fontawesome.com/) - Library used for icons, such as social links and other images.
+6. [Google Fonts](https://fonts.google.com/) - Used to choose a font style for the website.
+7. [TinyPNG](https://tinypng.com/) & [TinyJPG](https://tinyjpg.com/): To minimise image file sizes and maximise page load speed.
+8. [remove.bg](https://www.remove.bg/) - Used to remove backgrounds from png images.
+9. [Real Favicon Generator](https://realfavicongenerator.net/) to generate favicons and icons for desktop and mobile usage.
+10. [Am I Responsive?](http://ami.responsivedesign.is/) used for responsive design demo in ReadMe summary.
+11. [GitHub](https://github.com/) - Remote hosting platform and code repository.
+12. [GitPod](https://gitpod.io/) - IDE (Integrated Development Environment), for writing, editing and saving code.
+13. [Balsamiq](https://balsamiq.com/) - Used for the creation of wireframes for visual design testing.
+14. [Autoprefixer](https://autoprefixer.github.io/) - Used to add vendor prefixes to CSS rules.
+15. [Responsive Design Checker](https://www.responsivedesignchecker.com/) - Used to check website response across device types.
+16. [Lambdatest](https://www.lambdatest.com/) - Used to check website response across device types.
+17. [Photopea](https://www.photopea.com/) - Used to create avengers snap page banner image, via layering two pngs together.
+
+## 4. Testing
+The testing process can be seen in the [TESTING.md](TESTING.md) document.
+
+## 5. Deployment
+
+### Hiroku
+The site is hosted using Hiroku, deployed directly from the master branch of GitHub. The deployed site will update automatically as new commits are pushed to the master branch.
+
+#### Hot to clone 'Avengers-Snap' in GitHub and GitPod.
+To run a version of the site locally, you can clone this repository using the following steps;
+
+In a code editor of your choice;
+
+1. Go to [GitHub.com](https://github.com/)
+2. Click on 'Responsitories'
+3. Click on 'Avengers Snap'
+4. Click on the 'Code' button.
+5. Under 'HTTPS' click the clipboard icon to the right of the URL.
+6. In your IDE of choice, open a repository or create a new repository.
+7. Open Terminal ('Terminal' then 'New Terminal' from the top ribbon menu in GitPod.)
+8. Type 'git clone', paste URL link and press enter.
+
+Additional information around these cloning steps can be found on [GitHub Pages Help Page](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+
+
+## 6. Credits
+
+### Design and research
+The following are websites and articles that I used for reference and inspiration:
+
+
+### Technical
+- [Real Favicon Generator](https://realfavicongenerator.net/): For the generation of Favicon icons and code.
+- [Bootstrap Docs](https://getbootstrap.com/docs/5.0/getting-started/introduction/): For guidance on Bootstrap use and adaptations.
+- [CSS-Tricks](https://css-tricks.com/): For implementing CSS effects such as box-shadow.
+- [w3Schools](https://www.w3schools.com/): For checking proper syntax of HTML and CSS elements. 
+- [Autoprefixer](https://autoprefixer.github.io/) - For generating CSS browser prefixes.
+- [Stackoverflow](https://stackoverflow.com/) - For researching and troubleshooting JavaScript and Python code issues.
+
+### Content
+All text content on the site was written originally by myself, with the below notes;
+
+
+### Media
+The colour palette for the site was inspired and adapted from;
+
+
+The photos and images used for this site were obtained from;
+- **[Shutterstock](https://www.shutterstock.com/)**: From the following contributors;
+
+
+### Acknowledgements
+ - Thanks to my mentor, [Precious Ijege](https://github.com/precious-ijege) for his suggestions, time and support.
+ - Thanks to those on Slack for reviewing my project and making suggestions.
+ - Thanks to my housemates, friends and family for reviewing the project and offering constructive feedback.
