@@ -130,14 +130,14 @@ Overview of UX decisions, structure etc. Examples of websites I have viewed as p
 
   * _Input areas for below recipe data points_:
     * Recipe Name - Text
-    * Recipe Image - file upload and preview
+    * Recipe Image - File upload and preview
     * Serving Size - Numeric
     * Preparation Time - hh:mm
     * Cooking Time - hh:mm
     * Recipe Category Selection - Radial Menu
     * Recipe Description: Textbox of 50 to 200 characters
-    * Ingredients - List
-    * Recipe Steps - List
+    * Ingredients - List text input
+    * Recipe Steps - List text input
     </details>
 &nbsp;
 ### **Skeleton**
@@ -157,7 +157,8 @@ Upon deciding to brand the website as 'Wanderlust Recipes' I found [this](assets
 I used the website [image color picket](https://imagecolorpicker.com/), to determine the blue used in the logo is Gunmetal (#1E2B3A). I then used the website [Coolers](https://coolors.co/) to generate the rest of my colour palette, using Gunmetal (#1E2B3A) as the starting colour and finding additional colours infitting to the style I wished to achieve.. 
 
 The resulting palette is below;
-![assets/images/wanderlust-recipes-color-palette.png]
+
+![Wanderlust Color Scheme](assets/images/wanderlust-recipes-color-palette.png)
 
 <details>
 <summary>Color Palette</summary>
@@ -198,43 +199,82 @@ Before beginning development, I listed some styling ideas that I felt benefit th
 The site allows users to upload new recipes and edit existing ones. Users can search for recipes based on name, description, recipe type, number of servings, preparation time and minimum rating. Users can favourite recipes, which are displayed on their profile page. Users can also rate others users submitted recipes and comment their feedback.
 
 ### **Existing Features**
-
-#### **The Header** includes:
+<details>
+<summary>The Header:</summary>
 
 * **Website Logo**: Builds brand awareness amongst users.
 * **Navigation Bar**: Allows users to navigate the site easily and intuitively, as well as login/register their account.
+</details>
 
-#### **The Footer** includes:
+<details>
+<summary>The Footer:</summary>
 
 * **Website Developer**: Copyright information for website developer brand awareness.
 * **Developer Social Links**: Links to GitHub and LinkedIn of website developer for brand awareness.
 * **Business Social Links**: Links to company social media sites, to raise brand awareness.
 
 Both the Header and Footer are present and consistent on all website pages.
+</details>
 
-#### **Home** page includes:
+<details>
+<summary>Home page:</summary>
 
 * **Image Banner**: Visually pleasing design, allowing users to immediately identify the site brand.
 * **Latest Recipes**: List of latest recipes submitted to the site, showing key information; recipe image, type, rating, preparation time and serving size.
+</details>
 
-#### **Categories / Search** page includes:
+<details>
+<summary>Categories / Search page:</summary>
 
 * **Image Banner**: Visually pleasing design, allowing users to immediately identify the site brand.
-* **Search Bar**: 
-* **Advanced Search**:
-* **Category Cards**:
-* **Search Results**:
+* **Search Bar**: Allows user to enter keywords to search recipe database
+* **Advanced Search**: Allows user to enter additional search criteria; minimum rating, serving size, preparation time.
+* **Category Cards**: Displayed on page load, Cards showing recipe categories; Baking, American, British etc.
+* **Search Results**: Replace category cards when search is submitted. Recipe cards displayed as search return results.
+</details>
 
-#### **Login / Registration** page includes:
+<details>
+<summary>Login / Registration page:</summary>
 
+* **Image Banner**: Visually pleasing design, allowing users to immediately identify the site brand.
+* **Username Input**: Input area for users to enter their profile username.
+* **Password**: Input area for users to enter their profile password.
+* **Cancel**: Cancellation button, clearing input text allowing users to refill entries.
+* **Login/Registration Button**: Button allowing users to login to their account or register for a new account.
+</details>
 
-#### **User Profile** page includes:
+<details>
+<summary>User Profile page:</summary>
 
+* **Image Banner**: Visually pleasing design, allowing users to immediately identify the site brand.
+* **Username sub-banner**: Text banner showing username of logged in account, allowing users to quickly identify if they are using their correct desired account.
+* **Favourite Recipes**: Recipes favourited by the user are displayed in list order, allowing quick and easy access.
+* **Submitted Recipes**: Recipes previously submitted by the user are displayed in list order, allowing users quick and easy access or review or edit.
+</details>
 
-#### **New Recipe** page includes:
+<details>
+<summary>New Recipe page:</summary>
+* **Image Banner**: Visually pleasing design, allowing users to immediately identify the site brand.
+* **Input areas for below recipe data points**:
+    * _Recipe Name_ - Text
+    * _Recipe Image_ - File upload and preview
+    * _Serving Size_ - Numeric
+    * _Preparation Time_ - hh:mm
+    * _Cooking Time_ - hh:mm
+    * _Recipe Category Selection_ - Radial Menu
+    * _Recipe Description_: Textbox of 50 to 200 characters
+    * _Ingredients_ - List text input
+    * _Recipe Steps_ - List text input
+</details>
+&nbsp;
 
 ### **Features to consider implementing in future**
+As this is a community focused platform, there are a number of future features which would be worth considering implementation:
+* **Social Media Sharing** - Allow users to share recipes directly to their personal social media accounts.
+* **Nutritional Information API Integration** - Integrate the platform to a third party API which automatically calculates the nutritional information of recipes based on their ingredients and serving size. This would be highly beneficial to health concious users.
+* **Vegetarian/Vegan Ingredient Alternatives** - Allow users to enter Vegetarian or Vegan alternative ingredient lists and methods for existing recipes. Update recipe pages to allow users to choose an alternative option of the recipe and dynamically update the page contents in line with choice.
 
+&nbsp;
 ## 3. **Technologies Used**
 
 1. [HTML](https://en.wikipedia.org/wiki/HTML) - Programming language providing content and structure of the website.
