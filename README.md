@@ -272,28 +272,34 @@ Both the Header and Footer are present and consistent on all website pages.
 As this is a community focused platform, there are a number of future features which would be worth considering implementation:
 * **Social Media Sharing** - Allow users to share recipes directly to their personal social media accounts.
 * **Nutritional Information API Integration** - Integrate the platform to a third party API which automatically calculates the nutritional information of recipes based on their ingredients and serving size. This would be highly beneficial to health concious users.
-* **Vegetarian/Vegan Ingredient Alternatives** - Allow users to enter Vegetarian or Vegan alternative ingredient lists and methods for existing recipes. Update recipe pages to allow users to choose an alternative option of the recipe and dynamically update the page contents in line with choice.
+* **Vegetarian/Vegan Alternative Recipes** - Allow users to enter Vegetarian or Vegan alternative ingredient lists and methods for existing recipes. Update recipe pages to allow users to choose an alternative option of the recipe and dynamically update the page contents in line with choice.
 
 &nbsp;
 ## 3. **Technologies Used**
 
-1. [HTML](https://en.wikipedia.org/wiki/HTML) - Programming language providing content and structure of the website.
-2. [CSS](https://en.wikipedia.org/wiki/CSS) - Programming language providing styling of the website.
-3. [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - The programming language used various interactive elements of the website, including game logic, audio options etc.
-4. [Bootstrap CSS Framework](https://getbootstrap.com/) - Library of pre-built HTML and CSS components, used for various aspects of the site, such as navigation bar.
-5. [Font Awesome](https://fontawesome.com/) - Library used for icons, such as social links and other images.
-6. [Google Fonts](https://fonts.google.com/) - Used to choose a font style for the website.
-7. [TinyPNG](https://tinypng.com/) & [TinyJPG](https://tinyjpg.com/): To minimise image file sizes and maximise page load speed.
-8. [remove.bg](https://www.remove.bg/) - Used to remove backgrounds from png images.
-9. [Real Favicon Generator](https://realfavicongenerator.net/) to generate favicons and icons for desktop and mobile usage.
-10. [Am I Responsive?](http://ami.responsivedesign.is/) used for responsive design demo in ReadMe summary.
-11. [GitHub](https://github.com/) - Remote hosting platform and code repository.
-12. [GitPod](https://gitpod.io/) - IDE \(Integrated Development Environment\), for writing, editing and saving code.
-13. [Balsamiq](https://balsamiq.com/) - Used for the creation of wireframes for visual design testing.
-14. [Autoprefixer](https://autoprefixer.github.io/) - Used to add vendor prefixes to CSS rules.
-15. [Responsive Design Checker](https://www.responsivedesignchecker.com/) - Used to check website response across device types.
-16. [Lambdatest](https://www.lambdatest.com/) - Used to check website response across device types.
-17. [Photopea](https://www.photopea.com/) - Used to create avengers snap page banner image, via layering two pngs together.
+<ol>
+<li><a href="https://en.wikipedia.org/wiki/HTML">HTML</a> - Programming language providing content and structure of the website.</li>
+<li><a href="https://en.wikipedia.org/wiki/CSS">CSS</a> - Programming language providing styling of the website.</li>
+<li><a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> - Programming language used various interactive elements of the website, including game logic, audio options etc.</li>
+<li><a href="https://en.wikipedia.org/wiki/Python_(programming_language">Python</a> - Programming language used to drive core site functionality including user login and push/retrieving database information.</li>
+<li><a href="https://getbootstrap.com/">Bootstrap CSS Framework</a> - Library of pre-built HTML and CSS components, used for various aspects of the site, such as navigation bar.</li>
+<li><a href="https://fontawesome.com/">Font Awesome</a> - Library used for icons, such as social links and other images.</li>
+<li><a href="https://fonts.google.com/">Google Fonts</a> - Font style library.</li>
+<li><a href="https://tinypng.com/">TinyPNG</a> & <a href="https://tinyjpg.com/">TinyJPG</a> -  Minimise image file sizes and maximise page load speed.</li>
+<li><a href="https://www.remove.bg/">remove.bg</a> - Remove backgrounds from png images.</li>
+<li><a href="https://coolors.co/">Coolers</a> - Color Palette Generation</li>
+<li><a href="https://imagecolorpicker.com/">Image Color Picker</a> - Determine Hex code color in exisiting graphics</li>
+<li><a href="https://realfavicongenerator.net/">Real Favicon Generator</a> - Generate favicons and icons for desktop and mobile usage.</li>
+<li><a href="http://ami.responsivedesign.is/">Am I Responsive?</a> - Responsive design demo in ReadMe summary.</li>
+<li><a href="https://github.com/">GitHub</a> - Remote code repository.</li>
+<li><a href="https://gitpod.io/">GitPod</a> - IDE (Integrated Development Environment), for writing, editing and saving code.</li>
+<li><a href="https://www.heroku.com/">Heroku</a> - Remote hosting platform, for hosting of python driven websites and applications.</li>
+<li><a href="https://www.mongodb.com/">MongoDB</a> - Cloud based database management system, used for storying user profile and recipe information.</li>
+<li><a href="https://balsamiq.com/">Balsamiq</a> - Wireframes for visual design testing.</li>
+<li><a href="https://autoprefixer.github.io/">Autoprefixer</a> - Vendor prefixes to CSS rules.</li>
+<li><a href="https://www.responsivedesignchecker.com/">Responsive Design Checker</a> - Check website response across device types.</li>
+<li><a href="https://www.lambdatest.com/">Lambdatest</a> - Check website response across device types.</li>
+</ol>
 
 ## 4. **Testing**
 
