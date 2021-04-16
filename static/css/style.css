@@ -1,3 +1,11 @@
 body {
     background-color: #f8f8ff;
 }
+
+.gunmetal-blue {
+    background-color: #1E2B3A;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5);
+}
