@@ -16,6 +16,10 @@ h6 {
     text-transform: uppercase;
 }
 
+.flashes h4 {
+    line-height: 2;
+}
+
 .gunmetal-blue {
     background-color: #1E2B3A;
 }
@@ -34,6 +38,14 @@ h6 {
 
 .pink-lavender {
     background-color: #E4B7E5;
+}
+
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-large {
+    font-weight: 500;
 }
 
 .box-shadow {

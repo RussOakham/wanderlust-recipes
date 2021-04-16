@@ -31,7 +31,7 @@
                 <li><a href="#">Manage Categories</a></li>
                 <li><a href="#">Profile</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
-                <li><a href="#">Log In</a></li>
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
                 <li><a href="#">Log Out</a></li>
             </ul>
         </div>
@@ -47,7 +47,7 @@
             <li><a href="#">Manage Categories</a></li>
             <li><a href="#">Profile</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
-            <li><a href="#">Log In</a></li>
+            <li><a href="{{ url_for('login') }}">Log In</a></li>
             <li><a href="#">Log Out</a></li>
         </ul>
     </nav>
@@ -55,13 +55,26 @@
 </header>
 
 <body>
-    <!-- Jinja content insert -->
-    <section class="container">
+    <section>
+        <!-- Jinja content inserts -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <h4 class="sky-blue center-align">{{ message }}</h4>
+        </div>
+        {% endfor %}
+        {% endif%}
+        {% endwith %}
+    </section>
+
+    <main class="container">
         {% block content %}
 
 
         {% endblock %}
-    </section>
+    </main>
+
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

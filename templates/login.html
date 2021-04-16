@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">Register</h3>
+<h3 class="center-align">Log In</h3>
 
 <div class="row">
     <form class="col s12 m8 offset-m2 box-shadow border-radius box-border" method="POST"
-        action="{{ url_for('register') }}">
+        action="{{ url_for('login') }}">
         <!-- Username -->
         <div class="input-field col s12">
-            <i class="fas fa-user-plus prefix"></i>
+            <i class="fas fa-user prefix"></i>
             <input id="username" name="username" type="text" class="validate" minlength="5" maxlength="15"
                 pattern="^[a-zA-Z0-9]{5,15}$" required>
             <label for="username">Username</label>
@@ -20,11 +20,11 @@
                 pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
             <label for="password">Password</label>
         </div>
-        <!-- Register Button -->
+        <!-- login Button -->
         <div class="row">
             <button type="submit" class="col s6 offset-s3 btn-large light-sea-green text-shadow register-button roboto"
                 required>
-                Register <i class="fas fa-sign-in-alt"></i>
+                Log In <i class="fas fa-sign-in-alt"></i>
             </button>
         </div>
     </form>
@@ -33,9 +33,10 @@
 <div class="row">
     <div class="col s12">
         <p class="center-align">
-            Already registered?
-            <a href="{{ url_for('login') }}">Log In</a>
+            No account yet?
+            <a href="{{ url_for('register') }}">Register Account</a>
         </p>
     </div>
 </div>
+
 {% endblock %}
