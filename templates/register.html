@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="center-align">Register</h3>
+
+<div class="row">
+    <form class="col s12 m8 offset-m2 box-shadow border-radius box-border">
+        <!-- Username -->
+        <div class="input-field col s12">
+            <i class="fas fa-user-plus prefix"></i>
+            <input id="username" name="username" type="text" class="validate">
+            <label for="username">Username</label>
+        </div>
+        <!-- Password -->
+        <div class="input-field col s12">
+            <i class="fas fa-lock prefix"></i>
+            <input id="password" name="password" type="password" class="validate">
+            <label for="password">Password</label>
+        </div>
+    </form>
+    <!-- Register Button -->
+    <div class="row">
+        <button type="submit" class="col s6 offset-s3 btn-large light-sea-green text-shadow register-button">
+            Register <i class="fas fa-sign-in-alt"></i>
+        </button>
+    </div>
+</div>
+{% endblock %}

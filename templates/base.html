@@ -19,8 +19,8 @@
 
 <header>
     <!-- Top Navigation Bar -->
-    <nav class="text-shadow gunmetal-blue">
-        <div class="nav-wrapper">
+    <nav class="gunmetal-blue">
+        <div class="nav-wrapper text-shadow">
             <a href="/" class="brand-logo"><i class="brand-icon"></i></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -30,14 +30,14 @@
                 <li><a href="#">New Recipe</a></li>
                 <li><a href="#">Manage Categories</a></li>
                 <li><a href="#">Profile</a></li>
-                <li><a href="#">Register</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
                 <li><a href="#">Log In</a></li>
                 <li><a href="#">Log Out</a></li>
             </ul>
         </div>
 
         <!-- Mobile Side Navigation -->
-        <ul class="sidenav" id="mobile-demo">
+        <ul class="sidenav text-shadow-grey" id="mobile-demo">
             <a href="/" class="brand-logo"><i class="brand-icon-black"></i></a>
             <br>
             <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
@@ -46,7 +46,7 @@
             <li><a href="#">New Recipe</a></li>
             <li><a href="#">Manage Categories</a></li>
             <li><a href="#">Profile</a></li>
-            <li><a href="#">Register</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
             <li><a href="#">Log In</a></li>
             <li><a href="#">Log Out</a></li>
         </ul>
