@@ -21,7 +21,7 @@
     <!-- Top Navigation Bar -->
     <nav class="text-shadow gunmetal-blue">
         <div class="nav-wrapper">
-            <a href="{{ url_for('get_recipes') }}" class="brand-logo"><i class="brand-icon"></i></a>
+            <a href="/" class="brand-logo"><i class="brand-icon"></i></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
@@ -38,6 +38,8 @@
 
         <!-- Mobile Side Navigation -->
         <ul class="sidenav" id="mobile-demo">
+            <a href="/" class="brand-logo"><i class="brand-icon-black"></i></a>
+            <br>
             <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
             <li><a href="#">Categories</a></li>
             <li><a href="#">Search</a></li>
@@ -54,11 +56,12 @@
 
 <body>
     <!-- Jinja content insert -->
-    {% block content %}
+    <section class="container">
+        {% block content %}
 
 
-    {% endblock %}
-
+        {% endblock %}
+    </section>
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

@@ -6,10 +6,27 @@ body {
     background-color: #1E2B3A;
 }
 
+.nav-wrapper {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .brand-icon {
-    background-image: url(../../assets/images/wanderlust-logo-invert.png);
+    background-image: url(../images/wanderlust-logo.svg);
     width: 50px;
     height: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.brand-icon-black {
+    background-image: url(../images/wanderlust-logo-black.svg);
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .text-shadow {
