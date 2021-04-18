@@ -16,6 +16,15 @@ h6 {
     text-transform: uppercase;
 }
 
+h2 {
+    font: 2.92rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
 .flashes h4 {
     line-height: 2;
 }
@@ -65,6 +74,10 @@ h6 {
     margin-right: 20px;
 }
 
+nav {
+    margin-bottom: 20px;
+}
+
 .nav-wrapper,
 .sidenav {
     font-family: 'Roboto', sans-serif;
@@ -108,4 +121,37 @@ h6 {
 
 .register-button>i {
     color: #f8f8ff;
+}
+
+.wanderlust-banner {
+    background: url(../images/wanderlust.png) center center no-repeat;
+    height: 30vh;
+    background-size: contain;
+    margin-bottom: 20px;
+}
+
+/* .recipe-panel {
+    min-height: 200px;
+} */
+
+.recipe-img-container {
+    padding: 0px !important;
+    overflow: hidden;
+}
+
+.recipe-img-container>img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.recipe-summary {
+    background-color: #fcf6b187;
+}
+
+.checked {
+    color: orange;
+}
+
+.bold {
+    font-weight: bold;
 }

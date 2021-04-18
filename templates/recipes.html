@@ -1,10 +1,53 @@
 {% extends "base.html" %}
-{% block content %}
 
+{% block content %}
+<!-- Website Banner -->
+<section>
+    <div class="wanderlust-banner">
+
+    </div>
+</section>
+
+
+<!-- Latest Recipes -->
+<h2 class="center-align">Latest Recipes</h2>
 {% for recipe in recipes %}
-{{ recipe.recipe_name }}<br>
-{{ recipe.category_name }}<br>
-{{ recipe.recipe_description }}<br>
+
+<div class="row recipe-panel box-shadow border-radius box-border center-align">
+    <div class="col s4 recipe-img-container">
+        <img src="../static/images/lemon-drizzle-sponge-pudding.webp" class="recipe-image" alt="">
+    </div>
+    <div class="col s8 recipe-summary">
+        <h3>{{ recipe.recipe_name }}</h3>
+        <p>{{ recipe.recipe_description }}</p>
+        <div class="col m4 s12 bold">
+            <h6>Serves:</h6>
+            <p><i class="fas fa-utensils"></i> {{ recipe.servings }}</p>
+        </div>
+        <div class="col m4 s12 bold">
+            <h6>Rating:</h6>
+            <ul>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </ul>
+        </div>
+        <div class="col m4 s12 bold">
+            <h6>Time:</h6>
+            <p>
+                Prep: {{ recipe.prep_time }} mins
+                <br>
+                Cook: {{ recipe.cook_time }} mins
+            </p>
+        </div>
+    </div>
+</div>
+
 {% endfor %}
 
 {% endblock %}
+
+
+{{ recipe.category_name }}<br>
