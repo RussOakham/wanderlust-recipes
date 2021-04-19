@@ -160,3 +160,10 @@ nav {
     object-fit: cover;
     vertical-align: middle;
 }
+
+@media (max-width: 600px) {
+    .flex-column-reverse {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
