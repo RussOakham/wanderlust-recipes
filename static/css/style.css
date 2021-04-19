@@ -69,6 +69,12 @@ h3 {
     border-radius: 2px;
 }
 
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
 .nav-wrapper {
     margin-left: 20px;
     margin-right: 20px;
