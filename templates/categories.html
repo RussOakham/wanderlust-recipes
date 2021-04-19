@@ -22,7 +22,7 @@
             {% if session.user|lower == "admin"|lower %}
             <div class="card-action">
                 <a href="{{ url_for('edit_category', category_id=category._id) }}" class="btn-small bold">Edit</a>
-                <a href="#" class="btn-small bold">Delete</a>
+                <a href="{{ url_for('delete_category', category_id=category._id) }}" class="btn-small bold">Delete</a>
             </div>
             {% endif %}
         </div>
