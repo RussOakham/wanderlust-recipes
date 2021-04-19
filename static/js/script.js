@@ -4,3 +4,8 @@ $(document).ready(function () {
         edge: "right"
     });
 });
+
+// Radial Select in form
+$(document).ready(function () {
+    $('select').formSelect();
+});
