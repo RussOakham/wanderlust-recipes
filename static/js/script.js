@@ -27,20 +27,20 @@ $('#ingredients').on("click", ".remove-list-item", function (event) {
 });
 
 // Add Method Step item to ingredients list when '+' button hit
-$('#method-step .add-method-step-item').click(function (event) {
+$('#method_step .add-method-step-item').click(function (event) {
     let methodStep = `<li class="collection-item">
                             <a class="remove-list-item">
                                 <i class="fas fa-times"></i>
                             </a>
                             <div class="input-field">
-                            <textarea name="method-step" class="materialize-textarea" required></textarea>
-                            <label for="method-step">Step Description</label>
+                            <textarea name="method_step" class="materialize-textarea" required></textarea>
+                            <label for="method_step">Step Description</label>
                             </div>
                         </li>`;
     $(this).parent().before(methodStep)
 });
 
 // Remove Method step item on click
-$('#method-step').on("click", ".remove-list-item", function (event) {
+$('#method_step').on("click", ".remove-list-item", function (event) {
     $(this).parent().remove();
 });
