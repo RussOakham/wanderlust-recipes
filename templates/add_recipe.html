@@ -3,16 +3,18 @@
 
 <h2 class="center-align">New Recipe</h2>
 
-<div class="row">
-    <form class="col s12 box-shadow border-radius box-border" method="POST" action="">
+<section class="row">
+    <form class="col s12 box-shadow border-radius box-border" method="POST" action="{{ url_for('add_recipe') }}">
         <div class="row">
             <div class="col s6">
+                <!-- Recipe Title -->
                 <div class="input-field col s12">
                     <i class="fas fa-plus prefix"></i>
                     <input id="recipe_title" name="recipe_title" minlength="5" maxlength="50" type="text"
                         class="validate" required>
                     <label for="recipe_title">Recipe Title</label>
                 </div>
+                <!-- Recipe Serving Amount -->
                 <div class="input-field col s6">
                     <i class="fas fa-utensils prefix"></i>
                     <select id="servings" name="servings" class="validate" required>
@@ -28,6 +30,7 @@
                     </select>
                     <label for="servings">Servings</label>
                 </div>
+                <!-- Recipe Category Choice -->
                 <div class="input-field col s6">
                     <i class="fas fa-birthday-cake prefix"></i>
                     <select id="category_name" name="category_name" class="validate" required>
@@ -39,10 +42,11 @@
                     <label for="category_name">Category</label>
                 </div>
             </div>
+            <!-- Recipe Image Upload -->
             <div class="col s6">
                 <div class="file-field input-field col s12">
                     <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text">
+                        <input class="file-path" type="text">
                     </div>
                     <div class="btn col s12">
                         <span>Recipe Image</span>
@@ -51,7 +55,9 @@
                 </div>
             </div>
         </div>
+        <!-- Preparation / Cooking Time -->
         <div class="row">
+            <!-- Recipe Preparation Time -->
             <div class="col s6">
                 <h6>Preparation Time</h6>
                 <div class="input-field col s7">
@@ -150,6 +156,7 @@
                     <label for="prep_minutes">Minutes</label>
                 </div>
             </div>
+            <!-- Recipe Cooking time -->
             <div class="col s6">
                 <h6>Cooking Time</h6>
                 <div class="input-field col s7">
@@ -249,6 +256,7 @@
                 </div>
             </div>
         </div>
+        <!-- Recipe Description -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-align-left prefix"></i>
@@ -257,6 +265,7 @@
                 <label for="recipe_description">Description</label>
             </div>
         </div>
+        <!-- Recipe Ingredients -->
         <div class="row">
             <div class="col s12">
                 <h6>Ingredients</h6>
@@ -270,6 +279,7 @@
                 </ul>
             </div>
         </div>
+        <!-- Recipe Method Steps -->
         <div class="row">
             <div class="col s12">
                 <h6>Method</h6>
@@ -283,8 +293,16 @@
                 </ul>
             </div>
         </div>
-</div>
-</form>
-</div>
+        <!-- Submit Button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large bold">
+                    Submit Recipe <i class="fas fa-caret-right right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</section>
+
 
 {% endblock %}

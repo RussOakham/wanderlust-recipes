@@ -155,7 +155,7 @@ nav {
 
 .recipe-img-container>img {
     width: 100%;
-    height: 230px;
+    height: 260px;
     -o-object-fit: cover;
     object-fit: cover;
     vertical-align: middle;

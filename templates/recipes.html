@@ -23,10 +23,11 @@
     <div class="col m8 s12 recipe-summary">
         <h3>{{ recipe.recipe_title }}</h3>
         <p>{{ recipe.recipe_description }}</p>
+        <p><em>by: {{ recipe.created_by }}</em></p>
         <div class="recipe-info">
             <div class="col m4 s12 bold">
-                <h6>Serves:</h6>
-                <p><i class="fas fa-utensils"></i> {{ recipe.servings }}</p>
+                <h6><i class="fas fa-utensils"></i> Serves:</h6>
+                <p>{{ recipe.servings }}</p>
             </div>
             <div class="col m4 s12 bold">
                 <h6>Rating:</h6>
@@ -39,7 +40,7 @@
                 </ul>
             </div>
             <div class="col m4 s12 bold">
-                <h6>Time:</h6>
+                <h6><i class="fas fa-clock"></i> Time:</h6>
                 <p>
                     Prep: {{ recipe.prep_minutes }} mins
                     <br>
@@ -57,10 +58,11 @@
     <div class="col m8 s12 recipe-summary">
         <h3>{{ recipe.recipe_title }}</h3>
         <p>{{ recipe.recipe_description }}</p>
+        <p><em>by: {{ recipe.created_by }}</em></p>
         <div class="recipe-info">
             <div class="col m4 s12 bold">
-                <h6>Serves:</h6>
-                <p><i class="fas fa-utensils"></i> {{ recipe.servings }}</p>
+                <h6><i class="fas fa-utensils"></i> Serves:</h6>
+                <p>{{ recipe.servings }}</p>
             </div>
             <div class="col m4 s12 bold">
                 <h6>Rating:</h6>
@@ -73,7 +75,7 @@
                 </ul>
             </div>
             <div class="col m4 s12 bold">
-                <h6>Time:</h6>
+                <h6><i class="fas fa-clock"></i> Time:</h6>
                 <p>
                     Prep: {{ recipe.prep_minutes }} mins
                     <br>
