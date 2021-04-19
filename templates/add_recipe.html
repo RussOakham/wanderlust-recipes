@@ -15,7 +15,7 @@
                 </div>
                 <div class="input-field col s6">
                     <i class="fas fa-utensils prefix"></i>
-                    <select id="servings" name="servings" required>
+                    <select id="servings" name="servings" class="validate" required>
                         <option value="" disabled selected></option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -30,10 +30,11 @@
                 </div>
                 <div class="input-field col s6">
                     <i class="fas fa-birthday-cake prefix"></i>
-                    <select id="category_name" name="category_name" required>
-                        <option value="" disabled selected></option>
-                        <option value="1">Dessert</option>
-                        <option value="2">Italian</option>
+                    <select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose Category</option>
+                        {% for category in categories %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endfor %}
                     </select>
                     <label for="category_name">Category</label>
                 </div>
@@ -55,7 +56,7 @@
                 <h6>Preparation Time</h6>
                 <div class="input-field col s7">
                     <i class="fas fa-clock prefix"></i>
-                    <select id="prep_hours" name="prep_hours" required>
+                    <select id="prep_hours" name="prep_hours" class="validate" required>
                         <option value="0" selected>0 hours</option>
                         <option value="1">1 hour</option>
                         <option value="2">2 hours</option>
@@ -84,7 +85,7 @@
                     <label for="prep_hours">Hours</label>
                 </div>
                 <div class="input-field col s5">
-                    <select id="prep_minutes" name="prep_minutes" required>
+                    <select id="prep_minutes" name="prep_minutes" class="validate" required>
                         <option value="0" selected>0 mins</option>
                         <option value="1">1 min</option>
                         <option value="2">2 mins</option>
@@ -153,7 +154,7 @@
                 <h6>Cooking Time</h6>
                 <div class="input-field col s7">
                     <i class="fas fa-clock prefix"></i>
-                    <select id="cook_hours" name="cook_hours" required>
+                    <select id="cook_hours" name="cook_hours" class="validate" required>
                         <option value="0" selected>0 hours</option>
                         <option value="1">1 hour</option>
                         <option value="2">2 hours</option>
@@ -182,7 +183,7 @@
                     <label for="prep_hours">Hours</label>
                 </div>
                 <div class="input-field col s5">
-                    <select id="cook_minutes" name="cook_minutes" required>
+                    <select id="cook_minutes" name="cook_minutes" class="validate" required>
                         <option value="0" selected>0 mins</option>
                         <option value="1">1 min</option>
                         <option value="2">2 mins</option>
@@ -261,7 +262,7 @@
                 <h6>Ingredients</h6>
             </div>
             <div class="col s12">
-                <ul id="ingredients" class="collection">
+                <ul id="ingredients" class="collection validate">
                     <li class="collection-item">
                         <a class="btn-floating btn-small waves-effect waves-light add-ingredient-list-item"><i
                                 class="fas fa-plus"></i></a>
@@ -274,7 +275,7 @@
                 <h6>Method</h6>
             </div>
             <div class="col s12">
-                <ul id="method-step" class="collection">
+                <ul id="method-step" class="collection validate">
                     <li class="collection-item">
                         <a class="btn-floating btn-small waves-effect waves-light add-method-step-item"><i
                                 class="fas fa-plus"></i></a>
