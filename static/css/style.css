@@ -161,6 +161,17 @@ nav {
     vertical-align: middle;
 }
 
+.collection-item {
+    position: relative;
+}
+
+.remove-list-item {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+
 @media (max-width: 600px) {
     .flex-column-reverse {
         display: flex;
