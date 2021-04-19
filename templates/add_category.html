@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="center-align">Add Category</h2>
+
+<section class="row">
+    <form class="col s12 box-shadow border-radius box-border" method="POST" action="{{ url_for('add_category') }}">
+        <div class="row">
+            <!-- Category Title -->
+            <div class="input-field col s12">
+                <i class="fas fa-birthday-cake prefix"></i>
+                <input id="category_name" name="category_name" minlength="3" maxlength="25" type="text" class="validate"
+                    required>
+                <label for="category_name">Category Name</label>
+            </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large bold">
+                    Add Category <i class="fas fa-caret-right right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</section>
+
+
+{% endblock %}

@@ -4,6 +4,13 @@
 <h2 class="center-align">Manage Categories</h2>
 
 <div class="row">
+    <div class="col s12 center-align">
+        <a href="{{ url_for('add_category') }}" class="btn large bold">Add Category <i
+                class="fas fa-plus-square-right"></i></a>
+    </div>
+</div>
+
+<div class="row">
     {% for category in categories %}
     <div class="col s12 m3">
         <div class="card box-shadow border-radius box-border center-align">
@@ -11,8 +18,8 @@
                 <span class="card-title">{{ category.category_name }}</span>
             </div>
             <div class="card-action">
-                <a href="#" class="btn-small">Edit</a>
-                <a href="#" class="btn-small">Delete</a>
+                <a href="#" class="btn-small bold">Edit</a>
+                <a href="#" class="btn-small bold">Delete</a>
             </div>
         </div>
     </div>
