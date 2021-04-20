@@ -107,6 +107,7 @@ def add_recipe():
         new_recipe = {
             "category_name": request.form.get("category_name"),
             "recipe_title": request.form.get("recipe_title"),
+            "image_upload_url": request.form.get("image_upload_url"),
             "servings": request.form.get("servings"),
             "prep_hours": request.form.get("prep_hours"),
             "prep_minutes": request.form.get("prep_minutes"),
