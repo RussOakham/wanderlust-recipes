@@ -10,15 +10,16 @@
 
 
 <!-- Latest Recipes -->
+<!-- Create div based off recipe db info - Odd no. loop has image on left -->
 <h2 class="center-align">Latest Recipes</h2>
 {% for recipe in recipes %}
 
-<!-- Create div based off recipe db info - Odd no. loop has image on left -->
+
 {% if loop.index % 2 !=0 %}
 
 <div class="row recipe-panel box-shadow border-radius box-border center-align">
     <div class="col m4 s12 recipe-img-container">
-        <img src="../static/images/lemon-drizzle-sponge-pudding.webp" class="recipe-image" alt="">
+        <img src="{{ recipe.image_upload_url }}" class="recipe-image" alt="{{ recipe.recipe_title }}">
     </div>
     <div class="col m8 s12 recipe-summary">
         <h3>{{ recipe.recipe_title }}</h3>
@@ -52,7 +53,7 @@
 </div>
 
 {% else %}
-<!-- Create div based off recipe db info - Odd no. loop has image on right-->
+
 <div class="row recipe-panel box-shadow border-radius box-border center-align  flex-column-reverse">
 
     <div class="col m8 s12 recipe-summary">
@@ -85,7 +86,7 @@
         </div>
     </div>
     <div class="col m4 s12 recipe-img-container">
-        <img src="../static/images/lemon-drizzle-sponge-pudding.webp" class="recipe-image" alt="">
+        <img src="{{ recipe.image_upload_url }}" class="recipe-image" alt="{{ recipe.recipe_title }}">
     </div>
 </div>
 
