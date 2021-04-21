@@ -16,6 +16,19 @@ h6 {
     text-transform: uppercase;
 }
 
+.hidden-h1 {
+    font-size: 0;
+    width: 1px;
+    height: 1px;
+    display: inline-block;
+    overflow: hidden;
+    position: absolute !important;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
 h2 {
     font: 2.92rem;
 }
@@ -143,6 +156,11 @@ nav {
 .recipe-panel {
     background-color: #fcf6b187;
     overflow: hidden;
+    transition: 0.3s;
+}
+
+.recipe-panel:hover {
+    transform: scale(1.05);
 }
 
 .checked {
@@ -204,6 +222,11 @@ nav {
     cursor: pointer;
 }
 
+.recipe-h1 {
+    font-size: 2rem;
+}
+
+/* Responsive Media Queries */
 @media (max-width: 600px) {
     .flex-column-reverse {
         display: flex;

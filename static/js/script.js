@@ -4,6 +4,10 @@ $(document).ready(function () {
         edge: "right"
     });
     $('select').formSelect();
+    $('.tabs').tabs({
+        swipeable: true,
+        duration: 300,
+    });
 
     // Add Validate to 'Select' inputs in Materlize - Code from Code Instititue Task Manager Mini-Project
     validateMaterializeSelect();

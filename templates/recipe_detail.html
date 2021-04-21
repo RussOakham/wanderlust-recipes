@@ -2,6 +2,39 @@
 
 {% block content %}
 
-<h2>Hello</h2>
+<section id="recipe-overview">
+    <div class="row recipe-header box-shadow border-radius box-border center-align">
+        <div class="col l6 m12">
+            <img src="{{ recipe.image_upload_url }}" alt="{{ recipe.recipe_title }}">
+        </div>
+        <div class="col l6 m12">
+            <h1 class="recipe-h1 center-align">{{ recipe.recipe_title }}</h1>
+        </div>
+    </div>
+</section>
 
+<section id="recipe-details">
+
+    <ul id="tabs-swipe-demo" class="tabs">
+        <li class="tab col s3"><a class="active" href="#recipe-ingredients">Ingredients</a></li>
+        <li class="tab col s3"><a href="#recipe-method">Method</a></li>
+    </ul>
+    <div id="recipe-ingredients" class="col s12">
+        <ul class="collection">
+            {% for ingredient in recipe.ingredients %}
+            <li class="collection-item">{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="recipe-method" class="col s12">
+        <div id="method-steps" class="col s12">
+            <ol class="collection">
+                {% for step in recipe.method_step %}
+                <li class="collection-item">{{ step }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+</section>
 {% endblock %}
