@@ -22,7 +22,7 @@
         <img src="{{ recipe.image_upload_url }}" class="recipe-image" alt="{{ recipe.recipe_title }}">
     </div>
     <div class="col m8 s12 recipe-summary">
-        <h3>{{ recipe.recipe_title }}</h3>
+        <h3><a href="/recipes/{{ recipe.url }}">{{ recipe.recipe_title }}</a></h3>
         <p>{{ recipe.recipe_description }}</p>
         <p><em>by: {{ recipe.created_by }}</em></p>
         <div class="recipe-info">
@@ -57,7 +57,7 @@
 <div class="row recipe-panel box-shadow border-radius box-border center-align  flex-column-reverse">
 
     <div class="col m8 s12 recipe-summary">
-        <h3>{{ recipe.recipe_title }}</h3>
+        <h3><a href="/recipes/{{ recipe.url }}">{{ recipe.recipe_title }}</a></h3>
         <p>{{ recipe.recipe_description }}</p>
         <p><em>by: {{ recipe.created_by }}</em></p>
         <div class="recipe-info">
@@ -96,5 +96,5 @@
 
 {% endblock %}
 
-
+<!-- Add in to template -->
 {{ recipe.category_name }}<br>
