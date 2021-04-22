@@ -7,6 +7,10 @@ $(document).ready(function () {
     $('.tabs').tabs({
         swipeable: true,
         duration: 300,
+        onShow: resizeTab
+    });
+    $(window).resize(function () {
+        resizeTab();
     });
 
     // Add Validate to 'Select' inputs in Materlize - Code from Code Instititue Task Manager Mini-Project
@@ -90,3 +94,9 @@ $('#method_step .add-method-step-item').click(function (event) {
 $('#method_step').on("click", ".remove-list-item", function (event) {
     $(this).parent().remove();
 });
+
+// Auto sizes height of ingredients/method carousel to fit content
+// https://github.com/Dogfalo/materialize/issues/4159#issuecomment-387969837
+function resizeTab() {
+    $(".tabs-content").css('height', $('.carousel-item.active').height() + 'px');
+}

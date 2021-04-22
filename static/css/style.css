@@ -226,6 +226,10 @@ nav {
     font-size: 2rem;
 }
 
+.tabs-content.carousel .carousel-item {
+    height: auto;
+}
+
 /* Responsive Media Queries */
 @media (max-width: 600px) {
     .flex-column-reverse {

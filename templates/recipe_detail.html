@@ -14,11 +14,12 @@
 </section>
 
 <section id="recipe-details">
-
-    <ul id="tabs-swipe-demo" class="tabs">
-        <li class="tab col s3"><a class="active" href="#recipe-ingredients">Ingredients</a></li>
-        <li class="tab col s3"><a href="#recipe-method">Method</a></li>
-    </ul>
+    <div class="col s12">
+        <ul id="tabs-swipe-demo" class="tabs">
+            <li class="tab col s3"><a class="active" href="#recipe-ingredients">Ingredients</a></li>
+            <li class="tab col s3"><a href="#recipe-method">Method</a></li>
+        </ul>
+    </div>
     <div id="recipe-ingredients" class="col s12">
         <ul class="collection">
             {% for ingredient in recipe.ingredients %}
