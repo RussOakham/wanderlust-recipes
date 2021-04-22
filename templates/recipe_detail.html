@@ -4,32 +4,38 @@
 
 <section id="recipe-overview">
     <div class="row recipe-header box-shadow border-radius box-border center-align">
-        <div class="col l6 m12">
+        <div class="col l6 s12">
             <img src="{{ recipe.image_upload_url }}" alt="{{ recipe.recipe_title }}" class="recipe-header-img">
         </div>
-        <div class="col l6 m12 bold">
-            <h1 class="recipe-h1 center-align">{{ recipe.recipe_title }}</h1>
-            <div class="col m4 s12">
-                <h6><i class="fas fa-utensils"></i> Serves:</h6>
-                <p>{{ recipe.servings }}</p>
+        <div class="col l6 s12 bold">
+            <div class="col s12 recipe-title">
+                <h1 class="recipe-h1 center-align">{{ recipe.recipe_title }}</h1>
             </div>
-            <div class="col m4 s12">
-                <h6>Rating:</h6>
-                <ul>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </ul>
-            </div>
-            <div class="col m4 s12">
-                <h6><i class="fas fa-clock"></i> Time:</h6>
-                <p>
-                    Prep: {{ recipe.prep_minutes }} mins
-                    <br>
-                    Cook: {{ recipe.cook_minutes }} mins
-                </p>
+            <div class="col s12 recipe-summary">
+                <div class="col s12">
+                    <h6 class="font-large">Rating:</h6>
+                    <ul>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </ul>
+                </div>
+                <div class="col s12">
+                    <div class="col s6">
+                        <h6 class="font-large"><i class="fas fa-utensils"></i> Serves:</h6>
+                        <p>{{ recipe.servings }}</p>
+                    </div>
+                    <div class="col s6">
+                        <h6 class="font-large"><i class="fas fa-clock"></i> Time:</h6>
+                        <p>
+                            Prep: {{ recipe.prep_minutes }} mins
+                            <br>
+                            Cook: {{ recipe.cook_minutes }} mins
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -169,6 +169,11 @@ nav {
     transform: scale(1.05);
 }
 
+.recipe-title-link a {
+    cursor: pointer;
+    color: #3B3C36;
+}
+
 .checked {
     color: orange;
 }
@@ -239,11 +244,31 @@ nav {
     width: 100%;
     overflow: hidden;
     object-fit: cover;
-    max-height: 400px;
+    height: 400px;
+}
+
+.recipe-title {
+    height: 100px;
+}
+
+.recipe-summary {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: center;
+    font-size: large;
+}
+
+.font-large {
+    font-size: large;
 }
 
 .recipe-h1 {
     font-size: 2rem;
+}
+
+.fa-star {
+    font-size: xx-large;
 }
 
 .tabs-content.carousel .carousel-item {
@@ -288,5 +313,31 @@ nav {
     .flex-column-reverse {
         display: flex;
         flex-direction: column-reverse;
+    }
+
+    .recipe-title {
+        height: 75px;
+    }
+
+    .recipe-title>h1 {
+        margin: 15px 0px;
+    }
+
+    .recipe-summary {
+        height: 160px;
+        font-size: revert;
+    }
+
+    .recipe-h1 {
+        font-size: 1.5rem;
+    }
+
+    .fa-star {
+        font-size: large;
+    }
+
+    ul,
+    p {
+        margin: 0;
     }
 }
