@@ -261,10 +261,16 @@ nav {
 
 .collection {
     box-shadow: 0 2px 0 0 rgb(0 0 0 / 14%);
+    background-color: #fff;
+    font-weight: bold;
 }
 
 .blue-font {
     color: #213f61;
+}
+
+.method-steps {
+    height: auto !important;
 }
 
 /* Responsive Media Queries */
