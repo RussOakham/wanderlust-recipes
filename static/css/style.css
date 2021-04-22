@@ -3,6 +3,11 @@
 body {
     background-color: #f8f8ff;
     font-family: 'Noto Serif', serif;
+    color: #213f61;
+}
+
+.row .col {
+    padding: 0;
 }
 
 h1,
@@ -14,6 +19,7 @@ h6 {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     text-transform: uppercase;
+    color: #3B3C36;
 }
 
 .hidden-h1 {
@@ -154,7 +160,7 @@ nav {
 }
 
 .recipe-panel {
-    background-color: #fcf6b187;
+    background-color: #fff;
     overflow: hidden;
     transition: 0.3s;
 }
@@ -222,12 +228,43 @@ nav {
     cursor: pointer;
 }
 
+.recipe-header {
+    background-color: #fff;
+}
+
 .recipe-h1 {
     font-size: 2rem;
 }
 
 .tabs-content.carousel .carousel-item {
     height: auto;
+}
+
+.tabs .tab a {
+    color: #38506c;
+}
+
+.tabs .tab a:hover,
+.tabs .tab a.active {
+    color: #38506c;
+    font-weight: bold;
+}
+
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
+    background-color: rgba(152, 210, 235, 0.2);
+}
+
+.tabs .indicator {
+    background-color: #38506c;
+}
+
+.collection {
+    box-shadow: 0 2px 0 0 rgb(0 0 0 / 14%);
+}
+
+.blue-font {
+    color: #213f61;
 }
 
 /* Responsive Media Queries */
