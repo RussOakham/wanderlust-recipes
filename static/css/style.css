@@ -98,13 +98,15 @@ h3 {
     z-index: 1020;
 }
 
-.nav-wrapper {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
 nav {
     margin-bottom: 20px;
+}
+
+nav .brand-logo i,
+nav .brand-logo [class^="mdi-"],
+nav .brand-logo [class*="mdi-"],
+nav .brand-logo i.material-icons {
+    margin-right: 0px;
 }
 
 .nav-wrapper,
@@ -269,6 +271,10 @@ nav {
 
 .fa-star {
     font-size: xx-large;
+}
+
+.recipe-rating-home>.fa-star {
+    font-size: large;
 }
 
 .tabs-content.carousel .carousel-item {

@@ -35,7 +35,7 @@
             </div>
             <div class="col m4 s12 bold">
                 <h6>Rating:</h6>
-                <ul>
+                <ul class="recipe-rating-home">
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
@@ -58,8 +58,7 @@
 {% else %}
 
 <div class="row recipe-panel box-shadow border-radius box-border center-align  flex-column-reverse">
-
-    <div class="col m8 s12 recipe-summary">
+    <div class="col m8 s12">
         <h3 class="recipe-title-link"><a href="/recipes/{{ recipe.url }}">{{ recipe.recipe_title }}</a></h3>
         <p>{{ recipe.recipe_description }}</p>
         <p><em>by: {{ recipe.created_by }}</em></p>
@@ -70,7 +69,7 @@
             </div>
             <div class="col m4 s12 bold">
                 <h6>Rating:</h6>
-                <ul>
+                <ul class="recipe-rating-home">
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
