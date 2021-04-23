@@ -6,10 +6,6 @@ body {
     color: #213f61;
 }
 
-.row .col {
-    padding: 0;
-}
-
 h1,
 h2,
 h3,
@@ -204,7 +200,6 @@ nav .brand-logo i.material-icons {
     height: 260px;
     -o-object-fit: cover;
     object-fit: cover;
-    vertical-align: middle;
 }
 
 .collection-item {
@@ -220,7 +215,6 @@ nav .brand-logo i.material-icons {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    vertical-align: middle;
     display: block;
 }
 

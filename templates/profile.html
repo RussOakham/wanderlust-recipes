@@ -1,12 +1,65 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="center-align">{{ username }}'s Profile</h2>
+<h2 class="center-align">Welcome {{ username }}</h2>
 
 <div class="row">
-    <div class="col s12 m8 offset-m2 box-shadow border-radius box-border">
+    <h3>Recent Recipes</h3>
 
+    {% for recipe in recipes %}
+
+    {% if recipe|length > 0 %}
+
+    <div class="row recipe-panel box-shadow border-radius box-border center-align">
+        <div class="col m4 s12 recipe-img-container">
+            <img src="{{ recipe.image_upload_url }}" class="recipe-image" alt="{{ recipe.recipe_title }}">
+        </div>
+        <div class="col m8 s12">
+            <h3 class="recipe-title-link"><a href="/recipes/{{ recipe.url }}">{{ recipe.recipe_title }}</a></h3>
+            <p>{{ recipe.recipe_description }}</p>
+            <p><em>by: {{ recipe.created_by|capitalize }}</em></p>
+            <div class="recipe-info">
+                <div class="col m4 s12 bold">
+                    <h6><i class="fas fa-utensils"></i> Serves:</h6>
+                    <p>{{ recipe.servings }}</p>
+                </div>
+                <div class="col m4 s12 bold">
+                    <h6>Rating:</h6>
+                    <ul class="recipe-rating-home">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </ul>
+                </div>
+                <div class="col m4 s12 bold">
+                    <h6><i class="fas fa-clock"></i> Time:</h6>
+                    <p>
+                        Prep: {{ recipe.prep_minutes }} mins
+                        <br>
+                        Cook: {{ recipe.cook_minutes }} mins
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
+
+    {% else %}
+
+    <div class="row">
+        <div class="col s12 recipe-panel box-shadow border-radius box-border center-align">
+            <h6>No recipes submitted</h6>
+        </div>
+    </div>
+
+    {% endif %}
+
+    {% endfor %}
+
+    <h3>Favourite Recipes</h3>
+
+
 </div>
 
 {% endblock %}
