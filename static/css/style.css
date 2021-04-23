@@ -157,6 +157,47 @@ nav .brand-logo i.material-icons {
     margin-bottom: 20px;
 }
 
+#footer-row {
+    margin-bottom: 0;
+    padding-bottom: 20px;
+}
+
+.page-footer {
+    background-color: #1E2B3A;
+    padding: 0;
+}
+
+.page-footer .footer-copyright {
+    padding: 0px;
+}
+
+.social-links a i {
+    width: 32px;
+    height: 32px;
+    padding: 12px 0;
+    margin-bottom: 8px;
+    border-radius: 25px;
+    font-size: 13px;
+    line-height: 7px;
+    text-align: center;
+    color: #fafafa;
+    background: #077787;
+    -moz-transition: background-color 0.35s ease-in-out;
+    -webkit-transition: background-color 0.35s ease-in-out;
+    -o-transition: background-color 0.35s ease-in-out;
+    transition: background-color 0.35s ease-in-out;
+    -webkit-box-shadow: 0px 0.4rem 0.4rem 0px rgba(0, 0, 0, .4);
+    box-shadow: 0px 0.4rem 0.4rem 0px rgba(0, 0, 0, .4);
+}
+
+.social-links a i:hover {
+    background-color: #2bbbad;
+}
+
+.right {
+    text-align: right;
+}
+
 .recipe-panel {
     background-color: #fff;
     overflow: hidden;
