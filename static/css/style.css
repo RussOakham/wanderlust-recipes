@@ -309,23 +309,32 @@ nav {
 }
 
 /* Responsive Media Queries */
+@media (max-width: 800px) {
+    .recipe-summary {
+        height: 250px;
+    }
+
+    .recipe-title {
+        height: 50px;
+    }
+
+    .recipe-title>h1 {
+        margin: 15px 0px;
+    }
+}
+
+
+
 @media (max-width: 600px) {
     .flex-column-reverse {
         display: flex;
         flex-direction: column-reverse;
     }
 
-    .recipe-title {
-        height: 75px;
-    }
-
-    .recipe-title>h1 {
-        margin: 15px 0px;
-    }
-
     .recipe-summary {
         height: 160px;
         font-size: revert;
+        display: block;
     }
 
     .recipe-h1 {
