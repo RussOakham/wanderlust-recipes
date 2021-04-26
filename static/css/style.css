@@ -205,6 +205,27 @@ nav .brand-logo i.material-icons {
     text-align: right;
 }
 
+#search-bar {
+    margin-bottom: 0px;
+}
+
+.collapsible {
+    box-shadow: 0 0 0 0;
+    border: none;
+    margin: 0px;
+}
+
+.collapsible-header {
+    background-color: transparent;
+    border: none;
+    flex-direction: column;
+    text-align: center;
+}
+
+.collapsible-body {
+    border-bottom: 0px;
+}
+
 .recipe-panel {
     background-color: #fff;
     overflow: hidden;

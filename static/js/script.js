@@ -9,6 +9,7 @@ $(document).ready(function () {
         duration: 300,
         onShow: resizeTab
     });
+    $('.collapsible').collapsible();
     $(window).resize(function () {
         resizeTab();
     });

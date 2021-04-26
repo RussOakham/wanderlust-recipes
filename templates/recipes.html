@@ -16,13 +16,48 @@
 <section>
     <div>
         <form action="{{ url_for('search') }}" method="POST" class="col s12">
-            <div class="row center-align">
-                <div class="input-field col s12">
+            <div class="row">
+                <div id="search-bar" class="input-field col s12">
                     <i class="fas fa-search prefix"></i>
                     <input type="text" name="query" id="query" class="validate" minlength="3" required>
                     <label for="query">Search by Recipe Name or Ingredients</label>
                 </div>
-                <div class="col s12">
+                <ul class="col s12 collapsible bold">
+                    <li>
+                        <div class="collapsible-header">Advanced Options</div>
+                        <div class="collapsible-body">
+                            <div class="input-field col s12">
+                                <i class="fas fa-birthday-cake prefix"></i>
+                                <select id="category_name" name="category_name" class="validate">
+                                    <option value="" disabled selected></option>
+                                    {% for category in categories %}
+                                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="category_name">Category</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="fas fa-utensils prefix"></i>
+                                <select id="servings" name="servings" class="validate">
+                                    <option value="" disabled selected></option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                </select>
+                                <label for="servings">Servings</label>
+                            </div>
+                            <div class="input-field col s6">
+                                Rating
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="col s12 center-align">
                     <a href="{{ url_for('get_recipes') }}" class="btn-small bold">Reset</a>
                     <button type="submit" class="btn-small bold">
                         <i class="fas fa-search left"></i>
