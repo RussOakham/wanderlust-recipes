@@ -1,33 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="center-align">Categories</h2>
+<!-- Categories Section -->
+<section>
+    <h2 class="center-align">Categories</h2>
 
-{% if session.user|lower == "admin"|lower %}
-<div class="row">
-    <div class="col s12 center-align">
-        <a href="{{ url_for('add_category') }}" class="btn large bold">Add Category <i
-                class="fas fa-plus-square-right"></i></a>
-    </div>
-</div>
-{% endif %}
-
-<div class="row">
-    {% for category in categories %}
-    <div class="col s12 m3">
-        <div class="card box-shadow border-radius box-border center-align">
-            <div class="card-content">
-                <span class="card-title">{{ category.category_name }}</span>
-            </div>
-            {% if session.user|lower == "admin"|lower %}
-            <div class="card-action">
-                <a href="{{ url_for('edit_category', category_id=category._id) }}" class="btn-small bold">Edit</a>
-                <a href="{{ url_for('delete_category', category_id=category._id) }}" class="btn-small bold">Delete</a>
-            </div>
-            {% endif %}
+    {% if session.user|lower == "admin"|lower %}
+    <div class="row">
+        <div class="col s12 center-align">
+            <a href="{{ url_for('add_category') }}" class="btn large bold">Add Category <i
+                    class="fas fa-plus-square-right"></i></a>
         </div>
     </div>
-    {% endfor %}
-</div>
+    {% endif %}
+
+    <div class="row">
+        {% for category in categories %}
+        <div class="col s12 m3">
+            <div class="card box-shadow border-radius box-border center-align">
+                <div class="card-content">
+                    <span class="card-title">{{ category.category_name }}</span>
+                </div>
+                {% if session.user|lower == "admin"|lower %}
+                <div class="card-action">
+                    <a href="{{ url_for('edit_category', category_id=category._id) }}" class="btn-small bold">Edit</a>
+                    <a href="{{ url_for('delete_category', category_id=category._id) }}"
+                        class="btn-small bold">Delete</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
 
 {% endblock %}

@@ -4,6 +4,13 @@ body {
     background-color: #f8f8ff;
     font-family: 'Noto Serif', serif;
     color: #213f61;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 h1,
