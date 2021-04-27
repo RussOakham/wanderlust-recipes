@@ -53,6 +53,13 @@ def search():
                 "value": request.form["category_name"]
             })
 
+        if "servings" in request.form and request.form["servings"]:
+            query["servings"] = request.form["servings"]
+            form_query.append({
+                "key": "servings",
+                "value": request.form["servings"]
+            })
+
     recipes = mongo.db.recipes.find(query)
     categories = mongo.db.categories.find() 
     return render_template("recipes.html", recipes=recipes, categories=categories)
