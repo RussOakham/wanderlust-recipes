@@ -25,14 +25,44 @@ mongo = PyMongo(app)
 def get_recipes():
     recipes = mongo.db.recipes.find()
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("recipes.html", recipes=recipes, categories=categories)
+    return render_template(
+        "recipes.html", recipes=recipes, categories=categories)
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    query = request.form.get("query")
-    recipes = mongo.db.recipes.find({"$text": {"$search": query}})
-    return render_template("recipes.html", recipes=recipes)
+    query = {}
+    form_query = []
+
+    if request.method == "POST":
+        # Construct the search query with {key: value}
+        if "search-text" in request.form and request.form["search-text"]:
+            query["$text"] = {
+                "$search": request.form["search-text"],
+                "$caseSensitive": False,
+            }
+            form_query.append({
+                "key": "search-text",
+                "value": request.form["search-text"]
+            })
+
+        if "category_name" in request.form and request.form["category_name"]:
+            query["category_name"] = request.form["category_name"]
+            form_query.append({
+                "key": "category_name",
+                "value": request.form["category_name"]
+            })
+
+    recipes = mongo.db.recipes.find(query)
+    categories = mongo.db.categories.find() 
+    return render_template("recipes.html", recipes=recipes, categories=categories)
+
+
+# @app.route("/search", methods=["GET", "POST"])
+# def search():
+#     query = request.form.get("query")
+#     recipes = mongo.db.recipes.find({"$text": {"$search": query}})
+#     return render_template("recipes.html", recipes=recipes)
 
 
 @app.route("/recipes/<recipe_title>")
