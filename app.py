@@ -58,13 +58,6 @@ def search():
     return render_template("recipes.html", recipes=recipes, categories=categories)
 
 
-# @app.route("/search", methods=["GET", "POST"])
-# def search():
-#     query = request.form.get("query")
-#     recipes = mongo.db.recipes.find({"$text": {"$search": query}})
-#     return render_template("recipes.html", recipes=recipes)
-
-
 @app.route("/recipes/<recipe_title>")
 def recipe(recipe_title):
     recipe = mongo.db.recipes.find_one({"url": recipe_title})
