@@ -1,0 +1,309 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="center-align">Edit Recipe</h2>
+
+<section class="row">
+    <form class="col s12 box-shadow border-radius box-border" method="POST"
+        action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+        <div class="row">
+            <!-- Recipe Image Upload -->
+            <div class="col s12 l6 new-recipe-img box-shadow border-radius box-border">
+                <img src="/static/images/new-recipe-small.jpg" id="recipe-upload-image" alt="New recipe image">
+                <button id="image_upload_btn" class="btn-small upload-img-btn">Upload Image</button>
+                <input type="hidden" id="image_upload_url" name="image_upload_url"
+                    value="static/images/new-recipe.small.jpg">
+            </div>
+            <div class="col s12 l6">
+                <!-- Recipe Title -->
+                <div class="input-field col s12">
+                    <i class="fas fa-plus prefix"></i>
+                    <input id="recipe_title" name="recipe_title" minlength="5" maxlength="50" type="text"
+                        class="validate" required>
+                    <label for="recipe_title">Recipe Title</label>
+                </div>
+                <!-- Recipe Serving Amount -->
+                <div class="input-field col s6">
+                    <i class="fas fa-utensils prefix"></i>
+                    <select id="servings" name="servings" class="validate" required>
+                        <option value="" disabled selected></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                    <label for="servings">Servings</label>
+                </div>
+                <!-- Recipe Category Choice -->
+                <div class="input-field col s6">
+                    <i class="fas fa-birthday-cake prefix"></i>
+                    <select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose Category</option>
+                        {% for category in categories %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="category_name">Category</label>
+                </div>
+            </div>
+        </div>
+        <!-- Preparation / Cooking Time -->
+        <div class="row">
+            <!-- Recipe Preparation Time -->
+            <div class="col s6">
+                <h6>Prep Time</h6>
+                <div class="input-field col s7">
+                    <i class="fas fa-clock prefix"></i>
+                    <select id="prep_hours" name="prep_hours" required>
+                        <option value="0" selected>0 hours</option>
+                        <option value="1">1 hour</option>
+                        <option value="2">2 hours</option>
+                        <option value="3">3 hours</option>
+                        <option value="4">4 hours</option>
+                        <option value="5">5 hours</option>
+                        <option value="6">6 hours</option>
+                        <option value="7">7 hours</option>
+                        <option value="8">8 hours</option>
+                        <option value="9">9 hours</option>
+                        <option value="10">10 hours</option>
+                        <option value="11">11 hours</option>
+                        <option value="12">12 hours</option>
+                        <option value="13">13 hours</option>
+                        <option value="14">14 hours</option>
+                        <option value="15">15 hours</option>
+                        <option value="16">16 hours</option>
+                        <option value="17">17 hours</option>
+                        <option value="18">18 hours</option>
+                        <option value="19">19 hours</option>
+                        <option value="20">20 hours</option>
+                        <option value="21">21 hours</option>
+                        <option value="22">22 hours</option>
+                        <option value="23">23 hours</option>
+                    </select>
+                    <label for="prep_hours">Hours</label>
+                </div>
+                <div class="input-field col s5">
+                    <select id="prep_minutes" name="prep_minutes" required>
+                        <option value="0" selected>0 mins</option>
+                        <option value="1">1 min</option>
+                        <option value="2">2 mins</option>
+                        <option value="3">3 mins</option>
+                        <option value="4">4 mins</option>
+                        <option value="5">5 mins</option>
+                        <option value="6">6 mins</option>
+                        <option value="7">7 mins</option>
+                        <option value="8">8 mins</option>
+                        <option value="9">9 mins</option>
+                        <option value="10">10 mins</option>
+                        <option value="11">11 mins</option>
+                        <option value="12">12 mins</option>
+                        <option value="13">13 mins</option>
+                        <option value="14">14 mins</option>
+                        <option value="15">15 mins</option>
+                        <option value="16">16 mins</option>
+                        <option value="17">17 mins</option>
+                        <option value="18">18 mins</option>
+                        <option value="19">19 mins</option>
+                        <option value="20">20 mins</option>
+                        <option value="21">21 mins</option>
+                        <option value="22">22 mins</option>
+                        <option value="23">23 mins</option>
+                        <option value="24">24 mins</option>
+                        <option value="25">25 mins</option>
+                        <option value="26">26 mins</option>
+                        <option value="27">27 mins</option>
+                        <option value="28">28 mins</option>
+                        <option value="29">29 mins</option>
+                        <option value="30">30 mins</option>
+                        <option value="31">31 mins</option>
+                        <option value="32">32 mins</option>
+                        <option value="33">33 mins</option>
+                        <option value="34">34 mins</option>
+                        <option value="35">35 mins</option>
+                        <option value="36">36 mins</option>
+                        <option value="37">37 mins</option>
+                        <option value="38">38 mins</option>
+                        <option value="39">39 mins</option>
+                        <option value="40">40 mins</option>
+                        <option value="41">41 mins</option>
+                        <option value="42">42 mins</option>
+                        <option value="43">43 mins</option>
+                        <option value="44">44 mins</option>
+                        <option value="45">45 mins</option>
+                        <option value="46">46 mins</option>
+                        <option value="47">47 mins</option>
+                        <option value="48">48 mins</option>
+                        <option value="49">49 mins</option>
+                        <option value="50">50 mins</option>
+                        <option value="51">51 mins</option>
+                        <option value="52">52 mins</option>
+                        <option value="53">53 mins</option>
+                        <option value="54">54 mins</option>
+                        <option value="55">55 mins</option>
+                        <option value="56">56 mins</option>
+                        <option value="57">57 mins</option>
+                        <option value="58">58 mins</option>
+                        <option value="59">59 mins</option>
+                    </select>
+                    <label for="prep_minutes">Minutes</label>
+                </div>
+            </div>
+            <!-- Recipe Cooking time -->
+            <div class="col s6">
+                <h6>Cooking Time</h6>
+                <div class="input-field col s7">
+                    <i class="fas fa-clock prefix"></i>
+                    <select id="cook_hours" name="cook_hours" required>
+                        <option value="0" selected>0 hours</option>
+                        <option value="1">1 hour</option>
+                        <option value="2">2 hours</option>
+                        <option value="3">3 hours</option>
+                        <option value="4">4 hours</option>
+                        <option value="5">5 hours</option>
+                        <option value="6">6 hours</option>
+                        <option value="7">7 hours</option>
+                        <option value="8">8 hours</option>
+                        <option value="9">9 hours</option>
+                        <option value="10">10 hours</option>
+                        <option value="11">11 hours</option>
+                        <option value="12">12 hours</option>
+                        <option value="13">13 hours</option>
+                        <option value="14">14 hours</option>
+                        <option value="15">15 hours</option>
+                        <option value="16">16 hours</option>
+                        <option value="17">17 hours</option>
+                        <option value="18">18 hours</option>
+                        <option value="19">19 hours</option>
+                        <option value="20">20 hours</option>
+                        <option value="21">21 hours</option>
+                        <option value="22">22 hours</option>
+                        <option value="23">23 hours</option>
+                    </select>
+                    <label for="prep_hours">Hours</label>
+                </div>
+                <div class="input-field col s5">
+                    <select id="cook_minutes" name="cook_minutes" required>
+                        <option value="0" selected>0 mins</option>
+                        <option value="1">1 min</option>
+                        <option value="2">2 mins</option>
+                        <option value="3">3 mins</option>
+                        <option value="4">4 mins</option>
+                        <option value="5">5 mins</option>
+                        <option value="6">6 mins</option>
+                        <option value="7">7 mins</option>
+                        <option value="8">8 mins</option>
+                        <option value="9">9 mins</option>
+                        <option value="10">10 mins</option>
+                        <option value="11">11 mins</option>
+                        <option value="12">12 mins</option>
+                        <option value="13">13 mins</option>
+                        <option value="14">14 mins</option>
+                        <option value="15">15 mins</option>
+                        <option value="16">16 mins</option>
+                        <option value="17">17 mins</option>
+                        <option value="18">18 mins</option>
+                        <option value="19">19 mins</option>
+                        <option value="20">20 mins</option>
+                        <option value="21">21 mins</option>
+                        <option value="22">22 mins</option>
+                        <option value="23">23 mins</option>
+                        <option value="24">24 mins</option>
+                        <option value="25">25 mins</option>
+                        <option value="26">26 mins</option>
+                        <option value="27">27 mins</option>
+                        <option value="28">28 mins</option>
+                        <option value="29">29 mins</option>
+                        <option value="30">30 mins</option>
+                        <option value="31">31 mins</option>
+                        <option value="32">32 mins</option>
+                        <option value="33">33 mins</option>
+                        <option value="34">34 mins</option>
+                        <option value="35">35 mins</option>
+                        <option value="36">36 mins</option>
+                        <option value="37">37 mins</option>
+                        <option value="38">38 mins</option>
+                        <option value="39">39 mins</option>
+                        <option value="40">40 mins</option>
+                        <option value="41">41 mins</option>
+                        <option value="42">42 mins</option>
+                        <option value="43">43 mins</option>
+                        <option value="44">44 mins</option>
+                        <option value="45">45 mins</option>
+                        <option value="46">46 mins</option>
+                        <option value="47">47 mins</option>
+                        <option value="48">48 mins</option>
+                        <option value="49">49 mins</option>
+                        <option value="50">50 mins</option>
+                        <option value="51">51 mins</option>
+                        <option value="52">52 mins</option>
+                        <option value="53">53 mins</option>
+                        <option value="54">54 mins</option>
+                        <option value="55">55 mins</option>
+                        <option value="56">56 mins</option>
+                        <option value="57">57 mins</option>
+                        <option value="58">58 mins</option>
+                        <option value="59">59 mins</option>
+                    </select>
+                    <label for="cook_minutes">Minutes</label>
+                </div>
+            </div>
+        </div>
+        <!-- Recipe Description -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-align-left prefix"></i>
+                <textarea id="recipe_description" name="recipe_description" minlength="5" maxlength="160"
+                    class="materialize-textarea validate" required></textarea>
+                <label for="recipe_description">Description</label>
+            </div>
+        </div>
+        <!-- Recipe Ingredients -->
+        <div class="row">
+            <div class="col s12">
+                <h6>Ingredients</h6>
+            </div>
+            <div class="col s12">
+                <ul id="ingredients" class="collection validate">
+                    <li class="collection-item">
+                        <a class="btn-floating btn-small waves-effect waves-light add-ingredient-list-item"><i
+                                class="fas fa-plus"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Recipe Method Steps -->
+        <div class="row">
+            <div class="col s12">
+                <h6>Method</h6>
+            </div>
+            <div class="col s12">
+                <ul id="method_step" class="collection validate">
+                    <li class="collection-item">
+                        <a class="btn-floating btn-small waves-effect waves-light add-method-step-item"><i
+                                class="fas fa-plus"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large bold">
+                    Edit Recipe <i class="fas fa-edit right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</section>
+
+
+{% endblock %}
+
+{% block scripts %}
+<script src="//widget.cloudinary.com/global/all.js"></script>
+<script src="{{ url_for('static', filename='js/recipe-image-upload.js') }}"></script>
+{% endblock %}
