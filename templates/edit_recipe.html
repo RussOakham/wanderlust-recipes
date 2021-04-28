@@ -12,7 +12,7 @@
                 <img src="{{ recipe.image_upload_url }}" id="recipe-upload-image" alt="New recipe image">
                 <button id="image_upload_btn" class="btn-small upload-img-btn">Upload Image</button>
                 <input type="hidden" id="image_upload_url" name="image_upload_url"
-                    value="static/images/new-recipe.small.jpg">
+                    value="{{ recipe.image_upload_url }}">
             </div>
             <div class="col s12 l6">
                 <!-- Recipe Title -->
@@ -304,7 +304,7 @@
                         </a>
                         <div class="input-field">
                             <textarea name="method_step" class="materialize-textarea" required="" spellcheck="false"
-                                style="height: 43px;">{{ step }}</textarea>
+                                style="height: 43px;">{{- step -}}</textarea>
                             <label for="method_step" class="active">Step Description</label>
                         </div>
                     </li>
