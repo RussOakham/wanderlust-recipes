@@ -9,7 +9,7 @@
         <div class="row">
             <!-- Recipe Image Upload -->
             <div class="col s12 l6 new-recipe-img box-shadow border-radius box-border">
-                <img src="/static/images/new-recipe-small.jpg" id="recipe-upload-image" alt="New recipe image">
+                <img src="{{ recipe.image_upload_url }}" id="recipe-upload-image" alt="New recipe image">
                 <button id="image_upload_btn" class="btn-small upload-img-btn">Upload Image</button>
                 <input type="hidden" id="image_upload_url" name="image_upload_url"
                     value="static/images/new-recipe.small.jpg">
@@ -19,22 +19,22 @@
                 <div class="input-field col s12">
                     <i class="fas fa-plus prefix"></i>
                     <input id="recipe_title" name="recipe_title" minlength="5" maxlength="50" type="text"
-                        class="validate" required>
+                        class="validate" value="{{ recipe.recipe_title }}" required>
                     <label for="recipe_title">Recipe Title</label>
                 </div>
                 <!-- Recipe Serving Amount -->
                 <div class="input-field col s6">
                     <i class="fas fa-utensils prefix"></i>
                     <select id="servings" name="servings" class="validate" required>
-                        <option value="" disabled selected></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
+                        <option value="" disabled></option>
+                        <option value="1" {% if recipe.servings = "1" %} selected {% endif %}>1</option>
+                        <option value="2" {% if recipe.servings = "2" %} selected {% endif %}>2</option>
+                        <option value="3" {% if recipe.servings = "3" %} selected {% endif %}>3</option>
+                        <option value="4" {% if recipe.servings = "4" %} selected {% endif %}>4</option>
+                        <option value="5" {% if recipe.servings = "5" %} selected {% endif %}>5</option>
+                        <option value="6" {% if recipe.servings = "6" %} selected {% endif %}>6</option>
+                        <option value="7" {% if recipe.servings = "7" %} selected {% endif %}>7</option>
+                        <option value="8" {% if recipe.servings = "8" %} selected {% endif %}>8</option>
                     </select>
                     <label for="servings">Servings</label>
                 </div>
@@ -257,7 +257,7 @@
             <div class="input-field col s12">
                 <i class="fas fa-align-left prefix"></i>
                 <textarea id="recipe_description" name="recipe_description" minlength="5" maxlength="160"
-                    class="materialize-textarea validate" required></textarea>
+                    class="materialize-textarea validate" required>{{- recipe.recipe_description -}}</textarea>
                 <label for="recipe_description">Description</label>
             </div>
         </div>
@@ -292,6 +292,9 @@
         <!-- Submit Button -->
         <div class="row">
             <div class="col s12 center-align">
+                <a href="{{ url_for('profile', username=session['user']) }}" class="btn-large bold red lighten-2">
+                    Cancel <i class="fas fa-times-circle right"></i>
+                </a>
                 <button type="submit" class="btn-large bold">
                     Edit Recipe <i class="fas fa-edit right"></i>
                 </button>
