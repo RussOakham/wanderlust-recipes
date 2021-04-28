@@ -25,17 +25,8 @@
                 <!-- Recipe Serving Amount -->
                 <div class="input-field col s6">
                     <i class="fas fa-utensils prefix"></i>
-                    <select id="servings" name="servings" class="validate" required>
-                        <option value="" disabled></option>
-                        <option value="1" {% if recipe.servings == "1" %} selected {% endif %}>1</option>
-                        <option value="2" {% if recipe.servings == "2" %} selected {% endif %}>2</option>
-                        <option value="3" {% if recipe.servings == "3" %} selected {% endif %}>3</option>
-                        <option value="4" {% if recipe.servings == "4" %} selected {% endif %}>4</option>
-                        <option value="5" {% if recipe.servings == "5" %} selected {% endif %}>5</option>
-                        <option value="6" {% if recipe.servings == "6" %} selected {% endif %}>6</option>
-                        <option value="7" {% if recipe.servings == "7" %} selected {% endif %}>7</option>
-                        <option value="8" {% if recipe.servings == "8" %} selected {% endif %}>8</option>
-                    </select>
+                    <input type="number" id="servings" name="servings" class="validate" min="1" max="20"
+                        value="{{ recipe.servings }}">
                     <label for="servings">Servings</label>
                 </div>
                 <!-- Recipe Category Choice -->
@@ -62,97 +53,13 @@
                 <h6>Prep Time</h6>
                 <div class="input-field col s7">
                     <i class="fas fa-clock prefix"></i>
-                    <select id="prep_hours" name="prep_hours" required>
-                        <option value="0" selected>0 hours</option>
-                        <option value="1">1 hour</option>
-                        <option value="2">2 hours</option>
-                        <option value="3">3 hours</option>
-                        <option value="4">4 hours</option>
-                        <option value="5">5 hours</option>
-                        <option value="6">6 hours</option>
-                        <option value="7">7 hours</option>
-                        <option value="8">8 hours</option>
-                        <option value="9">9 hours</option>
-                        <option value="10">10 hours</option>
-                        <option value="11">11 hours</option>
-                        <option value="12">12 hours</option>
-                        <option value="13">13 hours</option>
-                        <option value="14">14 hours</option>
-                        <option value="15">15 hours</option>
-                        <option value="16">16 hours</option>
-                        <option value="17">17 hours</option>
-                        <option value="18">18 hours</option>
-                        <option value="19">19 hours</option>
-                        <option value="20">20 hours</option>
-                        <option value="21">21 hours</option>
-                        <option value="22">22 hours</option>
-                        <option value="23">23 hours</option>
-                    </select>
+                    <input type="number" id="prep_hours" name="prep_hours" class="validate" min="0" max="24"
+                        value="{{ recipe.prep_hours }}" required>
                     <label for="prep_hours">Hours</label>
                 </div>
                 <div class="input-field col s5">
-                    <select id="prep_minutes" name="prep_minutes" required>
-                        <option value="0" selected>0 mins</option>
-                        <option value="1">1 min</option>
-                        <option value="2">2 mins</option>
-                        <option value="3">3 mins</option>
-                        <option value="4">4 mins</option>
-                        <option value="5">5 mins</option>
-                        <option value="6">6 mins</option>
-                        <option value="7">7 mins</option>
-                        <option value="8">8 mins</option>
-                        <option value="9">9 mins</option>
-                        <option value="10">10 mins</option>
-                        <option value="11">11 mins</option>
-                        <option value="12">12 mins</option>
-                        <option value="13">13 mins</option>
-                        <option value="14">14 mins</option>
-                        <option value="15">15 mins</option>
-                        <option value="16">16 mins</option>
-                        <option value="17">17 mins</option>
-                        <option value="18">18 mins</option>
-                        <option value="19">19 mins</option>
-                        <option value="20">20 mins</option>
-                        <option value="21">21 mins</option>
-                        <option value="22">22 mins</option>
-                        <option value="23">23 mins</option>
-                        <option value="24">24 mins</option>
-                        <option value="25">25 mins</option>
-                        <option value="26">26 mins</option>
-                        <option value="27">27 mins</option>
-                        <option value="28">28 mins</option>
-                        <option value="29">29 mins</option>
-                        <option value="30">30 mins</option>
-                        <option value="31">31 mins</option>
-                        <option value="32">32 mins</option>
-                        <option value="33">33 mins</option>
-                        <option value="34">34 mins</option>
-                        <option value="35">35 mins</option>
-                        <option value="36">36 mins</option>
-                        <option value="37">37 mins</option>
-                        <option value="38">38 mins</option>
-                        <option value="39">39 mins</option>
-                        <option value="40">40 mins</option>
-                        <option value="41">41 mins</option>
-                        <option value="42">42 mins</option>
-                        <option value="43">43 mins</option>
-                        <option value="44">44 mins</option>
-                        <option value="45">45 mins</option>
-                        <option value="46">46 mins</option>
-                        <option value="47">47 mins</option>
-                        <option value="48">48 mins</option>
-                        <option value="49">49 mins</option>
-                        <option value="50">50 mins</option>
-                        <option value="51">51 mins</option>
-                        <option value="52">52 mins</option>
-                        <option value="53">53 mins</option>
-                        <option value="54">54 mins</option>
-                        <option value="55">55 mins</option>
-                        <option value="56">56 mins</option>
-                        <option value="57">57 mins</option>
-                        <option value="58">58 mins</option>
-                        <option value="59">59 mins</option>
-                    </select>
+                    <input type="number" id="prep_minutes" name="prep_minutes" class="validate" min="0" max="59"
+                        value="{{ recipe.prep_minutes }}" required>
                     <label for="prep_minutes">Minutes</label>
                 </div>
             </div>
@@ -161,97 +68,13 @@
                 <h6>Cooking Time</h6>
                 <div class="input-field col s7">
                     <i class="fas fa-clock prefix"></i>
-                    <select id="cook_hours" name="cook_hours" required>
-                        <option value="0" selected>0 hours</option>
-                        <option value="1">1 hour</option>
-                        <option value="2">2 hours</option>
-                        <option value="3">3 hours</option>
-                        <option value="4">4 hours</option>
-                        <option value="5">5 hours</option>
-                        <option value="6">6 hours</option>
-                        <option value="7">7 hours</option>
-                        <option value="8">8 hours</option>
-                        <option value="9">9 hours</option>
-                        <option value="10">10 hours</option>
-                        <option value="11">11 hours</option>
-                        <option value="12">12 hours</option>
-                        <option value="13">13 hours</option>
-                        <option value="14">14 hours</option>
-                        <option value="15">15 hours</option>
-                        <option value="16">16 hours</option>
-                        <option value="17">17 hours</option>
-                        <option value="18">18 hours</option>
-                        <option value="19">19 hours</option>
-                        <option value="20">20 hours</option>
-                        <option value="21">21 hours</option>
-                        <option value="22">22 hours</option>
-                        <option value="23">23 hours</option>
-                    </select>
-                    <label for="prep_hours">Hours</label>
+                    <input type="number" id="cook_hours" name="cook_hours" class="validate" min="0" max="24"
+                        value="{{ recipe.cook_hours }}" required>
+                    <label for="cook_hours">Hours</label>
                 </div>
                 <div class="input-field col s5">
-                    <select id="cook_minutes" name="cook_minutes" required>
-                        <option value="0" selected>0 mins</option>
-                        <option value="1">1 min</option>
-                        <option value="2">2 mins</option>
-                        <option value="3">3 mins</option>
-                        <option value="4">4 mins</option>
-                        <option value="5">5 mins</option>
-                        <option value="6">6 mins</option>
-                        <option value="7">7 mins</option>
-                        <option value="8">8 mins</option>
-                        <option value="9">9 mins</option>
-                        <option value="10">10 mins</option>
-                        <option value="11">11 mins</option>
-                        <option value="12">12 mins</option>
-                        <option value="13">13 mins</option>
-                        <option value="14">14 mins</option>
-                        <option value="15">15 mins</option>
-                        <option value="16">16 mins</option>
-                        <option value="17">17 mins</option>
-                        <option value="18">18 mins</option>
-                        <option value="19">19 mins</option>
-                        <option value="20">20 mins</option>
-                        <option value="21">21 mins</option>
-                        <option value="22">22 mins</option>
-                        <option value="23">23 mins</option>
-                        <option value="24">24 mins</option>
-                        <option value="25">25 mins</option>
-                        <option value="26">26 mins</option>
-                        <option value="27">27 mins</option>
-                        <option value="28">28 mins</option>
-                        <option value="29">29 mins</option>
-                        <option value="30">30 mins</option>
-                        <option value="31">31 mins</option>
-                        <option value="32">32 mins</option>
-                        <option value="33">33 mins</option>
-                        <option value="34">34 mins</option>
-                        <option value="35">35 mins</option>
-                        <option value="36">36 mins</option>
-                        <option value="37">37 mins</option>
-                        <option value="38">38 mins</option>
-                        <option value="39">39 mins</option>
-                        <option value="40">40 mins</option>
-                        <option value="41">41 mins</option>
-                        <option value="42">42 mins</option>
-                        <option value="43">43 mins</option>
-                        <option value="44">44 mins</option>
-                        <option value="45">45 mins</option>
-                        <option value="46">46 mins</option>
-                        <option value="47">47 mins</option>
-                        <option value="48">48 mins</option>
-                        <option value="49">49 mins</option>
-                        <option value="50">50 mins</option>
-                        <option value="51">51 mins</option>
-                        <option value="52">52 mins</option>
-                        <option value="53">53 mins</option>
-                        <option value="54">54 mins</option>
-                        <option value="55">55 mins</option>
-                        <option value="56">56 mins</option>
-                        <option value="57">57 mins</option>
-                        <option value="58">58 mins</option>
-                        <option value="59">59 mins</option>
-                    </select>
+                    <input type="number" id="cook_minutes" name="cook_minutes" class="validate" min="0" max="59"
+                        value="{{ recipe.cook_minutes }}" required>
                     <label for="cook_minutes">Minutes</label>
                 </div>
             </div>
@@ -275,7 +98,8 @@
                     {% for ingredient in recipe.ingredients %}
                     <li class="collection-item">
                         <div class="input-field">
-                            <input name="ingredients" type="text" maxlength="100" required="" value="{{ ingredient }}">
+                            <input id="ingredients" name="ingredients" type="text" maxlength="100" required=""
+                                value="{{ ingredient }}">
                             <label for="ingredients" class="active">Ingredient</label>
                         </div>
                         <a class="remove-list-item">
@@ -296,7 +120,7 @@
                 <h6>Method</h6>
             </div>
             <div class="col s12">
-                <ul id="method_step" class="collection validate">
+                <ul id="method_step" name="method_step" class="collection validate">
                     {% for step in recipe.method_step %}
                     <li class="collection-item">
                         <a class="remove-list-item">
