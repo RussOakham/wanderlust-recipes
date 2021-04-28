@@ -170,7 +170,7 @@ def add_recipe():
             "recipe_description": request.form.get("recipe_description"),
             "ingredients": request.form.getlist("ingredients"),
             "method_step": request.form.getlist("method_step"),
-            "created_by": session["user"]
+            "created_by": session["user"],
         }
         mongo.db.recipes.insert_one(new_recipe)
         flash("Recipe Submitted!")
