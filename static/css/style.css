@@ -209,6 +209,10 @@ nav .brand-logo i.material-icons {
     margin-bottom: 0px;
 }
 
+.input-field>label {
+    pointer-events: none;
+}
+
 .collapsible {
     box-shadow: 0 0 0 0;
     border: none;
