@@ -59,9 +59,15 @@ $(document).ready(function () {
     }
 });
 
+// Toggle 'favourite' fontawesome icon class on toggle
 $('#recipe_favourite').on('click', function (event) {
     $(this).find('i').toggleClass('far fas')
-})
+});
+
+// Submit 'favourite' form when icon is toggled
+$('#recipe_favourite').on('click', function (event) {
+    $('#recipe_favourite_checked').submit()
+});
 
 // Add list item to ingredients list when '+' button hit
 // https://stackoverflow.com/questions/53400879/how-to-add-new-item-to-materialize-css-collection
