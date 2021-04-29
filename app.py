@@ -24,8 +24,9 @@ mongo = PyMongo(app)
 @app.route("/recipes")
 def get_recipes():
     recipes = mongo.db.recipes.find().sort("created_on", -1)
+    categories = mongo.db.categories.find().sort("category_title", 1)
     return render_template(
-        "recipes.html", recipes=recipes)
+        "recipes.html", recipes=recipes, categories=categories)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -172,7 +173,8 @@ def add_recipe():
             "ingredients": request.form.getlist("ingredients"),
             "method_step": request.form.getlist("method_step"),
             "created_by": session["user"],
-            "created_on": request.form.get("created_on")
+            "created_on": request.form.get("created_on"),
+            "url": request.form.get("recipe_title").replace(' ', '-').lower()
         }
         mongo.db.recipes.insert_one(new_recipe)
         flash("Recipe Submitted!")
@@ -198,7 +200,8 @@ def edit_recipe(recipe_id):
             "ingredients": request.form.getlist("ingredients"),
             "method_step": request.form.getlist("method_step"),
             "created_by": session["user"],
-            "created_on": request.form.get("created_on")
+            "created_on": request.form.get("created_on"),
+            "url": request.form.get("recipe_title").replace(' ', '-').lower()
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update_recipe)
         flash("Recipe Updated!")
