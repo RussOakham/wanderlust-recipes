@@ -11,6 +11,7 @@ $(document).ready(function () {
         onShow: resizeTab
     });
     $('.collapsible').collapsible();
+    $('.fixed-action-btn').floatingActionButton();
     $(window).resize(function () {
         resizeTab();
     });
@@ -57,6 +58,10 @@ $(document).ready(function () {
         });
     }
 });
+
+$('#recipe_favourite').on('click', function (event) {
+    $(this).find('i').toggleClass('far fas')
+})
 
 // Add list item to ingredients list when '+' button hit
 // https://stackoverflow.com/questions/53400879/how-to-add-new-item-to-materialize-css-collection

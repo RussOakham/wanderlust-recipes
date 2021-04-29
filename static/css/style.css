@@ -281,6 +281,10 @@ nav .brand-logo i.material-icons {
     overflow: hidden;
 }
 
+.img-no-padding {
+    padding: 0 !important;
+}
+
 .recipe-img-container::after {
     display: block;
     padding-bottom: 100%;
@@ -321,6 +325,16 @@ nav .brand-logo i.material-icons {
     top: 5px;
     right: 10px;
     cursor: pointer;
+}
+
+#recipe-overview {
+    position: relative;
+}
+
+#recipe-favourite {
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
 
 .recipe-header {

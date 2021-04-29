@@ -4,7 +4,15 @@
 
 <section id="recipe-overview">
     <div class="row recipe-header box-shadow border-radius box-border center-align">
-        <div class="col l6 s12">
+        <div id="recipe-favourite">
+            <form action="" method="POST" id="recipe_favourite">
+                <input type="checkbox" id="recipe_favourite" name="recipe_favourite">
+                <label for="recipe_favourite" class="btn-floating btn-large waves-effect waves-light teal accent-4">
+                    <i class="far fa-heart"></i>
+                </label>
+            </form>
+        </div>
+        <div class="col l6 s12 img-no-padding">
             <img src="{{ recipe.image_upload_url }}" alt="{{ recipe.recipe_title }}" class="recipe-header-img">
         </div>
         <div class="col l6 s12 bold">
