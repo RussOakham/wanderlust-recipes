@@ -18,7 +18,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-plus prefix"></i>
                     <input id="recipe_title" name="recipe_title" minlength="5" maxlength="50" type="text"
-                        class="validate" required>
+                        pattern="^[a-zA-Z0-9 ]*{5,50}$" class="validate" required>
                     <label for="recipe_title">Recipe Title</label>
                 </div>
                 <!-- Recipe Serving Amount -->
