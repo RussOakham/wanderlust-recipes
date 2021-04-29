@@ -4,6 +4,7 @@
 
 <section id="recipe-overview">
     <div class="row recipe-header box-shadow border-radius box-border center-align">
+        {% if session.user %}
         <div id="recipe-favourite">
             <form action="" method="POST" id="recipe_favourite_checked">
                 <input type="checkbox" id="recipe_favourite" name="recipe_favourite">
@@ -12,6 +13,7 @@
                 </label>
             </form>
         </div>
+        {% endif %}
         <div class="col l6 s12 img-no-padding">
             <img src="{{ recipe.image_upload_url }}" alt="{{ recipe.recipe_title }}" class="recipe-header-img">
         </div>
