@@ -23,10 +23,9 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/recipes")
 def get_recipes():
-    recipes = mongo.db.recipes.find()
-    categories = mongo.db.categories.find().sort("category_name", 1)
+    recipes = mongo.db.recipes.find().sort("created_on", -1)
     return render_template(
-        "recipes.html", recipes=recipes, categories=categories)
+        "recipes.html", recipes=recipes)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -62,7 +61,8 @@ def search():
 
     recipes = mongo.db.recipes.find(query)
     categories = mongo.db.categories.find()
-    return render_template("recipes.html", recipes=recipes, categories=categories)
+    return render_template(
+        "recipes.html", recipes=recipes, categories=categories)
 
 
 @app.route("/recipes/<recipe_title>")
@@ -134,13 +134,14 @@ def profile(username):
         # If truthy
 
         if username == "admin":
-            recipes = list(mongo.db.recipes.find())
+            recipes = list(mongo.db.recipes.find().sort("created_on", -1))
             return render_template(
                 "profile.html", username=username, recipes=recipes)
 
         # Retrieve recipes from db added by user
         else:
-            recipes = list(mongo.db.recipes.find({"created_by": username}))
+            recipes = list(mongo.db.recipes.find(
+                {"created_by": username}).sort("created_on", -1))
             return render_template(
                 "profile.html", username=username, recipes=recipes)
 
@@ -171,6 +172,7 @@ def add_recipe():
             "ingredients": request.form.getlist("ingredients"),
             "method_step": request.form.getlist("method_step"),
             "created_by": session["user"],
+            "created_on": request.form.get("created_on")
         }
         mongo.db.recipes.insert_one(new_recipe)
         flash("Recipe Submitted!")
@@ -195,7 +197,8 @@ def edit_recipe(recipe_id):
             "recipe_description": request.form.get("recipe_description"),
             "ingredients": request.form.getlist("ingredients"),
             "method_step": request.form.getlist("method_step"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "created_on": request.form.get("created_on")
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update_recipe)
         flash("Recipe Updated!")

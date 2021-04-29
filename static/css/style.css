@@ -381,6 +381,10 @@ nav .brand-logo i.material-icons {
     height: auto !important;
 }
 
+.hidden {
+    display: none;
+}
+
 /* Responsive Media Queries */
 @media (max-width: 800px) {
     .recipe-summary {

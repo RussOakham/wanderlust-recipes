@@ -11,7 +11,7 @@
                 <img src="/static/images/new-recipe-small.jpg" id="recipe-upload-image" alt="New recipe image">
                 <button id="image_upload_btn" class="btn-small upload-img-btn">Upload Image</button>
                 <input type="hidden" id="image_upload_url" name="image_upload_url"
-                    value="static/images/new-recipe.small.jpg">
+                    value="/static/images/new-recipe.small.jpg">
             </div>
             <div class="col s12 l6">
                 <!-- Recipe Title -->
@@ -47,7 +47,7 @@
                 <h6>Prep Time</h6>
                 <div class="input-field col s7">
                     <i class="fas fa-clock prefix"></i>
-                    <input type="number" id="prep_hours" name="prep_hours" class="validate" min="0" max="24" required>
+                    <input type="number" id="prep_hours" name="prep_hours" class="validate" min="0" max="24">
                     <label for="prep_hours">Hours</label>
                 </div>
                 <div class="input-field col s5">
@@ -61,7 +61,7 @@
                 <h6>Cooking Time</h6>
                 <div class="input-field col s7">
                     <i class="fas fa-clock prefix"></i>
-                    <input type="number" id="cook_hours" name="cook_hours" class="validate" min="0" max="24" required>
+                    <input type="number" id="cook_hours" name="cook_hours" class="validate" min="0" max="24">
                     <label for="cook_hours">Hours</label>
                 </div>
                 <div class="input-field col s5">
@@ -108,6 +108,7 @@
                 </ul>
             </div>
         </div>
+        <!-- Created On Timestamp -->
         <div class="hidden">
             <input type="text" id="created_on" name="created_on">
             <label for="created_on"></label>
@@ -129,4 +130,5 @@
 {% block scripts %}
 <script src="//widget.cloudinary.com/global/all.js"></script>
 <script src="{{ url_for('static', filename='js/recipe-image-upload.js') }}"></script>
+<script src="{{ url_for('static', filename='js/created-on-timestamp.js') }}"></script>
 {% endblock %}
