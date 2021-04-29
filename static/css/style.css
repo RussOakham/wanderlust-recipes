@@ -253,8 +253,27 @@ nav .brand-logo i.material-icons {
     font-weight: bold;
 }
 
-.card-action {
+.card .card-image .card-title {
+    font-weight: bold;
+    color: #ffffff;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.card .card-title {
+    font-size: 30px;
+}
+
+.card .card-action {
     padding: 8px;
+}
+
+.card .card-image img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    -o-object-fit: cover;
+    object-fit: cover;
 }
 
 .recipe-img-container {

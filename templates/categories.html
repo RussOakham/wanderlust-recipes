@@ -18,7 +18,8 @@
         {% for category in categories %}
         <div class="col s12 m3">
             <div class="card box-shadow border-radius box-border center-align">
-                <div class="card-content">
+                <div class="card-image">
+                    <img src="{{ category.image_upload_url }}" alt="">
                     <span class="card-title">{{ category.category_name }}</span>
                 </div>
                 {% if session.user|lower == "admin"|lower %}
