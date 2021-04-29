@@ -14,6 +14,13 @@
                     value="{{ category.category_name }}" class="validate" required>
                 <label for="category_name">Category Name</label>
             </div>
+            <!-- Category Image Upload -->
+            <div class="col s10 offset-s1 new-recipe-img box-shadow border-radius box-border">
+                <img src="{{ category.image_upload_url }}" id="recipe-upload-image" alt="New recipe image">
+                <button id="image_upload_btn" class="btn-small upload-img-btn">Upload Image</button>
+                <input type="hidden" id="image_upload_url" name="image_upload_url"
+                    value="{{ category.image_upload_url }}">
+            </div>
         </div>
         <!-- Submit Button -->
         <div class="row">
@@ -30,4 +37,9 @@
 </section>
 
 
+{% endblock %}
+
+{% block scripts %}
+<script src="//widget.cloudinary.com/global/all.js"></script>
+<script src="{{ url_for('static', filename='js/recipe-image-upload.js') }}"></script>
 {% endblock %}
