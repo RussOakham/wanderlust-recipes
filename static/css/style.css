@@ -331,7 +331,7 @@ nav .brand-logo i.material-icons {
     position: relative;
 }
 
-#recipe-favourite {
+#recipe-favorite-div {
     position: absolute;
     top: 5px;
     right: 5px;

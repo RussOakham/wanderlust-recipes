@@ -85,7 +85,8 @@ def register():
             return redirect(url_for("register"))
 
         # Ensure Password matches Confirm Password
-        if request.form.get('password') != request.form.get('password-confirm'):
+        if request.form.get(
+             'password') != request.form.get('password-confirm'):
             flash("Passwords do not match")
             return redirect(url_for('register'))
 
@@ -277,6 +278,40 @@ def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("get_categories"))
+
+
+@app.route("/ajax_recipe_favorite", methods=['POST'])
+def ajax_recipe_favorite():
+    # Ajax request from favorite checkbox toggle to update database
+    favorite = ('recipe_favorite' in request.json)
+    response = {
+        "success": True,
+        "flash": None,
+        "response": favorite
+    }
+
+    # Check if user has already favorited recipe
+    existing_interaction = mongo.db.rating.find_one({
+        "user_id": ObjectId(session['userid']),
+        "recipe_id": ObjectId(request.json['recipeid'])
+    })
+
+    # Update existing interaction
+    if existing_interaction:
+        mongo.db.rating.update_one(
+            {"_id": existing_interaction['_id']}, {
+                '$set': {"favorite": favorite}})
+
+    else:
+        # Create new interaction
+        interaction = {
+            "user_id": ObjectId(session['userid']),
+            "recipe_id": ObjectId(request.json['recipeid']),
+            "favorite": favorite
+        }
+        mongo.db.rating.insert_one(interaction)
+
+    return response
 
 
 if __name__ == "__main__":

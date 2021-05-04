@@ -5,14 +5,12 @@
 <section id="recipe-overview">
     <div class="row recipe-header box-shadow border-radius box-border center-align">
         {% if session.user %}
-        <div id="recipe-favourite">
-            <form action="" method="POST" id="recipe_favourite_checkbox">
-                <input type="hidden" name="recipeid" value="{{ recipe._id }}">
-                <label for="recipe_favourite" data-path="url_for('ajax_recipe_favorite')"
-                    class="btn-floating btn-large waves-effect waves-light teal accent-4">
-
-                    <input type="checkbox" id="recipe_favourite" name="recipe_favourite">
-
+        <div id="recipe-favorite-div">
+            <form action="{{ url_for('ajax_recipe_favorite') }}" method="POST" id="recipe_favorite_form">
+                <input type="hidden" id="recipeid" name="recipeid" value="{{ recipe._id }}">
+                <label for="recipe_favorite" data-path="url_for('ajax_recipe_favorite')"
+                    class="btn-floating btn-large teal accent-4">
+                    <input type="checkbox" id="recipe_favorite" name="recipe_favorite">
                     <i class="far fa-heart"></i>
                 </label>
             </form>

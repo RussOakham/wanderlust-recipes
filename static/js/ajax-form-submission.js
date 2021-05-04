@@ -1,14 +1,22 @@
 // General function for submitting forms via AJAX
 
 // Toggle 'favourite' fontawesome icon class on toggle
-$('#recipe_favourite').on('click', function (event) {
-    $(this).find('i').toggleClass('far fas')
+$('#recipe_favorite').on('click', function (event) {
+    $('.fa-heart').toggleClass('far fas')
 });
 
-// Submit 'favourite' form when icon is toggled
-$('#recipe_favourite').on('click', function (event) {
-    $('#recipe_favourite_checkbox').submit()
+// Submit 'favourite' form to server via AJAX
+$('#recipe_favorite_form').submit(function (event) {
+    event.preventDefault();
+    submitFormAJAX(event, null);
+    console.log('sucks')
 });
+
+// Binds favorite form submit to favorite checkbox toggle change event
+$('#recipe_favorite').on('click', function (event) {
+    $('#recipe_favorite_form').submit();
+    console.log('this')
+})
 
 function submitFormAJAX(event, callbackSuccess) {
     // Get form data
