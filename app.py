@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from user_management import user_logged_in, log_user_in, log_user_out
 if os.path.exists("env.py"):
     import env
 
@@ -104,10 +105,10 @@ def login():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            # Truthy - ensure hased password matches user input.
+            # Truthy - ensure hashed password matches user input.
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("username").lower()
+                 existing_user["password"], request.form.get("password")):
+                log_user_in(existing_user)
                 flash("Welcome, {}".format(
                     request.form.get("username")))
                 return redirect(url_for(
@@ -129,12 +130,14 @@ def login():
 def profile(username):
     # grab the session user's username from the db
     username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+        {"username": username})["username"]
+    role = mongo.db.users.find_one(
+        {"username": username})["role"]
 
-    if session["user"]:
+    if username:
         # If truthy
 
-        if username == "admin":
+        if role == "admin":
             recipes = list(mongo.db.recipes.find().sort("created_on", -1))
             return render_template(
                 "profile.html", username=username, recipes=recipes)
@@ -153,7 +156,7 @@ def profile(username):
 def logout():
     # remove user from session cookies
     flash("You have been logged out")
-    session.pop("user")
+    log_user_out()
     return redirect(url_for("login"))
 
 
