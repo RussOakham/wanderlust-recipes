@@ -17,8 +17,20 @@
         <div class="input-field col s12">
             <i class="fas fa-lock prefix"></i>
             <input id="password" name="password" type="password" minlength="5" maxlength="15"
-                pattern="^[a-zA-Z0-9]{5,15}$" class="validate" pattern="^[a-zA-Z0-9]{5,15}$" required>
-            <label for="password">Password</label>
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{5,25}" required>
+            <label for="password">Confirm Password</label>
+            <span class="helper-text" data-success="Password OK"
+                data-error="Password must contain at least 5 characters and include one capital letter and one number">
+                Password must contain at least 5 characters and include one capital letter and one number
+            </span>
+        </div>
+        <div class="input-field col s12">
+            <i class="fas fa-lock prefix"></i>
+            <input id="password-confirm" name="password-confirm" type="password" minlength="5" maxlength="15"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{5,25}" required>
+            <label for="password-confirm">Password</label>
+            <span class="helper-text" data-success="Passwords Match" data-error="Passwords do not match">
+            </span>
         </div>
         <!-- Register Button -->
         <div class="row">
