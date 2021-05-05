@@ -160,15 +160,14 @@ def login():
 @app.route("/login/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from the db
-    username = mongo.db.users.find_one(
-        {"username": username})["username"]
-    role = mongo.db.users.find_one(
-        {"username": username})["role"]
+    user = mongo.db.users.find_one(
+        {"username": username}
+    )
 
-    if username:
+    if user:
         # If truthy
 
-        if role == "admin":
+        if user['role'] == "admin":
             # If user role = admin, return all recipes
             recipes = list(mongo.db.recipes.find().sort("created_on", -1))
 
@@ -178,7 +177,7 @@ def profile(username):
                 {"created_by": username}).sort("created_on", -1))
             # Retrieve recipes favorited by user
             favorites = list(mongo.db.rating.aggregate([
-                {"$match": {"user_id": username['_id'], 'favorite': True}},
+                {"$match": {"user_id": user['_id'], 'favorite': True}},
                 {
                     "$lookup": {
                         "from": "recipes",
