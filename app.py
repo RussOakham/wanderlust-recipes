@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, abort)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -71,7 +71,7 @@ def search():
 def recipe(recipe_title):
     recipe = mongo.db.recipes.find_one({"url": recipe_title})
 
-    if recipe: # Valid recipe found
+    if recipe:  # Valid recipe found
         # create interaction array
         interaction = {}
         if user_logged_in():
@@ -169,16 +169,31 @@ def profile(username):
         # If truthy
 
         if role == "admin":
+            # If user role = admin, return all recipes
             recipes = list(mongo.db.recipes.find().sort("created_on", -1))
-            return render_template(
-                "profile.html", username=username, recipes=recipes)
 
-        # Retrieve recipes from db added by user
         else:
+            # Retrieve recipes from db added by user
             recipes = list(mongo.db.recipes.find(
                 {"created_by": username}).sort("created_on", -1))
-            return render_template(
-                "profile.html", username=username, recipes=recipes)
+            # Retrieve recipes favorited by user
+            favorites = list(mongo.db.rating.aggregate([
+                {"$match": {"user_id": username['_id'], 'favorite': True}},
+                {
+                    "$lookup": {
+                        "from": "recipes",
+                        "localField": "recipe_id",
+                        "foreignField": "_id",
+                        "as": "favorites"
+                    }
+                },
+                {"$unwind": "$favorites"},
+                {"$replaceRoot": {"newRoot": "$favorites"}}
+            ]))
+
+        return render_template(
+                "profile.html", username=username,
+                recipes=recipes, favorites=favorites)
 
     return redirect(url_for("login"))
 
