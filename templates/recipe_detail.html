@@ -16,7 +16,7 @@
                 <label id="recipe_favorite" data-path="url_for('ajax_favorite')"
                     class="btn-floating btn-large btn-plum waves-effect waves-light teal accent-4">
 
-                    <input name="favorite" type="checkbox" />
+                    <input name="favorite" type="checkbox" {{ 'checked' if interaction.favorite }} />
                     <i class="material-icons"></i>
                 </label>
             </form>

@@ -70,7 +70,26 @@ def search():
 @app.route("/recipes/<recipe_title>")
 def recipe(recipe_title):
     recipe = mongo.db.recipes.find_one({"url": recipe_title})
-    return render_template("recipe_detail.html", recipe=recipe)
+
+    if recipe: # Valid recipe found
+        # create interaction array
+        interaction = {}
+        if user_logged_in():
+            # If user logged in, populate interaction array with historic info
+            interaction = mongo.db.rating.find_one({
+                "user_id": ObjectId(session['userid']),
+                "recipe_id": recipe['_id']
+            })
+        # If no user historic info, populate with zero values
+        if not interaction:
+            interaction = {
+                "favorite": False,
+            }
+
+        return render_template(
+            "recipe_detail.html", recipe=recipe, interaction=interaction)
+
+    return abort(404)
 
 
 @app.route("/register", methods=["GET", "POST"])
