@@ -369,6 +369,19 @@ nav .brand-logo i.material-icons {
     font-size: large;
 }
 
+#star-rating {
+    display: inline-flex;
+    margin: 0;
+}
+
+.star>i {
+    font-size: 3rem !important;
+}
+
+.star-on {
+    color: goldenrod;
+}
+
 .font-large {
     font-size: large;
 }
