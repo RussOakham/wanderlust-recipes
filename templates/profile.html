@@ -22,39 +22,41 @@
             {% if favorite|length > 0 %}
 
             <div class="row">
-                <div class="recipe-panel box-shadow border-radius box-border center-align">
-                    <div class="col m4 s12 recipe-img-container">
-                        <img src="{{ favorite.image_upload_url }}" class="recipe-image"
-                            alt="{{ favorite.recipe_title }}">
-                    </div>
-                    <div class="col m8 s12">
-                        <h3 class="recipe-title-link"><a
-                                href="/recipes/{{ favorite.url }}">{{ favorite.recipe_title }}</a>
-                        </h3>
-                        <p>{{ favorite.recipe_description }}</p>
-                        <p><em>by: {{ favorite.created_by|capitalize }}</em></p>
-                        <div class="recipe-info">
-                            <div class="col m4 s12 bold">
-                                <h6><i class="fas fa-utensils"></i> Serves:</h6>
-                                <p>{{ favorite.servings }}</p>
-                            </div>
-                            <div class="col m4 s12 bold">
-                                <h6>Rating:</h6>
-                                <ul class="recipe-rating-home">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </ul>
-                            </div>
-                            <div class="col m4 s12 bold">
-                                <h6><i class="fas fa-clock"></i> Time:</h6>
-                                <p>
-                                    Prep: {{ favorite.prep_minutes }} mins
-                                    <br>
-                                    Cook: {{ favorite.cook_minutes }} mins
-                                </p>
+                <div class="col">
+                    <div class="recipe-panel box-shadow border-radius box-border center-align">
+                        <div class="col m4 s12 recipe-img-container">
+                            <img src="{{ favorite.image_upload_url }}" class="recipe-image"
+                                alt="{{ favorite.recipe_title }}">
+                        </div>
+                        <div class="col m8 s12">
+                            <h3 class="recipe-title-link"><a
+                                    href="/recipes/{{ favorite.url }}">{{ favorite.recipe_title }}</a>
+                            </h3>
+                            <p>{{ favorite.recipe_description }}</p>
+                            <p><em>by: {{ favorite.created_by|capitalize }}</em></p>
+                            <div class="recipe-info">
+                                <div class="col m4 s12 bold">
+                                    <h6><i class="fas fa-utensils"></i> Serves:</h6>
+                                    <p>{{ favorite.servings }}</p>
+                                </div>
+                                <div class="col m4 s12 bold">
+                                    <h6>Rating:</h6>
+                                    <ul class="recipe-rating-home">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </ul>
+                                </div>
+                                <div class="col m4 s12 bold">
+                                    <h6><i class="fas fa-clock"></i> Time:</h6>
+                                    <p>
+                                        Prep: {{ favorite.prep_minutes }} mins
+                                        <br>
+                                        Cook: {{ favorite.cook_minutes }} mins
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -85,45 +87,49 @@
             {% if recipe|length > 0 %}
 
             <div class="row">
-                <div class="recipe-panel box-shadow border-radius box-border center-align">
-                    <div class="col m4 s12 recipe-img-container">
-                        <img src="{{ recipe.image_upload_url }}" class="recipe-image" alt="{{ recipe.recipe_title }}">
-                    </div>
-                    <div class="col m8 s12">
-                        <h3 class="recipe-title-link"><a href="/recipes/{{ recipe.url }}">{{ recipe.recipe_title }}</a>
-                        </h3>
-                        <p>{{ recipe.recipe_description }}</p>
-                        <p><em>by: {{ recipe.created_by|capitalize }}</em></p>
-                        <div class="recipe-info">
-                            <div class="col m4 s12 bold">
-                                <h6><i class="fas fa-utensils"></i> Serves:</h6>
-                                <p>{{ recipe.servings }}</p>
-                            </div>
-                            <div class="col m4 s12 bold">
-                                <h6>Rating:</h6>
-                                <ul class="recipe-rating-home">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </ul>
-                            </div>
-                            <div class="col m4 s12 bold">
-                                <h6><i class="fas fa-clock"></i> Time:</h6>
-                                <p>
-                                    Prep: {{ recipe.prep_minutes }} mins
-                                    <br>
-                                    Cook: {{ recipe.cook_minutes }} mins
-                                </p>
+                <div class="col">
+                    <div class="recipe-panel box-shadow border-radius box-border center-align">
+                        <div class="col m4 s12 recipe-img-container">
+                            <img src="{{ recipe.image_upload_url }}" class="recipe-image"
+                                alt="{{ recipe.recipe_title }}">
+                        </div>
+                        <div class="col m8 s12">
+                            <h3 class="recipe-title-link"><a
+                                    href="/recipes/{{ recipe.url }}">{{ recipe.recipe_title }}</a>
+                            </h3>
+                            <p>{{ recipe.recipe_description }}</p>
+                            <p><em>by: {{ recipe.created_by|capitalize }}</em></p>
+                            <div class="recipe-info">
+                                <div class="col m4 s12 bold">
+                                    <h6><i class="fas fa-utensils"></i> Serves:</h6>
+                                    <p>{{ recipe.servings }}</p>
+                                </div>
+                                <div class="col m4 s12 bold">
+                                    <h6>Rating:</h6>
+                                    <ul class="recipe-rating-home">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </ul>
+                                </div>
+                                <div class="col m4 s12 bold">
+                                    <h6><i class="fas fa-clock"></i> Time:</h6>
+                                    <p>
+                                        Prep: {{ recipe.prep_minutes }} mins
+                                        <br>
+                                        Cook: {{ recipe.cook_minutes }} mins
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col s12 center-align">
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small bold">Edit</a>
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
-                        class="btn-small bold red lighten-2">Delete</a>
+                    <div class="col s12 center-align">
+                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small bold">Edit</a>
+                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
+                            class="btn-small bold red lighten-2">Delete</a>
+                    </div>
                 </div>
             </div>
 
