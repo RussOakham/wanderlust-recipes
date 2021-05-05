@@ -337,6 +337,14 @@ nav .brand-logo i.material-icons {
     right: 5px;
 }
 
+#recipe_favorite>input[type="checkbox"]~.material-icons::after {
+    content: "favorite_border";
+}
+
+#recipe_favorite>input[type="checkbox"]:checked~.material-icons::after {
+    content: "favorite";
+}
+
 .recipe-header {
     background-color: #fff;
 }

@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block styles %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
 
 <section id="recipe-overview">
@@ -7,11 +11,13 @@
         {% if session.user %}
         <div id="recipe-favorite-div">
             <form action="{{ url_for('ajax_recipe_favorite') }}" method="POST" id="recipe_favorite_form">
-                <input type="hidden" id="recipeid" name="recipeid" value="{{ recipe._id }}">
-                <label for="recipe_favorite" data-path="url_for('ajax_recipe_favorite')"
-                    class="btn-floating btn-large teal accent-4">
-                    <input type="checkbox" id="recipe_favorite" name="recipe_favorite">
-                    <i class="far fa-heart"></i>
+                <input name="recipeId" type="hidden" value="{{ recipe._id }}">
+
+                <label id="recipe_favorite" data-path="url_for('ajax_favorite')"
+                    class="btn-floating btn-large btn-plum waves-effect waves-light teal accent-4">
+
+                    <input name="favorite" type="checkbox" />
+                    <i class="material-icons"></i>
                 </label>
             </form>
         </div>

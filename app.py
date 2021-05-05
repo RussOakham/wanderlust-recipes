@@ -283,7 +283,7 @@ def delete_category(category_id):
 @app.route("/ajax_recipe_favorite", methods=['POST'])
 def ajax_recipe_favorite():
     # Ajax request from favorite checkbox toggle to update database
-    favorite = ('recipe_favorite' in request.json)
+    favorite = ('favorite' in request.json)
     response = {
         "success": True,
         "flash": None,
@@ -293,7 +293,7 @@ def ajax_recipe_favorite():
     # Check if user has already favorited recipe
     existing_interaction = mongo.db.rating.find_one({
         "user_id": ObjectId(session['userid']),
-        "recipe_id": ObjectId(request.json['recipeid'])
+        "recipe_id": ObjectId(request.json['recipeId'])
     })
 
     # Update existing interaction
@@ -306,7 +306,7 @@ def ajax_recipe_favorite():
         # Create new interaction
         interaction = {
             "user_id": ObjectId(session['userid']),
-            "recipe_id": ObjectId(request.json['recipeid']),
+            "recipe_id": ObjectId(request.json['recipeId']),
             "favorite": favorite
         }
         mongo.db.rating.insert_one(interaction)

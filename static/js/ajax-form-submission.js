@@ -9,13 +9,13 @@ $('#recipe_favorite').on('click', function (event) {
 $('#recipe_favorite_form').submit(function (event) {
     event.preventDefault();
     submitFormAJAX(event, null);
-    console.log('sucks')
+    console.log('AJAX submit')
 });
 
 // Binds favorite form submit to favorite checkbox toggle change event
-$('#recipe_favorite').on('click', function (event) {
+$('#recipe_favorite input[type=checkbox]').change(function (event) {
     $('#recipe_favorite_form').submit();
-    console.log('this')
+    console.log('form submit')
 })
 
 function submitFormAJAX(event, callbackSuccess) {
