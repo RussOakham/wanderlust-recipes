@@ -4,82 +4,143 @@
 <h2 class="center-align">Welcome {{ username.username }}</h2>
 
 <!-- Recent Recipes Section -->
-<section class="row">
-    <h3>Recent Recipes</h3>
-
-    {% for recipe in recipes %}
-
-    {% if recipe|length > 0 %}
-
+<section id="profile-recipe-tabs">
     <div class="row">
-        <div class="recipe-panel box-shadow border-radius box-border center-align">
-            <div class="col m4 s12 recipe-img-container">
-                <img src="{{ recipe.image_upload_url }}" class="recipe-image" alt="{{ recipe.recipe_title }}">
-            </div>
-            <div class="col m8 s12">
-                <h3 class="recipe-title-link"><a href="/recipes/{{ recipe.url }}">{{ recipe.recipe_title }}</a></h3>
-                <p>{{ recipe.recipe_description }}</p>
-                <p><em>by: {{ recipe.created_by|capitalize }}</em></p>
-                <div class="recipe-info">
-                    <div class="col m4 s12 bold">
-                        <h6><i class="fas fa-utensils"></i> Serves:</h6>
-                        <p>{{ recipe.servings }}</p>
+        <div class="col s12">
+            <ul id="tabs-swipe-demo" class="tabs box-shadow border-radius box-border">
+                <li class="tab col s6"><a class="active" href="#favourite-recipes">Favourite Recipes</a></li>
+                <li class="tab col s6"><a href="#your-recipes">Your Recipes</a></li>
+            </ul>
+        </div>
+
+
+        <!-- User Favourite Recipes -->
+        <div id="favourite-recipes">
+            <h3>Favourite Recipes</h3>
+
+            {% for favorite in favorites %}
+            {% if favorite|length > 0 %}
+
+            <div class="row">
+                <div class="recipe-panel box-shadow border-radius box-border center-align">
+                    <div class="col m4 s12 recipe-img-container">
+                        <img src="{{ favorite.image_upload_url }}" class="recipe-image"
+                            alt="{{ favorite.recipe_title }}">
                     </div>
-                    <div class="col m4 s12 bold">
-                        <h6>Rating:</h6>
-                        <ul class="recipe-rating-home">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </ul>
-                    </div>
-                    <div class="col m4 s12 bold">
-                        <h6><i class="fas fa-clock"></i> Time:</h6>
-                        <p>
-                            Prep: {{ recipe.prep_minutes }} mins
-                            <br>
-                            Cook: {{ recipe.cook_minutes }} mins
-                        </p>
+                    <div class="col m8 s12">
+                        <h3 class="recipe-title-link"><a
+                                href="/recipes/{{ favorite.url }}">{{ favorite.recipe_title }}</a>
+                        </h3>
+                        <p>{{ favorite.recipe_description }}</p>
+                        <p><em>by: {{ favorite.created_by|capitalize }}</em></p>
+                        <div class="recipe-info">
+                            <div class="col m4 s12 bold">
+                                <h6><i class="fas fa-utensils"></i> Serves:</h6>
+                                <p>{{ favorite.servings }}</p>
+                            </div>
+                            <div class="col m4 s12 bold">
+                                <h6>Rating:</h6>
+                                <ul class="recipe-rating-home">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </ul>
+                            </div>
+                            <div class="col m4 s12 bold">
+                                <h6><i class="fas fa-clock"></i> Time:</h6>
+                                <p>
+                                    Prep: {{ favorite.prep_minutes }} mins
+                                    <br>
+                                    Cook: {{ favorite.cook_minutes }} mins
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+
+            {% else %}
+
+            <div class="row">
+                <div class="col s12 recipe-panel box-shadow border-radius box-border center-align">
+                    <h6>No Recipes Favourited</h6>
+                </div>
+            </div>
+
+            {% endif %}
+
+            {% endfor %}
+
         </div>
-        <div class="col s12 center-align">
-            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small bold">Edit</a>
-            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
-                class="btn-small bold red lighten-2">Delete</a>
+
+        <!-- User uploaded Recipes -->
+        <div id="your-recipes">
+            <h3>Your Recipes</h3>
+
+            {% for recipe in recipes %}
+
+            {% if recipe|length > 0 %}
+
+            <div class="row">
+                <div class="recipe-panel box-shadow border-radius box-border center-align">
+                    <div class="col m4 s12 recipe-img-container">
+                        <img src="{{ recipe.image_upload_url }}" class="recipe-image" alt="{{ recipe.recipe_title }}">
+                    </div>
+                    <div class="col m8 s12">
+                        <h3 class="recipe-title-link"><a href="/recipes/{{ recipe.url }}">{{ recipe.recipe_title }}</a>
+                        </h3>
+                        <p>{{ recipe.recipe_description }}</p>
+                        <p><em>by: {{ recipe.created_by|capitalize }}</em></p>
+                        <div class="recipe-info">
+                            <div class="col m4 s12 bold">
+                                <h6><i class="fas fa-utensils"></i> Serves:</h6>
+                                <p>{{ recipe.servings }}</p>
+                            </div>
+                            <div class="col m4 s12 bold">
+                                <h6>Rating:</h6>
+                                <ul class="recipe-rating-home">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </ul>
+                            </div>
+                            <div class="col m4 s12 bold">
+                                <h6><i class="fas fa-clock"></i> Time:</h6>
+                                <p>
+                                    Prep: {{ recipe.prep_minutes }} mins
+                                    <br>
+                                    Cook: {{ recipe.cook_minutes }} mins
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 center-align">
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small bold">Edit</a>
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
+                        class="btn-small bold red lighten-2">Delete</a>
+                </div>
+            </div>
+
+            {% else %}
+
+            <div class="row">
+                <div class="col s12 recipe-panel box-shadow border-radius box-border center-align">
+                    <h6>No recipes submitted</h6>
+                </div>
+            </div>
+
+            {% endif %}
+
+            {% endfor %}
+
         </div>
     </div>
-
-    {% else %}
-
-    <div class="row">
-        <div class="col s12 recipe-panel box-shadow border-radius box-border center-align">
-            <h6>No recipes submitted</h6>
-        </div>
-    </div>
-
-    {% endif %}
-
-    {% endfor %}
-
-</section>
-
-<!-- favourite recipes rection -->
-<section>
-    <h3>Favourite Recipes</h3>
-
-
-
-
-    <div class="row">
-        <div class="col s12 recipe-panel box-shadow border-radius box-border center-align">
-            <h6>No Recipes Favourited</h6>
-        </div>
-    </div>
-
 </section>
 
 {% endblock %}
