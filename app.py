@@ -6,6 +6,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from user_management import user_logged_in, log_user_in, log_user_out
+from user_rating import calculate_avg_rating
 if os.path.exists("env.py"):
     import env
 
@@ -344,6 +345,76 @@ def ajax_recipe_favorite():
         }
         mongo.db.rating.insert_one(interaction)
 
+    return response
+
+
+@app.route("/ajax_recipe_rating", methods=['POST'])
+def ajax_recipe_rating():
+    # Create AJAX request for recipe rating and updated recipe in database.
+    response = {
+        "success": False,
+        "flash": None,
+        "response": -1,
+    }
+
+    # Submit 0 for rating if no rating is given.
+    if 'rating' not in request.json or 'recipeId' not in request.json:
+        return {"new_rating": 0}
+
+    # Check if user has already favorited recipe
+    existing_interaction = mongo.db.rating.find_one({
+        "user_id": ObjectId(session['userid']),
+        "recipe_id": ObjectId(request.json['recipeId'])
+    })
+
+    # Get new rating from rating submission form
+    new_rating = int(request.json['rating'])
+
+    # Format new interaction, if no historic interaction.
+    new_interaction = None
+    if existing_interaction:
+        new_interaction = existing_interaction['_id']
+
+    # Get recipe info
+    recipe_detail = mongo.db.recipes.find_one(
+        {"_id": ObjectId(request.json['recipeId'])})
+
+    if not recipe_detail:
+        # If no valid recipe found
+        return response
+
+    # Add new rating to 'rating' array for recipe
+    # and calculate new average (stored rating[0])
+    rating = recipe_detail['rating']
+    rating[new_rating] += 1
+    rating[0] = calculate_avg_rating(rating)
+
+    # Update recipe document with new average (rating[0])
+    result = mongo.db.recipes.update_one(
+        {"_id": ObjectId(request.json['recipeId'])},
+        {
+            "$set": {
+                "rating.0": rating[0],
+                "rating.{i}": int(rating[new_rating])
+            }
+        })
+    # If update successfull, update interaction record
+    if result.matched_count > 0:
+        result = mongo.db.ratings.update_one({"_id": new_interaction},
+        {
+            "$set":
+            {"rating": new_rating},
+            "$setOnInsert": {
+                "user_id": ObjectId(session['userid']),
+                "recipe_id": ObjectId(request.json['recipeId']),
+                "favorite": False
+            }
+        }, True)
+        # If no record found $setOnInsert
+        # creates new record with additional info
+        response["success"] = True
+
+    response["response"] = new_rating
     return response
 
 
