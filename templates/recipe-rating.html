@@ -1,0 +1,18 @@
+{% macro star_on(n) %}
+{% if n > 0 %}
+checked
+{% else %}
+
+{% endif %}
+{% endmacro %}
+
+
+{% macro recipe_star_rating_display(rating) %}
+<ul id="star-rating">
+    {% for i in [rating, rating-1, rating-2, rating-3, rating-4] %}
+    <li class="star">
+        <i class="fa fa-star {{ star_on(i) }}"></i>
+    </li>
+    {% endfor %}
+</ul>
+{% endmacro %}

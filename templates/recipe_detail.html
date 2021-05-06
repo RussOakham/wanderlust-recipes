@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "recipe-rating.html" import recipe_star_rating_display, recipe_star_rating_submit %}
 
 {% block styles %}
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -32,23 +33,7 @@
             <div class="col s12 recipe-summary">
                 <div class="col s12">
                     <h6 class="font-large">Rating:</h6>
-                    <ul id="star-rating">
-                        <li class="star star-on">
-                            <i class="material-icons">star</i>
-                        </li>
-                        <li class="star star-on">
-                            <i class="material-icons">star</i>
-                        </li>
-                        <li class="star star-on">
-                            <i class="material-icons">star</i>
-                        </li>
-                        <li class="star star-off">
-                            <i class="material-icons">star_border</i>
-                        </li>
-                        <li class="star star-off">
-                            <i class="material-icons">star_border</i>
-                        </li>
-                    </ul>
+                    {{ recipe_star_rating_display(recipe.rating[0])}}
                 </div>
                 <div class="col s12">
                     <div class="col s6">

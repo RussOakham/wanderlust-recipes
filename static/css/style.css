@@ -246,7 +246,7 @@ nav .brand-logo i.material-icons {
 }
 
 .checked {
-    color: orange;
+    color: goldenrod;
 }
 
 .bold {
@@ -374,14 +374,6 @@ nav .brand-logo i.material-icons {
     margin: 0;
 }
 
-.star>i {
-    font-size: 3rem !important;
-}
-
-.star-on {
-    color: goldenrod;
-}
-
 .font-large {
     font-size: large;
 }
@@ -391,7 +383,7 @@ nav .brand-logo i.material-icons {
 }
 
 .fa-star {
-    font-size: xx-large;
+    font-size: 2rem;
 }
 
 .recipe-rating-home>.fa-star {
@@ -440,6 +432,13 @@ nav .brand-logo i.material-icons {
 }
 
 /* Responsive Media Queries */
+@media (max-width: 1200px) {
+    .fa-star {
+        font-size: 1.5rem;
+    }
+}
+
+
 @media (max-width: 800px) {
     .recipe-summary {
         height: 250px;
@@ -451,6 +450,10 @@ nav .brand-logo i.material-icons {
 
     .recipe-title>h1 {
         margin: 15px 0px;
+    }
+
+    .recipe-h1 {
+        font-size: 1.5rem;
     }
 }
 
@@ -466,14 +469,6 @@ nav .brand-logo i.material-icons {
         height: 160px;
         font-size: revert;
         display: block;
-    }
-
-    .recipe-h1 {
-        font-size: 1.5rem;
-    }
-
-    .fa-star {
-        font-size: large;
     }
 
     ul,
