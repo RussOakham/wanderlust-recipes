@@ -395,6 +395,7 @@ def ajax_recipe_rating():
         {
             "$set": {
                 "rating.0": rating[0],
+                "rating.{i}".format(i=new_rating): int(rating[new_rating])
             }
         })
     # If update successfull, update interaction record

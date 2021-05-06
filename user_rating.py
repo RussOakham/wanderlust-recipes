@@ -1,8 +1,12 @@
 def calculate_avg_rating(rating):
-    # Calculate average rating from rating array.
-    sum_num = 0
-    for i in rating:
-        sum_num = sum_num + i
+    # Calculate weighted average rating from rating vote count array.
+    cumulative = 0
+    sum = 0
 
-    avg = round(sum_num / len(rating))
-    return avg
+    for i in range(1,6):
+        cumulative += rating[i] * i
+        sum += rating[i]
+
+    if sum > 0 and cumulative > 0:
+        average = round(cumulative / sum)
+        return average
