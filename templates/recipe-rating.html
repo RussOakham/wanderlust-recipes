@@ -18,13 +18,9 @@ checked
 {% endmacro %}
 
 <!-- Dummy input for formatting prior to function build -->
-{% macro recipe_star_rating_submit(rating) %}
-<radio-group class="star-rating-input">
-    {% for i in range(1, 6) %}
-    <input type="radio" id="rating-{{ i }}" name="rating" value="{{ i }}">
-    <label for="rating-{{ i }}" class="star">
-        <i class="fa fa-star {{ star_on(i) }}"></i>
-    </label>
-    {% endfor %}
-</radio-group>
+{% macro previous_recipe_star_rating(rating) %}
+<div class="col s12">
+    <span>Previous Rating</span>
+    <div>{{ rating }}</div>
+</div>
 {% endmacro %}

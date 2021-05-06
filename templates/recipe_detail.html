@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "recipe-rating.html" import recipe_star_rating_display, recipe_star_rating_submit %}
+{% from "recipe-rating.html" import recipe_star_rating_display, previous_recipe_star_rating %}
 
 {% block styles %}
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -95,6 +95,9 @@
         <div class="col s12 center-align">
             <h4>Rate This Recipe</h4>
             <div class="col s12">
+                <div class="col s12">
+                    {{ previous_recipe_star_rating(interaction.rating) }}
+                </div>
                 <form action="{{ url_for('ajax_recipe_rating') }}" id="recipe_rating_form" method="POST">
                     <input name="recipeId" type="hidden" value="{{ recipe._id }}">
                     <label for="rating-1">
@@ -117,10 +120,11 @@
                         <input name="rating" id="rating-5" class="with-gap" type="radio" value="5" />
                         <span>5</span>
                     </label>
-                    <!-- {{ recipe_star_rating_submit(interaction.rating) }} -->
-                    <button type="submit" class="btn-small bold">
-                        Submit <i class="fas fa-caret-right right"></i>
-                    </button>
+                    <div class="col s12">
+                        <button type="submit" class="btn-small bold">
+                            Submit <i class="fas fa-caret-right right"></i>
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
