@@ -96,7 +96,9 @@
             <h4>Rate This Recipe</h4>
             <div class="col s12">
                 <div class="col s12">
+                    {% if interaction.rating > 0 %}
                     {{ previous_recipe_star_rating(interaction.rating) }}
+                    {% endif %}
                 </div>
                 <form action="{{ url_for('ajax_recipe_rating') }}" id="recipe_rating_form" method="POST">
                     <input name="recipeId" type="hidden" value="{{ recipe._id }}">
