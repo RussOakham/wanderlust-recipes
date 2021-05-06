@@ -1,5 +1,6 @@
 // General function for submitting forms via AJAX
 
+// RECIPE FAVOURITE SUBMISSION SCRIPTS
 // Toggle 'favourite' fontawesome icon class on toggle
 $('#recipe_favorite').on('click', function (event) {
     $('.fa-heart').toggleClass('far fas')
@@ -18,6 +19,17 @@ $('#recipe_favorite input[type=checkbox]').change(function (event) {
     console.log('form submit')
 })
 
+// RECIPE RATING SUBMISSION SCRIPTS
+// Submit 'rating' form to server via AJAX
+$('#recipe_rating_form').submit(function (event) {
+    event.preventDefault();
+    submitFormAJAX(event, null);
+    // Disable input once submitted
+    $('input', this).prop('disabled', true);
+    $('.star-rating-input', this).prop('disabled');
+});
+
+// General AJAX form submission script
 function submitFormAJAX(event, callbackSuccess) {
     // Get form data
     let data = new FormData(event.target);

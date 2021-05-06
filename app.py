@@ -395,12 +395,11 @@ def ajax_recipe_rating():
         {
             "$set": {
                 "rating.0": rating[0],
-                "rating.{i}": int(rating[new_rating])
             }
         })
     # If update successfull, update interaction record
     if result.matched_count > 0:
-        result = mongo.db.ratings.update_one({"_id": new_interaction},
+        result = mongo.db.rating.update_one({"_id": new_interaction},
         {
             "$set":
             {"rating": new_rating},
