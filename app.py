@@ -172,6 +172,20 @@ def profile(username):
         if user['role'] == "admin":
             # If user role = admin, return all recipes
             recipes = list(mongo.db.recipes.find().sort("created_on", -1))
+            # Retrieve recipes favorited by user
+            favorites = list(mongo.db.rating.aggregate([
+                {"$match": {"user_id": user['_id'], 'favorite': True}},
+                {
+                    "$lookup": {
+                        "from": "recipes",
+                        "localField": "recipe_id",
+                        "foreignField": "_id",
+                        "as": "favorites"
+                    }
+                },
+                {"$unwind": "$favorites"},
+                {"$replaceRoot": {"newRoot": "$favorites"}}
+            ]))
 
         else:
             # Retrieve recipes from db added by user
@@ -285,6 +299,13 @@ def get_categories():
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
+        existing_category = mongo.db.categories.find_one(
+            {"category_name": request.form.get("category_name").capitalize()})
+
+        if existing_category:
+            flash("Category Already Added")
+            return redirect(url_for("get_categories"))
+
         category = {
             "category_name": request.form.get("category_name").capitalize(),
             "image_upload_url": request.form.get("image_upload_url"),
