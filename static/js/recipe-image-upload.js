@@ -1,5 +1,6 @@
 // Shows the cloudinary image upload widget
 $("#image_upload_btn").click(function (event) {
+    event.preventDefault();
     cloudinary.openUploadWidget({
             cloud_name: 'dolhmfgvf',
             upload_preset: 'syqgnqe3',
