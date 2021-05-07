@@ -238,6 +238,7 @@ def add_recipe():
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
+        historic_rating = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})["rating"]
         update_recipe = {
             "category_name": request.form.get("category_name"),
             "recipe_title": request.form.get("recipe_title"),
@@ -252,7 +253,8 @@ def edit_recipe(recipe_id):
             "method_step": request.form.getlist("method_step"),
             "created_by": session["user"],
             "created_on": request.form.get("created_on"),
-            "url": request.form.get("recipe_title").replace(' ', '-').lower()
+            "url": request.form.get("recipe_title").replace(' ', '-').lower(),
+            "rating": historic_rating
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update_recipe)
         flash("Recipe Updated!")
