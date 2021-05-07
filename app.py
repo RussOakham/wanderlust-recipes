@@ -224,7 +224,8 @@ def add_recipe():
             "method_step": request.form.getlist("method_step"),
             "created_by": session["user"],
             "created_on": request.form.get("created_on"),
-            "url": request.form.get("recipe_title").replace(' ', '-').lower()
+            "url": request.form.get("recipe_title").replace(' ', '-').lower(),
+            "rating": [0, 0, 0, 0, 0, 0]
         }
         mongo.db.recipes.insert_one(new_recipe)
         flash("Recipe Submitted!")

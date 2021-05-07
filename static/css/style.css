@@ -13,6 +13,10 @@ main {
     flex: 1 0 auto;
 }
 
+.row .col {
+    width: 100%;
+}
+
 h1,
 h2,
 h3,
