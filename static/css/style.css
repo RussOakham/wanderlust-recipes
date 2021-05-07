@@ -372,6 +372,8 @@ nav .brand-logo i.material-icons {
 #star-rating {
     display: inline-flex;
     margin: 0;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .font-large {
@@ -383,13 +385,15 @@ nav .brand-logo i.material-icons {
 }
 
 .fa-star {
-    font-size: 2rem;
+    font-size: 1.75rem;
 }
 
 .recipe-rating-home>.fa-star {
     font-size: large;
 }
 
+/* Previous Rating styling taken from StackOverflow post below and adapted */
+/* https://stackoverflow.com/questions/45346098/content-number-inside-a-shape-symbol */
 .previous-rating {
     height: 100px;
     width: 100px;
@@ -466,6 +470,11 @@ nav .brand-logo i.material-icons {
     .fa-star {
         font-size: 1.5rem;
     }
+
+    .recipe-summary-home>p {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
 }
 
 
@@ -484,6 +493,10 @@ nav .brand-logo i.material-icons {
 
     .recipe-h1 {
         font-size: 1.5rem;
+    }
+
+    #star-rating {
+        padding: 0 15px 0 15px;
     }
 }
 
@@ -504,5 +517,9 @@ nav .brand-logo i.material-icons {
     ul,
     p {
         margin: 0;
+    }
+
+    .recipe-time {
+        margin-bottom: 10px;
     }
 }

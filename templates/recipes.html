@@ -86,8 +86,10 @@
         </div>
         <div class="col m8 s12">
             <h3 class="recipe-title-link"><a href="/recipes/{{ recipe.url }}">{{ recipe.recipe_title }}</a></h3>
-            <p>{{ recipe.recipe_description }}</p>
-            <p><em>by: {{ recipe.created_by|capitalize }}</em></p>
+            <div class="recipe-summary-home">
+                <p>{{ recipe.recipe_description }}</p>
+                <p><em>by: {{ recipe.created_by|capitalize }}</em></p>
+            </div>
             <div class="recipe-info">
                 <div class="col m4 s12 bold">
                     <h6><i class="fas fa-utensils"></i> Serves:</h6>
@@ -97,7 +99,7 @@
                     <h6>Rating:</h6>
                     {{ recipe_star_rating_display(recipe.rating[0])}}
                 </div>
-                <div class="col m4 s12 bold">
+                <div class="col m4 s12 bold recipe-time">
                     <h6><i class="fas fa-clock"></i> Time:</h6>
                     <p>
                         Prep: {{ recipe.prep_minutes }} mins
@@ -114,8 +116,10 @@
     <div class="row recipe-panel box-shadow border-radius box-border center-align  flex-column-reverse">
         <div class="col m8 s12">
             <h3 class="recipe-title-link"><a href="/recipes/{{ recipe.url }}">{{ recipe.recipe_title }}</a></h3>
-            <p>{{ recipe.recipe_description }}</p>
-            <p><em>by: {{ recipe.created_by|capitalize }}</em></p>
+            <div class="recipe-summary-home">
+                <p>{{ recipe.recipe_description }}</p>
+                <p><em>by: {{ recipe.created_by|capitalize }}</em></p>
+            </div>
             <div class="recipe-info">
                 <div class="col m4 s12 bold">
                     <h6><i class="fas fa-utensils"></i> Serves:</h6>
@@ -127,7 +131,7 @@
                         {{ recipe_star_rating_display(recipe.rating[0])}}
                     </ul>
                 </div>
-                <div class="col m4 s12 bold">
+                <div class="col m4 s12 bold recipe-time">
                     <h6><i class="fas fa-clock"></i> Time:</h6>
                     <p>
                         Prep: {{ recipe.prep_minutes }} mins
