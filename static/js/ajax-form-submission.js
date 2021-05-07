@@ -21,13 +21,17 @@ $('#recipe_favorite input[type=checkbox]').change(function (event) {
 
 // RECIPE RATING SUBMISSION SCRIPTS
 // Submit 'rating' form to server via AJAX
+// On rating submission, unhide tick gif for visual submit confirmation.
 $('#recipe_rating_form').submit(function (event) {
     event.preventDefault();
     submitFormAJAX(event, null);
     // Disable input once submitted
     $('input', this).prop('disabled', true);
     $('.star-rating-input', this).prop('disabled');
+    $('#confirm-tick', this).css('display', 'block');
 });
+
+
 
 // General AJAX form submission script
 function submitFormAJAX(event, callbackSuccess) {

@@ -410,10 +410,10 @@ def ajax_recipe_rating():
     # If update successfull, update interaction record
     if result.matched_count > 0:
         if new_interaction is not None:
-            result = mongo.db.rating.update_one({"_id": new_interaction}, 
-            {"$set": {"rating": new_rating} })
+            result = mongo.db.rating.update_one({"_id": new_interaction},
+            {"$set": {"rating": new_rating}})
         # If no record found creates new record with additional info
-        else: 
+        else:
             result = mongo.db.rating.insert_one({
                 "user_id": ObjectId(session['userid']),
                 "recipe_id": ObjectId(request.json['recipeId']),
