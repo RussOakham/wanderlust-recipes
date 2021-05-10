@@ -206,6 +206,10 @@ nav .brand-logo i.material-icons {
     background-color: #2bbbad;
 }
 
+.pagination {
+    margin-bottom: 10px;
+}
+
 .pagination li.active {
     color: #fafafa;
     border-radius: 25px;
