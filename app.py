@@ -62,7 +62,16 @@ def search():
                 "value": request.form["servings"]
             })
 
-    recipes = mongo.db.recipes.find(query)
+        if "rating-search" in request.form and int(
+                request.form["rating-search"]) > 0:
+            minRating = int(request.form["rating-search"])
+            query["rating"] = {"$gte": minRating}
+            form_query.append({
+                "key": "rating[0]",
+                "value": request.form["rating-search"]
+            })
+
+    recipes = mongo.db.recipes.find(query).sort("created_on", -1)
     categories = mongo.db.categories.find()
     return render_template(
         "recipes.html", recipes=recipes, categories=categories)
@@ -252,7 +261,8 @@ def add_recipe():
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
-        historic_rating = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})["rating"]
+        historic_rating = mongo.db.recipes.find_one(
+            {"_id": ObjectId(recipe_id)})["rating"]
         update_recipe = {
             "category_name": request.form.get("category_name"),
             "recipe_title": request.form.get("recipe_title"),
@@ -434,8 +444,10 @@ def ajax_recipe_rating():
     # If update successfull, update interaction record
     if result.matched_count > 0:
         if new_interaction is not None:
-            result = mongo.db.rating.update_one({"_id": new_interaction},
-            {"$set": {"rating": new_rating}})
+            result = mongo.db.rating.update_one(
+                {"_id": new_interaction},
+                {"$set": {"rating": new_rating}}
+            )
         # If no record found creates new record with additional info
         else:
             result = mongo.db.rating.insert_one({

@@ -4,9 +4,10 @@
 {% block content %}
 <!-- Website Banner -->
 <section>
-    <div class="wanderlust-banner">
-
-    </div>
+    <a href="/">
+        <div class="wanderlust-banner">
+        </div>
+    </a>
 </section>
 
 <!-- h1 visually hidden with CSS but available to assistive technology - brand visibile in hero banner -->
@@ -53,7 +54,16 @@
                                 <label for="servings">Servings</label>
                             </div>
                             <div class="input-field col s6">
-                                Rating
+                                <i class="fas fa-star prefix"></i>
+                                <select id="rating-search" name="rating-search" class="validate">
+                                    <option value="" disabled selected></option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <label for="rating-search">Minimum Rating</label>
                             </div>
                         </div>
                     </li>
