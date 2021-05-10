@@ -80,7 +80,6 @@
     </div>
 </section>
 
-{% if recipes.count() > 0 %}
 <!-- Latest Recipes -->
 <!-- Create div based off recipe db info - Odd no. loop has image on left -->
 <section>
@@ -159,13 +158,9 @@
     {% endif %}
 
     {% endfor %}
+    <div class="center-align">
+        {{ pagination.links }}
+    </div>
 </section>
-
-{% else %}
-<!-- Display if returned index length = 0 -->
-<section>
-    <h2 class="center-align">No Results Found</h3>
-</section>
-{% endif %}
 
 {% endblock %}
