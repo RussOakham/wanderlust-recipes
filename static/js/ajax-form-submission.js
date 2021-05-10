@@ -10,13 +10,11 @@ $('#recipe_favorite').on('click', function (event) {
 $('#recipe_favorite_form').submit(function (event) {
     event.preventDefault();
     submitFormAJAX(event, null);
-    console.log('AJAX submit')
 });
 
 // Binds favorite form submit to favorite checkbox toggle change event
 $('#recipe_favorite input[type=checkbox]').change(function (event) {
     $('#recipe_favorite_form').submit();
-    console.log('form submit')
 })
 
 // RECIPE RATING SUBMISSION SCRIPTS
@@ -28,10 +26,8 @@ $('#recipe_rating_form').submit(function (event) {
     // Disable input once submitted
     $('input', this).prop('disabled', true);
     $('.star-rating-input', this).prop('disabled');
-    $('#confirm-tick', this).css('display', 'block');
+    $('.collapsible').collapsible('open', 0);
 });
-
-
 
 // General AJAX form submission script
 function submitFormAJAX(event, callbackSuccess) {

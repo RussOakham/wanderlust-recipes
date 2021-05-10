@@ -10,7 +10,10 @@ $(document).ready(function () {
         duration: 300,
         onShow: resizeTab
     });
-    $('.collapsible').collapsible();
+    $('.collapsible').collapsible({
+        inDuration: 300,
+        outDuration: 300
+    });
     $('.fixed-action-btn').floatingActionButton();
     $(window).resize(function () {
         resizeTab();
