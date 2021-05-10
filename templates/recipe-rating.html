@@ -12,6 +12,7 @@ checked
     {% for i in [rating, rating-1, rating-2, rating-3, rating-4] %}
     <li class="star">
         <i class="fa fa-star {{ star_on(i) }}"></i>
+        <span class="sr-only">{{ rating }} stars</span>
     </li>
     {% endfor %}
 </ul>
@@ -22,5 +23,6 @@ checked
 <div class="col s12">
     <span>Previous Rating</span>
     <div class="previous-rating center-align">{{ rating }}</div>
+    <span class="sr-only">{{ rating }} stars</span>
 </div>
 {% endmacro %}

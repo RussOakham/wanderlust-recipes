@@ -72,6 +72,7 @@ $('#ingredients .add-ingredient-list-item').click(function (event) {
                                 </div>
                                 <a class="remove-list-item">
                                     <i class="fas fa-times"></i>
+                                    <span class="sr-only">Remove Ingredient</span>
                                 </a>
                             </li>`;
     $(this).parent().before(IngredientItem);
@@ -87,6 +88,7 @@ $('#method_step .add-method-step-item').click(function (event) {
     let methodStep = `<li class="collection-item">
                             <a class="remove-list-item">
                                 <i class="fas fa-times"></i>
+                                <span class="sr-only">Remove Method Step</span>
                             </a>
                             <div class="input-field">
                             <textarea name="method_step" class="materialize-textarea" required></textarea>

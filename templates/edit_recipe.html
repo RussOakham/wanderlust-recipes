@@ -104,12 +104,15 @@
                         </div>
                         <a class="remove-list-item">
                             <i class="fas fa-times"></i>
+                            <span class="sr-only">Remove Ingredient</span>
                         </a>
                     </li>
                     {% endfor %}
                     <li class="collection-item">
-                        <a class="btn-floating btn-small waves-effect waves-light add-ingredient-list-item"><i
-                                class="fas fa-plus"></i></a>
+                        <a class="btn-floating btn-small waves-effect waves-light add-ingredient-list-item">
+                            <i class="fas fa-plus"></i>
+                            <span class="sr-only">Add Ingredient</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -125,6 +128,7 @@
                     <li class="collection-item">
                         <a class="remove-list-item">
                             <i class="fas fa-times"></i>
+                            <span class="sr-only">Add Method Step</span>
                         </a>
                         <div class="input-field">
                             <textarea name="method_step" class="materialize-textarea" required="" spellcheck="false"
@@ -134,8 +138,10 @@
                     </li>
                     {% endfor %}
                     <li class="collection-item">
-                        <a class="btn-floating btn-small waves-effect waves-light add-method-step-item"><i
-                                class="fas fa-plus"></i></a>
+                        <a class="btn-floating btn-small waves-effect waves-light add-method-step-item">
+                            <i class="fas fa-plus"></i>
+                            <span class="sr-only">Add Ingredient</span>
+                        </a>
                     </li>
                 </ul>
             </div>
