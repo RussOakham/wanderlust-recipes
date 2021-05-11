@@ -330,15 +330,72 @@ The testing process can be seen in the [TESTING.md](https://github.com/RussOakha
 ### Application Hosting
 ### **Heroku**
 
-The site is hosted using Heroku, deployed directly from the master branch of GitHub. The deployed site will update automatically as new commits are pushed to the master branch.
+The site is hosted using (Heroku)[https://www.heroku.com/], deployed directly from the master branch of GitHub. The deployed site will update automatically as new commits are pushed to the master branch.
 
 #### Creating a Heroku app
+- From the Heroku dashboard:
+  - Select "New"
+  - Select "Create new app"
+    ![Create New App](assets/images/heroku-create-new-app.PNG)
+
+- Add new app details to form:
+  - Add app name (must be unique)
+  - Select region
+  - Click "Create App"
+    ![Create New App Details](assets/images/heroku-app-name-and-region.PNG)
 
 #### Setting Environmental Variables
+- From the Heroku dashboard:
+  - Select your app from the list
+    ![Heroku App](assets/images/heroku-wanderlust-recipes.PNG)
+
+- Select "Settings" from the top menu:
+  - Under 'Config Vars', select "Reveal Config Vars"
+  - Add environment variables in key value pairs, click "Add" to add additional pairings.
+    ![Config-Vars](assets/images/heroku-config-vars.PNG)
 
 #### Deployment
+- Create required deployment files in the repository:
+  - requirements.txt
+      - Lists the required python modules for Heroku to install.
+    - To create:
+      - In your IDE terminal, type: pip freeze > requirements.txt
+
+  - Procfile
+      -  Tells Heroku the command to launch the app.
+    - To create:
+      - in your IDE terminal, type: python app.py > Procfile
+
+  - .gitignore (optional)
+      - Lists files and directories wihch should be deployed to live app, such as files with environmental passkeys.
+    - To create:
+      - In your IDE terminal, type: touch .gitignore
+      - List the files and directories to be excluded from live deployment, within the .gitignore file.
+      - Save in your repository root directory.
+
+- From the application top menu:
+  - Select 'Deploy'
+  - Choose your Deployment method:
+    - Github:
+      - Select correct Github account.
+      - Type in repository name you wish to deploy.
+      - Choose correct repository from search results.
+      - Select "Connect"
+      ![Connect GitHub Repo](assets/images/heroku-connect-github-repo.PNG)
+
+    - Manual Deployment:
+      - Choose the correct branch you wish to deploy from the dorp down.
+      - Select "Deploy Branch"
+      - Heroku will return "Your App has successfully deployed". If this shows an error, troublshooting will be needed.
+      ![Deploy Branch](assets/images/heroku-deploy-branch.PNG)
+
 
 #### Automatic Deployment
+- From the application top menu:
+  - Select 'Deploy'
+  - Ensure app is connected to correct repository
+  - Under 'Automatic Deployment' section:
+    - Select 'Enable Automatic Deployment"
 
 ### GitHub and GitPod repository management
 
