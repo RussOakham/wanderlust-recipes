@@ -473,6 +473,9 @@ The photos and images used for this site were obtained from.
   - [Baking](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620744726/baking-2_tpnevi.jpg) - [Rai Vidanes](https://unsplash.com/@raividanes)
   - [Drinks](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620744726/drinks-2_h4jedl.jpg) - [Proriat Hospitality](https://unsplash.com/@proriat_hospitality)
 
+#### 404 Error Page
+ - [404 Error Page](https://pngtree.com/freepng/404-error-page_1362453.html) - from  [Png Tree](https://pngtree.com/)
+
 ### **Acknowledgements**
 
 * Thanks to my mentor, [Precious Ijege](https://github.com/precious-ijege) for his suggestions, time and support.
