@@ -87,9 +87,11 @@ Overview of UX decisions, structure etc. Examples of websites I have viewed as p
 <details><summary>Home Page:</summary>
 
   * _Header/Footer_: For easy navigation across the site and to external resources such as social media pages.
-  * _Website Logo_: To easily identify the 'Avengers Snap' game branding.
+  * _Website Logo_: To easily identify the 'Wanderlust Recipes' site branding.
   * _Recipe Cards_: To easily provide users key information on featured recipes, including visual image, short description, user rating, serving size and prep/cook times.
-  * _Pagination_: Page is paginated after 7 recipes are displayed, to ensure quick page load and easy user navigation.
+  * _Search Bar_: Text input bar, allowing users to search recipes by keyword, category, time requirement and minimum rating..
+   * _Search Results_: Once user search input, latest recipes replaced by recipe cards matching the search query.
+  * _Pagination_: Page is paginated after 10 recipes are displayed, to ensure quick page load and easy user navigation.
   </details>
 
 <details><summary>Recipe Page:</summary>
@@ -103,18 +105,11 @@ Overview of UX decisions, structure etc. Examples of websites I have viewed as p
   * _Method_: Provides users step-by-step method for creating the dish.
   </details>
 
-<details><summary>Category & Search Page:</summary>
-
-  * _Search Bar_: Text input bar, allowing users to search recipes by keyword.
-  * _Category Cards_: On page load, visual cards will display showing all recipe categories, allowing users easy navigation to recipes of that type.
-  * _Search Results_: Once user search input, category cards are replayed by recipe cards for all recipes returned by the search query.
-  * _Pagination_: Page is paginated after 7 recipes are displayed, to ensure quick page load and easy user navigation.
-  </details>
-
 <details><summary>User Login / Registration Page:</summary>
 
   * _Username Input_: Text input box, allowing users to enter their username.
   * _Password Input_: Text input box, allowing users to enter their username.
+  * _Password Confirmation (Registration)_ : Text input box, must match password input, to ensure user does not incorrectly type password while registering.
   * _Submit / Cancel_: Buttons allowing users to submit entered information, or cancel and restart.
   </details>
 
@@ -123,7 +118,6 @@ Overview of UX decisions, structure etc. Examples of websites I have viewed as p
   * _Username Banner_: Banner displaying the username of logged in account, allowing users to quickly identify if they are logged into their correct desired account.
   * _Recipes Submitted_: All historical recipes uploaded by the user displayed in list format, allowing users to easily access their owned recipes for review or edit.
   * _Favourite Recipes_: All favourited recipes are displayed in list format, allowing users quick access.
-  * _Pagination_: Page is paginated after 7 recipes are displayed, to ensure quick page load and easy user navigation.
   </details>
 
 <details><summary>New Recipe Page:</summary>
@@ -132,10 +126,10 @@ Overview of UX decisions, structure etc. Examples of websites I have viewed as p
     * Recipe Name - Text
     * Recipe Image - File upload and preview
     * Serving Size - Numeric
-    * Preparation Time - hh:mm
-    * Cooking Time - hh:mm
-    * Recipe Category Selection - Radial Menu
-    * Recipe Description: Textbox of 50 to 200 characters
+    * Preparation Time - hh:mm as drop down menu
+    * Cooking Time - hh:mm as drop down menu
+    * Recipe Category Selection - Drop down menu
+    * Recipe Description: Textbox of 25 to 160 characters
     * Ingredients - List text input
     * Recipe Steps - List text input
     </details>
@@ -152,23 +146,25 @@ This is the sensory design section of a website, or how it looks, feels and soun
 
 #### **Colour & Styling**
 
-Upon deciding to brand the website as 'Wanderlust Recipes' I found [this](assets/images/wanderlust-whitebg.png) logo on shutterstock. The logo comprises white and blue colours, which give a light and clean asthetic. With this in mind i consulted [this article](https://elearningindustry.com/the-elearning-color-guide-evoking-the-right-emotion) on how colours evoke emotions, wishing to promote a feelings of calm, optimism, energy, nature and creativity, I chose to use a color pallete consisting of whites, blues, yellows, oranges and greens.
+Upon deciding to brand the website as 'Wanderlust Recipes' I found [this](assets/images/wanderlust-whitebg.png) logo on shutterstock. The logo comprises white and blue colours, which give a light and clean asthetic. With this in mind i consulted [this article](https://elearningindustry.com/the-elearning-color-guide-evoking-the-right-emotion) on how colours evoke emotions, wishing to promote a feelings of calm, optimism, energy, nature and creativity, I chose to use a color pallete consisting of whites, blues and greens.
 
 I used the website [image color picket](https://imagecolorpicker.com/), to determine the blue used in the logo is Gunmetal (#1E2B3A). I then used the website [Coolers](https://coolors.co/) to generate the rest of my colour palette, using Gunmetal (#1E2B3A) as the starting colour and finding additional colours infitting to the style I wished to achieve.. 
 
 The resulting palette is below;
 
-![Wanderlust Color Scheme](assets/images/wanderlust-recipes-color-palette.png)
+![Wanderlust Color Scheme](assets/images/wanderlust-recipes-color-palette.svg)
 
 <details>
 <summary>Color Palette</summary>
 
 * Gunmetal - #1E2B3A
-* Sky Blue - #98D2EB
-* Caledon - #B0D29D
-* Medium Champagne - #FCF6B1 
-* Pink Lavender - #E4B7E5
+* Indigo Dye - #213F61
+* Metallic Seaweed - #077787
+* Y in Mn Blue - #38506C 
+* Light Sea Green - #2BBBAD
 </details>
+
+I also used a selection of off-white and off-black colours to provide additional accenting to generic white/black website elements, such as backgrounds and fonts.
 
 #### **Language/Tone**
 
@@ -177,7 +173,7 @@ I wanted the language to reflect a casual and fun atmosphere, to reflect a backp
 Similarly, I wanted to use fonts that reinforce the casual identity of the site and also be easy to read. To achieve this I used two [Google Fonts](https://fonts.google.com/);
 
 * [Roboto](https://fonts.google.com/specimen/Roboto) - A font which promotes natural reading rhythm.
-* [Noto Serif](https://fonts.google.com/specimen/Noto+Serif) - A font intended to be visually harmonious and easy to read.
+* [Open Sans](https://fonts.google.com/specimen/Open+Sans) - A humanist sans serif, designed for excellent legibility with a neutral, yet friendly in appearance.
 * Sans-serif - Web safe font, used if primary two fonts fail to load.
 
 #### **Styling Considerations**
@@ -193,10 +189,10 @@ Before beginning development, I listed some styling ideas that I felt benefit th
   * Visual Image showing final recipe dish, to entice users to select.
 * Recipe Pages:
   * Icons: Icons used to highlight key recipe info, serving size, preparation time, rating.
-  * Ingredients & Method - Dynamically alternate display on user click.
+  * Ingredients & Method - Displayed in tabular format, which user can dynamically choose between via click or swipe.
 
 ## 2. **Features**
-The site allows users to upload new recipes and edit existing ones. Users can search for recipes based on name, description, recipe type, number of servings, preparation time and minimum rating. Users can favourite recipes, which are displayed on their profile page. Users can also rate others users submitted recipes and comment their feedback.
+The site allows users to upload new recipes and edit existing ones. Users can search for recipes based on name, description, recipe type, number of servings and minimum rating. Users can favourite recipes, which are displayed on their profile page. Users can also rate others users submitted recipes and comment their feedback.
 
 ### **Existing Features**
 <details>
@@ -221,16 +217,9 @@ Both the Header and Footer are present and consistent on all website pages.
 
 * **Image Banner**: Visually pleasing design, allowing users to immediately identify the site brand.
 * **Latest Recipes**: List of latest recipes submitted to the site, showing key information; recipe image, type, rating, preparation time and serving size.
-</details>
-
-<details>
-<summary>Categories / Search page:</summary>
-
-* **Image Banner**: Visually pleasing design, allowing users to immediately identify the site brand.
 * **Search Bar**: Allows user to enter keywords to search recipe database
-* **Advanced Search**: Allows user to enter additional search criteria; minimum rating, serving size, preparation time.
-* **Category Cards**: Displayed on page load, Cards showing recipe categories; Baking, American, British etc.
-* **Search Results**: Replace category cards when search is submitted. Recipe cards displayed as search return results.
+* **Advanced Search**: Allows user to enter additional search criteria; recipe type, minimum rating, serving size.
+* **Search Results**: Replace latest recipes when search is submitted. Recipe cards displayed as search return results.
 </details>
 
 <details>
@@ -239,6 +228,7 @@ Both the Header and Footer are present and consistent on all website pages.
 * **Image Banner**: Visually pleasing design, allowing users to immediately identify the site brand.
 * **Username Input**: Input area for users to enter their profile username.
 * **Password**: Input area for users to enter their profile password.
+* **Confirm Password** (Registration page): Input area for users to confirm password, must match password input for successful registration.
 * **Cancel**: Cancellation button, clearing input text allowing users to refill entries.
 * **Login/Registration Button**: Button allowing users to login to their account or register for a new account.
 </details>
@@ -249,7 +239,7 @@ Both the Header and Footer are present and consistent on all website pages.
 * **Image Banner**: Visually pleasing design, allowing users to immediately identify the site brand.
 * **Username sub-banner**: Text banner showing username of logged in account, allowing users to quickly identify if they are using their correct desired account.
 * **Favourite Recipes**: Recipes favourited by the user are displayed in list order, allowing quick and easy access.
-* **Submitted Recipes**: Recipes previously submitted by the user are displayed in list order, allowing users quick and easy access or review or edit.
+* **Submitted Recipes**: Recipes previously submitted by the user are displayed in list order, allowing users quick and easy access for review or edit.
 </details>
 
 <details>
@@ -259,10 +249,10 @@ Both the Header and Footer are present and consistent on all website pages.
     * _Recipe Name_ - Text
     * _Recipe Image_ - File upload and preview
     * _Serving Size_ - Numeric
-    * _Preparation Time_ - hh:mm
-    * _Cooking Time_ - hh:mm
-    * _Recipe Category Selection_ - Radial Menu
-    * _Recipe Description_: Textbox of 50 to 200 characters
+    * _Preparation Time_ - hh:mm as drop down menus
+    * _Cooking Time_ - hh:mm as drop down menus
+    * _Recipe Category Selection_ - drop down menu
+    * _Recipe Description_: Textbox of 25 to 160 characters
     * _Ingredients_ - List text input
     * _Recipe Steps_ - List text input
 </details>
@@ -273,33 +263,61 @@ As this is a community focused platform, there are a number of future features w
 * **Social Media Sharing** - Allow users to share recipes directly to their personal social media accounts.
 * **Nutritional Information API Integration** - Integrate the platform to a third party API which automatically calculates the nutritional information of recipes based on their ingredients and serving size. This would be highly beneficial to health concious users.
 * **Vegetarian/Vegan Alternative Recipes** - Allow users to enter Vegetarian or Vegan alternative ingredient lists and methods for existing recipes. Update recipe pages to allow users to choose an alternative option of the recipe and dynamically update the page contents in line with choice.
+* **User Comment Section** - Allow users to comment on each others recipes, allowing constructive feedback and additional context to reviews.
 
 &nbsp;
 ## 3. **Technologies Used**
 
-<ol>
+### Languages
+<ul>
 <li><a href="https://en.wikipedia.org/wiki/HTML">HTML</a> - Programming language providing content and structure of the website.</li>
 <li><a href="https://en.wikipedia.org/wiki/CSS">CSS</a> - Programming language providing styling of the website.</li>
 <li><a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> - Programming language used various interactive elements of the website, including game logic, audio options etc.</li>
 <li><a href="https://en.wikipedia.org/wiki/Python_(programming_language">Python</a> - Programming language used to drive core site functionality including user login and push/retrieving database information.</li>
-<li><a href="https://getbootstrap.com/">Bootstrap CSS Framework</a> - Library of pre-built HTML and CSS components, used for various aspects of the site, such as navigation bar.</li>
+<li><a href="https://en.wikipedia.org/wiki/Jinja_(template_engine)">Jinja</a> - Used to generalt HTML from site templates</li>
+</ul>
+
+### Librararies
+<ul>
+<li><a href="https://materializecss.com/">Materialize CSS Framework</a> - Library of pre-built HTML and CSS components, used for various aspects of the site, such as navigation bar.</li>
 <li><a href="https://fontawesome.com/">Font Awesome</a> - Library used for icons, such as social links and other images.</li>
 <li><a href="https://fonts.google.com/">Google Fonts</a> - Font style library.</li>
+<li><a href="https://jqueryui.com/">jQuery</a> - JavaScript library used for simplification of JS scripts and DOM manipulation.</li>
+<li><a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a> - Micro-framework to simplify Python scripting and web server tasks.</li>
+<li><a href="https://werkzeug.palletsprojects.com/en/1.0.x/">Werkzeug</a> - Python library to manage user management integrity.</li>
+</ul>
+
+### Editors
+<ul>
+<li><a href="https://github.com/">GitHub</a> - Remote code repository.</li>
+<li><a href="https://gitpod.io/">GitPod</a> - IDE (Integrated Development Environment), for writing, editing and saving code.</li>
+<li>dbDiagram</li>
+<li><a href="https://balsamiq.com/">Balsamiq</a> - Wireframes for visual design testing.</li>
+</ul>
+
+### Tools
+<ul>
+<li><a href="https://pythonhosted.org/Flask-paginate/">Flask-Paginate</a> - Flask plugin, allowing easy pagination of recipe content page</li>
 <li><a href="https://tinypng.com/">TinyPNG</a> & <a href="https://tinyjpg.com/">TinyJPG</a> -  Minimise image file sizes and maximise page load speed.</li>
 <li><a href="https://www.remove.bg/">remove.bg</a> - Remove backgrounds from png images.</li>
 <li><a href="https://coolors.co/">Coolers</a> - Color Palette Generation</li>
 <li><a href="https://imagecolorpicker.com/">Image Color Picker</a> - Determine Hex code color in exisiting graphics</li>
 <li><a href="https://realfavicongenerator.net/">Real Favicon Generator</a> - Generate favicons and icons for desktop and mobile usage.</li>
-<li><a href="http://ami.responsivedesign.is/">Am I Responsive?</a> - Responsive design demo in ReadMe summary.</li>
-<li><a href="https://github.com/">GitHub</a> - Remote code repository.</li>
-<li><a href="https://gitpod.io/">GitPod</a> - IDE (Integrated Development Environment), for writing, editing and saving code.</li>
-<li><a href="https://www.heroku.com/">Heroku</a> - Remote hosting platform, for hosting of python driven websites and applications.</li>
-<li><a href="https://www.mongodb.com/">MongoDB</a> - Cloud based database management system, used for storying user profile and recipe information.</li>
-<li><a href="https://balsamiq.com/">Balsamiq</a> - Wireframes for visual design testing.</li>
 <li><a href="https://autoprefixer.github.io/">Autoprefixer</a> - Vendor prefixes to CSS rules.</li>
+<li><a href="http://ami.responsivedesign.is/">Am I Responsive?</a> - Responsive design demo in ReadMe summary.</li>
 <li><a href="https://www.responsivedesignchecker.com/">Responsive Design Checker</a> - Check website response across device types.</li>
 <li><a href="https://www.lambdatest.com/">Lambdatest</a> - Check website response across device types.</li>
-</ol>
+</ul>
+
+### Database Management
+<ul>
+<li><a href="https://www.mongodb.com/">MongoDB</a> - Cloud based database management system, used for storying user profile and recipe information.</li>
+</ul>
+
+### Deployment Platform
+<ul>
+<li><a href="https://www.heroku.com/">Heroku</a> - Remote hosting platform, for hosting of python driven websites and applications.</li>
+</ul>
 
 ## 4. **Testing**
 
@@ -307,11 +325,24 @@ The testing process can be seen in the [TESTING.md](https://github.com/RussOakha
 
 ## 5. **Deployment**
 
-### **Hiroku**
+### Database Deployement
 
-The site is hosted using Hiroku, deployed directly from the master branch of GitHub. The deployed site will update automatically as new commits are pushed to the master branch.
+### Application Hosting
+### **Heroku**
 
-#### **Hot to clone 'Avengers-Snap' in GitHub and GitPod.**
+The site is hosted using Heroku, deployed directly from the master branch of GitHub. The deployed site will update automatically as new commits are pushed to the master branch.
+
+#### Creating a Heroku app
+
+#### Setting Environmental Variables
+
+#### Deployment
+
+#### Automatic Deployment
+
+### GitHub and GitPod repository management
+
+### **Hot to clone 'Wanderlust Recipes' in GitHub and GitPod.**
 
 To run a version of the site locally, you can clone this repository using the following steps;
 
