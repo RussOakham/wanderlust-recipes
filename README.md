@@ -399,7 +399,7 @@ The site is hosted using (Heroku)[https://www.heroku.com/], deployed directly fr
 
 ### GitHub and GitPod repository management
 
-### **Hot to clone 'Wanderlust Recipes' in GitHub and GitPod.**
+### **How to clone 'Wanderlust Recipes' in GitHub and GitPod.**
 
 To run a version of the site locally, you can clone this repository using the following steps;
 
@@ -425,23 +425,30 @@ The following are websites and articles that I used for reference and inspiratio
 ### **Technical**
 
 * [Real Favicon Generator](https://realfavicongenerator.net/): For the generation of Favicon icons and code.
-* [Bootstrap Docs](https://getbootstrap.com/docs/5.0/getting-started/introduction/): For guidance on Bootstrap use and adaptations.
+* [Materialize Docs](https://materializecss.com/getting-started.html): For guidance on Materialize use and adaptations.
 * [CSS-Tricks](https://css-tricks.com/): For implementing CSS effects such as box-shadow.
 * [w3Schools](https://www.w3schools.com/): For checking proper syntax of HTML and CSS elements. 
 * [Autoprefixer](https://autoprefixer.github.io/) - For generating CSS browser prefixes.
 * [Stackoverflow](https://stackoverflow.com/) - For researching and troubleshooting JavaScript and Python code issues.
+* [Migel Grinberg](https://blog.miguelgrinberg.com/index) - For researching and troubleshooting Phython functionality and code issues.
+* [MongoDB Documentation](https://docs.mongodb.com/) - For researching and troublshooting database code commands and issues.
 
 ### **Content**
 
 All text content on the site was written originally by myself, with the below notes;
 
+The recipe details, images and descriptions were obtained from [BBC Good Food](https://www.bbcgoodfood.com/) and uploaded by Russell Oakham
+
 ### **Media**
 
-The colour palette for the site was inspired and adapted from;
-
-The photos and images used for this site were obtained from;
+The photos and images used for this site were obtained from.
 
 * [**Shutterstock**](https://www.shutterstock.com/): From the following contributors;
+- [Wanderlust Logo](static/images/wanderlust.png) - [Sloth Astronaut](https://www.shutterstock.com/g/Sloth+Astronaut)
+
+RECIPE CATEGORY PICTURES
+
+NEW RECIPE IMAGE
 
 ### **Acknowledgements**
 
