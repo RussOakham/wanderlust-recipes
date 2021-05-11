@@ -421,6 +421,9 @@ Additional information around these cloning steps can be found on [GitHub Pages 
 ### **Design and research**
 
 The following are websites and articles that I used for reference and inspiration:
+- [BBC Good Food](https://www.bbcgoodfood.com/)
+- [Plum Recipes]() - MS3 project by Sean Young
+- 
 
 ### **Technical**
 
