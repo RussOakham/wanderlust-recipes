@@ -447,11 +447,31 @@ The recipe details, images and descriptions were obtained from [BBC Good Food](h
 The photos and images used for this site were obtained from.
 
 * [**Shutterstock**](https://www.shutterstock.com/): From the following contributors;
-- [Wanderlust Logo](static/images/wanderlust.png) - [Sloth Astronaut](https://www.shutterstock.com/g/Sloth+Astronaut)
+  - [Wanderlust Logo](static/images/wanderlust.png) - [Sloth Astronaut](https://www.shutterstock.com/g/Sloth+Astronaut)
+  - [New recipe image](static/images/new-recipe-small.jpg) - [Evgeny Karandaev](https://www.shutterstock.com/g/karandaev)
 
-RECIPE CATEGORY PICTURES
-
-NEW RECIPE IMAGE
+#### Recipe Category Images:
+* [**Unsplash**](https://unsplash.com/): From the following contributors;
+  - [Dessert](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620742873/dessert_odmskl.jpg) - [Kobby Mendez](https://unsplash.com/@kobbyfotos)
+  - [Pasta](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620743238/pasta_njidyn.jpg) - [Danijela Prijovic](https://unsplash.com/@dacakockica)
+  - [Breakfast](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620743238/breakfast_eo1bpw.jpg) - [Ben Kolde](https://unsplash.com/@benkolde)
+  - [Beef](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620743238/beef_tog6ox.jpg) - [Charlie Solorzano](https://unsplash.com/@csolorzanoe)
+  - [Chicken](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620743238/Chicken_icnqmx.jpg) - [Mark DeYoung](https://unsplash.com/@tempestdesigner)
+  - [Rice](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620743655/rice_iarp59.jpg) - [Annie Spratt](https://unsplash.com/@anniespratt)
+  - [Lamb](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620743655/lamb_pmdjcl.jpg) - [Rumman Amin](https://unsplash.com/@rumanamin)
+  - [Vegetarian](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620743655/vegetarian_trkxik.jpg) - [Louis Hansel](https://unsplash.com/@louishansel)
+  - [Soups](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620743655/soup_dzzwdr.jpg) - [Nick Karvounis](https://unsplash.com/@nickkarvounis)
+  - [Salads](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620743655/salads_rugjgw.jpg) - [Yoav Aziz](https://unsplash.com/@yoavaziz)
+  - [Pizza](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620744157/pizza_vr42rd.jpg) - [Karthik Garikapati](https://unsplash.com/@karthikgarikapati)
+  - [Noodles](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620744157/noodles_dyegf7.jpg) - [Vita Marija Murenaite](https://unsplash.com/@runningvita)
+  - [Pies](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620744157/pies_hh6kbe.jpg) - [Priscilla Du Preez](https://unsplash.com/@priscilladupreez)
+  - [Burgers](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620744157/burger_qmp9cn.jpg) - [Niklas Rhöse](https://unsplash.com/@blitzer)
+  - [Mince](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620744157/mince_nffp3b.jpg) - [The Creative Exchange](https://unsplash.com/@thecreative_exchange)
+  - [Turkey](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620744726/turkey-2_rhoksz.jpg) - [Claudio Schwarz](https://unsplash.com/@purzlbaum)
+  - [Pork](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620744726/pork-2_w581uw.jpg) - [Patrick Le](https://unsplash.com/@patbunddyle) 
+  - [Seafood](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620744726/seafood-2_ztugdy.jpg) - [Harris Vo](https://unsplash.com/@hoanvokim)
+  - [Baking](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620744726/baking-2_tpnevi.jpg) - [Rai Vidanes](https://unsplash.com/@raividanes)
+  - [Drinks](https://res.cloudinary.com/dolhmfgvf/image/upload/v1620744726/drinks-2_h4jedl.jpg) - [Proriat Hospitality](https://unsplash.com/@proriat_hospitality)
 
 ### **Acknowledgements**
 
