@@ -9,12 +9,8 @@
         <!-- Username -->
         <div class="input-field col s12">
             <i class="fas fa-user prefix"></i>
-            <input id="username" name="username" type="text" class="validate" minlength="5" maxlength="15"
-                pattern="^[a-zA-Z0-9]{5,15}$" required>
+            <input id="username" name="username" type="text" class="validate" minlength="5" maxlength="15" required>
             <label for="username">Username</label>
-            <span class="helper-text" data-success=""
-                data-error="Must be between 5 and 15 characters, no containing special characters">
-            </span>
         </div>
         <!-- Password -->
         <div class="input-field col s12">
@@ -22,7 +18,7 @@
             <input id="password" name="password" type="password" minlength="5" maxlength="15"
                 pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{5,25}" class="validate" required>
             <label for="password">Password</label>
-            <span class="helper-text" data-success="Password OK"
+            <span class="helper-text"
                 data-error="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters">
             </span>
         </div>
