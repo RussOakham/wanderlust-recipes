@@ -13,3 +13,5 @@ def calculate_avg_rating(rating):
     if sum_total > 0 and cumulative > 0:
         average = round(cumulative / sum_total)
         return average
+
+    return 0
