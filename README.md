@@ -268,7 +268,8 @@ As this is a community focused platform, there are a number of future features w
 
 &nbsp;
 ## 3. **Database Design**
-dbDiagram
+MongoDB was the database solution used for the website development, using the below structured plan.
+![Wanderlust Recipes Database Structure](assets/images/wanderlust-recipes-db.png)
 
 ### **Indexes**
 
@@ -537,7 +538,19 @@ def ajax_recipe_favorite():
 </summary>
 
 ```
-
+if new_interaction is not None:
+            result = mongo.db.rating.update_one(
+                {"_id": new_interaction},
+                {"$set": {"rating": new_rating}}
+            )
+        # If no record found creates new record with additional info
+        else:
+            result = mongo.db.rating.insert_one({
+                "user_id": ObjectId(session['userid']),
+                "recipe_id": ObjectId(request.json['recipeId']),
+                "favorite": False,
+                "rating": new_rating
+            })
 ```
 
 </details>
@@ -548,15 +561,26 @@ def ajax_recipe_favorite():
 </summary>
 
 ```
-
+result = mongo.db.recipes.update_one(
+        {"_id": ObjectId(request.json['recipeId'])},
+        {
+            "$set": {
+                "rating.0": rating[0],
+                "rating.{i}".format(i=new_rating): int(rating[new_rating]),
+                "rating.{i}".format(i=old_rating): int(rating[old_rating])
+            }
+        })
 ```
 
 </details>
-
+&nbsp;
 
 ## 4. **Technologies Used**
 
-### Languages
+<details>
+<summary>
+Languages
+</summary>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/HTML">HTML</a> - Programming language providing content and structure of the website.</li>
 <li><a href="https://en.wikipedia.org/wiki/CSS">CSS</a> - Programming language providing styling of the website.</li>
@@ -564,8 +588,10 @@ def ajax_recipe_favorite():
 <li><a href="https://en.wikipedia.org/wiki/Python_(programming_language">Python</a> - Programming language used to drive core site functionality including user login and push/retrieving database information.</li>
 <li><a href="https://en.wikipedia.org/wiki/Jinja_(template_engine)">Jinja</a> - Used to generalt HTML from site templates</li>
 </ul>
+</details>
 
-### Librararies
+<details>
+<summary>Librararies</summary>
 <ul>
 <li><a href="https://materializecss.com/">Materialize CSS Framework</a> - Library of pre-built HTML and CSS components, used for various aspects of the site, such as navigation bar.</li>
 <li><a href="https://fontawesome.com/">Font Awesome</a> - Library used for icons, such as social links and other images.</li>
@@ -574,16 +600,20 @@ def ajax_recipe_favorite():
 <li><a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a> - Micro-framework to simplify Python scripting and web server tasks.</li>
 <li><a href="https://werkzeug.palletsprojects.com/en/1.0.x/">Werkzeug</a> - Python library to manage user management integrity.</li>
 </ul>
+</details>
 
-### Editors
+<details>
+<summary>Editors</summary>
 <ul>
 <li><a href="https://github.com/">GitHub</a> - Remote code repository.</li>
 <li><a href="https://gitpod.io/">GitPod</a> - IDE (Integrated Development Environment), for writing, editing and saving code.</li>
 <li>dbDiagram</li>
 <li><a href="https://balsamiq.com/">Balsamiq</a> - Wireframes for visual design testing.</li>
 </ul>
+</details>
 
-### Tools
+<details>
+<summary>Tools</summary>
 <ul>
 <li><a href="https://pythonhosted.org/Flask-paginate/">Flask-Paginate</a> - Flask plugin, allowing easy pagination of recipe content page</li>
 <li><a href="https://tinypng.com/">TinyPNG</a> & <a href="https://tinyjpg.com/">TinyJPG</a> -  Minimise image file sizes and maximise page load speed.</li>
@@ -596,21 +626,28 @@ def ajax_recipe_favorite():
 <li><a href="https://www.responsivedesignchecker.com/">Responsive Design Checker</a> - Check website response across device types.</li>
 <li><a href="https://www.lambdatest.com/">Lambdatest</a> - Check website response across device types.</li>
 </ul>
+</details>
 
-### Database Management
+<details>
+<summary>Database Management</summary>
 <ul>
 <li><a href="https://www.mongodb.com/">MongoDB</a> - Cloud based database management system, used for storying user profile and recipe information.</li>
 </ul>
+</details>
 
-### Deployment Platform
+<details>
+<summary>Deployment Platform</summary>
 <ul>
 <li><a href="https://www.heroku.com/">Heroku</a> - Remote hosting platform, for hosting of python driven websites and applications.</li>
 </ul>
+</details>
 
+&nbsp;
 ## 5. **Testing**
 
 The testing process can be seen in the [TESTING.md](https://github.com/RussOakham/wanderlust-recipes/tree/20dd255966ec540dc5cf918a15783c3440fe2b9a/TESTING.md) document.
 
+&nbsp;
 ## 6. **Deployment**
 
 ### Database Deployement
@@ -618,7 +655,7 @@ The testing process can be seen in the [TESTING.md](https://github.com/RussOakha
 ### Application Hosting
 ### **Heroku**
 
-The site is hosted using (Heroku)[https://www.heroku.com/], deployed directly from the master branch of GitHub. The deployed site will update automatically as new commits are pushed to the master branch.
+The site is hosted using [Heroku](https://www.heroku.com/), deployed directly from the master branch of GitHub. The deployed site will update automatically as new commits are pushed to the master branch.
 
 #### Creating a Heroku app
 - From the Heroku dashboard:
@@ -703,6 +740,7 @@ In a code editor of your choice;
 8. Type 'git clone', paste URL link and press enter.
 
 Additional information around these cloning steps can be found on [GitHub Pages Help Page](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+&nbsp;
 
 ## 7. **Credits**
 
