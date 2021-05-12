@@ -6,10 +6,15 @@ body {
     color: #213f61;
     display: flex;
     min-height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
 main {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
     flex: 1 0 auto;
 }
 
@@ -80,6 +85,7 @@ h3 {
 }
 
 .box-shadow {
+    -webkit-box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
 }
 
@@ -92,6 +98,7 @@ h3 {
 }
 
 .sticky-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -168,6 +175,7 @@ nav .brand-logo i.material-icons {
 .page-footer {
     background-color: #1E2B3A;
     padding: 0;
+    -webkit-box-shadow: 0 -2px 2px 0 rgb(0 0 0 / 14%), 0 -3px 1px -2px rgb(0 0 0 / 12%), 0 -1px 5px 0 rgb(0 0 0 / 20%);
     box-shadow: 0 -2px 2px 0 rgb(0 0 0 / 14%), 0 -3px 1px -2px rgb(0 0 0 / 12%), 0 -1px 5px 0 rgb(0 0 0 / 20%);
 }
 
@@ -186,7 +194,6 @@ nav .brand-logo i.material-icons {
     text-align: center;
     color: #fafafa;
     background: #077787;
-    -moz-transition: background-color 0.35s ease-in-out;
     -webkit-transition: background-color 0.35s ease-in-out;
     -o-transition: background-color 0.35s ease-in-out;
     transition: background-color 0.35s ease-in-out;
@@ -206,7 +213,6 @@ nav .brand-logo i.material-icons {
     color: #fafafa;
     border-radius: 25px;
     background: #2bbbad;
-    -moz-transition: background-color 0.35s ease-in-out;
     -webkit-transition: background-color 0.35s ease-in-out;
     -o-transition: background-color 0.35s ease-in-out;
     transition: background-color 0.35s ease-in-out;
@@ -227,6 +233,7 @@ nav .brand-logo i.material-icons {
 }
 
 .collapsible {
+    -webkit-box-shadow: 0 0 0 0;
     box-shadow: 0 0 0 0;
     border: none;
     margin: 0px;
@@ -235,6 +242,9 @@ nav .brand-logo i.material-icons {
 .collapsible-header {
     background-color: transparent;
     border: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     text-align: center;
 }
@@ -246,10 +256,14 @@ nav .brand-logo i.material-icons {
 .recipe-panel {
     background-color: #fff;
     overflow: hidden;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
     transition: 0.3s;
 }
 
 .recipe-panel:hover {
+    -webkit-transform: scale(1.015);
+    -ms-transform: scale(1.015);
     transform: scale(1.015);
 }
 
@@ -323,6 +337,7 @@ nav .brand-logo i.material-icons {
 .new-recipe-img>img {
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
     display: block;
 }
@@ -366,6 +381,7 @@ nav .brand-logo i.material-icons {
     display: block;
     width: 100%;
     overflow: hidden;
+    -o-object-fit: cover;
     object-fit: cover;
     height: 400px;
 }
@@ -375,9 +391,14 @@ nav .brand-logo i.material-icons {
 }
 
 .star-rating {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
     margin: 0;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -449,6 +470,7 @@ nav .brand-logo i.material-icons {
 }
 
 .collection {
+    -webkit-box-shadow: 0 2px 0 0 rgb(0 0 0 / 14%);
     box-shadow: 0 2px 0 0 rgb(0 0 0 / 14%);
     background-color: #fff;
     font-weight: bold;
@@ -505,7 +527,12 @@ nav .brand-logo i.material-icons {
 
 @media (max-width: 600px) {
     .flex-column-reverse {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
         flex-direction: column-reverse;
     }
 
