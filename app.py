@@ -1,3 +1,4 @@
+""" Import functions needed for below scripts """
 import os
 from flask import (
     Flask, flash, render_template,
@@ -28,6 +29,7 @@ PER_PAGE = 10
 # Pagination
 # https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
 def paginated(recipes):
+    """ Sets Pagination for long content pages """
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page')
     offset = page * PER_PAGE - PER_PAGE
@@ -36,6 +38,7 @@ def paginated(recipes):
 
 
 def pagination_args(recipes):
+    """ Sets Pagination for long content pages """
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page')
     total = len(recipes)
@@ -45,22 +48,28 @@ def pagination_args(recipes):
 
 @app.errorhandler(404)
 def not_found(e):
+    """ Returns custom 404 page when encountering an error """
     return render_template("404.html")
 
 
 @app.route("/")
 @app.route("/recipes")
 def get_recipes():
+    """ Returns list of recipes from database, ordered newest first """
     recipes = list(mongo.db.recipes.find().sort("created_on", -1))
     categories = mongo.db.categories.find().sort("category_title", 1)
     recipes_paginated = paginated(recipes)
     pagination = pagination_args(recipes)
     return render_template(
-        "recipes.html", recipes=recipes_paginated, categories=categories, pagination=pagination)
+        "recipes.html",
+        recipes=recipes_paginated,
+        categories=categories,
+        pagination=pagination)
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    """ Build query function to submit to database find request """
     query = {}
     form_query = []
 
@@ -92,8 +101,8 @@ def search():
 
         if "rating-search" in request.form and int(
                 request.form["rating-search"]) > 0:
-            minRating = int(request.form["rating-search"])
-            query["rating"] = {"$gte": minRating}
+            min_rating = int(request.form["rating-search"])
+            query["rating"] = {"$gte": min_rating}
             form_query.append({
                 "key": "rating[0]",
                 "value": request.form["rating-search"]
@@ -104,11 +113,15 @@ def search():
     recipes_paginated = paginated(recipes)
     pagination = pagination_args(recipes)
     return render_template(
-        "recipes.html", recipes=recipes, categories=categories, pagination=pagination)
+        "recipes.html",
+        recipes=recipes_paginated,
+        categories=categories,
+        pagination=pagination)
 
 
 @app.route("/recipes/<recipe_title>")
 def recipe(recipe_title):
+    """ Returns custom recipe page for recipe with matching recipe_title """
     recipe = mongo.db.recipes.find_one({"url": recipe_title})
 
     if recipe:  # Valid recipe found
@@ -135,6 +148,7 @@ def recipe(recipe_title):
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """ Insert new user account to database """
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -171,6 +185,7 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """ Login to user account and redirect to custom profile view """
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -185,21 +200,21 @@ def login():
                     request.form.get("username")))
                 return redirect(url_for(
                     "profile", username=session["user"]))
-            else:
-                # invalid password
-                flash("Incorrect Username and/or Password")
-                return redirect(url_for("login"))
 
-        else:
-            # username doesn't exist
+            # invalid password
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
+
+        # username doesn't exist
+        flash("Incorrect Username and/or Password")
+        return redirect(url_for("login"))
 
     return render_template("login.html")
 
 
 @app.route("/login/<username>", methods=["GET", "POST"])
 def profile(username):
+    """ Render custom profile view based upon logged in session user """
     # grab the session user's username from the db
     user = mongo.db.users.find_one(
         {"username": username}
@@ -254,7 +269,7 @@ def profile(username):
 
 @app.route("/logout")
 def logout():
-    # remove user from session cookies
+    """ remove user from session cookies """
     flash("You have been logged out")
     log_user_out()
     return redirect(url_for("login"))
@@ -262,6 +277,7 @@ def logout():
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    """ Insert new recipe record to database """
     if request.method == "POST":
         new_recipe = {
             "category_name": request.form.get("category_name"),
@@ -290,6 +306,7 @@ def add_recipe():
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    """ Update recipe record in database, by recipe_id """
     if request.method == "POST":
         historic_rating = mongo.db.recipes.find_one(
             {"_id": ObjectId(recipe_id)})["rating"]
@@ -321,6 +338,7 @@ def edit_recipe(recipe_id):
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
+    """ Remove recipe record from database, based upon recipe_id """
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
     username = mongo.db.users.find_one(
@@ -332,12 +350,14 @@ def delete_recipe(recipe_id):
 
 @app.route("/get-categories")
 def get_categories():
+    """ Returns list of categories from database, ordered newest first """
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     return render_template("categories.html", categories=categories)
 
 
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
+    """ Insert new category record to database """
     if request.method == "POST":
         existing_category = mongo.db.categories.find_one(
             {"category_name": request.form.get("category_name").capitalize()})
@@ -359,6 +379,7 @@ def add_category():
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
+    """ Update category record in database, by recipe_id """
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name").capitalize(),
@@ -374,6 +395,7 @@ def edit_category(category_id):
 
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
+    """ Remove category record from database, based upon recipe_id """
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("get_categories"))
@@ -381,7 +403,7 @@ def delete_category(category_id):
 
 @app.route("/ajax_recipe_favorite", methods=['POST'])
 def ajax_recipe_favorite():
-    # Ajax request from favorite checkbox toggle to update database
+    """ Ajax request from favorite checkbox toggle to update database """
     favorite = ('favorite' in request.json)
     response = {
         "success": True,
@@ -416,7 +438,9 @@ def ajax_recipe_favorite():
 
 @app.route("/ajax_recipe_rating", methods=['POST'])
 def ajax_recipe_rating():
-    # Create AJAX request for recipe rating and updated recipe in database.
+    """
+    Create AJAX request for recipe rating and updated recipe in database.
+    """
     response = {
         "success": False,
         "flash": None,

@@ -1,6 +1,7 @@
 """ Import functions needed for below scripts """
 from flask import session
 
+
 def user_logged_in():
     """ Returns if user is currently logged in """
     if session.get("user") is None:
