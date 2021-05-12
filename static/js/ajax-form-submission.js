@@ -3,7 +3,7 @@
 // RECIPE FAVOURITE SUBMISSION SCRIPTS
 // Toggle 'favourite' fontawesome icon class on toggle
 $('#recipe_favorite').on('click', function (event) {
-    $('.fa-heart').toggleClass('far fas')
+    $('.fa-heart').toggleClass('far fas');
 });
 
 // Submit 'favourite' form to server via AJAX
@@ -15,7 +15,7 @@ $('#recipe_favorite_form').submit(function (event) {
 // Binds favorite form submit to favorite checkbox toggle change event
 $('#recipe_favorite input[type=checkbox]').change(function (event) {
     $('#recipe_favorite_form').submit();
-})
+});
 
 // RECIPE RATING SUBMISSION SCRIPTS
 // Submit 'rating' form to server via AJAX

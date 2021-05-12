@@ -95,7 +95,7 @@ $('#method_step .add-method-step-item').click(function (event) {
                             <label for="method_step">Step Description</label>
                             </div>
                         </li>`;
-    $(this).parent().before(methodStep)
+    $(this).parent().before(methodStep);
 });
 
 // Remove Method step item on click
