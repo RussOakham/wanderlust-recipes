@@ -18,11 +18,12 @@ The site is created to engage users of all ages and backgrounds, so is branded i
 2. [**Features**](./#2-features)
    * [**Existing Features**](./#existing-features)
    * [**Features to consider in future**](./#features-to-consider-implementing-in-future)
-3. [**Technologies Used**](./#3-technologies-used)
-4. [**Testing**](./#4-testing)
-5. [**Deployment**](./#5-deployment)
+3. [**Database Design**](./#3-database-design)
+4. [**Technologies Used**](./#4-technologies-used)
+5. [**Testing**](./#5-testing)
+6. [**Deployment**](./#6-deployment)
    * [**GitHub Pages**](./#github-pages)
-6. [**Credits**](./#6-credits)
+7. [**Credits**](./#7-credits)
    * [**Design and Research**](./#design-and-research)
    * [**Technical**](./#technical)
    * [**Content**](./#content)
@@ -266,7 +267,294 @@ As this is a community focused platform, there are a number of future features w
 * **User Comment Section** - Allow users to comment on each others recipes, allowing constructive feedback and additional context to reviews.
 
 &nbsp;
-## 3. **Technologies Used**
+## 3. **Database Design**
+dbDiagram
+
+### **Indexes**
+
+#### **Recipes**
+
+<details>
+<summary>1. Text index on recipe title, description and ingredients for text searches.</summary>
+
+```
+mongo.db.recipes.create_index([
+
+  ("recipe_title", "text"),
+  ("recipe_description", "text"),
+  ("ingredients", "text")
+
+  ])
+```
+
+</details>
+
+### **Queries**
+
+#### **Browsing**
+
+<details>
+<summary>1. Find the latest recipes:</summary>
+
+```
+list(
+  mongo.db.recipes.find().sort("created_on", -1)
+  )
+```
+
+</details>
+
+#### **Users**
+<details>
+<summary>1. Fine a specific user account based on username:</summary>
+
+```
+mongo.db.users.find_one(
+        {"username": username}
+    )
+```
+
+</details>
+
+<details>
+<summary>
+2. Insert new user record into the database, with defined username, password and user role:
+</summary>
+
+```
+register = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password")),
+            "role": "user"
+        }
+        mongo.db.users.insert_one(register)
+```
+
+</details>
+
+<details>
+<summary>3. Find all recipes uploaded by the session user:</summary>
+
+```
+recipes = list(mongo.db.recipes.find(
+                {"created_by": username}).sort("created_on", -1))
+```
+
+</details>
+
+<details>
+<summary>4. Find all recipes favourited by the session user:</summary>
+
+```
+favorites = list(mongo.db.rating.aggregate([
+                {"$match": {"user_id": user['_id'], 'favorite': True}},
+                {
+                    "$lookup": {
+                        "from": "recipes",
+                        "localField": "recipe_id",
+                        "foreignField": "_id",
+                        "as": "favorites"
+                    }
+                },
+                {"$unwind": "$favorites"},
+                {"$replaceRoot": {"newRoot": "$favorites"}}
+            ]))
+```
+
+</details>
+
+#### **Searching**
+<details>
+<summary>
+1. Find a single recipe from it's recipe title:
+</summary>
+
+```
+recipe = mongo.db.recipes.find_one({"url": recipe_title})
+```
+
+</details>
+
+<details>
+<summary>
+2. Find recipes conforming to user inputed search criteria:
+</summary>
+
+```
+def search():
+    query = {}
+    form_query = []
+
+    if request.method == "POST":
+        # Construct the search query with {key: value}
+        if "search-text" in request.form and request.form["search-text"]:
+            query["$text"] = {
+                "$search": request.form["search-text"],
+                "$caseSensitive": False,
+            }
+            form_query.append({
+                "key": "search-text",
+                "value": request.form["search-text"]
+            })
+
+        if "category_name" in request.form and request.form["category_name"]:
+            query["category_name"] = request.form["category_name"]
+            form_query.append({
+                "key": "category_name",
+                "value": request.form["category_name"]
+            })
+
+        if "servings" in request.form and request.form["servings"]:
+            query["servings"] = request.form["servings"]
+            form_query.append({
+                "key": "servings",
+                "value": request.form["servings"]
+            })
+
+        if "rating-search" in request.form and int(
+                request.form["rating-search"]) > 0:
+            minRating = int(request.form["rating-search"])
+            query["rating"] = {"$gte": minRating}
+            form_query.append({
+                "key": "rating[0]",
+                "value": request.form["rating-search"]
+            })
+
+    recipes = list(mongo.db.recipes.find(query).sort("created_on", -1))
+```
+
+</details>
+
+#### **Uploading**
+<details>
+<summary>
+1. Add a new recipe:
+</summary>
+
+```
+def add_recipe():
+    if request.method == "POST":
+        new_recipe = {
+            "category_name": request.form.get("category_name"),
+            "recipe_title": request.form.get("recipe_title"),
+            "image_upload_url": request.form.get("image_upload_url"),
+            "servings": request.form.get("servings"),
+            "prep_hours": request.form.get("prep_hours"),
+            "prep_minutes": request.form.get("prep_minutes"),
+            "cook_hours": request.form.get("cook_hours"),
+            "cook_minutes": request.form.get("cook_minutes"),
+            "recipe_description": request.form.get("recipe_description"),
+            "ingredients": request.form.getlist("ingredients"),
+            "method_step": request.form.getlist("method_step"),
+            "created_by": session["user"],
+            "created_on": request.form.get("created_on"),
+            "url": request.form.get("recipe_title").replace(' ', '-').lower(),
+            "rating": [3, 0, 0, 0, 0, 0]
+        }
+        mongo.db.recipes.insert_one(new_recipe)
+```
+
+</details>
+
+<details>
+<summary>
+2. Edit an existing recipe:
+</summary>
+
+```
+def edit_recipe(recipe_id):
+    if request.method == "POST":
+        historic_rating = mongo.db.recipes.find_one(
+            {"_id": ObjectId(recipe_id)})["rating"]
+        update_recipe = {
+            "category_name": request.form.get("category_name"),
+            "recipe_title": request.form.get("recipe_title"),
+            "image_upload_url": request.form.get("image_upload_url"),
+            "servings": request.form.get("servings"),
+            "prep_hours": request.form.get("prep_hours"),
+            "prep_minutes": request.form.get("prep_minutes"),
+            "cook_hours": request.form.get("cook_hours"),
+            "cook_minutes": request.form.get("cook_minutes"),
+            "recipe_description": request.form.get("recipe_description"),
+            "ingredients": request.form.getlist("ingredients"),
+            "method_step": request.form.getlist("method_step"),
+            "created_by": session["user"],
+            "created_on": request.form.get("created_on"),
+            "url": request.form.get("recipe_title").replace(' ', '-').lower(),
+            "rating": historic_rating
+        }
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update_recipe)
+```
+
+</details>
+
+<details>
+<summary>
+3. Favourite a recipe:
+</summary>
+Form submitted via AJAX request to avoid reload of page, improving user experience
+
+```
+def ajax_recipe_favorite():
+    # Ajax request from favorite checkbox toggle to update database
+    favorite = ('favorite' in request.json)
+    response = {
+        "success": True,
+        "flash": None,
+        "response": favorite
+    }
+
+    # Check if user has already favorited recipe
+    existing_interaction = mongo.db.rating.find_one({
+        "user_id": ObjectId(session['userid']),
+        "recipe_id": ObjectId(request.json['recipeId'])
+    })
+
+    # Update existing interaction
+    if existing_interaction:
+        mongo.db.rating.update_one(
+            {"_id": existing_interaction['_id']}, {
+                '$set': {"favorite": favorite}})
+
+    else:
+        # Create new interaction
+        interaction = {
+            "user_id": ObjectId(session['userid']),
+            "recipe_id": ObjectId(request.json['recipeId']),
+            "favorite": favorite,
+            "rating": 0
+        }
+        mongo.db.rating.insert_one(interaction)
+
+    return response
+```
+
+</details>
+
+<details>
+<summary>
+4. Submit a rating to a recipe:
+</summary>
+
+```
+
+```
+
+</details>
+
+<details>
+<summary>
+5. Update a rating for a recipe:
+</summary>
+
+```
+
+```
+
+</details>
+
+
+## 4. **Technologies Used**
 
 ### Languages
 <ul>
@@ -319,11 +607,11 @@ As this is a community focused platform, there are a number of future features w
 <li><a href="https://www.heroku.com/">Heroku</a> - Remote hosting platform, for hosting of python driven websites and applications.</li>
 </ul>
 
-## 4. **Testing**
+## 5. **Testing**
 
 The testing process can be seen in the [TESTING.md](https://github.com/RussOakham/wanderlust-recipes/tree/20dd255966ec540dc5cf918a15783c3440fe2b9a/TESTING.md) document.
 
-## 5. **Deployment**
+## 6. **Deployment**
 
 ### Database Deployement
 
@@ -416,7 +704,7 @@ In a code editor of your choice;
 
 Additional information around these cloning steps can be found on [GitHub Pages Help Page](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 
-## 6. **Credits**
+## 7. **Credits**
 
 ### **Design and research**
 
