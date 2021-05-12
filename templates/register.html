@@ -12,6 +12,10 @@
             <input id="username" name="username" type="text" class="validate" minlength="5" maxlength="15"
                 pattern="^[a-zA-Z0-9]{5,15}$" required>
             <label for="username">Username</label>
+            <span class="helper-text" data-success="Username OK"
+                data-error="Must be between 5 and 15 characters, no containing special characters">
+                Must be between 5 and 15 characters, no containing special characters
+            </span>
         </div>
         <!-- Password -->
         <div class="input-field col s12">
@@ -20,8 +24,9 @@
                 pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{5,25}" required>
             <label for="password">Password</label>
             <span class="helper-text" data-success="Password OK"
-                data-error="Password must contain at least 5 characters and include one capital letter and one number">
-                Password must contain at least 5 characters and include one capital letter and one number
+                data-error="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters">
+                Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more
+                characters
             </span>
         </div>
         <div class="input-field col s12">
@@ -34,8 +39,7 @@
         </div>
         <!-- Register Button -->
         <div class="row">
-            <button type="submit" class="col s6 offset-s3 btn-large light-sea-green text-shadow register-button roboto"
-                required>
+            <button type="submit" class="col s6 offset-s3 btn-large light-sea-green text-shadow register-button roboto">
                 Register <i class="fas fa-sign-in-alt"></i>
             </button>
         </div>

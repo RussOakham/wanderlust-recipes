@@ -32,57 +32,57 @@
         content="At Wanderlust Recipes, we love good food! We're all about sharing quality home cooking that everyone can enjoy.">
 </head>
 
-<section id="nav-section" class="sticky-top">
-    <header>
-        <!-- Top Navigation Bar -->
-        <nav class="gunmetal-blue">
-            <div class="container">
-                <div class="nav-wrapper text-shadow">
-                    <a href="{{ url_for('get_recipes') }}" class="brand-logo"><i class="brand-icon"></i></a>
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger right" aria-label="Menu"><i
-                            class="fas fa-bars"></i></a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
-                        <li><a href="{{ url_for('get_recipes') }}">Search</a></li>
-                        {% if session.user %}
-                        <li><a href="{{ url_for('add_recipe') }}">New Recipe</a></li>
-                        {% if session.user|lower == "admin"|lower %}
-                        <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
-                        {% endif %}
-                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-                        {% else %}
-                        <li><a href="{{ url_for('login') }}">Log In</a></li>
-                        <li><a href="{{ url_for('register') }}">Register</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Mobile Side Navigation -->
-            <ul class="sidenav text-shadow-grey" id="mobile-demo">
-                <li>><a href="/" class="brand-logo"><i class="brand-icon-black"></i></a></li>
-                <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
-                <li><a href="{{ url_for('get_recipes') }}">Search</a></li>
-                {% if session.user %}
-                <li><a href="{{ url_for('add_recipe') }}">New Recipe</a></li>
-                {% if session.user|lower == "admin"|lower %}
-                <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
-                {% endif %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-                {% else %}
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-
-    </header>
-</section>
-
-
 <body>
+    <section id="nav-section" class="sticky-top">
+        <header>
+            <!-- Top Navigation Bar -->
+            <nav class="gunmetal-blue">
+                <div class="container">
+                    <div class="nav-wrapper text-shadow">
+                        <a href="{{ url_for('get_recipes') }}" class="brand-logo"><i class="brand-icon"></i></a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger right" aria-label="Menu"><i
+                                class="fas fa-bars"></i></a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+                            <li><a href="{{ url_for('get_recipes') }}">Search</a></li>
+                            {% if session.user %}
+                            <li><a href="{{ url_for('add_recipe') }}">New Recipe</a></li>
+                            {% if session.user|lower == "admin"|lower %}
+                            <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
+                            {% endif %}
+                            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                            {% else %}
+                            <li><a href="{{ url_for('login') }}">Log In</a></li>
+                            <li><a href="{{ url_for('register') }}">Register</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mobile Side Navigation -->
+                <ul class="sidenav text-shadow-grey" id="mobile-demo">
+                    <li>><a href="/" class="brand-logo"><i class="brand-icon-black"></i></a></li>
+                    <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+                    <li><a href="{{ url_for('get_recipes') }}">Search</a></li>
+                    {% if session.user %}
+                    <li><a href="{{ url_for('add_recipe') }}">New Recipe</a></li>
+                    {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
+                    {% endif %}
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+
+        </header>
+    </section>
+
+
     <section id="flash-message-section">
         <!-- Jinja content inserts -->
         {% with messages = get_flashed_messages() %}
