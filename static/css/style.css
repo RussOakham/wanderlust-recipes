@@ -374,14 +374,6 @@ nav .brand-logo i.material-icons {
     height: 100px;
 }
 
-.recipe-summary {
-    display: flex;
-    flex-direction: column;
-    height: 300px;
-    justify-content: center;
-    font-size: large;
-}
-
 .star-rating {
     display: inline-flex;
     margin: 0;
@@ -492,10 +484,6 @@ nav .brand-logo i.material-icons {
 
 
 @media (max-width: 800px) {
-    .recipe-summary {
-        height: 200px;
-    }
-
     .recipe-title {
         height: 50px;
     }
@@ -519,12 +507,6 @@ nav .brand-logo i.material-icons {
     .flex-column-reverse {
         display: flex;
         flex-direction: column-reverse;
-    }
-
-    .recipe-summary {
-        height: 160px;
-        font-size: revert;
-        display: block;
     }
 
     ul,
