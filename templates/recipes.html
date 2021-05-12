@@ -31,7 +31,7 @@
                             <div class="input-field col s12">
                                 <i class="fas fa-birthday-cake prefix"></i>
                                 <select id="category_name" name="category_name" class="validate">
-                                    <option value="" disabled selected></option>
+                                    <option value="" disabled selected><span></span></option>
                                     {% for category in categories %}
                                     <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                                     {% endfor %}
@@ -41,7 +41,7 @@
                             <div class="input-field col s6">
                                 <i class="fas fa-utensils prefix"></i>
                                 <select id="servings" name="servings" class="validate">
-                                    <option value="" disabled selected> </option>
+                                    <option value="" disabled selected><span></span></option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -56,7 +56,7 @@
                             <div class="input-field col s6">
                                 <i class="fas fa-star prefix"></i>
                                 <select id="rating-search" name="rating-search" class="validate">
-                                    <option value="" disabled selected> </option>
+                                    <option value="" disabled selected><span></span></option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -136,9 +136,7 @@
                 </div>
                 <div class="col m4 s12 bold">
                     <h6>Rating:</h6>
-                    <ul class="recipe-rating-home">
-                        {{ recipe_star_rating_display(recipe.rating[0])}}
-                    </ul>
+                    {{ recipe_star_rating_display(recipe.rating[0])}}
                 </div>
                 <div class="col m4 s12 bold recipe-time">
                     <h6><i class="fas fa-clock"></i> Time:</h6>
