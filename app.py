@@ -122,16 +122,16 @@ def search():
 @app.route("/recipes/<recipe_title>")
 def recipe(recipe_title):
     """ Returns custom recipe page for recipe with matching recipe_title """
-    recipe = mongo.db.recipes.find_one({"url": recipe_title})
+    recipe_record = mongo.db.recipes.find_one({"url": recipe_title})
 
-    if recipe:  # Valid recipe found
+    if recipe_record:  # Valid recipe found
         # create interaction array
         interaction = {}
         if user_logged_in():
             # If user logged in, populate interaction array with historic info
             interaction = mongo.db.rating.find_one({
                 "user_id": ObjectId(session['userid']),
-                "recipe_id": recipe['_id']
+                "recipe_id": recipe_record['_id']
             })
         # If no user historic info, populate with zero values
         if not interaction:
@@ -141,7 +141,7 @@ def recipe(recipe_title):
             }
 
         return render_template(
-            "recipe_detail.html", recipe=recipe, interaction=interaction)
+            "recipe_detail.html", recipe=recipe_record, interaction=interaction)
 
     return abort(404)
 
@@ -165,15 +165,15 @@ def register():
             return redirect(url_for('register'))
 
         # Capture user information and post to database
-        register = {
+        register_record = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
             "role": "user"
         }
-        mongo.db.users.insert_one(register)
+        mongo.db.users.insert_one(register_record)
 
         # Log user in and add info to session cookie
-        log_user_in(register)
+        log_user_in(register_record)
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
@@ -330,10 +330,10 @@ def edit_recipe(recipe_id):
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update_recipe)
         flash("Recipe Updated!")
 
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe_record = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
-        "edit_recipe.html", recipe=recipe, categories=categories)
+        "edit_recipe.html", recipe=recipe_record, categories=categories)
 
 
 @app.route("/delete_recipe/<recipe_id>")
