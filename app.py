@@ -99,10 +99,12 @@ def search():
                 "value": request.form["rating-search"]
             })
 
-    recipes = mongo.db.recipes.find(query).sort("created_on", -1)
+    recipes = list(mongo.db.recipes.find(query).sort("created_on", -1))
     categories = mongo.db.categories.find()
+    recipes_paginated = paginated(recipes)
+    pagination = pagination_args(recipes)
     return render_template(
-        "recipes.html", recipes=recipes, categories=categories)
+        "recipes.html", recipes=recipes, categories=categories, pagination=pagination)
 
 
 @app.route("/recipes/<recipe_title>")
