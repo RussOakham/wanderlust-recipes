@@ -8,7 +8,7 @@ checked
 
 
 {% macro recipe_star_rating_display(rating) %}
-<ul id="star-rating">
+<ul class="star-rating">
     {% for i in [rating, rating-1, rating-2, rating-3, rating-4] %}
     <li class="star">
         <i class="fa fa-star {{ star_on(i) }}"></i>

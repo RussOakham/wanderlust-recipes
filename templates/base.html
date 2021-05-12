@@ -32,7 +32,7 @@
         content="At Wanderlust Recipes, we love good food! We're all about sharing quality home cooking that everyone can enjoy.">
 </head>
 
-<section class="sticky-top">
+<section id="nav-section" class="sticky-top">
     <header>
         <!-- Top Navigation Bar -->
         <nav class="gunmetal-blue">
@@ -61,8 +61,7 @@
 
             <!-- Mobile Side Navigation -->
             <ul class="sidenav text-shadow-grey" id="mobile-demo">
-                <a href="/" class="brand-logo"><i class="brand-icon-black"></i></a>
-                <br>
+                <li>><a href="/" class="brand-logo"><i class="brand-icon-black"></i></a></li>
                 <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
                 <li><a href="{{ url_for('get_recipes') }}">Search</a></li>
                 {% if session.user %}
@@ -84,7 +83,7 @@
 
 
 <body>
-    <section>
+    <section id="flash-message-section">
         <!-- Jinja content inserts -->
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -110,8 +109,8 @@
                 <div class="col s6">
                     <h5 class="white-text">Wanderlust Recipes</h5>
                     <div class="social-links">
-                        <a href="https://github.com/RussOakham/"><i class="fab fa-github fa-lg"
-                                aria-label="Website Developers GitHub"></i></a>
+                        <a href="https://github.com/RussOakham/" aria-label="Website Developers GitHub"><i
+                                class="fab fa-github fa-lg"></i></a>
                         <a href="https://www.linkedin.com/in/russell-oakham-11a08585/"
                             aria-label="Website Developers LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
                     </div>

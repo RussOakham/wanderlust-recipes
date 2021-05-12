@@ -382,7 +382,7 @@ nav .brand-logo i.material-icons {
     font-size: large;
 }
 
-#star-rating {
+.star-rating {
     display: inline-flex;
     margin: 0;
     flex-wrap: wrap;
@@ -508,7 +508,7 @@ nav .brand-logo i.material-icons {
         font-size: 1.5rem;
     }
 
-    #star-rating {
+    .star-rating {
         padding: 0 15px 0 15px;
     }
 }
