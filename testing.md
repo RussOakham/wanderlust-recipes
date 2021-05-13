@@ -20,7 +20,8 @@ I validated the HTML with [W3 Validation Service](https://validator.w3.org/). Th
 
 <details>
 <summary>base.html & recipes.html</summary>
-* ![Base & Recipes](assets/images/validation/html/recipes.PNG)
+
+![Base & Recipes](assets/images/validation/html/recipes.PNG)
 </details>
 
 * [avengers](testing.md)
