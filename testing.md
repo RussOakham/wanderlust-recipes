@@ -21,10 +21,55 @@ I validated the HTML with [W3 Validation Service](https://validator.w3.org/). Th
 <details>
 <summary>base.html & recipes.html</summary>
 
-![Base & Recipes](/assets/validation/html/recipes.PNG)
+![Base & Recipes](assets/validation/html/recipes.PNG)
+</details>
+<details>
+<summary>add-recipe.html</summary>
+
+![Base & Recipes](assets/validation/html/add-recipe.PNG)
+</details>
+<details>
+<summary>edit-categories.html</summary>
+
+![Base & Recipes](assets/validation/html/edit-categories.PNG)
+</details>
+<details>
+<summary>edit-recipe.html</summary>
+
+![Base & Recipes](assets/validation/html/edit-recipe.PNG)
+</details>
+<details>
+<summary>login.html</summary>
+
+![Base & Recipes](assets/validation/html/login.PNG)
+</details>
+<details>
+<summary>manage-categories.html</summary>
+
+![Base & Recipes](assets/validation/html/manage-categories.PNG)
+</details>
+<details>
+<summary>profile.html</summary>
+
+![Base & Recipes](assets/validation/html/profile.PNG)
+</details>
+<details>
+<summary>recipe-details.html</summary>
+
+![Base & Recipes](assets/validation/html/recipe-details.PNG)
+</details>
+<details>
+<summary>register.html</summary>
+
+![Base & Recipes](assets/validation/html/register.PNG)
+</details>
+<details>
+<summary>search.html</summary>
+
+![Base & Recipes](assets/validation/html/search.PNG)
 </details>
 
-* [avengers](testing.md)
+
 
   **Warnings**
 
