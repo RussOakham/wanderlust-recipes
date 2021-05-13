@@ -7,7 +7,9 @@ from flask_pymongo import PyMongo
 from flask_paginate import Pagination, get_page_args
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from user_management import user_logged_in, log_user_in, log_user_out
+from user_management import (
+    user_logged_in, log_user_in, log_user_out,
+    requires_logged_in_user, requires_user_not_logged_in)
 from user_rating import calculate_avg_rating
 if os.path.exists("env.py"):
     import env
@@ -141,7 +143,9 @@ def recipe(recipe_title):
             }
 
         return render_template(
-            "recipe_detail.html", recipe=recipe_record, interaction=interaction)
+            "recipe_detail.html",
+            recipe=recipe_record,
+            interaction=interaction)
 
     return abort(404)
 
@@ -184,6 +188,7 @@ def register():
 
 
 @app.route("/login", methods=["GET", "POST"])
+@requires_user_not_logged_in
 def login():
     """ Login to user account and redirect to custom profile view """
     if request.method == "POST":
@@ -268,6 +273,7 @@ def profile(username):
 
 
 @app.route("/logout")
+@requires_logged_in_user
 def logout():
     """ remove user from session cookies """
     flash("You have been logged out")

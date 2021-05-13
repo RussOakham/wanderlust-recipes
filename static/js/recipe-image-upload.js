@@ -21,5 +21,5 @@ $("#image_upload_url").on('change', function (event) {
 // cloudinary callback. Sets image upload input to new URL
 function imageUploaded(error, result) {
     $('#recipe-upload-image').prop("src", result[0].secure_url);
-    $('#image_upload_url').val(result[0].secure_url)
-};
+    $('#image_upload_url').val(result[0].secure_url);
+}
