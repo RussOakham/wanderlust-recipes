@@ -143,6 +143,7 @@ Based off Pylints feedback, I corrected these issues quickly and easily.
 **.pylintrc**
 After the above corrections, Pylint was still displaying a handful of warnings related to the app.py file, however these were false positive results for the following reasons:
 
+<details>
 <summary>app.py - inaccurate warnings</summary>
 
 ![app.py - inaccurate warnings](assets/validation/python/app.PNG)
@@ -154,6 +155,7 @@ After the above corrections, Pylint was still displaying a handful of warnings r
 
 To clean up these false positives, I created a .pylintrc file and added the below rules to allow for these warning instances. By doing so, my app.py file now returns 10/10 score.
 
+<details>
 <summary>.pylintrc</summary>
 
 ![.pylintrc](assets/validation/python/pylintrc.PNG)

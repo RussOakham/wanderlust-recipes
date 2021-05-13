@@ -39,7 +39,8 @@
             <nav class="gunmetal-blue">
                 <div class="container">
                     <div class="nav-wrapper text-shadow">
-                        <a href="{{ url_for('get_recipes') }}" class="brand-logo"><i class="brand-icon"></i></a>
+                        <a href="{{ url_for('get_recipes') }}" class="brand-logo" aria-label="Home"><i
+                                class="brand-icon"></i></a>
                         <a href="#" data-target="mobile-demo" class="sidenav-trigger right" aria-label="Menu"><i
                                 class="fas fa-bars"></i></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -62,7 +63,9 @@
 
                 <!-- Mobile Side Navigation -->
                 <ul class="sidenav text-shadow-grey" id="mobile-demo">
-                    <li>><a href="/" class="brand-logo"><i class="brand-icon-black"></i></a></li>
+                    <li>><a href="{{ url_for('get_recipes') }}" class="brand-logo" aria-label="Home"><i
+                                class="brand-icon-black"></i></a>
+                    </li>
                     <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
                     <li><a href="{{ url_for('get_recipes') }}">Search</a></li>
                     {% if session.user %}
