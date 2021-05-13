@@ -615,6 +615,7 @@ Languages
 <details>
 <summary>Tools</summary>
 <ul>
+<li><a href="https://cloudinary.com/">Cloudinary</a> - Plugin used for upload and hosting of user images</li>
 <li><a href="https://pythonhosted.org/Flask-paginate/">Flask-Paginate</a> - Flask plugin, allowing easy pagination of recipe content page</li>
 <li><a href="https://tinypng.com/">TinyPNG</a> & <a href="https://tinyjpg.com/">TinyJPG</a> -  Minimise image file sizes and maximise page load speed.</li>
 <li><a href="https://www.remove.bg/">remove.bg</a> - Remove backgrounds from png images.</li>
