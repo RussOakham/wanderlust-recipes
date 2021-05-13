@@ -31,7 +31,8 @@ PER_PAGE = 10
 def paginated(recipes):
     """ Sets Pagination for long content pages """
     page, per_page, offset = get_page_args(
-        page_parameter='page', per_page_parameter='per_page')
+                            page_parameter='page',
+                            per_page_parameter='per_page')
     offset = page * PER_PAGE - PER_PAGE
 
     return recipes[offset: offset + PER_PAGE]
@@ -40,7 +41,8 @@ def paginated(recipes):
 def pagination_args(recipes):
     """ Sets Pagination for long content pages """
     page, per_page, offset = get_page_args(
-        page_parameter='page', per_page_parameter='per_page')
+                            page_parameter='page',
+                            per_page_parameter='per_page')
     total = len(recipes)
 
     return Pagination(page=page, per_page=PER_PAGE, total=total)

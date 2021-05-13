@@ -148,10 +148,11 @@ After the above corrections, Pylint was still displaying a handful of warnings r
 ![app.py - inaccurate warnings](assets/validation/python/app.PNG)
 </details>
 
- - Unbalanced Tuple Unpacking & Unused Variable (per_page, offset): This relates to code used by flask-paginate to automate content pagination. The code was taken directly from their own installation guide, changes to the code causes the site to fail on page load.
+ - unbalanced-tuple-unpacking & unused-variable (per_page, offset): This relates to code used by flask-paginate to automate content pagination. The code was taken directly from their own installation guide, changes to the code causes the site to fail on page load.
+ - invalid-name & unused-argument: 'e' is an accepted variable, used to capture errors in error handling functionality.
+ - unused-import: 'env' is the local file used to configure the development environment, as it is not pushed to live via .gitignore, pylint is incorrectly believing the function is not used.
 
-
-To clean up these false possitives, I created a .pylintrc file and added the below rules to allow for these warning instances. By doing so, my app.py file now returns 10/10 score.
+To clean up these false positives, I created a .pylintrc file and added the below rules to allow for these warning instances. By doing so, my app.py file now returns 10/10 score.
 
 <summary>.pylintrc</summary>
 
