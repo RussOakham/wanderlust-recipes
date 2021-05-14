@@ -31,7 +31,7 @@
                 <div class="input-field col s6">
                     <i class="fas fa-birthday-cake prefix"></i>
                     <select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled selected>Choose Category</option>
+                        <option value="" disabled selected>Select</option>
                         {% for category in categories %}
                         <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                         {% endfor %}
@@ -45,12 +45,12 @@
             <!-- Recipe Preparation Time -->
             <div class="col s6">
                 <h6>Prep Time</h6>
-                <div class="input-field col s7">
+                <div class="input-field col s12 m7">
                     <i class="fas fa-clock prefix"></i>
                     <input type="number" id="prep_hours" name="prep_hours" class="validate" min="0" max="24">
                     <label for="prep_hours">Hours</label>
                 </div>
-                <div class="input-field col s5">
+                <div class="input-field col s9 offset-s3 m5">
                     <input type="number" id="prep_minutes" name="prep_minutes" class="validate" min="0" max="59"
                         required>
                     <label for="prep_minutes">Minutes</label>
@@ -59,12 +59,12 @@
             <!-- Recipe Cooking time -->
             <div class="col s6">
                 <h6>Cooking Time</h6>
-                <div class="input-field col s7">
+                <div class="input-field col s12 m7">
                     <i class="fas fa-clock prefix"></i>
                     <input type="number" id="cook_hours" name="cook_hours" class="validate" min="0" max="24">
                     <label for="cook_hours">Hours</label>
                 </div>
-                <div class="input-field col s5">
+                <div class="input-field col s9 offset-s3 m5">
                     <input type="number" id="cook_minutes" name="cook_minutes" class="validate" min="0" max="59"
                         required>
                     <label for="cook_minutes">Minutes</label>
