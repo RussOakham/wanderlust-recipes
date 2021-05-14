@@ -121,6 +121,11 @@ nav .brand-logo i.material-icons {
     font-weight: bold;
 }
 
+nav ul li {
+    position: relative;
+    top: 48px;
+}
+
 .brand-icon {
     background-image: url(../images/wanderlust-logo.svg);
     width: 50px;
@@ -333,6 +338,8 @@ nav .brand-logo i.material-icons {
 .new-recipe-img {
     padding: 0px !important;
     position: relative;
+    height: 400px;
+    width: 100%;
 }
 
 .new-recipe-img>img {
@@ -505,6 +512,12 @@ nav .brand-logo i.material-icons {
     }
 }
 
+@media (min-width: 800px) {
+    nav ul li {
+        top: 0px;
+    }
+}
+
 
 @media (max-width: 800px) {
     .recipe-title {
@@ -548,5 +561,18 @@ nav .brand-logo i.material-icons {
 
     .recipe-img-container>img {
         height: 230px;
+    }
+
+    .new-recipe-img {
+        height: 300px;
+        width: 100%;
+    }
+
+    .btn-large {
+        margin-bottom: 10px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 15px;
+        padding: 0 14px;
     }
 }

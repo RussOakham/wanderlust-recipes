@@ -63,9 +63,9 @@
 
                 <!-- Mobile Side Navigation -->
                 <ul class="sidenav text-shadow-grey" id="mobile-demo">
-                    <li>><a href="{{ url_for('get_recipes') }}" class="brand-logo" aria-label="Home"><i
+                    <div><a href="{{ url_for('get_recipes') }}" class="brand-logo" aria-label="Home"><i
                                 class="brand-icon-black"></i></a>
-                    </li>
+                    </div>
                     <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
                     <li><a href="{{ url_for('get_recipes') }}">Search</a></li>
                     {% if session.user %}
