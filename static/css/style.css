@@ -308,6 +308,7 @@ nav ul li {
 .recipe-img-container {
     padding: 0 !important;
     overflow: hidden;
+    position: relative;
 }
 
 .img-no-padding {
@@ -363,10 +364,20 @@ nav ul li {
     position: relative;
 }
 
-#recipe-favorite-div {
+.recipe-summary-profile {
+    position: relative;
+}
+
+#recipe-favorite-div,
+.recipe-edit-delete {
     position: absolute;
     top: 5px;
     right: 5px;
+}
+
+.fa-edit,
+.fa-trash-alt {
+    font-size: 1.5rem !important;
 }
 
 #recipe_favorite>input[type="checkbox"]~.material-icons::after {
