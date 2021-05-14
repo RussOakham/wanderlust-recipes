@@ -47,10 +47,6 @@ h6 {
     clip: rect(1px, 1px, 1px, 1px);
 }
 
-h2 {
-    font: 2.92rem;
-}
-
 h3 {
     font-size: 1.5rem;
     margin-top: 1rem;
@@ -549,6 +545,14 @@ nav ul li {
 
 
 @media (max-width: 600px) {
+    .page-h1 {
+        font-size: 2.92rem !important;
+    }
+
+    .page-h2 {
+        font-size: 2.92rem !important;
+    }
+
     .flex-column-reverse {
         display: -webkit-box;
         display: -ms-flexbox;
