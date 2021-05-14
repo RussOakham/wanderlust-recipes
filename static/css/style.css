@@ -510,6 +510,15 @@ nav ul li {
     .recipe-img-container>img {
         height: 280px;
     }
+
+    .card .card-title {
+        font-size: 22px;
+        padding: 12px;
+    }
+
+    .card .card-image .card-title {
+        padding: 12px;
+    }
 }
 
 @media (min-width: 800px) {
