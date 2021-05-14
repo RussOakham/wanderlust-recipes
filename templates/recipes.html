@@ -113,9 +113,17 @@
                 <div class="col m4 s12 bold recipe-time">
                     <h6><i class="fas fa-clock"></i> Time:</h6>
                     <p>
-                        Prep: {{ recipe.prep_minutes }} mins
+                        Prep:
+                        {% if recipe.prep_hours != "0" %}
+                        {{ recipe.prep_hours }} hours
+                        {% endif %}
+                        {{ recipe.prep_minutes }} mins
                         <br>
-                        Cook: {{ recipe.cook_minutes }} mins
+                        Cook:
+                        {% if recipe.cook_hours != "0" %}
+                        {{ recipe.cook_hours }} hours
+                        {% endif %}
+                        {{ recipe.cook_minutes }} mins
                     </p>
                 </div>
             </div>
