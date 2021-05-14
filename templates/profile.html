@@ -10,15 +10,15 @@
     <div class="row">
         <div class="col s12">
             <ul id="tabs-swipe-demo" class="tabs box-shadow border-radius box-border">
-                <li class="tab col s6"><a class="active" href="#favourite-recipes">Favourite Recipes</a></li>
-                <li class="tab col s6"><a href="#your-recipes">Your Recipes</a></li>
+                <li class="tab col s6"><a class="active" href="#favourite-recipes">Favourites</a></li>
+                <li class="tab col s6"><a href="#your-recipes">Uploaded</a></li>
             </ul>
         </div>
 
 
         <!-- User Favourite Recipes -->
         <div id="favourite-recipes">
-            <h3>Favourites</h3>
+            <h3>Favourite Recipes</h3>
 
             {% for favorite in favorites %}
             {% if favorite|length > 0 %}
@@ -76,7 +76,7 @@
 
         <!-- User uploaded Recipes -->
         <div id="your-recipes">
-            <h3>Uploaded</h3>
+            <h3>Your Recipes</h3>
 
             {% for recipe in recipes %}
 
