@@ -198,12 +198,72 @@ As this project is not to be crawled by search engines, no robots.txt has been c
 To test the responsiveness of the site I used [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools), [Responsive Design Checker](https://www.responsivedesignchecker.com/) and [Lambdatest](https://www.lambdatest.com/).
 
 ### Responsiveness
+![Desktop Responsive Testing](assets/validation/responsiveness/desktop.PNG)
+
+![Tablet Responsive Testing](assets/validation/responsiveness/tablet.PNG)
+
+![Mobile Responsive Testing](assets/validation/responsiveness/mobile.PNG)
 
 To ensure responsive I used materialize grid, flexbox methods, containers and custom media queries add_to ensure all site pages resized responsively for all device viewports.
 
 ### Browser Compatibility
 
 ## Testing User Stories
+<details>
+<summary>Browsing</summary>
+
+* \(US001\) - As a user I want the website to clearly display recipe suggestions to me so I can be introduced to new content.
+   - When a user visits the website, the first page they visit displays latest recipes added to the site and a search function, to browse for specific recipes the user may wish to find.
+   - When a user logs in to their account, their profile page displays their favourited recipes and uploaded recipes.
+* \(US002\) - As a user I want to see recipe reviews and comments from other users, so I am informed of the best recipes.
+   - *** add if time ***
+</details>
+<details>
+<summary>Searching</summary>
+
+* \(US003\) - As a user, I want to be able to view recipes by category, so I can find recipes of specific type I would like to make.
+   - The search function on the home page allows users to filter recipes by category.
+* \(US004\) - As a user, I want to be able to search recipes by keyword, so I can find recipes easily, for example by name or by included ingredient.
+   - The search function on the home page allows users to search recipes by keyword. This function will search through the indexed recipe_title, category_name and ingredients, elements of the recipes database category.
+* \(US005\) - As a user, I want to be able to search and filter recipes by rating, so I can find only the highest-rated recipes to choose from.
+   - The search function on the home page allows users to filter recipes by minimum rating.
+* \(US006\) - As a user, I want to be able to search and filter recipes by serving size, so I can find recipes suited to the number of people I am catering to.
+   - The search function on the home page allows users to filter recipes by serving size.
+* \(US007\) - As a user, I want to be able to search and filter recipes by preparation and cooking time, so I find recipes that are suitable to my available time.
+   - *** REMOVE ***
+* \(US008\) - As a user, I want to be about to save my favourite recipes, so I can quickly find them again in future.
+   - On each recipe page, there is a heart logo in the top right of the recipe image - toggling the hear to appear filled adds this recipe to user favourites.
+</details>
+
+<details>
+<summary>Uploading Recipes</summary>
+
+* \(US009\) - As a user, I want to be able to upload my own recipes, so other users can benefit from them.
+* \(US010\) - As a user, I want to gain feedback on the recipes I upload, so I can determine improvements.
+* \(US011\) - As a user, I want to be able to edit and improve recipes I have already uploaded.
+</details>
+
+<details>
+<summary>Users</summary>
+
+* \(US012\) - As a user, I want to be able to register with the site, so I can upload and edit recipes, plus save my favourite recipes.
+* \(US013\) - As a registered user, I want to be able to login to my account, so I can access and edit my recipes, and find my favourite recipes.
+* \(US014\) - As a registered user, I want to be able to submit ratings and reviews for recipes submitted by other users.
+</details>
+
+<details>
+<summary>Administration</summary>
+
+* \(US015\) - As an admin I want to be able to edit content, to ensure it adheres to site rules.
+* \(US-16\) - As an admin I want to be able to add and edit food categories, to continuously improve user experience.
+</details>
+
+<details>
+<summary>General</summary>
+
+* \(US013\) - As a user I want to recieve clear feedback for my actions on the site, so I know they are complete or if further steps are needed.
+</details>
+&nbsp;
 
 ## Issues I had to overcome
 
