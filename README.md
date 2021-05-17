@@ -265,6 +265,7 @@ As this is a community focused platform, there are a number of future features w
 * **Nutritional Information API Integration** - Integrate the platform to a third party API which automatically calculates the nutritional information of recipes based on their ingredients and serving size. This would be highly beneficial to health concious users.
 * **Vegetarian/Vegan Alternative Recipes** - Allow users to enter Vegetarian or Vegan alternative ingredient lists and methods for existing recipes. Update recipe pages to allow users to choose an alternative option of the recipe and dynamically update the page contents in line with choice.
 * **User Comment Section** - Allow users to comment on each others recipes, allowing constructive feedback and additional context to reviews.
+* **Opimised Image Delivery** - Page load speeds could be sped up via using compression on user uploaded images, to ensure they are served in a fully optimised state. This could be achieved by further configuring the Cloudinary account to automatically compress images during upload.
 
 &nbsp;
 ## 3. **Database Design**
@@ -591,7 +592,7 @@ Languages
 </details>
 
 <details>
-<summary>Librararies</summary>
+<summary>Libraries</summary>
 <ul>
 <li><a href="https://materializecss.com/">Materialize CSS Framework</a> - Library of pre-built HTML and CSS components, used for various aspects of the site, such as navigation bar.</li>
 <li><a href="https://fontawesome.com/">Font Awesome</a> - Library used for icons, such as social links and other images.</li>
