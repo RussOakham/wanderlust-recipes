@@ -239,29 +239,43 @@ To ensure responsive I used materialize grid, flexbox methods, containers and cu
 <summary>Uploading Recipes</summary>
 
 * \(US009\) - As a user, I want to be able to upload my own recipes, so other users can benefit from them.
+   - Logged in users can add new recipe's to the site via the link in the navigation bar. The form input fields inform the user of required information.
 * \(US010\) - As a user, I want to gain feedback on the recipes I upload, so I can determine improvements.
+   - Recipes uploaded to the site can be rated by other users, so users will be able to see the current star rating of their uploaded recipes.
 * \(US011\) - As a user, I want to be able to edit and improve recipes I have already uploaded.
+   - Logged in users can edit their uploaded recipes via the 'uploaded' list on their user profile page.
 </details>
 
 <details>
 <summary>Users</summary>
 
 * \(US012\) - As a user, I want to be able to register with the site, so I can upload and edit recipes, plus save my favourite recipes.
+   - Users can register as user profile via the 'registration' page, which informs users of required username and password formatting.
 * \(US013\) - As a registered user, I want to be able to login to my account, so I can access and edit my recipes, and find my favourite recipes.
+   - Users with registered accounts, can login to their account via the 'Login' page, using their registered username and password.
 * \(US014\) - As a registered user, I want to be able to submit ratings and reviews for recipes submitted by other users.
+   - Logged in users can submit star ratings for recipes via viewing the recipe detail pages. If you have previously rated a recipe, your previous rating score will display.
 </details>
 
 <details>
 <summary>Administration</summary>
 
 * \(US015\) - As an admin I want to be able to edit content, to ensure it adheres to site rules.
+   - If the logged in user has the role of 'admin' the 'uploaded' list is replaced with a list of all recipes, this allows the admin to edit all recipes added to the site.
 * \(US-16\) - As an admin I want to be able to add and edit food categories, to continuously improve user experience.
+   - If the logged in user has the role of 'admin', the 'Manage Categories' link will be visible in the navigation bar. The 'Manage Categories' page shows all categories added to the site, plus options and edit and delete them.
 </details>
 
 <details>
 <summary>General</summary>
 
 * \(US013\) - As a user I want to recieve clear feedback for my actions on the site, so I know they are complete or if further steps are needed.
+   - Where appropriate, visual responses have been added to confirm success or failure of user interaction events, including;
+      - When a user registers with the site, a flash message is shown advising on successful/failed registration.
+      - When a user logs in to the site, a flash message is shown welcoming the user to their login page, showing their username. If login is unsuccessful, a flask message shows advising so.
+      - When a user adds a new recipe to the site or edits an existing recipe, a flash message is displayed advising of successful/failed update.
+      - When a user rates a recipe, a gif is displayed showing successful submission of their rating.
+      - When a user favourites a recipe, the heart logo displays in a 'filled' state, indicating the recipe is on the users favourite list.
 </details>
 &nbsp;
 
