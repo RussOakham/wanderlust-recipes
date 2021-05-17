@@ -285,6 +285,7 @@ To ensure responsive I used materialize grid, flexbox methods, containers and cu
 - Favourite Form Submission - AJAX
 - Pagination
 - Edit recipe, page posting.
+- WebP format and Safari
 
 ## Issues still to overcome
 - Forgotten Password

@@ -18,7 +18,9 @@
 
         <!-- User Favourite Recipes -->
         <div id="favourite-recipes">
-            <h3>Favourite Recipes</h3>
+            <div class="row">
+                <h3 class="profile-h3">Favourite Recipes</h3>
+            </div>
 
             {% for favorite in favorites %}
             {% if favorite|length > 0 %}
@@ -76,8 +78,9 @@
 
         <!-- User uploaded Recipes -->
         <div id="your-recipes">
-            <h3>Your Recipes</h3>
-
+            <div class="row">
+                <h3 class="profile-h3">Your Recipes</h3>
+            </div>
             {% for recipe in recipes %}
 
             {% if recipe|length > 0 %}

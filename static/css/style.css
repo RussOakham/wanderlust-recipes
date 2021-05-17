@@ -52,6 +52,10 @@ h3 {
     margin-top: 1rem;
 }
 
+.profile-h3 {
+    margin-left: 10px;
+}
+
 .flashes h4 {
     line-height: 2;
 }
