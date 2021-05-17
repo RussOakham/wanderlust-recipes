@@ -207,6 +207,15 @@ To test the responsiveness of the site I used [Chrome DevTools](https://develope
 To ensure responsive I used materialize grid, flexbox methods, containers and custom media queries add_to ensure all site pages resized responsively for all device viewports.
 
 ### Browser Compatibility
+![Browser Campatibility Testing](assets/validation/browser-compatibility/browser-testing.PNG)
+
+Through testing, I found some bug on the Safari desktop browser versions, where the 'WebP' image format would not load, this is because [Safari only support WebP image format in version 14 onwards](https://www.keycdn.com/support/webp-browser-support#:~:text=Safari%20will%20support%20WebP%20in,almost%20be%20completely%20globally%20supported.). As version 14 was only released in September 2020, I opted to convert the images to png and re-upload, ensuring wider user compatability.
+
+Additionally, the site does not load properly while using Internet Explorer, due to issues with Materialize CSS compatibility.
+
+According to caniuse the current usage of Internet Explorer is just 1.1% of total browser users, therefore I am comfortable not supporting IE in the site design.
+
+Note: Microsoft released Internet Explorer in 2013 and ceased active development in 2015 when Microsoft Edge was released as the replacement, as evidenced by this article from Microsoft's design team. Since 2015 Microsoft has been actively encouraging users to adopt Edge over Explorer, with the only remaining updates for IE, being security patches and bug fixes.
 
 ## Testing User Stories
 <details>
@@ -290,4 +299,6 @@ To ensure responsive I used materialize grid, flexbox methods, containers and cu
 ## Issues still to overcome
 - Forgotten Password
 - User/Admin search Function.
+- Optimised image delivery
+- Restrict file upload type to .png and .jpg
 
