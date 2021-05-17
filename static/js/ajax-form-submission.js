@@ -30,6 +30,9 @@ $('#recipe_rating_form').submit(function (event) {
 });
 
 // General AJAX form submission script
+// Following links used to help create and understand the below script:
+// https://www.digitalocean.com/community/tutorials/submitting-ajax-forms-with-jquery
+// https://github.com/seanyoung247/Plum/blob/main/static/js/script.js
 function submitFormAJAX(event, callbackSuccess) {
     // Get form data
     let data = new FormData(event.target);

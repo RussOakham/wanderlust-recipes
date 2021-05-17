@@ -465,6 +465,8 @@ nav ul li {
     padding: 10px 0px;
 }
 
+/* CSS Fix to auto heigh Materialize tabs from: */
+/* https://github.com/Dogfalo/materialize/issues/4159#issuecomment-387969837 */
 .tabs-content.carousel .carousel-item {
     height: auto;
 }

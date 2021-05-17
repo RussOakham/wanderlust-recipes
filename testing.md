@@ -289,9 +289,160 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
 &nbsp;
 
 ## Issues I had to overcome
-- Cloudinary Widget and Image upload
-- Materialize List Resizing
+- ** User Image Upload **:
+   I had two options for enabling users to provide recipe images;
+    1. Allow users to provide a text URL to an online image
+    2. Embed image upload functionality to the site. 
+
+   The first option is the easiest, as would only require saving a form text string to the database. However this does not provide as fluid a user experience as allowing users to upload the image directly to the site, therefore I chose the second option.
+
+   Rather than code the functionality myself, I found a third party widget I can embed into the site from [Cloudinary](https://cloudinary.com/).
+
+   To install the widget to the site, I had to add the widget script tag to the add and edit recipe pages;
+
+   <details>
+   <summary>Cloudinary Widget Script</summary>
+
+   ```
+   <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+   ```
+   </details>
+
+   I then had to create a button, with an attached event listener, which calls the widget. The cloudinary widget also allows easy customisation, so I have restricted the image type to 'image', file size to 1MB, file number to one and minimum image heigh to 260 pixels.
+
+   <details>
+   <summary>Widget Eventlistener</summary>
+   
+   ```
+   // Shows the cloudinary image upload widget
+   $("#image_upload_btn").click(function (event) {
+      event.preventDefault();
+      cloudinary.openUploadWidget({
+               cloud_name: 'dolhmfgvf',
+               upload_preset: 'syqgnqe3',
+               maxFiles: 1,
+               maxFileSize: 100000,
+               autoMinimize: true,
+               resourceType: "image",
+               min_height: 260,
+         },
+         imageUploaded);
+   });
+   ```
+   </details>
+
+   While the image is saved to Cloudinary's cloud storage, the new url for the stored image needs to be saved to the add/edit recipe form and saved to the database, so it can be recalled later. This was done using the below scripts;
+
+   <details>
+   <summary>Set form input to uploaded img URL</summary>
+   
+   ```
+   // cloudinary callback. Sets image upload input to new URL
+   function imageUploaded(error, result) {
+    $('#recipe-upload-image').prop("src", result[0].secure_url);
+    $('#image_upload_url').val(result[0].secure_url);
+   }
+   ```
+   </details>
+
+   To allow a positive user experience and feedback that the image has uploaded successfully, the below script also updates the image container on page to your uploaded image;
+
+   <details>
+   <summary>Update on page img, to uploaded img</summary>
+   
+   ```
+   // Shows the current selected image in the image box
+   $("#image_upload_url").on('change', function (event) {
+      $('#recipe-upload-image').prop("src", $(this).val());
+   });   
+   ```
+   </details>
+
+
+- **Materialize Tab Resizing**
+   By default the ['Tab' carousel function provided by Materlize](https://materializecss.com/tabs.html), is limited to a maximum height of 400 pixels. This was causing issues where long ingredient for method step lists were being visually cut short, as below;
+
+   ![Method Steps limited to 400px](assets/issues/tab-400px-limit.PNG)
+
+   To fix this, I had to add the below CSS and JavaScript. The CSS drives the .carousel-content containing the ingredients and method, to auto-set it's height to fit it's content. The JavaScript sets the parent div of .tabs-content to the calcualted height of the content in pixels.
+
+   <details>
+   <summary>CSS & JS to resize Materialize Tabs</summary>
+   
+   CSS: 
+   ```
+   .tabs-content.carousel .carousel-item {
+    height: auto;
+   }  
+   ```
+   JavaScript:
+   ```
+   function resizeTab() {
+    $(".tabs-content").css('height', $('.carousel-item.active').height() + 'px');
+   }
+   ```
+   </details>
+
+   This solution was found on [this](https://github.com/Dogfalo/materialize/issues/4159#issuecomment-387969837) GitHub thread.
+
 - Favourite Form Submission - AJAX
+   As default, using the method 'POST' to save information to the database, would cause the browser pages to reload. This is not the best user experience for interactions such as favouriting or rating a viewed recipe, as it would interrupt their viewing experience.
+   A better experience would be to save this information to the database, without reloading the page. To accomplish this I incorporated JavaScript AJAX form submission into the application.
+
+   Below is the is the jQuery script I used to create general AJAX submissions from HTML form data.
+   I used [this](https://www.digitalocean.com/community/tutorials/submitting-ajax-forms-with-jquery) guide from digital ocean and [this](https://github.com/seanyoung247/Plum/blob/main/static/js/script.js) application created by Sean Young, to help create the script and adapt it to json format for submission to MongoDB.
+
+   <details>
+   <summary>General AJAX form submission script</summary>
+   
+   ```
+   function submitFormAJAX(event, callbackSuccess) {
+    // Get form data
+    let data = new FormData(event.target);
+    let serialised = {};
+    // serialise it into key/value pairs that can be converted to JSON
+    for (let key of data.keys()) {
+        serialised[key] = data.get(key);
+    }
+    // Make AJAX request
+    $.ajax({
+        type: "POST",
+        url: $(event.target).prop("action"), // Get route from form action attribute
+        contentType: "application/json;charset=UTF-8",
+        data: JSON.stringify(serialised),
+        success: callbackSuccess
+    });
+   }
+   ```
+   </details>
+
+   With the submitFormAJAX function created, I had to bind event listeners on the relative form submits - below is the eventlistener for the favourite toggle;
+
+   <details>
+   <summary>Favourite Toggle Event Listener</summary>
+   
+   ```
+   // Binds favorite form submit to favorite checkbox toggle change event
+   $('#recipe_favorite input[type=checkbox]').change(function (event) {
+      $('#recipe_favorite_form').submit();
+   });
+   ```
+   </details>
+
+   As mentioned earlier, the default action on submission for this form would be to POST to database and reload the page, this needs to be prevented in favour of submitting via AJAX submission. This is handled for the favourite toggle in the below script;
+
+   <details>
+   <summary>Prevent Default POST action, in favour of calling AJAX submission function</summary>
+   
+   ```
+   // Submit 'favourite' form to server via AJAX
+   $('#recipe_favorite_form').submit(function (event) {
+      event.preventDefault();
+      submitFormAJAX(event, null);
+   });
+   ```
+   </details>
+
 - Pagination
 - Edit recipe, page posting.
 - WebP format and Safari
