@@ -280,6 +280,13 @@ To ensure responsive I used materialize grid, flexbox methods, containers and cu
 &nbsp;
 
 ## Issues I had to overcome
+- Cloudinary Widget and Image upload
+- Materialize List Resizing
+- Favourite Form Submission - AJAX
+- Pagination
+- Edit recipe, page posting.
 
 ## Issues still to overcome
+- Forgotten Password
+- User/Admin search Function.
 
