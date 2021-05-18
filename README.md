@@ -179,7 +179,7 @@ This is the sensory design section of a website, or how it looks, feels and soun
 
 Upon deciding to brand the website as 'Wanderlust Recipes' I found [this](static/images/wanderlust-whitebg.png) logo on shutterstock. The logo comprises white and blue colours, which give a light and clean asthetic. With this in mind i consulted [this article](https://elearningindustry.com/the-elearning-color-guide-evoking-the-right-emotion) on how colours evoke emotions, wishing to promote a feelings of calm, optimism, energy, nature and creativity, I chose to use a color pallete consisting of whites, blues and greens.
 
-I used the website [image color picket](https://imagecolorpicker.com/), to determine the blue used in the logo is Gunmetal (#1E2B3A). I then used the website [Coolers](https://coolors.co/) to generate the rest of my colour palette, using Gunmetal (#1E2B3A) as the starting colour and finding additional colours infitting to the style I wished to achieve.. 
+I used the website [image color picker](https://imagecolorpicker.com/), to determine the blue used in the logo is Gunmetal (#1E2B3A). I then used the website [Coolers](https://coolors.co/) to generate the rest of my colour palette, using Gunmetal (#1E2B3A) as the starting colour and finding additional colours infitting to the style I wished to achieve.. 
 
 The resulting palette is below;
 
@@ -195,11 +195,11 @@ The resulting palette is below;
 * Light Sea Green - #2BBBAD
 </details>
 
-I also used a selection of off-white and off-black colours to provide additional accenting to generic white/black website elements, such as backgrounds and fonts.
+I also used a selection of off-white and off-black colours to provide additional accenting to general white/black website elements, such as backgrounds and fonts.
 
 #### **Language/Tone**
 
-I wanted the language to reflect a casual and fun atmosphere, to reflect a backpackers lifestyle, so content was written in line with this. Avoiding technical or formal language where possible.
+I wanted the language to reflect a casual and fun atmosphere, reflecting a backpackers lifestyle. Therefore content was written in this style, avoiding technical or formal language where possible.
 
 Similarly, I wanted to use fonts that reinforce the casual identity of the site and also be easy to read. To achieve this I used two [Google Fonts](https://fonts.google.com/);
 
@@ -256,7 +256,6 @@ Both the Header and Footer are present and consistent on all website pages.
 <details>
 <summary>Login / Registration page:</summary>
 
-* **Image Banner**: Visually pleasing design, allowing users to immediately identify the site brand.
 * **Username Input**: Input area for users to enter their profile username.
 * **Password**: Input area for users to enter their profile password.
 * **Confirm Password** (Registration page): Input area for users to confirm password, must match password input for successful registration.
@@ -270,12 +269,12 @@ Both the Header and Footer are present and consistent on all website pages.
 * **Image Banner**: Visually pleasing design, allowing users to immediately identify the site brand.
 * **Username sub-banner**: Text banner showing username of logged in account, allowing users to quickly identify if they are using their correct desired account.
 * **Favourite Recipes**: Recipes favourited by the user are displayed in list order, allowing quick and easy access.
-* **Submitted Recipes**: Recipes previously submitted by the user are displayed in list order, allowing users quick and easy access for review or edit.
+* **Submitted Recipes**: Recipes previously submitted by the user are displayed in list order, allowing users quick and easy access to review or edit.
 </details>
 
 <details>
 <summary>New Recipe page:</summary>
-* **Image Banner**: Visually pleasing design, allowing users to immediately identify the site brand.
+
 * **Input areas for below recipe data points**:
     * _Recipe Name_ - Text
     * _Recipe Image_ - File upload and preview
