@@ -165,7 +165,11 @@ Overview of site and page structure, explaining functionality and purpose.
 
 At this point I began creating wireframes, using the above structure considerations. I used [Balsamiq](https://balsamiq.com/) these below;
 
-* [Home page on desktop and mobile](./)
+* [Home page on desktop and mobile](assets/wireframes/home-page.png)
+* [Recipe Page](assets/wireframes/recipe-page.png)
+* [Profile Page](assets/wireframes/profile-page.png)
+* [Add Recipe Page](assets/wireframes/add-recipe-page.png)
+* [Login / Registration Page](assets/wireframes/login-registration-page.png)
 
 ### **Surface**
 
@@ -173,7 +177,7 @@ This is the sensory design section of a website, or how it looks, feels and soun
 
 #### **Colour & Styling**
 
-Upon deciding to brand the website as 'Wanderlust Recipes' I found [this](assets/images/wanderlust-whitebg.png) logo on shutterstock. The logo comprises white and blue colours, which give a light and clean asthetic. With this in mind i consulted [this article](https://elearningindustry.com/the-elearning-color-guide-evoking-the-right-emotion) on how colours evoke emotions, wishing to promote a feelings of calm, optimism, energy, nature and creativity, I chose to use a color pallete consisting of whites, blues and greens.
+Upon deciding to brand the website as 'Wanderlust Recipes' I found [this](static/images/wanderlust-whitebg.png) logo on shutterstock. The logo comprises white and blue colours, which give a light and clean asthetic. With this in mind i consulted [this article](https://elearningindustry.com/the-elearning-color-guide-evoking-the-right-emotion) on how colours evoke emotions, wishing to promote a feelings of calm, optimism, energy, nature and creativity, I chose to use a color pallete consisting of whites, blues and greens.
 
 I used the website [image color picket](https://imagecolorpicker.com/), to determine the blue used in the logo is Gunmetal (#1E2B3A). I then used the website [Coolers](https://coolors.co/) to generate the rest of my colour palette, using Gunmetal (#1E2B3A) as the starting colour and finding additional colours infitting to the style I wished to achieve.. 
 
