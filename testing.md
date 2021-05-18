@@ -115,11 +115,11 @@ I validated the JavaScript with [JSHint](https://jshint.com/).
 ![recipe-image-upload.js](assets/validation/js/recipe-image-upload.PNG)
 </details>
 
-  The recipe-image-upload flagged an inaccurate issue with an undefined variable, however this is because the variable is called from a third-party application (cloudinary).
+  The recipe-image-upload flagged an inaccurate issue with an undefined variable, however, this is because the variable is called from a third-party application (Cloudinary).
 
 ### Python
 
-I validated the Python code with the [Pylint Validation Tool](https://www.pylint.org/), which found a number of simple errors I corrected.
+I validated the Python code with the [Pylint Validation Tool](https://www.pylint.org/), which found several simple errors I corrected.
 The final validation marks are below, scoring 10/10 for all files.
 
 <details>
@@ -140,12 +140,12 @@ The final validation marks are below, scoring 10/10 for all files.
 
 **Warnings and Errors Fixed**
 
-On initial running of pylint, it flagged that I had not included Docstring descriptions for each of my functions, as I had used hashtag marked notes instead. Additionally Pylint flagged a few occasions of poor syntax, such as imbalanced returns and use of unnecessary 'else' statements.
-Based off Pylints feedback, I corrected these issues quickly and easily.
+On the initial running of Pylint, it flagged that I had not included Docstring descriptions for each of my functions, as I had used hashtag marked notes instead. Additionally, Pylint flagged a few occasions of poor syntaxes, such as imbalanced returns and the use of unnecessary 'else' statements.
+Based on Pylints feedback, I corrected these issues quickly and easily.
 
 **.pylintrc**
 
-After the above corrections, Pylint was still displaying a handful of warnings related to the app.py file, however these were false positive results for the following reasons:
+After the above corrections, Pylint was still displaying a handful of warnings related to the app.py file, however, these were false-positive results for the following reasons:
 
 <details>
 <summary>app.py - inaccurate warnings</summary>
@@ -154,13 +154,13 @@ After the above corrections, Pylint was still displaying a handful of warnings r
 </details>
 
  - unbalanced-tuple-unpacking & unused-variable (per_page, offset): 
-      This relates to code used by flask-paginate to automate content pagination. The code was taken directly from their own installation guide, changes to the code causes the site to fail on page load.
+      This relates to code used by flask-paginate to automate content pagination. The code was taken directly from their installation guide, changes to the code cause the site to fail on page load.
  - invalid-name & unused-argument: 
       'e' is an accepted variable, used to capture errors in error handling functionality.
  - unused-import: 
       'env' is the local file used to configure the development environment, as it is not pushed to live via .gitignore, pylint incorrectly believes the function is not used.
 
-To clean up these false positives, I created a .pylintrc file and added the below rules to allow for these warning instances. By doing so, my app.py file now returns 10/10 score.
+To clean up these false positives, I created a .pylintrc file and added the below rules to allow for these warning instances. By doing so, my app.py file now returns a 10/10 score.
 
 <details>
 <summary>.pylintrc</summary>
@@ -174,10 +174,10 @@ To clean up these false positives, I created a .pylintrc file and added the belo
 
 I used Google's lighthouse audit to test the website conforms positively with Google's performance metrics, with the intent to achieve scores of 90% in all areas on desktop.
 
-After running the audit, the site recieved the below scores;
+After running the audit, the site received the below scores;
 ![Google Lighthouse Audit](assets/validation/google-lighthouse-audit/GLA.PNG)
 
-This shows 90%+ scores in accessibility and best practices, but sub 90% in performance and SEO. 
+This shows 90%+ scores for accessibility and best practices, but sub 90% in performance and SEO. 
 Upon checking the reasoning for the low Performance and SEO scores, I decided to not take further action to improve the scores for the below reasons;
 
 <details>
@@ -185,7 +185,7 @@ Upon checking the reasoning for the low Performance and SEO scores, I decided to
 
 ![Performance Score](assets/validation/google-lighthouse-audit/performance.PNG)
 
-The driving factors to the low performance score are the 'Elminate Render Blocking Resources' and 'Remove Unused JavaScript'. However, the sources driving these are external resources, such as Materialize and jQuery. Therefore as the underlying cause is due to third party, no further on-site optimisation is suitable.
+The driving factors to the low-performance score are the 'Eliminate Render Blocking Resources' and 'Remove Unused JavaScript'. However, the sources driving these are external resources, such as Materialize and jQuery. Therefore as the underlying cause is due to third party scripts, no further on-site optimisation is suitable.
 
 </details>
 <details>
@@ -194,9 +194,9 @@ The driving factors to the low performance score are the 'Elminate Render Blocki
 ![Performance Score](assets/validation/google-lighthouse-audit/SEO.PNG)
 
 The two driving factors in the low SEO score are 'uncrawlable links' and 'robots.txt is not valid'. 
-The uncrawable links are the pagination links on the recipes page, which are auto-generated by flask-pagination. These links are not necessarily needed for crawling, as a properly optimised robots.txt file will ensure each individual recipe page (recipe-details) would be crawled by search engines.
+The uncrawable links are the pagination links on the recipes page, which are auto-generated by flask-pagination. These links are not necessarily needed for crawling, as a properly optimised robots.txt file will ensure each recipe page (recipe-details) would be crawled by search engines.
 
-The invalid robots.txt is being flagged, as no robots.txt file has been created. The purpose of a robots.txt file to provide search engines information on your site and directions of how to crawl tyour pages.  If this project were for commercial or public purposes, a optimised robots.txt file would be an important inclusion. 
+The invalid robots.txt is being flagged, as no robots.txt file has been created. The purpose of a robots.txt file to provide search engines information on your site and directions on how to crawl your pages.  If this project were for commercial or public purposes, an optimised robots.txt file would be an important inclusion. 
 
 However, as this is a personal project, not meant for discovery on search engines, no robots.txt should be created.
 
@@ -230,8 +230,8 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
 <details>
 <summary>Browsing</summary>
 
-* **\(US001\)** - As a user I want the website to clearly display recipe suggestions to me so I can be introduced to new content.
-   - When a user visits the website, the first page they visit displays latest recipes added to the site and a search function, to browse for specific recipes the user may wish to find.
+* **\(US001\)** - As a user I want the website to display recipe suggestions to me so I can be introduced to new content.
+   - When a user visits the website, the first page they visit displays the latest recipes added to the site and a search function, to browse for specific recipes the user may wish to find.
    - When a user logs in to their account, their profile page displays their favourited recipes and uploaded recipes.
 * **\(US002\)** - As a user I want to see recipe reviews and comments from other users, so I am informed of the best recipes.
    - *** add if time ***
@@ -248,14 +248,14 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
 * **\(US006\)** - As a user, I want to be able to search and filter recipes by serving size, so I can find recipes suited to the number of people I am catering to.
    - The search function on the home page allows users to filter recipes by serving size.
 * **\(US007\)** - As a user, I want to be about to save my favourite recipes, so I can quickly find them again in future.
-   - On each recipe page, there is a heart logo in the top right of the recipe image - toggling the hear to appear filled adds this recipe to user favourites.
+   - On each recipe page, there is a heart logo in the top right of the recipe image - toggling the heart to appear filled adds this recipe to user favourites.
 </details>
 
 <details>
 <summary>Uploading Recipes</summary>
 
-* **\(US008\)** - As a user, I want to be able to upload my own recipes, so other users can benefit from them.
-   - Logged in users can add new recipe's to the site via the link in the navigation bar. The form input fields inform the user of required information.
+* **\(US008\)** - As a user, I want to be able to upload my recipes, so other users can benefit from them.
+   - Logged-in users can add new recipe's to the site via the link in the navigation bar. The form input fields inform the user of the required information.
 * **\(US009\)** - As a user, I want to gain feedback on the recipes I upload, so I can determine improvements.
    - Recipes uploaded to the site can be rated by other users, so users will be able to see the current star rating of their uploaded recipes.
 * **\(US010\)** - As a user, I want to be able to edit and improve recipes I have already uploaded.
@@ -266,9 +266,9 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
 <summary>Users</summary>
 
 * **\(US011\)** - As a user, I want to be able to register with the site, so I can upload and edit recipes, plus save my favourite recipes.
-   - Users can register as user profile via the 'registration' page, which informs users of required username and password formatting.
-* **\(US012\)** - As a registered user, I want to be able to login to my account, so I can access and edit my recipes, and find my favourite recipes.
-   - Users with registered accounts, can login to their account via the 'Login' page, using their registered username and password.
+   - Users can register as user profile via the 'registration' page, which informs users of the required username and password formatting.
+* **\(US012\)** - As a registered user, I want to be able to log in to my account, so I can access and edit my recipes, and find my favourite recipes.
+   - Users with registered accounts can log in to their account via the 'Login' page, using their registered username and password.
 * **\(US013\)** - As a registered user, I want to be able to submit ratings and reviews for recipes submitted by other users.
    - Logged in users can submit star ratings for recipes via viewing the recipe detail pages. If you have previously rated a recipe, your previous rating score will display.
 </details>
@@ -276,27 +276,27 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
 <details>
 <summary>Administration</summary>
 
-* **\(US014\)** - As an admin I want to be able to edit content, to ensure it adheres to site rules.
-   - If the logged in user has the role of 'admin' the 'uploaded' list is replaced with a list of all recipes, this allows the admin to edit all recipes added to the site.
+* **\(US014\)** - As an admin, I want to be able to edit content, to ensure it adheres to site rules.
+   - If the logged-in user has the role of 'admin' the 'uploaded' list is replaced with a list of all recipes, this allows the admin to edit all recipes added to the site.
 * **\(US-15\)** - As an admin I want to be able to add and edit food categories, to continuously improve user experience.
-   - If the logged in user has the role of 'admin', the 'Manage Categories' link will be visible in the navigation bar. The 'Manage Categories' page shows all categories added to the site, plus options, edit and delete them.
+   - If the logged-in user has the role of 'admin', the 'Manage Categories' link will be visible in the navigation bar. The 'Manage Categories' page shows all categories added to the site, plus options to edit and delete them.
 </details>
 
 <details>
 <summary>General</summary>
 
-* **\(US016\)** - As a user I want to recieve clear feedback for my actions on the site, so I know they are complete or if further steps are needed.
-   - Where appropriate, visual responses have been added to confirm success or failure of user interaction events, including;
+* **\(US016\)** - As a user, I want to receive clear feedback for my actions on the site, so I know they are complete or if further steps are needed.
+   - Where appropriate, visual responses have been added to confirm the success or failure of user interaction events, including;
       - When a user registers with the site, a flash message is shown advising on successful/failed registration.
       - When a user logs in to the site, a flash message is shown welcoming the user to their login page, showing their username. If login is unsuccessful, a flash message shows advising so.
-      - When a user adds a new recipe to the site or edits an existing recipe, a flash message is displayed advising of successful/failed update.
+      - When a user adds a new recipe to the site or edits an existing recipe, a flash message is displayed advising of a successful/failed update.
       - When a user rates a recipe, a gif is displayed showing successful submission of their rating.
-      - When a user favourites a recipe, the heart logo displays in a 'filled' state, indicating the recipe is on the users favourite list.
+      - When a user favourites a recipe, the heart logo displays in a 'filled' state, indicating the recipe is on the users' favourite list.
 </details>
 &nbsp;
 
 ## Issues I had to overcome
-- ** User Image Upload **:
+- **User Image Upload**:
 
    I had two options for enabling users to provide recipe images;
     1. Allow users to provide a text URL to an online image
@@ -316,10 +316,10 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
    ```
    </details>
 
-   I then had to create a button, with an attached event listener, which calls the widget. The cloudinary widget also allows easy customisation, so I have restricted the image type to 'image', file size to 1MB, file number to one and minimum image height to 260 pixels.
+   I then had to create a button, with an attached event listener, which calls the widget. The Cloudinary widget also allows easy customisation, so I have restricted the image type to 'image', file size to 1MB, file number to one and minimum image height to 260 pixels.
 
    <details>
-   <summary>Widget Eventlistener</summary>
+   <summary>Widget eventListener</summary>
    
    ```
    // Shows the cloudinary image upload widget
@@ -339,10 +339,10 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
    ```
    </details>
 
-   While the image is saved to Cloudinary's cloud storage, the new url for the stored image needs to be saved to the add/edit recipe form and saved to the database, so it can be recalled later. This was done using the below scripts;
+   While the image is saved to Cloudinary's cloud storage, the new URL for the stored image needs to be saved to the add/edit recipe form and saved to the database, so it can be recalled later. This was done using the below scripts;
 
    <details>
-   <summary>Set form input to uploaded img URL</summary>
+   <summary>Set form input to uploaded image URL</summary>
    
    ```
    // cloudinary callback. Sets image upload input to new URL
@@ -353,7 +353,7 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
    ```
    </details>
 
-   To allow a positive user experience and feedback that the image has uploaded successfully, the below script also updates the image container on page, to display your uploaded image;
+   To allow a positive user experience and feedback that the image has uploaded successfully, the below script also updates the image container on-page, to display your uploaded image;
 
    <details>
    <summary>Update on page image, to user uploaded image</summary>
@@ -369,11 +369,11 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
 
 - **Materialize Tab Resizing**
 
-   By default the ['Tab' carousel function provided by Materlize](https://materializecss.com/tabs.html), is limited to a maximum height of 400 pixels. This was causing issues where long ingredient or method step lists, were being visually cut short, as below;
+   By default, the ['Tab' carousel function provided by Materlize](https://materializecss.com/tabs.html), is limited to a maximum height of 400 pixels. This was causing issues where long ingredient or method step lists, were being visually cut short, as below;
 
    ![Method Steps limited to 400px](assets/issues/tab-400px-limit.PNG)
 
-   To fix this, I had to add the below CSS and JavaScript. The CSS causes the .carousel-content containing to auto-set it's height to fit it's content. The JavaScript sets the parent div of .tabs-content to the calcualted height of the content in pixels.
+   To fix this, I had to add the below CSS and JavaScript. The CSS causes the .carousel-content containing to auto-set its height to fit its content. The JavaScript sets the parent div of .tabs-content to the calculated height of the content in pixels.
 
    <details>
    <summary>CSS & JS to resize Materialize Tabs</summary>
@@ -396,14 +396,14 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
 
 - Favourite Form Submission - AJAX
 
-   As default, using the method 'POST' to save information to the database, would cause the browser pages to reload. This is not the best user experience for interactions such as favouriting or rating a viewed recipe, as it would interrupt the viewing experience.
+   By default, using the method 'POST' to save information to the database, would cause the browser pages to reload. This is not the best user experience for interactions such as favouriting or rating a viewed recipe, as it would interrupt the viewing experience.
    An improved experience would be to save this information to the database, without reloading the page. 
    
    To accomplish this I incorporated JavaScript AJAX form submission into the application.
 
-   Below is the is the jQuery script I used to create general AJAX submissions from HTML form data.
+   Below is the jQuery script I used to create general AJAX submissions from HTML form data.
    
-   I used [this](https://www.digitalocean.com/community/tutorials/submitting-ajax-forms-with-jquery) guide from digital ocean and [this](https://github.com/seanyoung247/Plum/blob/main/static/js/script.js) application created by Sean Young, to help create the script and adapt it to json format for submission to MongoDB.
+   I used [this](https://www.digitalocean.com/community/tutorials/submitting-ajax-forms-with-jquery) guide from Digital Ocean and [this](https://github.com/seanyoung247/Plum/blob/main/static/js/script.js) application created by Sean Young, to help create the script and adapt it to JSON format for submission to MongoDB.
 
    <details>
    <summary>General AJAX form submission script</summary>
@@ -429,7 +429,7 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
    ```
    </details>
 
-   With the submitFormAJAX function created, I had to bind event listeners to the relavent form submits - below is the eventlistener for the favourite toggle;
+   With the submitFormAJAX function created, I had to bind event listeners to the relevant form submits - below is the eventListener for the favourite toggle;
 
    <details>
    <summary>Favourite Toggle Event Listener</summary>
@@ -442,7 +442,7 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
    ```
    </details>
 
-   As mentioned earlier, the default action on submission for this form would be to POST to database and reload the page, this needs to be prevented in favour of submitting via AJAX submission. This is handled for the favourite toggle in the below script;
+   As mentioned earlier, the default action on submission for this form would be to POST to the database and reload the page, this needs to be prevented in favour of submitting via AJAX submission. This is handled for the favourite toggle in the below script;
 
    <details>
    <summary>Prevent Default POST action, in favour of calling AJAX submission function</summary>
@@ -458,35 +458,35 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
 
 - **Pagination**:
 
-   To future proof the site, pagination is an important feature. As more recipes are added to the site, the number of recipe summaries to load on the home page would increase exponentially, leading to slow down in page load speed.
+   To future proof the site, pagination is an important feature. As more recipes are added to the site, the number of recipe summaries to load on the home page would increase exponentially, leading to a slow down in page load speed.
    By adding pagination, we can keep the number of recipe summaries loaded on each page is low, ensuring quick page load speeds.
 
    To add pagination, I used the 'flask-paginate' extension and the following [GitHub guide](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9) for implementation.
 
-- **Edit Recipe form POSTing when cloudinary widget called**:
+- **Edit Recipe form POSTing when Cloudinary widget called**:
 
-   During development I encountered an odd issue where clicking the 'Upload Image' button on the 'Edit Recipe' page would POST the entire edit recipe form to the database, instead of calling just the cloudinary widget.
+   During development I encountered an odd issue where clicking the 'Upload Image' button on the 'Edit Recipe' page would POST the entire edit recipe form to the database, instead of calling just the Cloudinary widget.
    This is despite the same HTML and JavaScript being used on the 'New Recipe' page and functioning as desired.
 
    I hypothesise that the issue was because the widget was firing a 'method == "POST"' event when called, which was triggering the 'edit_recipe()' function in app.py to be called.
 
-   To rectify this I added a 'eventpreventDefault()' function call to the 'cloudinary.openUploadWidget()' function. This prevents the default action of the 'edit_recipe()', therefore prevening application POSTing to the database. This then allwed the widget to be opened without issue and user to upload a new image.
+   To rectify this I added a 'eventpreventDefault()' function call to the 'cloudinary.openUploadWidget()' function. This prevents the default action of the 'edit_recipe()', therefore prevening application POSTing to the database. This then allowed the widget to be opened without issue and the user to upload a new image.
 
 - **WebP format and Safari browsers**
 
-   During the responsive design testing, I noticed a number of the recipe images were not loading. After investigation I determined this was because Safari, prior to version 14.0 (released Sept 2020), did not support the WebP image format.
+   During the responsive design testing, I noticed a number of the recipe images were not loading. After investigation, I determined this was because Safari, before version 14.0 (released Sept 2020), did not support the WebP image format.
 
    To rectify this I manually updated all images to .png file formats and updated the database. I also updated the Cloudinary account settings, to automatically convert all uploaded image files to PNG format, to ensure future compliance.
 
 ## Issues still to overcome
 - **Forgotten Password**:
 
-   Currently there is no function to help users recover a password if it is forgotten. This can be added in the future, via integration of an e-mail system to send users account verification and reset password links.
+   Currently, there is no function to help users recover a password if it is forgotten. This can be added in the future, via the integration of an e-mail system to send users account verification and reset password links.
 
 - **User/Admin search and pagination Function**:
 
-   Currently the User profile page renders all favourited and user uploaded recipes, which could cause issues in page load speed as a user account matures and number of recipes per list increase.
-   A future resolution to this, would be to add pagination to the Favourite and Uploaded recipe lists, while also adding in 'search' functionality to profile page, so users can quickly find specific recipes.
+   Currently, the user profile page renders all favourited and user-uploaded recipes, which could cause issues in page load speed as a user account matures and the number of recipes per list increase.
+   A future resolution to this would be to add pagination to the Favourite and Uploaded recipe lists, while also adding in 'search' functionality to the profile page, so users can quickly find specific recipes.
 
-   This is a more pressing issue for users with role 'admin' as their 'uploaded' list will currently load all recipes, to allow admins to edit and delete as needed.
+   This is a more pressing issue for users with the role 'admin' as their 'uploaded' list will currently load all recipes, to allow admins to edit and delete as needed.
 
