@@ -294,11 +294,13 @@ As this is a community focused platform, there are a number of future features w
 * **Nutritional Information API Integration** - Integrate the platform to a third party API which automatically calculates the nutritional information of recipes based on their ingredients and serving size. This would be highly beneficial to health concious users.
 * **Vegetarian/Vegan Alternative Recipes** - Allow users to enter Vegetarian or Vegan alternative ingredient lists and methods for existing recipes. Update recipe pages to allow users to choose an alternative option of the recipe and dynamically update the page contents in line with choice.
 * **User Comment Section** - Allow users to comment on each others recipes, allowing constructive feedback and additional context to reviews.
-* **Opimised Image Delivery** - Page load speeds could be sped up via using compression on user uploaded images, to ensure they are served in a fully optimised state. This could be achieved by further configuring the Cloudinary account to automatically compress images during upload.
-
+* **Optimised Image Delivery** - Page load speeds could be sped up via using compression on user uploaded images, to ensure they are served in a fully optimised state. This could be achieved by further configuring the Cloudinary account to automatically compress images during upload.
+* **User Administration** - Add user administration page, allowing admins to actions to manage users accounts e.g. suspend accounts, set other users to admin etc.
+ 
 &nbsp;
 ## 3. **Database Design**
 MongoDB was the database solution used for the website development, using the below structured plan.
+
 ![Wanderlust Recipes Database Structure](assets/images/wanderlust-recipes-db.png)
 
 ### **Indexes**
@@ -306,7 +308,7 @@ MongoDB was the database solution used for the website development, using the be
 #### **Recipes**
 
 <details>
-<summary>1. Text index on recipe title, description and ingredients for text searches.</summary>
+<summary>1. Text index on recipe title, description and ingredients, allowing for text searches.</summary>
 
 ```
 mongo.db.recipes.create_index([
@@ -337,7 +339,7 @@ list(
 
 #### **Users**
 <details>
-<summary>1. Fine a specific user account based on username:</summary>
+<summary>1. Find a specific user account based on username:</summary>
 
 ```
 mongo.db.users.find_one(
@@ -614,9 +616,9 @@ Languages
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/HTML">HTML</a> - Programming language providing content and structure of the website.</li>
 <li><a href="https://en.wikipedia.org/wiki/CSS">CSS</a> - Programming language providing styling of the website.</li>
-<li><a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> - Programming language used various interactive elements of the website, including game logic, audio options etc.</li>
-<li><a href="https://en.wikipedia.org/wiki/Python_(programming_language">Python</a> - Programming language used to drive core site functionality including user login and push/retrieving database information.</li>
-<li><a href="https://en.wikipedia.org/wiki/Jinja_(template_engine)">Jinja</a> - Used to generalt HTML from site templates</li>
+<li><a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> - Programming language used for various interactive elements of the website, including game logic, audio options etc.</li>
+<li><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> - Programming language used to drive core site functionality including user login and push/retrieving database information.</li>
+<li><a href="https://en.wikipedia.org/wiki/Jinja_(template_engine)">Jinja</a> - Used to generate HTML from site templates</li>
 </ul>
 </details>
 
@@ -637,7 +639,7 @@ Languages
 <ul>
 <li><a href="https://github.com/">GitHub</a> - Remote code repository.</li>
 <li><a href="https://gitpod.io/">GitPod</a> - IDE (Integrated Development Environment), for writing, editing and saving code.</li>
-<li>dbDiagram</li>
+<li<a href="https://dbdiagram.io/">dbDiagram</a> - Used to plan and visualise database structure</li>
 <li><a href="https://balsamiq.com/">Balsamiq</a> - Wireframes for visual design testing.</li>
 </ul>
 </details>
@@ -662,7 +664,7 @@ Languages
 <details>
 <summary>Database Management</summary>
 <ul>
-<li><a href="https://www.mongodb.com/">MongoDB</a> - Cloud based database management system, used for storying user profile and recipe information.</li>
+<li><a href="https://www.mongodb.com/">MongoDB</a> - Cloud based database management system, used for storing user profile and recipe information.</li>
 </ul>
 </details>
 
@@ -676,7 +678,7 @@ Languages
 &nbsp;
 ## 5. **Testing**
 
-The testing process can be seen in the [TESTING.md](https://github.com/RussOakham/wanderlust-recipes/tree/20dd255966ec540dc5cf918a15783c3440fe2b9a/TESTING.md) document.
+The testing process can be seen in the [TESTING.md](testing.md) document.
 
 &nbsp;
 ## 6. **Deployment**
@@ -692,22 +694,26 @@ The site is hosted using [Heroku](https://www.heroku.com/), deployed directly fr
 - From the Heroku dashboard:
   - Select "New"
   - Select "Create new app"
+
     ![Create New App](assets/images/heroku-create-new-app.PNG)
 
 - Add new app details to form:
   - Add app name (must be unique)
   - Select region
   - Click "Create App"
+
     ![Create New App Details](assets/images/heroku-app-name-and-region.PNG)
 
 #### Setting Environmental Variables
 - From the Heroku dashboard:
   - Select your app from the list
+
     ![Heroku App](assets/images/heroku-wanderlust-recipes.PNG)
 
 - Select "Settings" from the top menu:
   - Under 'Config Vars', select "Reveal Config Vars"
   - Add environment variables in key value pairs, click "Add" to add additional pairings.
+  
     ![Config-Vars](assets/images/heroku-config-vars.PNG)
 
 #### Deployment
