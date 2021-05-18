@@ -1,16 +1,17 @@
 # Wanderlust Recipes Testing
 
-1. [**Validation**](testing.md#validation)
-   * [**HTML**](testing.md#w3-html)
-   * [**CSS**](testing.md#w3-css)
-   * [**JavaScript**](testing.md#javascript)
-   * [**Google Lighthouse Audit**](testing.md#google-lighthouse-audit)
-2. [**Responsive Device Browser Testing**](testing.md#responsive-device--browser-testing)
-   * [**Responsiveness**](testing.md#responsiveness)
-   * [**Browser Compatibility**](testing.md#browser-compatibility)
-3. [**Testing User Stories**](testing.md#testing-user-stories)
-4. [**Issues I had to overcome**](testing.md#issues-i-had-to-overcome)
-5. [**Issues still to overcome**](testing.md#issues-still-to-overcome)
+- [Validation](#validation)
+  * [W3 HTML](#w3-html)
+  * [W3 CSS](#w3-css)
+  * [JavaScript](#javascript)
+  * [Python](#python)
+  * [Google Lighthouse Audit](#google-lighthouse-audit)
+- [Responsive Device & Browser Testing](#responsive-device---browser-testing)
+  * [Responsiveness](#responsiveness)
+  * [Browser Compatibility](#browser-compatibility)
+- [Testing User Stories](#testing-user-stories)
+- [Issues I had to overcome](#issues-i-had-to-overcome)
+- [Issues still to overcome](#issues-still-to-overcome)
 
 ## Validation
 
