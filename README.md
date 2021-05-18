@@ -6,16 +6,21 @@
 
 The site is created to engage users of all ages and backgrounds, so is branded in a light, clean and neutral style. Additionally, the term 'Wanderlust' is defined as a ['lust for wandering'](https://www.merriam-webster.com/dictionary/wanderlust), so styling elements have been chosen to promote curiosity and exploration.
 
+I have used HTML, CSS, JavaScript and Python to build the site, ensuring it is fully reponsive to user interaction on their chosen device.
+
 ## **Deployed site**
+The live website can be found at the following link; [Wanderlust Recipes](https://wanderlust-recipes.herokuapp.com/).
+
+![Wanderlust Recipes](assets/images/wanderlust-responsive.PNG)
 
 ## **Table of Contents**
 
-* [**Deployed site**](#--deployed-site--)
-  * [1. **UX**](#1---ux--)
-    + [**User Stories**](#--user-stories--)
-    + [**Structure**](#--structure--)
-    + [**Skeleton**](#--skeleton--)
-    + [**Surface**](#--surface--)
+* [**Deployed site**](#deployed-site)
+  * [1. **UX**](#1-ux)
+    + [**User Stories**](#-user-stories-)
+    + [**Structure**](#structure)
+    + [**Skeleton**](#skeleton)
+    + [**Surface**](#surface)
       - [**Colour & Styling**](#--colour---styling--)
       - [**Language/Tone**](#--language-tone--)
       - [**Styling Considerations**](#--styling-considerations--)
