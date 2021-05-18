@@ -6,7 +6,7 @@
 
 The site is created to engage users of all ages and backgrounds, so is branded in a light, clean and neutral style. Additionally, the term 'Wanderlust' is defined as a ['lust for wandering'](https://www.merriam-webster.com/dictionary/wanderlust), so styling elements have been chosen to promote curiosity and exploration.
 
-I have used HTML, CSS, JavaScript and Python to build the site, ensuring it is fully reponsive to user interaction on their chosen device.
+I have used HTML, CSS, JavaScript and Python to build the site, ensuring it is fully responsive to user interaction on their chosen device.
 
 ## **Deployed site**
 The live website can be found at the following link; [Wanderlust Recipes](https://wanderlust-recipes.herokuapp.com/).
@@ -38,7 +38,7 @@ The live website can be found at the following link; [Wanderlust Recipes](https:
   * [4. **Technologies Used**](#4-technologies-used)
   * [5. **Testing**](#5-testing)
   * [6. **Deployment**](#6-deployment)
-    + [Database Deployement](#database-deployement)
+    + [Database Deployment](#database-deployement)
     + [Application Hosting](#application-hosting)
     + [**Heroku**](#heroku)
       - [Creating a Heroku app](#creating-a-heroku-app)
@@ -177,16 +177,16 @@ This is the sensory design section of a website, or how it looks, feels and soun
 
 #### **Colour & Styling**
 
-Upon deciding to brand the website as 'Wanderlust Recipes' I found [this](static/images/wanderlust-whitebg.png) logo on shutterstock. The logo comprises white and blue colours, which give a light and clean asthetic. With this in mind i consulted [this article](https://elearningindustry.com/the-elearning-color-guide-evoking-the-right-emotion) on how colours evoke emotions, wishing to promote a feelings of calm, optimism, energy, nature and creativity, I chose to use a color pallete consisting of whites, blues and greens.
+Upon deciding to brand the website as 'Wanderlust Recipes' I found [this](static/images/wanderlust-whitebg.png) logo on Shutterstock. The logo comprises white and blue colours, which give a light and clean aesthetic. With this in mind I consulted [this article](https://elearningindustry.com/the-elearning-color-guide-evoking-the-right-emotion) on how colours evoke emotions, wishing to promote feelings of calm, optimism, energy, nature and creativity, I chose to use a colour palette consisting of whites, blues and greens.
 
-I used the website [image color picker](https://imagecolorpicker.com/), to determine the blue used in the logo is Gunmetal (#1E2B3A). I then used the website [Coolers](https://coolors.co/) to generate the rest of my colour palette, using Gunmetal (#1E2B3A) as the starting colour and finding additional colours infitting to the style I wished to achieve.. 
+I used the website [image color picker](https://imagecolorpicker.com/), to determine the blue used in the logo is Gunmetal (#1E2B3A). I then used the website [Coolers](https://coolors.co/) to generate the rest of my colour palette, using Gunmetal (#1E2B3A) as the starting colour and finding additional colours in fitting the style I wished to achieve. 
 
 The resulting palette is below;
 
 ![Wanderlust Color Scheme](assets/images/wanderlust-recipes-color-palette.svg)
 
 <details>
-<summary>Color Palette</summary>
+<summary>Colour Palette</summary>
 
 * Gunmetal - #1E2B3A
 * Indigo Dye - #213F61
@@ -203,8 +203,8 @@ I wanted the language to reflect a casual and fun atmosphere, reflecting a backp
 
 Similarly, I wanted to use fonts that reinforce the casual identity of the site and also be easy to read. To achieve this I used two [Google Fonts](https://fonts.google.com/);
 
-* [Roboto](https://fonts.google.com/specimen/Roboto) - A font which promotes natural reading rhythm.
-* [Open Sans](https://fonts.google.com/specimen/Open+Sans) - A humanist sans serif, designed for excellent legibility with a neutral, yet friendly in appearance.
+* [Roboto](https://fonts.google.com/specimen/Roboto) - A font that promotes natural reading rhythm.
+* [Open Sans](https://fonts.google.com/specimen/Open+Sans) - A humanist sans serif, designed for excellent legibility with a neutral, yet friendly appearance.
 * Sans-serif - Web safe font, used if primary two fonts fail to load.
 
 #### **Styling Considerations**
@@ -289,17 +289,17 @@ Both the Header and Footer are present and consistent on all website pages.
 &nbsp;
 
 ### **Features to consider implementing in future**
-As this is a community focused platform, there are a number of future features which would be worth considering implementation:
-* **Social Media Sharing** - Allow users to share recipes directly to their personal social media accounts.
-* **Nutritional Information API Integration** - Integrate the platform to a third party API which automatically calculates the nutritional information of recipes based on their ingredients and serving size. This would be highly beneficial to health concious users.
+As this is a community-focused platform, several future features would be worth considering implementation:
+* **Social Media Sharing** - Allow users to share recipes directly to their social media accounts.
+* **Nutritional Information API Integration** - Integrate the platform to a third-party API that automatically calculates the nutritional information of recipes based on their ingredients and serving size. This would be highly beneficial to health-conscious users.
 * **Vegetarian/Vegan Alternative Recipes** - Allow users to enter Vegetarian or Vegan alternative ingredient lists and methods for existing recipes. Update recipe pages to allow users to choose an alternative option of the recipe and dynamically update the page contents in line with choice.
-* **User Comment Section** - Allow users to comment on each others recipes, allowing constructive feedback and additional context to reviews.
-* **Optimised Image Delivery** - Page load speeds could be sped up via using compression on user uploaded images, to ensure they are served in a fully optimised state. This could be achieved by further configuring the Cloudinary account to automatically compress images during upload.
+* **User Comment Section** - Allow users to comment on each other's recipes, allowing constructive feedback and additional context to reviews.
+* **Optimised Image Delivery** - Page load speeds could be sped up via using compression on user-uploaded images, to ensure they are served in a fully optimised state. This could be achieved by further configuring the Cloudinary account to automatically compress images during upload.
 * **User Administration** - Add user administration page, allowing admins to actions to manage users accounts e.g. suspend accounts, set other users to admin etc.
  
 &nbsp;
 ## 3. **Database Design**
-MongoDB was the database solution used for the website development, using the below structured plan.
+MongoDB was the database solution used for the website development, using the below, structured plan.
 
 ![Wanderlust Recipes Database Structure](assets/images/wanderlust-recipes-db.png)
 
@@ -351,7 +351,7 @@ mongo.db.users.find_one(
 
 <details>
 <summary>
-2. Insert new user record into the database, with defined username, password and user role:
+2. Insert a new user record into the database, with a defined username, password and user role:
 </summary>
 
 ```
@@ -399,7 +399,7 @@ favorites = list(mongo.db.rating.aggregate([
 #### **Searching**
 <details>
 <summary>
-1. Find a single recipe from it's recipe title:
+1. Find a single recipe from its recipe title:
 </summary>
 
 ```
@@ -410,7 +410,7 @@ recipe = mongo.db.recipes.find_one({"url": recipe_title})
 
 <details>
 <summary>
-2. Find recipes conforming to user inputed search criteria:
+2. Find recipes conforming to a user inputted search criteria:
 </summary>
 
 ```
@@ -683,7 +683,7 @@ The testing process can be seen in the [TESTING.md](testing.md) document.
 &nbsp;
 ## 6. **Deployment**
 
-### Database Deployement
+### Database Deployment
 
 ### Application Hosting
 ### **Heroku**
@@ -712,7 +712,7 @@ The site is hosted using [Heroku](https://www.heroku.com/), deployed directly fr
 
 - Select "Settings" from the top menu:
   - Under 'Config Vars', select "Reveal Config Vars"
-  - Add environment variables in key value pairs, click "Add" to add additional pairings.
+  - Add environment variables in key-value pairs, click "Add" to add additional pairings.
 
     ![Config-Vars](assets/images/heroku-config-vars.PNG)
 
@@ -739,15 +739,15 @@ The site is hosted using [Heroku](https://www.heroku.com/), deployed directly fr
   - Select 'Deploy'
   - Choose your Deployment method:
     - Github:
-      - Select correct Github account.
-      - Type in repository name you wish to deploy.
-      - Choose correct repository from search results.
+      - Select the correct Github account.
+      - Type in the repository name you wish to deploy.
+      - Choose the correct repository from search results.
       - Select "Connect"
 
       ![Connect GitHub Repo](assets/images/heroku-connect-github-repo.PNG)
 
     - Manual Deployment:
-      - Choose the correct branch you wish to deploy from the drop down.
+      - Choose the correct branch you wish to deploy from the drop-down.
       - Select "Deploy Branch"
       - Heroku will return "Your App has successfully deployed". If this shows an error, troubleshooting will be needed.
 
@@ -798,7 +798,7 @@ The following are websites and articles that I used for reference and inspiratio
 * [w3Schools](https://www.w3schools.com/) - For checking proper syntax of HTML and CSS elements. 
 * [Autoprefixer](https://autoprefixer.github.io/) - For generating CSS browser prefixes.
 * [Stackoverflow](https://stackoverflow.com/) - For researching and troubleshooting JavaScript and Python code issues.
-* [Migel Grinberg](https://blog.miguelgrinberg.com/index) - For researching and troubleshooting Python functionality and code issues.
+* [Miguel Grinberg](https://blog.miguelgrinberg.com/index) - For researching and troubleshooting Python functionality and code issues.
 * [MongoDB Documentation](https://docs.mongodb.com/) - For researching and troubleshooting database code commands and issues.
 
 ### **Content**
@@ -809,7 +809,7 @@ The recipe details, images and descriptions were obtained from [BBC Good Food](h
 
 ### **Media**
 
-The photos and images used for this site were obtained from.
+The photos and images used for this site were obtained.
 
 * [**Shutterstock**](https://www.shutterstock.com/): From the following contributors;
   - [Wanderlust Logo](static/images/wanderlust.png) - [Sloth Astronaut](https://www.shutterstock.com/g/Sloth+Astronaut)
