@@ -6,7 +6,7 @@
   * [JavaScript](#javascript)
   * [Python](#python)
   * [Google Lighthouse Audit](#google-lighthouse-audit)
-- [Responsive Device & Browser Testing](#responsive-device---browser-testing)
+- [Responsive Device & Browser Testing](#responsive-device--browser-testing)
   * [Responsiveness](#responsiveness)
   * [Browser Compatibility](#browser-compatibility)
 - [Testing User Stories](#testing-user-stories)
@@ -71,7 +71,8 @@ I validated the HTML with [W3 Validation Service](https://validator.w3.org/). Th
 </details>
 
 **Warnings**
-All pages showed warnings regarding HTML semantics and use H2-6's in sections, however upon review I am happy that all headings are relevant for page layout. So I decided not to enact any changes.
+
+All pages showed warnings regarding HTML semantics and lacking use of H2-6's, however upon review I am happy that all headings are relevant for page layout. So I decided not to enact any changes.
 
 <details>
 <summary>H2-6 Warning</summary>
@@ -81,7 +82,7 @@ All pages showed warnings regarding HTML semantics and use H2-6's in sections, h
 
 ### W3 CSS
 
-I validated the CSS with the [w3 Validation Service](https://jigsaw.w3.org/css-validator/) and it found no errors.
+I validated the CSS with the [W3 Validation Service](https://jigsaw.w3.org/css-validator/) and it found no errors.
 
 <details>
 <summary>CSS Validation</summary>
@@ -138,10 +139,12 @@ The final validation marks are below, scoring 10/10 for all files.
 </details>
 
 **Warnings and Errors Fixed**
-On initial running of pylint, it flagged that I had not included Docstring descriptions for each of my functions, as I had used '#' notes instead. Additionally Pylint flagged a few occasions of poor syntax, such as imbalanced returns and use of unnecessary 'else' statements.
+
+On initial running of pylint, it flagged that I had not included Docstring descriptions for each of my functions, as I had used hashtag marked notes instead. Additionally Pylint flagged a few occasions of poor syntax, such as imbalanced returns and use of unnecessary 'else' statements.
 Based off Pylints feedback, I corrected these issues quickly and easily.
 
 **.pylintrc**
+
 After the above corrections, Pylint was still displaying a handful of warnings related to the app.py file, however these were false positive results for the following reasons:
 
 <details>
@@ -150,9 +153,12 @@ After the above corrections, Pylint was still displaying a handful of warnings r
 ![app.py - inaccurate warnings](assets/validation/python/app.PNG)
 </details>
 
- - unbalanced-tuple-unpacking & unused-variable (per_page, offset): This relates to code used by flask-paginate to automate content pagination. The code was taken directly from their own installation guide, changes to the code causes the site to fail on page load.
- - invalid-name & unused-argument: 'e' is an accepted variable, used to capture errors in error handling functionality.
- - unused-import: 'env' is the local file used to configure the development environment, as it is not pushed to live via .gitignore, pylint is incorrectly believing the function is not used.
+ - unbalanced-tuple-unpacking & unused-variable (per_page, offset): 
+      This relates to code used by flask-paginate to automate content pagination. The code was taken directly from their own installation guide, changes to the code causes the site to fail on page load.
+ - invalid-name & unused-argument: 
+      'e' is an accepted variable, used to capture errors in error handling functionality.
+ - unused-import: 
+      'env' is the local file used to configure the development environment, as it is not pushed to live via .gitignore, pylint incorrectly believes the function is not used.
 
 To clean up these false positives, I created a .pylintrc file and added the below rules to allow for these warning instances. By doing so, my app.py file now returns 10/10 score.
 
@@ -166,19 +172,20 @@ To clean up these false positives, I created a .pylintrc file and added the belo
 
 ### Google Lighthouse Audit
 
-I used Google's lighthouse audit to test the website conforms positively with Google's performance metrics, intending to achieve scores of 90% in all areas on desktop.
+I used Google's lighthouse audit to test the website conforms positively with Google's performance metrics, with the intent to achieve scores of 90% in all areas on desktop.
 
 After running the audit, the site recieved the below scores;
 ![Google Lighthouse Audit](assets/validation/google-lighthouse-audit/GLA.PNG)
 
-This shows 90%+ scores in accessibility and best practices, but sub 90% in performance and SEO. Upon checking the reasoning for the low Performance and SEO scores, I decided to not take further action to improve the scores for the below reasons;
+This shows 90%+ scores in accessibility and best practices, but sub 90% in performance and SEO. 
+Upon checking the reasoning for the low Performance and SEO scores, I decided to not take further action to improve the scores for the below reasons;
 
 <details>
 <Summary>Performance</Summary>
 
 ![Performance Score](assets/validation/google-lighthouse-audit/performance.PNG)
 
-The driving factors to the low performance score are the 'Elminate Render Blocking Resources' and 'Remove Unused JavaScript', however the sources driving these are third party, such as Materialize and jQuery. Therefore as the underlying cause is due to third party, no further on-site optimisation is suitable.
+The driving factors to the low performance score are the 'Elminate Render Blocking Resources' and 'Remove Unused JavaScript'. However, the sources driving these are external resources, such as Materialize and jQuery. Therefore as the underlying cause is due to third party, no further on-site optimisation is suitable.
 
 </details>
 <details>
@@ -186,11 +193,12 @@ The driving factors to the low performance score are the 'Elminate Render Blocki
 
 ![Performance Score](assets/validation/google-lighthouse-audit/SEO.PNG)
 
-The two driving factors in the low SEO score are 'uncrawlable links' and 'robots.txt is not valid'. The uncrawable links are the pagination links on the recipes page, which are auto-generated by by flask-pagination. These links are not necessarily needed for crawling, as a properly optimised robots.txt file will ensure as each individual recipe page (recipe-details) would be crawled by search engines.
+The two driving factors in the low SEO score are 'uncrawlable links' and 'robots.txt is not valid'. 
+The uncrawable links are the pagination links on the recipes page, which are auto-generated by flask-pagination. These links are not necessarily needed for crawling, as a properly optimised robots.txt file will ensure each individual recipe page (recipe-details) would be crawled by search engines.
 
-The invalid robots.txt is being flagged, as since this is a personal project, no robots.txt file has been created. If this project were for commercial or public purposes, a robots.txt file should be created, which will direct search engines how to properly index every page of the site and allow it to show in search results.
+The invalid robots.txt is being flagged, as no robots.txt file has been created. The purpose of a robots.txt file to provide search engines information on your site and directions of how to crawl tyour pages.  If this project were for commercial or public purposes, a optimised robots.txt file would be an important inclusion. 
 
-As this project is not to be crawled by search engines, no robots.txt has been created.
+However, as this is a personal project, not meant for discovery on search engines, no robots.txt should be created.
 
 </details>
 
@@ -205,12 +213,12 @@ To test the responsiveness of the site I used [Chrome DevTools](https://develope
 
 ![Mobile Responsive Testing](assets/validation/responsiveness/mobile.PNG)
 
-To ensure responsive I used materialize grid, flexbox methods, containers and custom media queries add_to ensure all site pages resized responsively for all device viewports.
+To ensure responsive design, I used materialize grid, flexbox, containers and custom media queries to ensure all site pages resized responsively for all mainstream device viewports.
 
 ### Browser Compatibility
 ![Browser Campatibility Testing](assets/validation/browser-compatibility/browser-testing.PNG)
 
-Through testing, I found some bug on the Safari desktop browser versions, where the 'WebP' image format would not load, this is because [Safari only support WebP image format in version 14 onwards](https://www.keycdn.com/support/webp-browser-support#:~:text=Safari%20will%20support%20WebP%20in,almost%20be%20completely%20globally%20supported.). As version 14 was only released in September 2020, I opted to convert the images to png and re-upload, ensuring wider user compatability.
+Through testing, I found images in 'WebP' format would not display on some Safari desktop browser versions, this is because [Safari only supports WebP image format in version 14 onwards](https://www.keycdn.com/support/webp-browser-support#:~:text=Safari%20will%20support%20WebP%20in,almost%20be%20completely%20globally%20supported.). As version 14 was only released in September 2020, I opted to convert the images to png and re-upload, ensuring wider compatibility.
 
 Additionally, the site does not load properly while using Internet Explorer, due to issues with Materialize CSS compatibility.
 
