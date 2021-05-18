@@ -713,7 +713,7 @@ The site is hosted using [Heroku](https://www.heroku.com/), deployed directly fr
 - Select "Settings" from the top menu:
   - Under 'Config Vars', select "Reveal Config Vars"
   - Add environment variables in key value pairs, click "Add" to add additional pairings.
-  
+
     ![Config-Vars](assets/images/heroku-config-vars.PNG)
 
 #### Deployment
@@ -729,7 +729,7 @@ The site is hosted using [Heroku](https://www.heroku.com/), deployed directly fr
       - in your IDE terminal, type: python app.py > Procfile
 
   - .gitignore (optional)
-      - Lists files and directories wihch should be deployed to live app, such as files with environmental passkeys.
+      - Lists files and directories which should be deployed to live app, such as files with environmental passkeys.
     - To create:
       - In your IDE terminal, type: touch .gitignore
       - List the files and directories to be excluded from live deployment, within the .gitignore file.
@@ -743,12 +743,14 @@ The site is hosted using [Heroku](https://www.heroku.com/), deployed directly fr
       - Type in repository name you wish to deploy.
       - Choose correct repository from search results.
       - Select "Connect"
+
       ![Connect GitHub Repo](assets/images/heroku-connect-github-repo.PNG)
 
     - Manual Deployment:
-      - Choose the correct branch you wish to deploy from the dorp down.
+      - Choose the correct branch you wish to deploy from the drop down.
       - Select "Deploy Branch"
-      - Heroku will return "Your App has successfully deployed". If this shows an error, troublshooting will be needed.
+      - Heroku will return "Your App has successfully deployed". If this shows an error, troubleshooting will be needed.
+
       ![Deploy Branch](assets/images/heroku-deploy-branch.PNG)
 
 
@@ -769,7 +771,7 @@ In a code editor of your choice;
 
 1. Go to [GitHub.com](https://github.com/)
 2. Click on 'Responsitories'
-3. Click on 'Avengers Snap'
+3. Click on 'Wanderlust Recipes'
 4. Click on the 'Code' button.
 5. Under 'HTTPS' click the clipboard icon to the right of the URL.
 6. In your IDE of choice, open a repository or create a new repository.
@@ -785,19 +787,19 @@ Additional information around these cloning steps can be found on [GitHub Pages 
 
 The following are websites and articles that I used for reference and inspiration:
 - [BBC Good Food](https://www.bbcgoodfood.com/)
-- [Plum Recipes]() - MS3 project by Sean Young
-- 
+- [Plum Recipes](https://plum-recipes.herokuapp.com/) - MS3 project by Sean Young
+- [My food book](https://myfoodbook.com.au/)
 
 ### **Technical**
 
-* [Real Favicon Generator](https://realfavicongenerator.net/): For the generation of Favicon icons and code.
-* [Materialize Docs](https://materializecss.com/getting-started.html): For guidance on Materialize use and adaptations.
-* [CSS-Tricks](https://css-tricks.com/): For implementing CSS effects such as box-shadow.
-* [w3Schools](https://www.w3schools.com/): For checking proper syntax of HTML and CSS elements. 
+* [Real Favicon Generator](https://realfavicongenerator.net/) - For the generation of Favicon icons and code.
+* [Materialize Docs](https://materializecss.com/getting-started.html) - For guidance on Materialize use and adaptations.
+* [CSS-Tricks](https://css-tricks.com/) - For implementing CSS effects such as box-shadow.
+* [w3Schools](https://www.w3schools.com/) - For checking proper syntax of HTML and CSS elements. 
 * [Autoprefixer](https://autoprefixer.github.io/) - For generating CSS browser prefixes.
 * [Stackoverflow](https://stackoverflow.com/) - For researching and troubleshooting JavaScript and Python code issues.
-* [Migel Grinberg](https://blog.miguelgrinberg.com/index) - For researching and troubleshooting Phython functionality and code issues.
-* [MongoDB Documentation](https://docs.mongodb.com/) - For researching and troublshooting database code commands and issues.
+* [Migel Grinberg](https://blog.miguelgrinberg.com/index) - For researching and troubleshooting Python functionality and code issues.
+* [MongoDB Documentation](https://docs.mongodb.com/) - For researching and troubleshooting database code commands and issues.
 
 ### **Content**
 
@@ -811,7 +813,7 @@ The photos and images used for this site were obtained from.
 
 * [**Shutterstock**](https://www.shutterstock.com/): From the following contributors;
   - [Wanderlust Logo](static/images/wanderlust.png) - [Sloth Astronaut](https://www.shutterstock.com/g/Sloth+Astronaut)
-  - [New recipe image](static/images/new-recipe-small.jpg) - [Evgeny Karandaev](https://www.shutterstock.com/g/karandaev)
+  - [New recipe image](static/images/new-recipe-image.jpg) - [Evgeny Karandaev](https://www.shutterstock.com/g/karandaev)
 
 #### Recipe Category Images:
 * [**Unsplash**](https://unsplash.com/): From the following contributors;
