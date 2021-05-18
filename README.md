@@ -58,7 +58,7 @@ The live website can be found at the following link; [Wanderlust Recipes](https:
 
 ## 1. **UX**
 
-Overview of UX decisions, structure etc. Examples of websites I have viewed as part of research & resulting UX design decisions.
+Overview of UX design decisions, including examples of websites I have viewed as part of research and inspiration.
 
 ### **User Stories**
 
@@ -75,59 +75,59 @@ Overview of UX decisions, structure etc. Examples of websites I have viewed as p
 * \(US004\) - As a user, I want to be able to search recipes by keyword, so I can find recipes easily, for example by name or by included ingredient.
 * \(US005\) - As a user, I want to be able to search and filter recipes by rating, so I can find only the highest-rated recipes to choose from.
 * \(US006\) - As a user, I want to be able to search and filter recipes by serving size, so I can find recipes suited to the number of people I am catering to.
-* \(US007\) - As a user, I want to be able to search and filter recipes by preparation and cooking time, so I find recipes that are suitable to my available time.
-* \(US008\) - As a user, I want to be about to save my favourite recipes, so I can quickly find them again in future.
+* \(US007\) - As a user, I want to be about to save my favourite recipes, so I can quickly find them again in future.
 </details>
 
 <details>
 <summary>Uploading Recipes</summary>
 
-* \(US009\) - As a user, I want to be able to upload my own recipes, so other users can benefit from them.
-* \(US010\) - As a user, I want to gain feedback on the recipes I upload, so I can determine improvements.
-* \(US011\) - As a user, I want to be able to edit and improve recipes I have already uploaded.
+* \(US008\) - As a user, I want to be able to upload my own recipes, so other users can benefit from them.
+* \(US009\) - As a user, I want to gain feedback on the recipes I upload, so I can determine improvements.
+* \(US010\) - As a user, I want to be able to edit and improve recipes I have already uploaded.
 </details>
 
 <details>
 <summary>Users</summary>
 
-* \(US012\) - As a user, I want to be able to register with the site, so I can upload and edit recipes, plus save my favourite recipes.
-* \(US013\) - As a registered user, I want to be able to login to my account, so I can access and edit my recipes, and find my favourite recipes.
-* \(US014\) - As a registered user, I want to be able to submit ratings and reviews for recipes submitted by other users.
+* \(US011\) - As a user, I want to be able to register with the site, so I can upload and edit recipes, plus save my favourite recipes.
+* \(US012\) - As a registered user, I want to be able to login to my account, so I can access and edit my recipes, and find my favourite recipes.
+* \(US013\) - As a registered user, I want to be able to submit ratings and reviews for recipes submitted by other users.
 </details>
 
 <details>
 <summary>Administration</summary>
 
-* \(US015\) - As an admin I want to be able to edit content, to ensure it adheres to site rules.
-* \(US-16\) - As an admin I want to be able to add and edit food categories, to continuously improve user experience.
+* \(US014\) - As an admin I want to be able to edit content, to ensure it adheres to site rules.
+* \(US015\) - As an admin I want to be able to add and edit food categories, to continuously improve user experience.
 </details>
 
 <details>
 <summary>General</summary>
 
-* \(US013\) - As a user I want to recieve clear feedback for my actions on the site, so I know they are complete or if further steps are needed.
+* \(US016\) - As a user I want to recieve clear feedback for my actions on the site, so I know they are complete or if further steps are needed.
 </details>
 &nbsp;
 
 ### **Structure**
+Overview of site and page structure, explaining functionality and purpose.
 
 <details><summary>Home Page:</summary>
 
   * _Header/Footer_: For easy navigation across the site and to external resources such as social media pages.
   * _Website Logo_: To easily identify the 'Wanderlust Recipes' site branding.
   * _Recipe Cards_: To easily provide users key information on featured recipes, including visual image, short description, user rating, serving size and prep/cook times.
-  * _Search Bar_: Text input bar, allowing users to search recipes by keyword, category, time requirement and minimum rating..
+  * _Search Bar_: Text input bar, allowing users to search recipes by keyword, category, time requirement and minimum rating.
    * _Search Results_: Once user search input, latest recipes replaced by recipe cards matching the search query.
   * _Pagination_: Page is paginated after 10 recipes are displayed, to ensure quick page load and easy user navigation.
   </details>
 
 <details><summary>Recipe Page:</summary>
 
-  * _Recipe Image_: Provides users a visual of the final recipe, to entice users to want to create it themselves.
+  * _Recipe Image_: Provides users a visual of the final recipe, to entice users to create it themselves.
   * _Recipe Title_: Provides users with the name of the dish, indicating the style and main ingredients of the dish.
   * _Star Rating_: Provides users visual feedback regarding how highly other users have rated the recipe.
-  * _Preparation & Cooking Time_: Provides users information on-time requirement to prepare the recipe.
-  * _Serving Size_: Provides users information on the serving size the recipe creates, allowing users to adjust ingredient amounts on their own judgement.
+  * _Preparation & Cooking Time_: Provides users information regarding time requirement to prepare the recipe.
+  * _Serving Size_: Provides users information on the serving size the recipe creates, allowing users to adjust ingredient amounts to their own judgement.
   * _Ingredient List_: Provides users with a list of all ingredients and measures needed to complete the recipe.
   * _Method_: Provides users step-by-step method for creating the dish.
   </details>
@@ -135,7 +135,7 @@ Overview of UX decisions, structure etc. Examples of websites I have viewed as p
 <details><summary>User Login / Registration Page:</summary>
 
   * _Username Input_: Text input box, allowing users to enter their username.
-  * _Password Input_: Text input box, allowing users to enter their username.
+  * _Password Input_: Text input box, allowing users to enter their password.
   * _Password Confirmation (Registration)_ : Text input box, must match password input, to ensure user does not incorrectly type password while registering.
   * _Submit / Cancel_: Buttons allowing users to submit entered information, or cancel and restart.
   </details>
@@ -152,9 +152,9 @@ Overview of UX decisions, structure etc. Examples of websites I have viewed as p
   * _Input areas for below recipe data points_:
     * Recipe Name - Text
     * Recipe Image - File upload and preview
-    * Serving Size - Numeric
-    * Preparation Time - hh:mm as drop down menu
-    * Cooking Time - hh:mm as drop down menu
+    * Serving Size - As numeric input
+    * Preparation Time - As numeric input
+    * Cooking Time - As numeric input
     * Recipe Category Selection - Drop down menu
     * Recipe Description: Textbox of 25 to 160 characters
     * Ingredients - List text input
