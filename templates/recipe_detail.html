@@ -164,6 +164,7 @@
         </div>
     </div>
 
+    <!-- Comment form only generates for logged in users -->
     {% if session.user %}
     <div class="row">
         <form id="user_comment_form" class="col s12 user-comment-form" method="POST"
@@ -187,14 +188,15 @@
     </div>
     {% endif %}
 
+    <!-- Generate user comment divs from database -->
     <div id="user-comment-list" class="row">
         {% for comment in recipe.comments %}
         <div class="col s12">
             <div class="comment-div">
-                <div class="col s12 comment-author right">
+                <div class="col s12 comment-author bold right">
                     {{- comment.author -}}
                 </div>
-                <div class="col s12 comment-content">
+                <div class="comment-content box-shadow">
                     {{- comment.text -}}
                 </div>
             </div>
