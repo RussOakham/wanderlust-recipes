@@ -6,7 +6,7 @@ checked
 {% endif %}
 {% endmacro %}
 
-
+<!-- Generate Filled or non-filled stars based on database rating -->
 {% macro recipe_star_rating_display(rating) %}
 <ul class="star-rating">
     {% for i in [rating, rating-1, rating-2, rating-3, rating-4] %}
