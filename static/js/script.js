@@ -103,6 +103,31 @@ $('#method_step').on("click", ".remove-list-item", function (event) {
     $(this).parent().remove();
 });
 
+// Prepends submitted comment to comments list
+function commentSubmit(response) {
+    // Reset comment form
+    $('#user_comment_form').trigger("reset");
+
+    // Append new comment to comment list
+    let userComment =
+        `<div class="col s12">
+            <div class="comment-div">
+                <div class="col s12 comment-author bold right">
+                    ${response.response.author}
+                </div>
+                <div class="comment-content box-shadow">
+                    ${response.response.text}
+                    <a class="remove-comment">
+                        <i class="fas fa-times"></i>
+                        <span class="sr-only">Remove Comment</span>
+                    </a>
+                </div>
+            </div>
+        </div>`;
+
+    $('#user-comment-list').append(userComment);
+}
+
 // Auto sizes height of ingredients/method carousel to fit content
 // https://github.com/Dogfalo/materialize/issues/4159#issuecomment-387969837
 function resizeTab() {

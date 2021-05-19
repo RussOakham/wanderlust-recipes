@@ -15,7 +15,7 @@
         <!-- Favourite (heart) Toggle Div -->
         <div id="recipe-favorite-div">
             <form action="{{ url_for('ajax_recipe_favorite') }}" method="POST" id="recipe_favorite_form">
-                <input name="recipeId" type="hidden" value="{{ recipe._id }}">
+                <input id="recipeId" name="recipeId" type="hidden" value="{{ recipe._id }}">
 
                 <label id="recipe_favorite" data-path="url_for('ajax_favorite')"
                     class="btn-floating btn-large btn-plum waves-effect waves-light teal accent-4"
@@ -156,6 +156,60 @@
     </div>
 </section>
 {% endif %}
+
+<section>
+    <div class="row">
+        <div class="col s12">
+            <h3>Comments</h3>
+        </div>
+    </div>
+
+    <!-- Comment form only generates for logged in users -->
+    {% if session.user %}
+    <div class="row">
+        <form id="user_comment_form" class="col s12 user-comment-form" method="POST"
+            action="{{ url_for('ajax_user_comment') }}">
+            <input type="hidden" name="recipeId" value="{{ recipe._id }}">
+            <div class="col s12">
+                <label for="user_comment">Comment</label>
+                <textarea name="comment" id="user_comment" class="materialize-textarea" required></textarea>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button class="btn-small bold" type="reset">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </button>
+                    <button type="submit" class="btn-small bold">
+                        Submit <i class="fas fa-caret-right right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    {% endif %}
+
+    <!-- Generate user comment divs from database -->
+    <div id="user-comment-list" class="row" data-path="{{ url_for('ajax_delete_comment') }}">
+        {% for comment in recipe.comments %}
+        <div class="comment-div">
+            <div class="col s12 comment-author bold right">
+                {{- comment.author.capitalize() -}}
+            </div>
+            <div class="comment-content box-shadow">
+                <p>{{- comment.text -}}</p>
+                <!-- Show delete comment button if user is comment author or role is admin -->
+                {% if (session.user == comment.author.lower()) or (session.userrole == 'admin') %}
+                <a class="remove-comment">
+                    <i class="fas fa-times"></i>
+                    <span class="sr-only">Remove Comment</span>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
 {% endblock %}
 
 <!-- Additional JavaScript links -->

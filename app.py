@@ -521,6 +521,57 @@ def ajax_recipe_rating():
     return response
 
 
+@app.route("/ajax_user_comment", methods=['POST'])
+def ajax_user_comment():
+    """
+    Create AJAX request for user comment
+    and append to array in recipe database.
+    """
+    response = {
+        "success": False,
+        "flash": None,
+        "response": None
+    }
+    if "comment" in request.json and len(request.json["comment"]) > 0:
+        comment = {
+            "author": session["user"].capitalize(),
+            "text": request.json['comment']
+        }
+        mongo.db.recipes.update_one(
+            {"_id": ObjectId(request.json['recipeId'])},
+            {"$push": {"comments": comment}}
+            )
+        response["success"] = True
+        response["response"] = comment
+
+    return response
+
+
+@app.route("/delete_user_comment", methods=['POST'])
+def ajax_delete_comment():
+    """
+    Create AJAX request to delete user comment
+    and remove from array in recipe database.
+    """
+    response = {
+        "success": False,
+        "flash": None,
+        "response": None
+    }
+    if "comment" in request.json and "recipe" in request.json:
+        index = int(request.json["comment"])
+        mongo.db.recipes.update(
+            {"_id": ObjectId(request.json['recipe'])},
+            {"$unset": {"comments.{i}".format(i=index): None}}
+        )
+        mongo.db.recipes.update(
+            {"_id": ObjectId(request.json['recipe'])},
+            {"$pull": {"comments": None}}
+        )
+
+    return response
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

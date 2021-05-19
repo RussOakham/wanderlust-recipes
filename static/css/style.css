@@ -278,7 +278,13 @@ nav ul li {
     border-bottom: 0px;
 }
 
-.remove-list-item {
+#user-comment-list {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.remove-list-item,
+.remove-comment {
     position: absolute;
     top: 5px;
     right: 10px;
@@ -443,6 +449,22 @@ nav ul li {
 .recipe-rating-home>.fa-star {
     font-size: large;
 }
+
+/* User Comments */
+.comment-content {
+    position: relative;
+    overflow: hidden;
+    background: #eaeaea;
+    color: #434343;
+    padding: 1rem;
+    border-radius: 8px;
+    z-index: 1;
+    position: relative;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-image: linear-gradient(-15deg, rgba(24, 255, 95, .18), #fff);
+}
+
 
 /* Previous Rating styling taken from StackOverflow post below and adapted */
 /* https://stackoverflow.com/questions/45346098/content-number-inside-a-shape-symbol */

@@ -29,6 +29,33 @@ $('#recipe_rating_form').submit(function (event) {
     $('.collapsible').collapsible('open', 0);
 });
 
+// Submit 'comment' form to database via AJAX
+$('#user_comment_form').submit(function (event) {
+    event.preventDefault();
+    submitFormAJAX(event, commentSubmit);
+});
+
+
+// Delete comment div and create AJAX form of comment index value, to feed into ajax_delete_comment() python function
+$('#user-comment-list').on("click", ".remove-comment", function (event) {
+    // On Click - Create variable containing recipeId and comment array number
+    commentIndex = {
+        "recipe": $('#recipeId').val(),
+        "comment": $(this).closest('.comment-div').index()
+    }
+
+    // Remove clicked comment div from DOM
+    $(this).closest('.comment-div').remove();
+
+    // AJAX submission, sending recipeId and comment array number to ajax_delete_comment() python function
+    $.ajax({
+        type: "POST",
+        url: $('#user-comment-list').attr("data-path"), // HTML element containing python function
+        contentType: "application/json;charset=UTF-8",
+        data: JSON.stringify(commentIndex),
+    });
+});
+
 // General AJAX form submission script
 // Following links used to help create and understand the below script:
 // https://www.digitalocean.com/community/tutorials/submitting-ajax-forms-with-jquery
