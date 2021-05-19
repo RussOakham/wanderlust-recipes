@@ -15,6 +15,9 @@ $(document).ready(function () {
         outDuration: 300
     });
     $('.modal').modal();
+    $('.tooltipped').tooltip({
+        exitDelay: 300,
+    });
     $('.fixed-action-btn').floatingActionButton();
     $(window).resize(function () {
         resizeTab();
@@ -111,18 +114,16 @@ function commentSubmit(response) {
 
     // Append new comment to comment list
     let userComment =
-        `<div class="col s12">
-            <div class="comment-div">
-                <div class="col s12 comment-author bold right">
-                    ${response.response.author}
-                </div>
-                <div class="comment-content box-shadow">
-                    ${response.response.text}
-                    <a class="remove-comment">
-                        <i class="fas fa-times"></i>
-                        <span class="sr-only">Remove Comment</span>
-                    </a>
-                </div>
+        `<div class="comment-div">
+            <div class="col s12 comment-author bold right">
+                ${response.response.author}
+            </div>
+            <div class="comment-content box-shadow">
+                <p>${response.response.text}</p>
+                <a class="remove-comment tooltipped" data-position="top" data-tooltip="Delete Comment">
+                    <i class="fas fa-times"></i>
+                    <span class="sr-only">Remove Comment</span>
+                </a>
             </div>
         </div>`;
 

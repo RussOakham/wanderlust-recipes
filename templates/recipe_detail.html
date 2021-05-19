@@ -18,8 +18,8 @@
                 <input id="recipeId" name="recipeId" type="hidden" value="{{ recipe._id }}">
 
                 <label id="recipe_favorite" data-path="url_for('ajax_favorite')"
-                    class="btn-floating btn-large btn-plum waves-effect waves-light teal accent-4"
-                    aria-label="favorite-toggle">
+                    class="btn-floating btn-large btn-plum waves-effect waves-light teal accent-4 tooltipped"
+                    data-position="bottom" data-tooltip="Favourite Recipe" aria-label="favorite-toggle">
 
                     <input name="favorite" type="checkbox" {{ 'checked' if interaction.favorite }} />
                     <i class="material-icons"></i>
@@ -199,7 +199,7 @@
                 <p>{{- comment.text -}}</p>
                 <!-- Show delete comment button if user is comment author or role is admin -->
                 {% if (session.user == comment.author.lower()) or (session.userrole == 'admin') %}
-                <a class="remove-comment">
+                <a class="remove-comment tooltipped" data-position="top" data-tooltip="Delete Comment">
                     <i class="fas fa-times"></i>
                     <span class="sr-only">Remove Comment</span>
                 </a>
