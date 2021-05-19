@@ -35,8 +35,6 @@ $('#user_comment_form').submit(function (event) {
     submitFormAJAX(event, null);
 });
 
-
-
 // General AJAX form submission script
 // Following links used to help create and understand the below script:
 // https://www.digitalocean.com/community/tutorials/submitting-ajax-forms-with-jquery

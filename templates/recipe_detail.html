@@ -188,18 +188,18 @@
     {% endif %}
 
     <div class="row">
+        {% for comment in recipe.comments %}
         <div class="col s12">
             <div class="comment-div">
                 <div class="col s12 comment-author right">
-                    Russell
+                    {{- comment.author -}}
                 </div>
                 <div class="col s12 comment-content">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis, velit eos aliquid corrupti qui
-                    cumque illum, suscipit sequi corporis deleniti voluptatibus maxime et fuga amet molestiae quis quia,
-                    dicta unde?
+                    {{- comment.text -}}
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 </section>
 
