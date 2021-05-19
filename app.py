@@ -521,6 +521,31 @@ def ajax_recipe_rating():
     return response
 
 
+@app.route("/ajax_user_comment", methods=['POST'])
+def ajax_user_comment():
+    """
+    Create AJAX request for user comment and append to array in recipe database.
+    """
+    response = {
+        "success": False,
+        "flash": None,
+        "response": None
+    }
+    if "comment" in request.json and len(request.json["comment"]) > 0:
+        comment = {
+            "author": session["user"],
+            "text": request.json['comment']
+        }
+        mongo.db.recipes.update_one(
+            {"_id": ObjectId(request.json['recipeId'])},
+            {"$push": {"comments": comment}}
+            )
+        response["success"] = True
+        response["response"] = comment
+
+    return response
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

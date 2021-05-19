@@ -164,6 +164,29 @@
         </div>
     </div>
 
+    {% if session.user %}
+    <div class="row">
+        <form id="user_comment_form" class="col s12 user-comment-form" method="POST"
+            action="{{ url_for('ajax_user_comment') }}">
+            <input type="hidden" name="recipeId" value="{{ recipe._id }}">
+            <div class="col s12">
+                <label for="user_comment">Comment</label>
+                <textarea name="comment" id="user_comment" class="materialize-textarea" required></textarea>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button class="btn-small bold" type="reset">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </button>
+                    <button type="submit" class="btn-small bold">
+                        Submit <i class="fas fa-caret-right right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    {% endif %}
+
     <div class="row">
         <div class="col s12">
             <div class="comment-div">

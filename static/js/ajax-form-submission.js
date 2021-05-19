@@ -29,6 +29,14 @@ $('#recipe_rating_form').submit(function (event) {
     $('.collapsible').collapsible('open', 0);
 });
 
+// Submit 'comment' form to database via AJAX
+$('#user_comment_form').submit(function (event) {
+    event.preventDefault();
+    submitFormAJAX(event, null);
+});
+
+
+
 // General AJAX form submission script
 // Following links used to help create and understand the below script:
 // https://www.digitalocean.com/community/tutorials/submitting-ajax-forms-with-jquery
