@@ -14,6 +14,7 @@ $(document).ready(function () {
         inDuration: 300,
         outDuration: 300
     });
+    $('.modal').modal();
     $('.fixed-action-btn').floatingActionButton();
     $(window).resize(function () {
         resizeTab();
