@@ -605,6 +605,45 @@ result = mongo.db.recipes.update_one(
 ```
 
 </details>
+
+<details>
+<summary>
+6. Comment on a recipe:
+</summary>
+
+```
+if "comment" in request.json and len(request.json["comment"]) > 0:
+        comment = {
+            "author": session["user"].capitalize(),
+            "text": request.json['comment']
+        }
+        mongo.db.recipes.update_one(
+            {"_id": ObjectId(request.json['recipeId'])},
+            {"$push": {"comments": comment}}
+            )
+```
+
+</details>
+
+<details>
+<summary>
+6. Delete a historic comment on a recipe:
+</summary>
+
+```
+if "comment" in request.json and "recipe" in request.json:
+        index = int(request.json["comment"])
+        mongo.db.recipes.update(
+            {"_id": ObjectId(request.json['recipe'])},
+            {"$unset": {"comments.{i}".format(i=index): None}}
+        )
+        mongo.db.recipes.update(
+            {"_id": ObjectId(request.json['recipe'])},
+            {"$pull": {"comments": None}}
+        )
+```
+
+</details>
 &nbsp;
 
 ## 4. **Technologies Used**

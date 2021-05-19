@@ -234,7 +234,9 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
    - When a user visits the website, the first page they visit displays the latest recipes added to the site and a search function, to browse for specific recipes the user may wish to find.
    - When a user logs in to their account, their profile page displays their favourited recipes and uploaded recipes.
 * **\(US002\)** - As a user I want to see recipe reviews and comments from other users, so I am informed of the best recipes.
-   - *** add if time ***
+   - Users can comment on recipes they view, providing feedback as needed.
+   - Users can delete their own comments.
+   - Admins have ability to delete any comments.
 </details>
 <details>
 <summary>Searching</summary>
