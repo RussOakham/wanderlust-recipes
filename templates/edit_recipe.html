@@ -154,7 +154,7 @@
                 <a href="{{ url_for('profile', username=session['user']) }}" class="btn-large bold blue-grey lighten-2">
                     Cancel <i class="fas fa-times-circle right"></i>
                 </a>
-                <a href="#modal1" class="btn-large bold red modal-trigger">
+                <a href="#recipe-delete-modal" class="btn-large bold red modal-trigger">
                     Delete <i class="fas fa-trash-alt right"></i>
                 </a>
                 <button type="submit" class="btn-large bold">
@@ -166,7 +166,7 @@
 </section>
 
 <!-- Delete Confirmation Modal -->
-<div id="modal1" class="modal box-shadow border-radius box-border center-align">
+<div id="recipe-delete-modal" class="modal box-shadow border-radius box-border center-align">
     <div class="modal-content">
         <h6>Are you sure you want to delete this recipe?</h6>
         <p class="bold">{{ recipe.recipe_title }}</p>
