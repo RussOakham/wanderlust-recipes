@@ -32,8 +32,28 @@ $('#recipe_rating_form').submit(function (event) {
 // Submit 'comment' form to database via AJAX
 $('#user_comment_form').submit(function (event) {
     event.preventDefault();
-    submitFormAJAX(event, null);
+    submitFormAJAX(event, commentSubmit);
 });
+
+function commentSubmit(response) {
+    // Reset comment form
+    $('#user_comment_form').trigger("reset");
+
+    // Append new comment to comment list
+    let userComment =
+        `<div class="col s12">
+            <div class="comment-div">
+                <div class="col s12 comment-author right">
+                    ${response.response.author}
+                </div>
+                <div class="col s12 comment-content">
+                    ${response.response.text}
+                </div>
+            </div>
+        </div>`;
+
+    $('#user-comment-list').append(userComment);
+}
 
 // General AJAX form submission script
 // Following links used to help create and understand the below script:
