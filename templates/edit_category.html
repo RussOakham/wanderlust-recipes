@@ -25,8 +25,11 @@
         <!-- Submit Button -->
         <div class="row">
             <div class="col s12 center-align">
-                <a href="{{ url_for('get_categories') }}" class="btn-large bold">
+                <a href="{{ url_for('get_categories') }}" class="btn-large blue-grey lighten-2 bold">
                     Cancel <i class="fas fa-times-circle right"></i>
+                </a>
+                <a href="#category-delete-modal" class="btn-large bold red modal-trigger">
+                    Delete <i class="fas fa-trash-alt right"></i>
                 </a>
                 <button type="submit" class="btn-large bold">
                     Edit Category <i class="fas fa-edit right"></i>
@@ -36,6 +39,21 @@
     </form>
 </section>
 
+<!-- Delete Confirmation Modal -->
+<div id="category-delete-modal" class="modal box-shadow border-radius box-border center-align">
+    <div class="modal-content">
+        <h6>Are you sure you want to delete this category?</h6>
+        <p class="bold">{{ category.category_name }}</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="btn bold blue-grey lighten-2 modal-close">
+            Cancel <i class="fas fa-times-circle right"></i>
+        </a>
+        <a href="{{ url_for('delete_category', category_id=category._id) }}" class="btn bold red modal-close">
+            Delete <i class="fas fa-trash-alt right"></i>
+        </a>
+    </div>
+</div>
 
 {% endblock %}
 
