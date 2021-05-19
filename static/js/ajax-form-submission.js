@@ -35,12 +35,16 @@ $('#user_comment_form').submit(function (event) {
     submitFormAJAX(event, commentSubmit);
 });
 
+
+// Delete comment div and create AJAX form of comment index value, to feed into ajax_delete_comment() python function
 $('#user-comment-list').on("click", ".remove-comment", function (event) {
     commentIndex = {
-        "recipe": $('recipeId').val(),
+        "recipe": $('#recipeId').val(),
         "comment": $(this).closest('.comment-div').index()
     }
     console.log(commentIndex)
+
+    // $(this).closest('.comment-div').remove();
 });
 
 // General AJAX form submission script

@@ -15,7 +15,7 @@
         <!-- Favourite (heart) Toggle Div -->
         <div id="recipe-favorite-div">
             <form action="{{ url_for('ajax_recipe_favorite') }}" method="POST" id="recipe_favorite_form">
-                <input name="recipeId" type="hidden" value="{{ recipe._id }}">
+                <input id="recipeId" name="recipeId" type="hidden" value="{{ recipe._id }}">
 
                 <label id="recipe_favorite" data-path="url_for('ajax_favorite')"
                     class="btn-floating btn-large btn-plum waves-effect waves-light teal accent-4"
@@ -191,21 +191,19 @@
     <!-- Generate user comment divs from database -->
     <div id="user-comment-list" class="row" data-path="{{ url_for('ajax_delete_comment') }}">
         {% for comment in recipe.comments %}
-        <div class="col s12">
-            <div class="comment-div">
-                <div class="col s12 comment-author bold right">
-                    {{- comment.author.capitalize() -}}
-                </div>
-                <div class="comment-content box-shadow">
-                    {{- comment.text -}}
-                    <!-- Show delete comment button if user is comment author or role is admin -->
-                    {% if (session.user == comment.author.lower()) or (session.userrole == 'admin') %}
-                    <a class="remove-comment">
-                        <i class="fas fa-times"></i>
-                        <span class="sr-only">Remove Comment</span>
-                    </a>
-                    {% endif %}
-                </div>
+        <div class="comment-div">
+            <div class="col s12 comment-author bold right">
+                {{- comment.author.capitalize() -}}
+            </div>
+            <div class="comment-content box-shadow">
+                <p>{{- comment.text -}}</p>
+                <!-- Show delete comment button if user is comment author or role is admin -->
+                {% if (session.user == comment.author.lower()) or (session.userrole == 'admin') %}
+                <a class="remove-comment">
+                    <i class="fas fa-times"></i>
+                    <span class="sr-only">Remove Comment</span>
+                </a>
+                {% endif %}
             </div>
         </div>
         {% endfor %}
