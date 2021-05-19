@@ -524,7 +524,8 @@ def ajax_recipe_rating():
 @app.route("/ajax_user_comment", methods=['POST'])
 def ajax_user_comment():
     """
-    Create AJAX request for user comment and append to array in recipe database.
+    Create AJAX request for user comment
+    and append to array in recipe database.
     """
     response = {
         "success": False,
@@ -549,7 +550,8 @@ def ajax_user_comment():
 @app.route("/delete_user_comment", methods=['POST'])
 def ajax_delete_comment():
     """
-    Create AJAX request to delete user comment and remove from array in recipe database.
+    Create AJAX request to delete user comment
+    and remove from array in recipe database.
     """
     response = {
         "success": False,
@@ -560,7 +562,7 @@ def ajax_delete_comment():
         index = int(request.json["comment"])
         mongo.db.recipes.update(
             {"_id": ObjectId(request.json['recipe'])},
-            {"$set": {"comments.{i}".format(i = index): None}}
+            {"$unset": {"comments.{i}".format(i=index): None}}
         )
         mongo.db.recipes.update(
             {"_id": ObjectId(request.json['recipe'])},

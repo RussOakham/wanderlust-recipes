@@ -103,6 +103,27 @@ $('#method_step').on("click", ".remove-list-item", function (event) {
     $(this).parent().remove();
 });
 
+// Prepends submitted comment to comments list
+function commentSubmit(response) {
+    // Reset comment form
+    $('#user_comment_form').trigger("reset");
+
+    // Append new comment to comment list
+    let userComment =
+        `<div class="col s12">
+            <div class="comment-div">
+                <div class="col s12 comment-author bold right">
+                    ${response.response.author}
+                </div>
+                <div class="comment-content box-shadow">
+                    ${response.response.text}
+                </div>
+            </div>
+        </div>`;
+
+    $('#user-comment-list').prepend(userComment);
+}
+
 // Delete comment div on delete submit
 $('.comment-div').on("click", ".remove-comment", function (event) {
     $(this).parents('.comment-div').remove();

@@ -35,25 +35,13 @@ $('#user_comment_form').submit(function (event) {
     submitFormAJAX(event, commentSubmit);
 });
 
-function commentSubmit(response) {
-    // Reset comment form
-    $('#user_comment_form').trigger("reset");
-
-    // Append new comment to comment list
-    let userComment =
-        `<div class="col s12">
-            <div class="comment-div">
-                <div class="col s12 comment-author bold right">
-                    ${response.response.author}
-                </div>
-                <div class="comment-content box-shadow">
-                    ${response.response.text}
-                </div>
-            </div>
-        </div>`;
-
-    $('#user-comment-list').prepend(userComment);
-}
+$('#user-comment-list').on("click", ".remove-comment", function (event) {
+    commentIndex = {
+        "recipe": $('recipeId').val(),
+        "comment": $(this).closest('.comment-div').index()
+    }
+    console.log(commentIndex)
+});
 
 // General AJAX form submission script
 // Following links used to help create and understand the below script:

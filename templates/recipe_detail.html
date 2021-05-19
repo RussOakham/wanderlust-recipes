@@ -189,7 +189,7 @@
     {% endif %}
 
     <!-- Generate user comment divs from database -->
-    <div id="user-comment-list" class="row">
+    <div id="user-comment-list" class="row" data-path="{{ url_for('ajax_delete_comment') }}">
         {% for comment in recipe.comments|reverse %}
         <div class="col s12">
             <div class="comment-div">
@@ -198,10 +198,12 @@
                 </div>
                 <div class="comment-content box-shadow">
                     {{- comment.text -}}
+                    {% if (session.user == recipe.created_by) or (session.userrole == 'admin') %}
                     <a class="remove-comment">
                         <i class="fas fa-times"></i>
                         <span class="sr-only">Remove Comment</span>
                     </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
