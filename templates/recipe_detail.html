@@ -190,11 +190,11 @@
 
     <!-- Generate user comment divs from database -->
     <div id="user-comment-list" class="row">
-        {% for comment in recipe.comments %}
+        {% for comment in recipe.comments|reverse %}
         <div class="col s12">
             <div class="comment-div">
                 <div class="col s12 comment-author bold right">
-                    {{- comment.author -}}
+                    {{- comment.author.capitalize() -}}
                 </div>
                 <div class="comment-content box-shadow">
                     {{- comment.text -}}

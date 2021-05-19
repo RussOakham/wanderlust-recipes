@@ -43,16 +43,16 @@ function commentSubmit(response) {
     let userComment =
         `<div class="col s12">
             <div class="comment-div">
-                <div class="col s12 comment-author right">
+                <div class="col s12 comment-author bold right">
                     ${response.response.author}
                 </div>
-                <div class="col s12 comment-content">
+                <div class="comment-content box-shadow">
                     ${response.response.text}
                 </div>
             </div>
         </div>`;
 
-    $('#user-comment-list').append(userComment);
+    $('#user-comment-list').prepend(userComment);
 }
 
 // General AJAX form submission script

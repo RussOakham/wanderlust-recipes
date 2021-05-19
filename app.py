@@ -533,7 +533,7 @@ def ajax_user_comment():
     }
     if "comment" in request.json and len(request.json["comment"]) > 0:
         comment = {
-            "author": session["user"],
+            "author": session["user"].capitalize(),
             "text": request.json['comment']
         }
         mongo.db.recipes.update_one(
