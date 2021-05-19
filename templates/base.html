@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{  url_for('static', filename='css/style.css')  }}" type="text/css">
     {% block styles %}
     {% endblock %}
+    <!-- Favicon Elements -->
     <link rel="apple-touch-icon" sizes="180x180"
         href="{{ url_for('static', filename='images/favicons/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32"
@@ -27,6 +28,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="{{ url_for('static', filename='images/favicons/browserconfig.xml') }}">
     <meta name="theme-color" content="#ffffff">
+    <!-- Meta Tags -->
     <title>Wanderlust Recipes</title>
     <meta name="description"
         content="At Wanderlust Recipes, we love good food! We're all about sharing quality home cooking that everyone can enjoy.">
@@ -88,6 +90,7 @@
 
     <section id="flash-message-section">
         <!-- Jinja content inserts -->
+        <!-- Flash Messages -->
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
@@ -100,12 +103,14 @@
     </section>
 
     <main class="container">
+        <!-- Main Content Insert -->
         {% block content %}
 
 
         {% endblock %}
     </main>
 
+    <!-- Site Footer -->
     <footer class="page-footer">
         <div class="container">
             <div class="row" id="footer-row">
@@ -150,7 +155,7 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- JavaScript Links -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" type="text/javascript">
     </script>
