@@ -103,6 +103,11 @@ $('#method_step').on("click", ".remove-list-item", function (event) {
     $(this).parent().remove();
 });
 
+// Delete comment div on delete submit
+$('.comment-div').on("click", ".remove-comment", function (event) {
+    $(this).parents('.comment-div').remove();
+});
+
 // Auto sizes height of ingredients/method carousel to fit content
 // https://github.com/Dogfalo/materialize/issues/4159#issuecomment-387969837
 function resizeTab() {

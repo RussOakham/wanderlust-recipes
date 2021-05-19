@@ -278,7 +278,8 @@ nav ul li {
     border-bottom: 0px;
 }
 
-.remove-list-item {
+.remove-list-item,
+.remove-comment {
     position: absolute;
     top: 5px;
     right: 10px;
@@ -446,6 +447,7 @@ nav ul li {
 
 /* User Comments */
 .comment-content {
+    position: relative;
     overflow: hidden;
     background: #eaeaea;
     color: #434343;
