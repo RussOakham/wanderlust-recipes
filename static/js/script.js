@@ -121,7 +121,7 @@ function commentSubmit(response) {
             </div>
         </div>`;
 
-    $('#user-comment-list').prepend(userComment);
+    $('#user-comment-list').append(userComment);
 }
 
 // Delete comment div on delete submit

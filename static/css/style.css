@@ -278,6 +278,11 @@ nav ul li {
     border-bottom: 0px;
 }
 
+#user-comment-list {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 .remove-list-item,
 .remove-comment {
     position: absolute;
