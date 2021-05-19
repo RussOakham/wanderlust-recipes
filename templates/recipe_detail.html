@@ -198,7 +198,8 @@
                 </div>
                 <div class="comment-content box-shadow">
                     {{- comment.text -}}
-                    {% if (session.user == recipe.created_by) or (session.userrole == 'admin') %}
+                    <!-- Show delete comment button if user is comment author or role is admin -->
+                    {% if (session.user == comment.author.lower()) or (session.userrole == 'admin') %}
                     <a class="remove-comment">
                         <i class="fas fa-times"></i>
                         <span class="sr-only">Remove Comment</span>
