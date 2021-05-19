@@ -102,6 +102,11 @@ h3 {
     border-radius: 2px;
 }
 
+.material-tooltip {
+    background-color: #334195;
+    border-radius: 20px;
+}
+
 /* Navigation Bar Styling */
 .sticky-top {
     position: -webkit-sticky;
