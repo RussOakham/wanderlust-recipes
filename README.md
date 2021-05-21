@@ -625,9 +625,34 @@ if "comment" in request.json and len(request.json["comment"]) > 0:
 
 </details>
 
+#### **Deletion**
 <details>
 <summary>
-6. Delete a historic comment on a recipe:
+1. Delete a Recipe:
+</summary>
+
+```
+mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+flash("Recipe Successfully Deleted")
+```
+
+</details>
+
+<details>
+<summary>
+2. Delete a Category:
+</summary>
+
+```
+mongo.db.categories.remove({"_id": ObjectId(category_id)})
+flash("Category Successfully Deleted")
+```
+
+</details>
+
+<details>
+<summary>
+3. Delete a historic comment on a recipe:
 </summary>
 
 ```
