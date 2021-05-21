@@ -54,7 +54,7 @@
                 <div class="input-field col s12 m7">
                     <i class="fas fa-clock prefix"></i>
                     <input type="number" id="prep_hours" name="prep_hours" class="validate" min="0" max="24"
-                        value="{{ recipe.prep_hours }}" required>
+                        value="{{ recipe.prep_hours }}">
                     <label for="prep_hours">Hours</label>
                 </div>
                 <div class="input-field col s9 offset-s3 m5">
@@ -69,12 +69,12 @@
                 <div class="input-field col s12 m7">
                     <i class=" fas fa-clock prefix"></i>
                     <input type="number" id="cook_hours" name="cook_hours" class="validate" min="0" max="24"
-                        value="{{ recipe.cook_hours }}" required>
+                        value="{{ recipe.cook_hours }}">
                     <label for="cook_hours">Hours</label>
                 </div>
                 <div class="input-field col s9 offset-s3 m5">
                     <input type="number" id="cook_minutes" name="cook_minutes" class="validate" min="0" max="59"
-                        value="{{ recipe.cook_minutes }}" required>
+                        value="{{ recipe.cook_minutes }}">
                     <label for="cook_minutes">Minutes</label>
                 </div>
             </div>
@@ -151,17 +151,35 @@
         <!-- Submit Button -->
         <div class="row">
             <div class="col s12 center-align">
-                <a href="{{ url_for('profile', username=session['user']) }}" class="btn-large bold red lighten-2">
+                <a href="{{ url_for('profile', username=session['user']) }}" class="btn-large bold blue-grey lighten-2">
                     Cancel <i class="fas fa-times-circle right"></i>
                 </a>
+                <a href="#recipe-delete-modal" class="btn-large bold red modal-trigger">
+                    Delete <i class="fas fa-trash-alt right"></i>
+                </a>
                 <button type="submit" class="btn-large bold">
-                    Edit Recipe <i class="fas fa-edit right"></i>
+                    Submit <i class="fas fa-edit right"></i>
                 </button>
             </div>
         </div>
     </form>
 </section>
 
+<!-- Delete Confirmation Modal -->
+<div id="recipe-delete-modal" class="modal box-shadow border-radius box-border center-align">
+    <div class="modal-content">
+        <h6>Are you sure you want to delete this recipe?</h6>
+        <p class="bold">{{ recipe.recipe_title }}</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="btn bold blue-grey lighten-2 modal-close">
+            Cancel <i class="fas fa-times-circle right"></i>
+        </a>
+        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn bold red modal-close">
+            Delete <i class="fas fa-trash-alt right"></i>
+        </a>
+    </div>
+</div>
 
 {% endblock %}
 

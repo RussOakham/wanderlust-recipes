@@ -93,12 +93,10 @@
                     <div class="recipe-panel box-shadow border-radius box-border center-align">
                         <div class="col m4 s12 recipe-img-container">
                             <div class="recipe-edit-delete">
-                                <a class="btn-floating btn-med waves-effect waves-light light-sea-green"
+                                <a class="btn-floating btn-med waves-effect waves-light light-sea-green tooltipped"
+                                    data-position="top" data-tooltip="Edit Recipe"
                                     href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" aria-label="Edit"><i
                                         class="fas fa-edit"></i></a>
-                                <a class="btn-floating btn-med waves-effect waves-light red lighten-1"
-                                    href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" aria-label="Delete"><i
-                                        class="fas fa-trash-alt"></i></a>
                             </div>
                             <img src="{{ recipe.image_upload_url }}" class="recipe-image"
                                 alt="{{ recipe.recipe_title }}">

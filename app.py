@@ -348,8 +348,23 @@ def delete_recipe(recipe_id):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     recipes = list(mongo.db.recipes.find({"created_by": username}))
+    user_id = ObjectId(session['userid'])
+    favorites = list(mongo.db.rating.aggregate([
+                {"$match": {"user_id": user_id, 'favorite': True}},
+                {
+                    "$lookup": {
+                        "from": "recipes",
+                        "localField": "recipe_id",
+                        "foreignField": "_id",
+                        "as": "favorites"
+                    }
+                },
+                {"$unwind": "$favorites"},
+                {"$replaceRoot": {"newRoot": "$favorites"}}
+            ]))
     return render_template(
-            "profile.html", username=username, recipes=recipes)
+            "profile.html", username=username,
+            recipes=recipes, favorites=favorites)
 
 
 @app.route("/get-categories")
