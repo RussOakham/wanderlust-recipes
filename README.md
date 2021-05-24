@@ -748,7 +748,7 @@ Languages
 <ul>
 <li><a href="https://github.com/">GitHub</a> - Remote code repository.</li>
 <li><a href="https://gitpod.io/">GitPod</a> - IDE (Integrated Development Environment), for writing, editing and saving code.</li>
-<li<a href="https://dbdiagram.io/">dbDiagram</a> - Used to plan and visualise database structure</li>
+<li><a href="https://dbdiagram.io/">dbDiagram</a> - Used to plan and visualise database structure</li>
 <li><a href="https://balsamiq.com/">Balsamiq</a> - Wireframes for visual design testing.</li>
 </ul>
 </details>
