@@ -222,7 +222,7 @@ Through testing, I found images in 'WebP' format would not display on some Safar
 
 Additionally, the site does not load properly while using Internet Explorer, due to issues with Materialize CSS compatibility.
 
-According to caniuse the current usage of Internet Explorer is just 1.1% of total browser users, therefore I am comfortable not supporting IE in the site design.
+According to [caniuse](https://caniuse.com/usage-table) the current usage of Internet Explorer is just 0.9% of total browser users, therefore I am comfortable not supporting IE in the site design.
 
 Note: Microsoft released Internet Explorer in 2013 and ceased active development in 2015 when Microsoft Edge was released as the replacement, as evidenced by this article from Microsoft's design team. Since 2015 Microsoft has been actively encouraging users to adopt Edge over Explorer, with the only remaining updates for IE, being security patches and bug fixes.
 
