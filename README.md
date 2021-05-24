@@ -38,7 +38,7 @@ The live website can be found at the following link; [Wanderlust Recipes](https:
   * [4. **Technologies Used**](#4-technologies-used)
   * [5. **Testing**](#5-testing)
   * [6. **Deployment**](#6-deployment)
-    + [Database Deployment](#database-deployement)
+    + [Database Deployment](#database-deployment)
     + [Application Hosting](#application-hosting)
     + [**Heroku**](#heroku)
       - [Creating a Heroku app](#creating-a-heroku-app)
@@ -160,6 +160,51 @@ Overview of site and page structure, explaining functionality and purpose.
     * Ingredients - List text input
     * Recipe Steps - List text input
     </details>
+
+<details>
+<summary>Edit Recipe Page:</summary>
+
+Inputs are pre-populated with historic recipe information.
+  * _Input areas for below recipe data points_:
+    * Recipe Name - Text
+    * Recipe Image - File upload and preview
+    * Serving Size - As numeric input
+    * Preparation Time - As numeric input
+    * Cooking Time - As numeric input
+    * Recipe Category Selection - Drop down menu
+    * Recipe Description: Textbox of 25 to 160 characters
+    * Ingredients - List text input
+    * Recipe Steps - List text input
+</details>
+
+<details>
+<summary>Manage Categories Page:</summary>
+
+Page visible only to users with role of 'admin'.
+  * Add Category - Button, leading to 'Add Category' page.
+  * Category Tiles - Visual tiles representing each Recipe Category added to the site.
+  * Edit Category - Button, leading to 'Edit Category' page.
+</details>
+
+<details>
+<summary>Add Category Page:</summary>
+
+Page visible only to users with role of 'admin'.
+  * _Input areas for below category data points_:
+    * Category Name - Text
+    * Category Image - File upload and preview.
+    * Add Category - Submit Button
+</details>
+
+<details>
+<summary>Edit Category Page:</summary>
+
+Page visible only to users with role of 'admin', input's pre-populated with historic category information.
+  * _Input areas for below category data points_:
+    * Category Name - Text
+    * Category Image - File upload and preview.
+    * Add Category - Submit Button
+</details>
 &nbsp;
 ### **Skeleton**
 
