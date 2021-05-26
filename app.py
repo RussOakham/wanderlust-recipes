@@ -223,50 +223,52 @@ def profile(username):
     user = mongo.db.users.find_one(
         {"username": username}
     )
+    if user_logged_in():
 
-    if user:
-        # If truthy
+        if user['username'] == session['user']:
 
-        if user['role'] == "admin":
-            # If user role = admin, return all recipes
-            recipes = list(mongo.db.recipes.find().sort("created_on", -1))
-            # Retrieve recipes favorited by user
-            favorites = list(mongo.db.rating.aggregate([
-                {"$match": {"user_id": user['_id'], 'favorite': True}},
-                {
-                    "$lookup": {
-                        "from": "recipes",
-                        "localField": "recipe_id",
-                        "foreignField": "_id",
-                        "as": "favorites"
-                    }
-                },
-                {"$unwind": "$favorites"},
-                {"$replaceRoot": {"newRoot": "$favorites"}}
-            ]))
+            if user['role'] == "admin":
+                # If user role = admin, return all recipes
+                recipes = list(mongo.db.recipes.find().sort("created_on", -1))
+                # Retrieve recipes favorited by user
+                favorites = list(mongo.db.rating.aggregate([
+                    {"$match": {"user_id": user['_id'], 'favorite': True}},
+                    {
+                        "$lookup": {
+                            "from": "recipes",
+                            "localField": "recipe_id",
+                            "foreignField": "_id",
+                            "as": "favorites"
+                        }
+                    },
+                    {"$unwind": "$favorites"},
+                    {"$replaceRoot": {"newRoot": "$favorites"}}
+                ]))
 
-        else:
-            # Retrieve recipes from db added by user
-            recipes = list(mongo.db.recipes.find(
-                {"created_by": username}).sort("created_on", -1))
-            # Retrieve recipes favorited by user
-            favorites = list(mongo.db.rating.aggregate([
-                {"$match": {"user_id": user['_id'], 'favorite': True}},
-                {
-                    "$lookup": {
-                        "from": "recipes",
-                        "localField": "recipe_id",
-                        "foreignField": "_id",
-                        "as": "favorites"
-                    }
-                },
-                {"$unwind": "$favorites"},
-                {"$replaceRoot": {"newRoot": "$favorites"}}
-            ]))
+            else:
+                # Retrieve recipes from db added by user
+                recipes = list(mongo.db.recipes.find(
+                    {"created_by": username}).sort("created_on", -1))
+                # Retrieve recipes favorited by user
+                favorites = list(mongo.db.rating.aggregate([
+                    {"$match": {"user_id": user['_id'], 'favorite': True}},
+                    {
+                        "$lookup": {
+                            "from": "recipes",
+                            "localField": "recipe_id",
+                            "foreignField": "_id",
+                            "as": "favorites"
+                        }
+                    },
+                    {"$unwind": "$favorites"},
+                    {"$replaceRoot": {"newRoot": "$favorites"}}
+                ]))
 
-        return render_template(
-                "profile.html", username=username,
-                recipes=recipes, favorites=favorites)
+            return render_template(
+                    "profile.html", username=username,
+                    recipes=recipes, favorites=favorites)
+
+        return redirect(url_for("get_recipes"))
 
     return redirect(url_for("login"))
 
