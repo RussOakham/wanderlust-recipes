@@ -11,7 +11,7 @@
                 <img src="static/images/new-recipe-image.jpg" id="recipe-upload-image" alt="New recipe image">
                 <button id="image_upload_btn" class="btn-small upload-img-btn">Upload Image</button>
                 <input type="hidden" id="image_upload_url" name="image_upload_url"
-                    value="static/images/new-recipe-image.jpg">
+                    value="../static/images/new-recipe-image.jpg">
             </div>
             <div class="col s12 l6">
                 <!-- Recipe Title -->
@@ -24,7 +24,7 @@
                 <!-- Recipe Serving Amount -->
                 <div class="input-field col s6">
                     <i class="fas fa-utensils prefix"></i>
-                    <input type="number" id="servings" name="servings" class="validate" min="1" max="20">
+                    <input type="number" id="servings" name="servings" class="validate" min="1" max="20" required>
                     <label for="servings">Servings</label>
                 </div>
                 <!-- Recipe Category Choice -->
@@ -78,6 +78,7 @@
                 <textarea id="recipe_description" name="recipe_description" minlength="25" maxlength="160"
                     class="materialize-textarea validate" required></textarea>
                 <label for="recipe_description">Description</label>
+                <span class="helper-text">Description between 25 and 160 characters</span>
             </div>
         </div>
         <!-- Recipe Ingredients -->
