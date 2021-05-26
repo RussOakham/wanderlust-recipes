@@ -19,7 +19,8 @@
                 <div class="input-field col s12">
                     <i class="fas fa-plus prefix"></i>
                     <input id="recipe_title" name="recipe_title" minlength="5" maxlength="50" type="text"
-                        class="validate" value="{{ recipe.recipe_title }}" pattern="^[a-zA-Z0-9 ]*{5,50}$" required>
+                        class="validate" value="{{ recipe.recipe_title }}"
+                        pattern="^[A-Za-z0-9 ]*[A-Za-z0-9][A-Za-z0-9 ]*$" required>
                     <label for="recipe_title">Recipe Title</label>
                 </div>
                 <!-- Recipe Serving Amount -->
@@ -99,7 +100,8 @@
                     {% for ingredient in recipe.ingredients %}
                     <li class="collection-item">
                         <div class="input-field">
-                            <input name="ingredients" type="text" maxlength="100" required value="{{ ingredient }}">
+                            <input name="ingredients" type="text" maxlength="100" required value="{{ ingredient }}"
+                                pattern="^[A-Za-z0-9 ]*[A-Za-z0-9][A-Za-z0-9 ]*$">
                         </div>
                         <a class="remove-list-item">
                             <i class="fas fa-times"></i>

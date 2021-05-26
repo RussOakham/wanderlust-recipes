@@ -71,7 +71,7 @@ $(document).ready(function () {
 $('#ingredients .add-ingredient-list-item').click(function (event) {
     let IngredientItem = `<li class="collection-item">
                                 <div class="input-field">
-                                    <input name="ingredients" type="text" maxlength="100" required>
+                                    <input name="ingredients" type="text" maxlength="100" pattern="^[A-Za-z0-9 ]*[A-Za-z0-9][A-Za-z0-9 ]*$" required>
                                     <label for="ingredients">Ingredient</label>
                                 </div>
                                 <a class="remove-list-item">
