@@ -274,150 +274,197 @@ def profile(username):
 @app.route("/logout")
 def logout():
     """ remove user from session cookies """
-    flash("You have been logged out")
-    log_user_out()
-    return redirect(url_for("login"))
+    if user_logged_in():
+        # If truthy
+        flash("You have been logged out")
+        log_user_out()
+        return redirect(url_for("login"))
+
+    else:
+        return redirect(url_for("login"))
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     """ Insert new recipe record to database """
-    if request.method == "POST":
-        new_recipe = {
-            "category_name": request.form.get("category_name"),
-            "recipe_title": request.form.get("recipe_title"),
-            "image_upload_url": request.form.get("image_upload_url"),
-            "servings": request.form.get("servings"),
-            "prep_hours": request.form.get("prep_hours"),
-            "prep_minutes": request.form.get("prep_minutes"),
-            "cook_hours": request.form.get("cook_hours"),
-            "cook_minutes": request.form.get("cook_minutes"),
-            "recipe_description": request.form.get("recipe_description"),
-            "ingredients": request.form.getlist("ingredients"),
-            "method_step": request.form.getlist("method_step"),
-            "created_by": session["user"],
-            "created_on": request.form.get("created_on"),
-            "url": request.form.get("recipe_title").replace(' ', '-').lower(),
-            "rating": [3, 0, 0, 0, 0, 0]
-        }
-        mongo.db.recipes.insert_one(new_recipe)
-        flash("Recipe Submitted!")
-        return redirect(url_for("get_recipes"))
+    if user_logged_in():
+        # If truthy
 
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_recipe.html", categories=categories)
+        if request.method == "POST":
+            new_recipe = {
+                "category_name": request.form.get("category_name"),
+                "recipe_title": request.form.get("recipe_title"),
+                "image_upload_url": request.form.get("image_upload_url"),
+                "servings": request.form.get("servings"),
+                "prep_hours": request.form.get("prep_hours"),
+                "prep_minutes": request.form.get("prep_minutes"),
+                "cook_hours": request.form.get("cook_hours"),
+                "cook_minutes": request.form.get("cook_minutes"),
+                "recipe_description": request.form.get("recipe_description"),
+                "ingredients": request.form.getlist("ingredients"),
+                "method_step": request.form.getlist("method_step"),
+                "created_by": session["user"],
+                "created_on": request.form.get("created_on"),
+                "url": request.form.get("recipe_title").replace(' ', '-').lower(),
+                "rating": [3, 0, 0, 0, 0, 0]
+            }
+            mongo.db.recipes.insert_one(new_recipe)
+            flash("Recipe Submitted!")
+            return redirect(url_for("get_recipes"))
+
+        categories = mongo.db.categories.find().sort("category_name", 1)
+        return render_template("add_recipe.html", categories=categories)
+
+    else:
+        return redirect(url_for("login"))
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     """ Update recipe record in database, by recipe_id """
-    if request.method == "POST":
-        historic_rating = mongo.db.recipes.find_one(
-            {"_id": ObjectId(recipe_id)})["rating"]
-        update_recipe = {
-            "category_name": request.form.get("category_name"),
-            "recipe_title": request.form.get("recipe_title"),
-            "image_upload_url": request.form.get("image_upload_url"),
-            "servings": request.form.get("servings"),
-            "prep_hours": request.form.get("prep_hours"),
-            "prep_minutes": request.form.get("prep_minutes"),
-            "cook_hours": request.form.get("cook_hours"),
-            "cook_minutes": request.form.get("cook_minutes"),
-            "recipe_description": request.form.get("recipe_description"),
-            "ingredients": request.form.getlist("ingredients"),
-            "method_step": request.form.getlist("method_step"),
-            "created_by": session["user"],
-            "created_on": request.form.get("created_on"),
-            "url": request.form.get("recipe_title").replace(' ', '-').lower(),
-            "rating": historic_rating
-        }
-        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update_recipe)
-        flash("Recipe Updated!")
+    if user_logged_in():
+        # If truthy
 
-    recipe_record = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template(
-        "edit_recipe.html", recipe=recipe_record, categories=categories)
+        if request.method == "POST":
+            historic_rating = mongo.db.recipes.find_one(
+                {"_id": ObjectId(recipe_id)})["rating"]
+            update_recipe = {
+                "category_name": request.form.get("category_name"),
+                "recipe_title": request.form.get("recipe_title"),
+                "image_upload_url": request.form.get("image_upload_url"),
+                "servings": request.form.get("servings"),
+                "prep_hours": request.form.get("prep_hours"),
+                "prep_minutes": request.form.get("prep_minutes"),
+                "cook_hours": request.form.get("cook_hours"),
+                "cook_minutes": request.form.get("cook_minutes"),
+                "recipe_description": request.form.get("recipe_description"),
+                "ingredients": request.form.getlist("ingredients"),
+                "method_step": request.form.getlist("method_step"),
+                "created_by": session["user"],
+                "created_on": request.form.get("created_on"),
+                "url": request.form.get("recipe_title").replace(' ', '-').lower(),
+                "rating": historic_rating
+            }
+            mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update_recipe)
+            flash("Recipe Updated!")
+
+        recipe_record = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+        categories = mongo.db.categories.find().sort("category_name", 1)
+        return render_template(
+            "edit_recipe.html", recipe=recipe_record, categories=categories)
+
+    else:
+        return redirect(url_for("login"))
 
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     """ Remove recipe record from database, based upon recipe_id """
-    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
-    flash("Recipe Successfully Deleted")
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    recipes = list(mongo.db.recipes.find({"created_by": username}))
-    user_id = ObjectId(session['userid'])
-    favorites = list(mongo.db.rating.aggregate([
-                {"$match": {"user_id": user_id, 'favorite': True}},
-                {
-                    "$lookup": {
-                        "from": "recipes",
-                        "localField": "recipe_id",
-                        "foreignField": "_id",
-                        "as": "favorites"
-                    }
-                },
-                {"$unwind": "$favorites"},
-                {"$replaceRoot": {"newRoot": "$favorites"}}
-            ]))
-    return render_template(
-            "profile.html", username=username,
-            recipes=recipes, favorites=favorites)
+    if user_logged_in():
+        # If truthy
+
+        mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+        flash("Recipe Successfully Deleted")
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        recipes = list(mongo.db.recipes.find({"created_by": username}))
+        user_id = ObjectId(session['userid'])
+        favorites = list(mongo.db.rating.aggregate([
+                    {"$match": {"user_id": user_id, 'favorite': True}},
+                    {
+                        "$lookup": {
+                            "from": "recipes",
+                            "localField": "recipe_id",
+                            "foreignField": "_id",
+                            "as": "favorites"
+                        }
+                    },
+                    {"$unwind": "$favorites"},
+                    {"$replaceRoot": {"newRoot": "$favorites"}}
+                ]))
+        return render_template(
+                "profile.html", username=username,
+                recipes=recipes, favorites=favorites)
+
+    else:
+        return redirect(url_for("login"))
 
 
 @app.route("/get-categories")
 def get_categories():
     """ Returns list of categories from database, ordered newest first """
-    categories = list(mongo.db.categories.find().sort("category_name", 1))
-    return render_template("categories.html", categories=categories)
+    if user_logged_in():
+        # If truthy
+
+        categories = list(mongo.db.categories.find().sort("category_name", 1))
+        return render_template("categories.html", categories=categories)
+
+    else:
+        return redirect(url_for("login"))
 
 
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     """ Insert new category record to database """
-    if request.method == "POST":
-        existing_category = mongo.db.categories.find_one(
-            {"category_name": request.form.get("category_name").capitalize()})
+    if user_logged_in():
+        # If truthy
 
-        if existing_category:
-            flash("Category Already Added")
+        if request.method == "POST":
+            existing_category = mongo.db.categories.find_one(
+                {"category_name": request.form.get("category_name").capitalize()})
+
+            if existing_category:
+                flash("Category Already Added")
+                return redirect(url_for("get_categories"))
+
+            category = {
+                "category_name": request.form.get("category_name").capitalize(),
+                "image_upload_url": request.form.get("image_upload_url"),
+            }
+            mongo.db.categories.insert_one(category)
+            flash("New Category Added")
             return redirect(url_for("get_categories"))
 
-        category = {
-            "category_name": request.form.get("category_name").capitalize(),
-            "image_upload_url": request.form.get("image_upload_url"),
-        }
-        mongo.db.categories.insert_one(category)
-        flash("New Category Added")
-        return redirect(url_for("get_categories"))
+        return render_template("add_category.html")
 
-    return render_template("add_category.html")
+    else:
+        return redirect(url_for("login"))
 
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
     """ Update category record in database, by recipe_id """
-    if request.method == "POST":
-        submit = {
-            "category_name": request.form.get("category_name").capitalize(),
-            "image_upload_url": request.form.get("image_upload_url"),
-        }
-        mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
-        flash("Category Updated")
-        return redirect(url_for("get_categories"))
+    if user_logged_in():
+        # If truthy
 
-    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
-    return render_template("edit_category.html", category=category)
+        if request.method == "POST":
+            submit = {
+                "category_name": request.form.get("category_name").capitalize(),
+                "image_upload_url": request.form.get("image_upload_url"),
+            }
+            mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
+            flash("Category Updated")
+            return redirect(url_for("get_categories"))
+
+        category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+        return render_template("edit_category.html", category=category)
+
+    else:
+        return redirect(url_for("login"))
 
 
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
     """ Remove category record from database, based upon recipe_id """
-    mongo.db.categories.remove({"_id": ObjectId(category_id)})
-    flash("Category Successfully Deleted")
-    return redirect(url_for("get_categories"))
+    if user_logged_in():
+        # If truthy
+
+        mongo.db.categories.remove({"_id": ObjectId(category_id)})
+        flash("Category Successfully Deleted")
+        return redirect(url_for("get_categories"))
+
+    else:
+        return redirect(url_for("login"))    
 
 
 @app.route("/ajax_recipe_favorite", methods=['POST'])
