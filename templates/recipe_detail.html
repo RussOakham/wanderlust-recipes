@@ -172,7 +172,8 @@
             <input type="hidden" name="recipeId" value="{{ recipe._id }}">
             <div class="col s12">
                 <label for="user_comment">Comment</label>
-                <textarea name="comment" id="user_comment" class="materialize-textarea" required></textarea>
+                <input type="text" name="comment" id="user_comment" class="materialize-textarea"
+                    pattern="^\d*[a-zA-Z][a-zA-Z0-9 ]*$" required></input>
             </div>
             <div class="row">
                 <div class="col s12 center-align">
