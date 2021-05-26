@@ -84,27 +84,29 @@ Overview of UX design decisions, including examples of websites I have viewed as
 * \(US008\) - As a user, I want to be able to upload my own recipes, so other users can benefit from them.
 * \(US009\) - As a user, I want to gain feedback on the recipes I upload, so I can determine improvements.
 * \(US010\) - As a user, I want to be able to edit and improve recipes I have already uploaded.
+* \(US011\) - As a user, I want to be delete recipes I have already uploaded.
 </details>
 
 <details>
 <summary>Users</summary>
 
-* \(US011\) - As a user, I want to be able to register with the site, so I can upload and edit recipes, plus save my favourite recipes.
-* \(US012\) - As a registered user, I want to be able to login to my account, so I can access and edit my recipes, and find my favourite recipes.
-* \(US013\) - As a registered user, I want to be able to submit ratings and reviews for recipes submitted by other users.
+* \(US012\) - As a user, I want to be able to register with the site, so I can upload and edit recipes, plus save my favourite recipes.
+* \(US013\) - As a registered user, I want to be able to login to my account, so I can access and edit my recipes, and find my favourite recipes.
+* \(US014\) - As a registered user, I want to be able to submit ratings and reviews for recipes submitted by other users.
 </details>
 
 <details>
 <summary>Administration</summary>
 
-* \(US014\) - As an admin I want to be able to edit content, to ensure it adheres to site rules.
-* \(US015\) - As an admin I want to be able to add and edit food categories, to continuously improve user experience.
+* \(US015\) - As an admin I want to be able to edit and delete content, to ensure it adheres to site rules.
+* \(US016\) - As an admin I want to be able to add and edit food categories, to continuously improve user experience.
+* \(US017\) - As an admin I want to be able to delete food categories, to continuously improve user experience.
 </details>
 
 <details>
 <summary>General</summary>
 
-* \(US016\) - As a user I want to recieve clear feedback for my actions on the site, so I know they are complete or if further steps are needed.
+* \(US018\) - As a user I want to recieve clear feedback for my actions on the site, so I know they are complete or if further steps are needed.
 </details>
 &nbsp;
 
@@ -175,6 +177,7 @@ Inputs are pre-populated with historic recipe information.
     * Recipe Description: Textbox of 25 to 160 characters
     * Ingredients - List text input
     * Recipe Steps - List text input
+  * Delete Recipe - Button with Modal confirmation
 </details>
 
 <details>
@@ -204,6 +207,7 @@ Page visible only to users with role of 'admin', input's pre-populated with hist
     * Category Name - Text
     * Category Image - File upload and preview.
     * Add Category - Submit Button
+  * Delete Category - Button with Modal confirmation
 </details>
 &nbsp;
 ### **Skeleton**
@@ -331,6 +335,45 @@ Both the Header and Footer are present and consistent on all website pages.
     * _Ingredients_ - List text input
     * _Recipe Steps_ - List text input
 </details>
+
+<details>
+<summary>Edit Recipe page:</summary>
+
+* **Input areas for below recipe data points**:
+    * _Recipe Name_ - Text
+    * _Recipe Image_ - File upload and preview
+    * _Serving Size_ - Numeric
+    * _Preparation Time_ - hh:mm as drop down menus
+    * _Cooking Time_ - hh:mm as drop down menus
+    * _Recipe Category Selection_ - drop down menu
+    * _Recipe Description_: Textbox of 25 to 160 characters
+    * _Ingredients_ - List text input
+    * _Recipe Steps_ - List text input
+  * Delete Recipe - Button with Modal confirmation
+</details>
+
+<details>
+<summary>Manage Categories Page:</summary>
+
+* **Category Tiles**: List of latest recipe categories added to the site, showing category name, image and Edit button.
+</details>
+
+<details>
+<summary>Add Category page:</summary>
+
+* **Input areas for below recipe data points**:
+    * _Category Name_ - Text
+    * _Category Image_ - File upload and preview
+</details>
+
+<details>
+<summary>Edit Recipe page:</summary>
+
+* **Input areas for below recipe data points**:
+    * _Category Name_ - Text
+    * _Category Image_ - File upload and preview
+  * Delete Category - Button with Modal confirmation
+</details>
 &nbsp;
 
 ### **Features to consider implementing in future**
@@ -341,6 +384,8 @@ As this is a community-focused platform, several future features would be worth 
 * **User Comment Section** - Allow users to comment on each other's recipes, allowing constructive feedback and additional context to reviews.
 * **Optimised Image Delivery** - Page load speeds could be sped up via using compression on user-uploaded images, to ensure they are served in a fully optimised state. This could be achieved by further configuring the Cloudinary account to automatically compress images during upload.
 * **User Administration** - Add user administration page, allowing admins to actions to manage users accounts e.g. suspend accounts, set other users to admin etc.
+* **Edit Comments** - Add ability for users to edit comments once submitted.
+* **Delete Comments** - Add modal popup for users to confirm deletion of their comment.
  
 &nbsp;
 ## 3. **Database Design**
