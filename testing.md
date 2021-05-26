@@ -301,197 +301,197 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
 &nbsp;
 
 ## Issues I had to overcome
-- **User Image Upload**:
+**User Image Upload**:
 
-   I had two options for enabling users to provide recipe images;
-    1. Allow users to provide a text URL to an online image
-    2. Embed image upload functionality to the site. 
+      I had two options for enabling users to provide recipe images;
+      1. Allow users to provide a text URL to an online image
+      2. Embed image upload functionality to the site. 
 
-   The first option is the easiest, as would only require saving a form text string to the database. However this does not provide as fluid a user experience as allowing users to upload the image directly to the site, therefore I chose the second option.
+      The first option is the easiest, as would only require saving a form text string to the database. However this does not provide as fluid a user experience as allowing users to upload the image directly to the site, therefore I chose the second option.
 
-   Rather than code the functionality myself, I found a third party widget I can embed into the site from [Cloudinary](https://cloudinary.com/).
+      Rather than code the functionality myself, I found a third party widget I can embed into the site from [Cloudinary](https://cloudinary.com/).
 
-   To install the widget to the site, I had to add the widget script tag to the add and edit recipe pages;
+      To install the widget to the site, I had to add the widget script tag to the add and edit recipe pages;
 
-   <details>
-   <summary>Cloudinary Widget Script</summary>
+      <details>
+      <summary>Cloudinary Widget Script</summary>
 
-   ```
-   <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
-   ```
-   </details>
+      ```
+      <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+      ```
+      </details>
 
-   I then had to create a button, with an attached event listener, which calls the widget. The Cloudinary widget also allows easy customisation, so I have restricted the image type to 'image', file size to 1MB, file number to one and minimum image height to 260 pixels.
+      I then had to create a button, with an attached event listener, which calls the widget. The Cloudinary widget also allows easy customisation, so I have restricted the image type to 'image', file size to 1MB, file number to one and minimum image height to 260 pixels.
 
-   <details>
-   <summary>Widget eventListener</summary>
-   
-   ```
-   // Shows the cloudinary image upload widget
-   $("#image_upload_btn").click(function (event) {
-      event.preventDefault();
-      cloudinary.openUploadWidget({
-               cloud_name: 'dolhmfgvf',
-               upload_preset: 'syqgnqe3',
-               maxFiles: 1,
-               maxFileSize: 100000,
-               autoMinimize: true,
-               resourceType: "image",
-               min_height: 260,
-         },
-         imageUploaded);
-   });
-   ```
-   </details>
+      <details>
+      <summary>Widget eventListener</summary>
+      
+      ```
+      // Shows the cloudinary image upload widget
+      $("#image_upload_btn").click(function (event) {
+         event.preventDefault();
+         cloudinary.openUploadWidget({
+                  cloud_name: 'dolhmfgvf',
+                  upload_preset: 'syqgnqe3',
+                  maxFiles: 1,
+                  maxFileSize: 100000,
+                  autoMinimize: true,
+                  resourceType: "image",
+                  min_height: 260,
+            },
+            imageUploaded);
+      });
+      ```
+      </details>
 
-   While the image is saved to Cloudinary's cloud storage, the new URL for the stored image needs to be saved to the add/edit recipe form and saved to the database, so it can be recalled later. This was done using the below scripts;
+      While the image is saved to Cloudinary's cloud storage, the new URL for the stored image needs to be saved to the add/edit recipe form and saved to the database, so it can be recalled later. This was done using the below scripts;
 
-   <details>
-   <summary>Set form input to uploaded image URL</summary>
-   
-   ```
-   // cloudinary callback. Sets image upload input to new URL
-   function imageUploaded(error, result) {
-    $('#recipe-upload-image').prop("src", result[0].secure_url);
-    $('#image_upload_url').val(result[0].secure_url);
-   }
-   ```
-   </details>
+      <details>
+      <summary>Set form input to uploaded image URL</summary>
+      
+      ```
+      // cloudinary callback. Sets image upload input to new URL
+      function imageUploaded(error, result) {
+      $('#recipe-upload-image').prop("src", result[0].secure_url);
+      $('#image_upload_url').val(result[0].secure_url);
+      }
+      ```
+      </details>
 
-   To allow a positive user experience and feedback that the image has uploaded successfully, the below script also updates the image container on-page, to display your uploaded image;
+      To allow a positive user experience and feedback that the image has uploaded successfully, the below script also updates the image container on-page, to display your uploaded image;
 
-   <details>
-   <summary>Update on page image, to user uploaded image</summary>
-   
-   ```
-   // Shows the current selected image in the image box
-   $("#image_upload_url").on('change', function (event) {
-      $('#recipe-upload-image').prop("src", $(this).val());
-   });   
-   ```
-   </details>
+      <details>
+      <summary>Update on page image, to user uploaded image</summary>
+      
+      ```
+      // Shows the current selected image in the image box
+      $("#image_upload_url").on('change', function (event) {
+         $('#recipe-upload-image').prop("src", $(this).val());
+      });   
+      ```
+      </details>
 
 
-- **Materialize Tab Resizing**
+**Materialize Tab Resizing**
 
-   By default, the ['Tab' carousel function provided by Materlize](https://materializecss.com/tabs.html), is limited to a maximum height of 400 pixels. This was causing issues where long ingredient or method step lists, were being visually cut short, as below;
+      By default, the ['Tab' carousel function provided by Materlize](https://materializecss.com/tabs.html), is limited to a maximum height of 400 pixels. This was causing issues where long ingredient or method step lists, were being visually cut short, as below;
 
-   ![Method Steps limited to 400px](assets/issues/tab-400px-limit.PNG)
+      ![Method Steps limited to 400px](assets/issues/tab-400px-limit.PNG)
 
-   To fix this, I had to add the below CSS and JavaScript. The CSS causes the .carousel-content containing to auto-set its height to fit its content. The JavaScript sets the parent div of .tabs-content to the calculated height of the content in pixels.
+      To fix this, I had to add the below CSS and JavaScript. The CSS causes the .carousel-content containing to auto-set its height to fit its content. The JavaScript sets the parent div of .tabs-content to the calculated height of the content in pixels.
 
-   <details>
-   <summary>CSS & JS to resize Materialize Tabs</summary>
-   
-   CSS: 
-   ```
-   .tabs-content.carousel .carousel-item {
-    height: auto;
-   }  
-   ```
-   JavaScript:
-   ```
-   function resizeTab() {
-    $(".tabs-content").css('height', $('.carousel-item.active').height() + 'px');
-   }
-   ```
-   </details>
+      <details>
+      <summary>CSS & JS to resize Materialize Tabs</summary>
+      
+      CSS: 
+      ```
+      .tabs-content.carousel .carousel-item {
+      height: auto;
+      }  
+      ```
+      JavaScript:
+      ```
+      function resizeTab() {
+      $(".tabs-content").css('height', $('.carousel-item.active').height() + 'px');
+      }
+      ```
+      </details>
 
-   This solution was found on [this](https://github.com/Dogfalo/materialize/issues/4159#issuecomment-387969837) GitHub thread.
+      This solution was found on [this](https://github.com/Dogfalo/materialize/issues/4159#issuecomment-387969837) GitHub thread.
 
-- Favourite Form Submission - AJAX
+**Favourite Form Submission - AJAX**
 
-   By default, using the method 'POST' to save information to the database, would cause the browser pages to reload. This is not the best user experience for interactions such as favouriting or rating a viewed recipe, as it would interrupt the viewing experience.
-   An improved experience would be to save this information to the database, without reloading the page. 
-   
-   To accomplish this I incorporated JavaScript AJAX form submission into the application.
+      By default, using the method 'POST' to save information to the database, would cause the browser pages to reload. This is not the best user experience for interactions such as favouriting or rating a viewed recipe, as it would interrupt the viewing experience.
+      An improved experience would be to save this information to the database, without reloading the page. 
+      
+      To accomplish this I incorporated JavaScript AJAX form submission into the application.
 
-   Below is the jQuery script I used to create general AJAX submissions from HTML form data.
-   
-   I used [this](https://www.digitalocean.com/community/tutorials/submitting-ajax-forms-with-jquery) guide from Digital Ocean and [this](https://github.com/seanyoung247/Plum/blob/main/static/js/script.js) application created by Sean Young, to help create the script and adapt it to JSON format for submission to MongoDB.
+      Below is the jQuery script I used to create general AJAX submissions from HTML form data.
+      
+      I used [this](https://www.digitalocean.com/community/tutorials/submitting-ajax-forms-with-jquery) guide from Digital Ocean and [this](https://github.com/seanyoung247/Plum/blob/main/static/js/script.js) application created by Sean Young, to help create the script and adapt it to JSON format for submission to MongoDB.
 
-   <details>
-   <summary>General AJAX form submission script</summary>
-   
-   ```
-   function submitFormAJAX(event, callbackSuccess) {
-    // Get form data
-    let data = new FormData(event.target);
-    let serialised = {};
-    // serialise it into key/value pairs that can be converted to JSON
-    for (let key of data.keys()) {
-        serialised[key] = data.get(key);
-    }
-    // Make AJAX request
-    $.ajax({
-        type: "POST",
-        url: $(event.target).prop("action"), // Get route from form action attribute
-        contentType: "application/json;charset=UTF-8",
-        data: JSON.stringify(serialised),
-        success: callbackSuccess
-    });
-   }
-   ```
-   </details>
+      <details>
+      <summary>General AJAX form submission script</summary>
+      
+      ```
+      function submitFormAJAX(event, callbackSuccess) {
+      // Get form data
+      let data = new FormData(event.target);
+      let serialised = {};
+      // serialise it into key/value pairs that can be converted to JSON
+      for (let key of data.keys()) {
+         serialised[key] = data.get(key);
+      }
+      // Make AJAX request
+      $.ajax({
+         type: "POST",
+         url: $(event.target).prop("action"), // Get route from form action attribute
+         contentType: "application/json;charset=UTF-8",
+         data: JSON.stringify(serialised),
+         success: callbackSuccess
+      });
+      }
+      ```
+      </details>
 
-   With the submitFormAJAX function created, I had to bind event listeners to the relevant form submits - below is the eventListener for the favourite toggle;
+      With the submitFormAJAX function created, I had to bind event listeners to the relevant form submits - below is the eventListener for the favourite toggle;
 
-   <details>
-   <summary>Favourite Toggle Event Listener</summary>
-   
-   ```
-   // Binds favorite form submit to favorite checkbox toggle change event
-   $('#recipe_favorite input[type=checkbox]').change(function (event) {
-      $('#recipe_favorite_form').submit();
-   });
-   ```
-   </details>
+      <details>
+      <summary>Favourite Toggle Event Listener</summary>
+      
+      ```
+      // Binds favorite form submit to favorite checkbox toggle change event
+      $('#recipe_favorite input[type=checkbox]').change(function (event) {
+         $('#recipe_favorite_form').submit();
+      });
+      ```
+      </details>
 
-   As mentioned earlier, the default action on submission for this form would be to POST to the database and reload the page, this needs to be prevented in favour of submitting via AJAX submission. This is handled for the favourite toggle in the below script;
+      As mentioned earlier, the default action on submission for this form would be to POST to the database and reload the page, this needs to be prevented in favour of submitting via AJAX submission. This is handled for the favourite toggle in the below script;
 
-   <details>
-   <summary>Prevent Default POST action, in favour of calling AJAX submission function</summary>
-   
-   ```
-   // Submit 'favourite' form to server via AJAX
-   $('#recipe_favorite_form').submit(function (event) {
-      event.preventDefault();
-      submitFormAJAX(event, null);
-   });
-   ```
-   </details>
+      <details>
+      <summary>Prevent Default POST action, in favour of calling AJAX submission function</summary>
+      
+      ```
+      // Submit 'favourite' form to server via AJAX
+      $('#recipe_favorite_form').submit(function (event) {
+         event.preventDefault();
+         submitFormAJAX(event, null);
+      });
+      ```
+      </details>
 
 **Pagination**:
 
-   To future proof the site, pagination is an important feature. As more recipes are added to the site, the number of recipe summaries to load on the home page would increase exponentially, leading to a slow down in page load speed.
-   By adding pagination, we can keep the number of recipe summaries loaded on each page is low, ensuring quick page load speeds.
+      To future proof the site, pagination is an important feature. As more recipes are added to the site, the number of recipe summaries to load on the home page would increase exponentially, leading to a slow down in page load speed.
+      By adding pagination, we can keep the number of recipe summaries loaded on each page is low, ensuring quick page load speeds.
 
-   To add pagination, I used the 'flask-paginate' extension and the following [GitHub guide](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9) for implementation.
+      To add pagination, I used the 'flask-paginate' extension and the following [GitHub guide](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9) for implementation.
 
 **Edit Recipe form POSTing when Cloudinary widget called**:
 
-   During development I encountered an odd issue where clicking the 'Upload Image' button on the 'Edit Recipe' page would POST the entire edit recipe form to the database, instead of calling just the Cloudinary widget.
-   This is despite the same HTML and JavaScript being used on the 'New Recipe' page and functioning as desired.
+      During development I encountered an odd issue where clicking the 'Upload Image' button on the 'Edit Recipe' page would POST the entire edit recipe form to the database, instead of calling just the Cloudinary widget.
+      This is despite the same HTML and JavaScript being used on the 'New Recipe' page and functioning as desired.
 
-   I hypothesise that the issue was because the widget was firing a 'method == "POST"' event when called, which was triggering the 'edit_recipe()' function in app.py to be called.
+      I hypothesise that the issue was because the widget was firing a 'method == "POST"' event when called, which was triggering the 'edit_recipe()' function in app.py to be called.
 
-   To rectify this I added a 'eventpreventDefault()' function call to the 'cloudinary.openUploadWidget()' function. This prevents the default action of the 'edit_recipe()', therefore prevening application POSTing to the database. This then allowed the widget to be opened without issue and the user to upload a new image.
+      To rectify this I added a 'eventpreventDefault()' function call to the 'cloudinary.openUploadWidget()' function. This prevents the default action of the 'edit_recipe()', therefore prevening application POSTing to the database. This then allowed the widget to be opened without issue and the user to upload a new image.
 
 **WebP format and Safari browsers**
 
-   During the responsive design testing, I noticed a number of the recipe images were not loading. After investigation, I determined this was because Safari, before version 14.0 (released Sept 2020), did not support the WebP image format.
+      During the responsive design testing, I noticed a number of the recipe images were not loading. After investigation, I determined this was because Safari, before version 14.0 (released Sept 2020), did not support the WebP image format.
 
-   To rectify this I manually updated all images to .png file formats and updated the database. I also updated the Cloudinary account settings, to automatically convert all uploaded image files to PNG format, to ensure future compliance.
+      To rectify this I manually updated all images to .png file formats and updated the database. I also updated the Cloudinary account settings, to automatically convert all uploaded image files to PNG format, to ensure future compliance.
 
 ## Issues still to overcome
 **Forgotten Password**:
 
-   Currently, there is no function to help users recover a password if it is forgotten. This can be added in the future, via the integration of an e-mail system to send users account verification and reset password links.
+      Currently, there is no function to help users recover a password if it is forgotten. This can be added in the future, via the integration of an e-mail system to send users account verification and reset password links.
 
 **User/Admin search and pagination Function**:
 
-   Currently, the user profile page renders all favourited and user-uploaded recipes, which could cause issues in page load speed as a user account matures and the number of recipes per list increase.
-   A future resolution to this would be to add pagination to the Favourite and Uploaded recipe lists, while also adding in 'search' functionality to the profile page, so users can quickly find specific recipes.
+      Currently, the user profile page renders all favourited and user-uploaded recipes, which could cause issues in page load speed as a user account matures and the number of recipes per list increase.
+      A future resolution to this would be to add pagination to the Favourite and Uploaded recipe lists, while also adding in 'search' functionality to the profile page, so users can quickly find specific recipes.
 
-   This is a more pressing issue for users with the role 'admin' as their 'uploaded' list will currently load all recipes, to allow admins to edit and delete as needed.
+      This is a more pressing issue for users with the role 'admin' as their 'uploaded' list will currently load all recipes, to allow admins to edit and delete as needed.
 
