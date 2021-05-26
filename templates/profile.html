@@ -22,8 +22,8 @@
                 <h3 class="profile-h3">Favourite Recipes</h3>
             </div>
 
+            {% if favorite|length == 0 %}
             {% for favorite in favorites %}
-            {% if favorite|length > 0 %}
 
             <!-- Generate Recipe Summary Panel -->
             <div class="row">
@@ -67,15 +67,13 @@
 
             <!-- Div if no recipes favourited -->
             <div class="row">
-                <div class="col s12 recipe-panel box-shadow border-radius box-border center-align">
+                <div class="col center-align">
                     <h6>No Recipes Favourited</h6>
                 </div>
             </div>
 
-            {% endif %}
-
             {% endfor %}
-
+            {% endif %}
         </div>
 
         <!-- User uploaded Recipes -->
@@ -83,9 +81,8 @@
             <div class="row">
                 <h3 class="profile-h3">Your Recipes</h3>
             </div>
+            {% if recipe|length == 0 %}
             {% for recipe in recipes %}
-
-            {% if recipe|length > 0 %}
 
             <!-- Generate Recipe Summary Panel -->
             <div class="row">
@@ -134,14 +131,13 @@
 
             <!-- Div if no recipes uploaded -->
             <div class="row">
-                <div class="col s12 recipe-panel box-shadow border-radius box-border center-align">
-                    <h6>No recipes submitted</h6>
+                <div class="col center-align">
+                    <h6>No Recipes Submitted</h6>
                 </div>
             </div>
 
-            {% endif %}
-
             {% endfor %}
+            {% endif %}
 
         </div>
     </div>

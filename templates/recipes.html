@@ -87,6 +87,8 @@
 <section id="recipe-feed-section">
     <h2 class="page-h2 center-align">Latest Recipes</h2>
 
+    {% if recipe|length == 0 %}
+
     {% for recipe in recipes %}
 
     {% if loop.index % 2 !=0 %}
@@ -165,7 +167,18 @@
 
     {% endif %}
 
+    {% else %}
+
+    <!-- Div if no recipes favourited -->
+    <div class="row">
+        <div class="col center-align">
+            <h6>No Recipes Found</h6>
+        </div>
+    </div>
+
     {% endfor %}
+
+    {% endif %}
     <!-- Pagination links generated -->
     <div class="center-align">
         {{ pagination.links }}
