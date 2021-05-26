@@ -11,7 +11,7 @@ I have used HTML, CSS, JavaScript and Python to build the site, ensuring it is f
 ## **Deployed site**
 The live website can be found at the following link; [Wanderlust Recipes](https://wanderlust-recipes.herokuapp.com/).
 
-![Wanderlust Recipes](assets/images/wanderlust-responsive.PNG)
+![Wanderlust Recipes](assets/README/images/wanderlust-responsive.PNG)
 
 ## **Table of Contents**
 
@@ -214,11 +214,11 @@ Page visible only to users with role of 'admin', input's pre-populated with hist
 
 At this point I began creating wireframes, using the above structure considerations. I used [Balsamiq](https://balsamiq.com/) these below;
 
-* [Home page on desktop and mobile](assets/wireframes/home-page.png)
-* [Recipe Page](assets/wireframes/recipe-page.png)
-* [Profile Page](assets/wireframes/profile-page.png)
-* [Add Recipe Page](assets/wireframes/add-recipe-page.png)
-* [Login / Registration Page](assets/wireframes/login-registration-page.png)
+* [Home page on desktop and mobile](assets/README/wireframes/home-page.png)
+* [Recipe Page](assets/README/wireframes/recipe-page.png)
+* [Profile Page](assets/README/wireframes/profile-page.png)
+* [Add Recipe Page](assets/README/wireframes/add-recipe-page.png)
+* [Login / Registration Page](assets/README/wireframes/login-registration-page.png)
 
 ### **Surface**
 
@@ -232,7 +232,7 @@ I used the website [image color picker](https://imagecolorpicker.com/), to deter
 
 The resulting palette is below;
 
-![Wanderlust Color Scheme](assets/images/wanderlust-recipes-color-palette.svg)
+![Wanderlust Color Scheme](assets/README/images/wanderlust-recipes-color-palette.svg)
 
 <details>
 <summary>Colour Palette</summary>
@@ -391,7 +391,7 @@ As this is a community-focused platform, several future features would be worth 
 ## 3. **Database Design**
 MongoDB was the database solution used for the website development, using the below, structured plan.
 
-![Wanderlust Recipes Database Structure](assets/images/wanderlust-recipes-db.png)
+![Wanderlust Recipes Database Structure](assets/README/images/wanderlust-recipes-db.png)
 
 ### **Indexes**
 
@@ -849,26 +849,26 @@ The site is hosted using [Heroku](https://www.heroku.com/), deployed directly fr
   - Select "New"
   - Select "Create new app"
 
-    ![Create New App](assets/images/heroku-create-new-app.PNG)
+    ![Create New App](assets/README/images/heroku-create-new-app.PNG)
 
 - Add new app details to form:
   - Add app name (must be unique)
   - Select region
   - Click "Create App"
 
-    ![Create New App Details](assets/images/heroku-app-name-and-region.PNG)
+    ![Create New App Details](assets/README/images/heroku-app-name-and-region.PNG)
 
 #### Setting Environmental Variables
 - From the Heroku dashboard:
   - Select your app from the list
 
-    ![Heroku App](assets/images/heroku-wanderlust-recipes.PNG)
+    ![Heroku App](assets/README/images/heroku-wanderlust-recipes.PNG)
 
 - Select "Settings" from the top menu:
   - Under 'Config Vars', select "Reveal Config Vars"
   - Add environment variables in key-value pairs, click "Add" to add additional pairings.
 
-    ![Config-Vars](assets/images/heroku-config-vars.PNG)
+    ![Config-Vars](assets/README/images/heroku-config-vars.PNG)
 
 #### Deployment
 - Create required deployment files in the repository:
@@ -898,14 +898,14 @@ The site is hosted using [Heroku](https://www.heroku.com/), deployed directly fr
       - Choose the correct repository from search results.
       - Select "Connect"
 
-      ![Connect GitHub Repo](assets/images/heroku-connect-github-repo.PNG)
+      ![Connect GitHub Repo](assets/README/images/heroku-connect-github-repo.PNG)
 
     - Manual Deployment:
       - Choose the correct branch you wish to deploy from the drop-down.
       - Select "Deploy Branch"
       - Heroku will return "Your App has successfully deployed". If this shows an error, troubleshooting will be needed.
 
-      ![Deploy Branch](assets/images/heroku-deploy-branch.PNG)
+      ![Deploy Branch](assets/README/images/heroku-deploy-branch.PNG)
 
 
 #### Automatic Deployment
