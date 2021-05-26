@@ -280,8 +280,7 @@ def logout():
         log_user_out()
         return redirect(url_for("login"))
 
-    else:
-        return redirect(url_for("login"))
+    return redirect(url_for("login"))
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
@@ -305,7 +304,8 @@ def add_recipe():
                 "method_step": request.form.getlist("method_step"),
                 "created_by": session["user"],
                 "created_on": request.form.get("created_on"),
-                "url": request.form.get("recipe_title").replace(' ', '-').lower(),
+                "url": request.form.get(
+                    "recipe_title").replace(' ', '-').lower(),
                 "rating": [3, 0, 0, 0, 0, 0]
             }
             mongo.db.recipes.insert_one(new_recipe)
@@ -315,8 +315,7 @@ def add_recipe():
         categories = mongo.db.categories.find().sort("category_name", 1)
         return render_template("add_recipe.html", categories=categories)
 
-    else:
-        return redirect(url_for("login"))
+    return redirect(url_for("login"))
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
@@ -342,10 +341,12 @@ def edit_recipe(recipe_id):
                 "method_step": request.form.getlist("method_step"),
                 "created_by": session["user"],
                 "created_on": request.form.get("created_on"),
-                "url": request.form.get("recipe_title").replace(' ', '-').lower(),
+                "url": request.form.get(
+                    "recipe_title").replace(' ', '-').lower(),
                 "rating": historic_rating
             }
-            mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update_recipe)
+            mongo.db.recipes.update(
+                {"_id": ObjectId(recipe_id)}, update_recipe)
             flash("Recipe Updated!")
 
         recipe_record = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -353,8 +354,7 @@ def edit_recipe(recipe_id):
         return render_template(
             "edit_recipe.html", recipe=recipe_record, categories=categories)
 
-    else:
-        return redirect(url_for("login"))
+    return redirect(url_for("login"))
 
 
 @app.route("/delete_recipe/<recipe_id>")
@@ -386,8 +386,7 @@ def delete_recipe(recipe_id):
                 "profile.html", username=username,
                 recipes=recipes, favorites=favorites)
 
-    else:
-        return redirect(url_for("login"))
+    return redirect(url_for("login"))
 
 
 @app.route("/get-categories")
@@ -399,8 +398,7 @@ def get_categories():
         categories = list(mongo.db.categories.find().sort("category_name", 1))
         return render_template("categories.html", categories=categories)
 
-    else:
-        return redirect(url_for("login"))
+    return redirect(url_for("login"))
 
 
 @app.route("/add_category", methods=["GET", "POST"])
@@ -411,14 +409,16 @@ def add_category():
 
         if request.method == "POST":
             existing_category = mongo.db.categories.find_one(
-                {"category_name": request.form.get("category_name").capitalize()})
+                {"category_name": request.form.get(
+                    "category_name").capitalize()})
 
             if existing_category:
                 flash("Category Already Added")
                 return redirect(url_for("get_categories"))
 
             category = {
-                "category_name": request.form.get("category_name").capitalize(),
+                "category_name": request.form.get(
+                    "category_name").capitalize(),
                 "image_upload_url": request.form.get("image_upload_url"),
             }
             mongo.db.categories.insert_one(category)
@@ -427,8 +427,7 @@ def add_category():
 
         return render_template("add_category.html")
 
-    else:
-        return redirect(url_for("login"))
+    return redirect(url_for("login"))
 
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
@@ -439,7 +438,8 @@ def edit_category(category_id):
 
         if request.method == "POST":
             submit = {
-                "category_name": request.form.get("category_name").capitalize(),
+                "category_name": request.form.get(
+                    "category_name").capitalize(),
                 "image_upload_url": request.form.get("image_upload_url"),
             }
             mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
@@ -449,8 +449,7 @@ def edit_category(category_id):
         category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
         return render_template("edit_category.html", category=category)
 
-    else:
-        return redirect(url_for("login"))
+    return redirect(url_for("login"))
 
 
 @app.route("/delete_category/<category_id>")
@@ -463,8 +462,7 @@ def delete_category(category_id):
         flash("Category Successfully Deleted")
         return redirect(url_for("get_categories"))
 
-    else:
-        return redirect(url_for("login"))    
+    return redirect(url_for("login"))
 
 
 @app.route("/ajax_recipe_favorite", methods=['POST'])
