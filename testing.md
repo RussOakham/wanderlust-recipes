@@ -461,14 +461,14 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
    ```
    </details>
 
-- **Pagination**:
+**Pagination**:
 
    To future proof the site, pagination is an important feature. As more recipes are added to the site, the number of recipe summaries to load on the home page would increase exponentially, leading to a slow down in page load speed.
    By adding pagination, we can keep the number of recipe summaries loaded on each page is low, ensuring quick page load speeds.
 
    To add pagination, I used the 'flask-paginate' extension and the following [GitHub guide](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9) for implementation.
 
-- **Edit Recipe form POSTing when Cloudinary widget called**:
+**Edit Recipe form POSTing when Cloudinary widget called**:
 
    During development I encountered an odd issue where clicking the 'Upload Image' button on the 'Edit Recipe' page would POST the entire edit recipe form to the database, instead of calling just the Cloudinary widget.
    This is despite the same HTML and JavaScript being used on the 'New Recipe' page and functioning as desired.
@@ -477,18 +477,18 @@ Note: Microsoft released Internet Explorer in 2013 and ceased active development
 
    To rectify this I added a 'eventpreventDefault()' function call to the 'cloudinary.openUploadWidget()' function. This prevents the default action of the 'edit_recipe()', therefore prevening application POSTing to the database. This then allowed the widget to be opened without issue and the user to upload a new image.
 
-- **WebP format and Safari browsers**
+**WebP format and Safari browsers**
 
    During the responsive design testing, I noticed a number of the recipe images were not loading. After investigation, I determined this was because Safari, before version 14.0 (released Sept 2020), did not support the WebP image format.
 
    To rectify this I manually updated all images to .png file formats and updated the database. I also updated the Cloudinary account settings, to automatically convert all uploaded image files to PNG format, to ensure future compliance.
 
 ## Issues still to overcome
-- **Forgotten Password**:
+**Forgotten Password**:
 
    Currently, there is no function to help users recover a password if it is forgotten. This can be added in the future, via the integration of an e-mail system to send users account verification and reset password links.
 
-- **User/Admin search and pagination Function**:
+**User/Admin search and pagination Function**:
 
    Currently, the user profile page renders all favourited and user-uploaded recipes, which could cause issues in page load speed as a user account matures and the number of recipes per list increase.
    A future resolution to this would be to add pagination to the Favourite and Uploaded recipe lists, while also adding in 'search' functionality to the profile page, so users can quickly find specific recipes.
