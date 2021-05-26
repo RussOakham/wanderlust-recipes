@@ -21,18 +21,17 @@
         <div class="input-field col s12">
             <i class="fas fa-lock prefix"></i>
             <input id="password" name="password" type="password" minlength="5" maxlength="15"
-                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{5,25}" required>
+                pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{5,25}$" required>
             <label for="password">Password</label>
             <span class="helper-text" data-success="Password OK"
                 data-error="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters">
-                Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more
-                characters
+                Must contain at least one number, uppercase and lowercase letter, and at least 5 or more characters
             </span>
         </div>
         <div class="input-field col s12">
             <i class="fas fa-lock prefix"></i>
             <input id="password-confirm" name="password-confirm" type="password" minlength="5" maxlength="15"
-                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{5,25}" required>
+                pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{5,25}$" required>
             <label for="password-confirm">Confirm Password</label>
             <span class="helper-text" data-success="Passwords Match" data-error="Passwords do not match">
             </span>
