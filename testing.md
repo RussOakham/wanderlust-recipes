@@ -119,23 +119,26 @@ I validated the JavaScript with [JSHint](https://jshint.com/).
 
 ### Python
 
-I validated the Python code with the [Pylint Validation Tool](https://www.pylint.org/), which found several simple errors I corrected.
+I validated the Python code was PEP 8 compliaint via the [Pylint Validation Tool](https://www.pylint.org/) and [pycodestyle Validator](https://pypi.org/project/pycodestyle/) within GitPod, which found several simple errors I corrected.
 The final validation marks are below, scoring 10/10 for all files.
 
 <details>
 <summary>app.py</summary>
 
 ![app.py](assets/README/validation/python/app-2.PNG)
+![app.py](assets/README/validation/python/gitpod-apppy-clean.PNG)
 </details>
 <details>
 <summary>user_management.py</summary>
 
 ![user_management.py](assets/README/validation/python/user_management.PNG)
+![user_management.py](assets/README/validation/python/gitpod-usermgmt.PNG)
 </details>
 <details>
 <summary>user_rating.py</summary>
 
 ![user_rating.py](assets/README/validation/python/user_rating.PNG)
+![user_rating.py](assets/README/validation/python/gitpod-userrating.PNG)
 </details>
 
 **Warnings and Errors Fixed**
@@ -151,6 +154,7 @@ After the above corrections, Pylint was still displaying a handful of warnings r
 <summary>app.py - inaccurate warnings</summary>
 
 ![app.py - inaccurate warnings](assets/README/validation/python/app.PNG)
+![app.py - inaccurate warnings](assets/README/validation/python/gitpod-apppy.PNG)
 </details>
 
  - unbalanced-tuple-unpacking & unused-variable (per_page, offset): 
