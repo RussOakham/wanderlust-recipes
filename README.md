@@ -917,7 +917,7 @@ The site is hosted using [Heroku](https://www.heroku.com/), deployed directly fr
 
 ### GitHub and GitPod repository management
 
-### **How to clone 'Wanderlust Recipes' in GitHub and GitPod.**
+### **How to clone 'Wanderlust Recipes' in GitHub, GitPod and setup on Heroku.**
 
 To run a version of the site locally, you can clone this repository using the following steps;
 
@@ -934,6 +934,77 @@ In a code editor of your choice;
 
 Additional information around these cloning steps can be found on [GitHub Pages Help Page](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 &nbsp;
+
+#### Installing Requirements
+- Install all requirements modules to your local IDE with the following CL:
+
+```
+ pip3 install -r requirements.txt
+```
+
+#### Create Collections in MongoDB
+
+- Login to your MongoDB account
+- Create a Cluster
+
+![Create Cluster](assets/README/images/mongo-db-create-cluster.PNG)
+
+- Create a database using the following architecture;
+
+<details>
+<summary>MongoDB Database Structure</summary>
+
+![Base & Recipes](assets/README/images/wanderlust-recipes-db.png)
+</details>
+
+#### Setup Environmental Variables
+- Create a '.gitignore' file in the root directoy
+- Add 'env.py' and '__pycache__/' to the file list within .gitignore
+- Create a 'env.py' file
+- In the 'env.py' file write the following code;
+
+```
+import os
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "[UNIQUE ID]")
+os.environ.setdefault("MONGO_URI", "[UNIQUE ID]")
+os.environ.setdefault("MONGO_DBNAME", "[UNIQUE ID]")
+
+```
+
+Note: For each sectionedn noted as [UNIQUE ID], you will need to provide your own unique identifier. These must also be aligned to Heroku environmental variables.
+
+### Setup Unique Identifies / Environment Variables
+
+#### SECRET_KEY
+
+This is required when using flash() and session() functions in flask. The key can be whatever you want, but it's advisable to use a randomly generated secure key from websites such as [RandomKeyGen.com](https://randomkeygen.com/).
+
+#### MONGO_URI
+
+This is used to connect you application to your MongoDB cluster.
+
+- Click 'Overview' tab from your Cluster, followed by 'Connect'.
+
+![Connect Mongo Cluster](assets/README/images/mongo-cluster-connect.PNG)
+
+- Select 'Connect your application' from following window.
+
+![Connect Application](assets/README/images/mongo-connect-application.PNG)
+
+- Select your correct version of Python and copy the connection string.
+
+![Connection String](assets/README/images/connection-string.PNG)
+
+- Replace the 'username' and 'password' text, with the relevant criteria you setup in 'Database Access'.
+
+![Database Access](assets/README/images/database-access.PNG)
+
+#### MONGO_DBNAME
+
+This is the name of your database in MongoDB. Which can be foudn under the 'Collections' tab, under your cluster.
 
 ## 7. **Credits**
 
