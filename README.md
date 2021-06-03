@@ -1004,7 +1004,20 @@ This is used to connect you application to your MongoDB cluster.
 
 #### MONGO_DBNAME
 
-This is the name of your database in MongoDB. Which can be foudn under the 'Collections' tab, under your cluster.
+This is the name of your database in MongoDB. Which can be foung under the 'Collections' tab, under your cluster.
+
+#### Running Development Server
+
+To launch a Http server using the development mode code for the application, use the following command in your IDE:
+
+```
+
+python3 app.py http.server
+
+```
+
+The IDE will then open a port with http address for you to access.
+
 
 ## 7. **Credits**
 
